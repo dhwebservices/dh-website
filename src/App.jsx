@@ -13,6 +13,7 @@ import Calculator from './pages/Calculator'
 import NotFound from './pages/NotFound'
 import './index.css'
 import MailingListPopup from './components/MailingListPopup'
+import CustomCursor from './components/CustomCursor'
 import { useCMS } from './hooks/useCMS'
 
 function ScrollToTop() {
@@ -26,6 +27,7 @@ function Layout() {
   return (
     <>
       <ScrollToTop />
+      <CustomCursor />
       <Nav />
       <MailingListPopup settings={mlSettings} />
       <Routes>

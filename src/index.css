@@ -35,6 +35,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  cursor: none;
+}
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+}
+a, button, [role="button"], input, textarea, select, label {
+  cursor: none;
+}
+@media (hover: none) and (pointer: coarse) {
+  a, button, [role="button"], input, textarea, select, label { cursor: auto; }
 }
 
 ::selection { background: rgba(0,113,227,0.12); color: var(--dark); }
@@ -144,14 +154,58 @@ img { max-width: 100%; display: block; }
 
 /* ── Cards ── */
 .glass-card {
-  background: var(--white);
-  border: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(210,210,215,0.6);
   border-radius: 18px;
-  transition: box-shadow 0.25s, transform 0.25s;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8);
+  transition: box-shadow 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s;
 }
 .glass-card:hover {
-  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.1), 0 0 0 1px rgba(201,168,76,0.2), inset 0 1px 0 rgba(255,255,255,0.9);
+  transform: translateY(-3px);
+  border-color: rgba(201,168,76,0.25);
+}
+.glass-card-dark {
+  background: rgba(29,29,31,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: box-shadow 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.glass-card-dark:hover {
+  box-shadow: 0 12px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+  transform: translateY(-3px);
+}
+
+/* Pricing card specific */
+.pricing-card {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s;
+}
+.pricing-card .card-cta {
+  transition: opacity 0.2s, transform 0.2s;
+}
+.pricing-card:hover .card-cta {
+  opacity: 0.88;
+  transform: scale(0.98);
+}
+.pricing-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.pricing-card:hover::after {
+  opacity: 1;
 }
 
 /* ── Section ── */

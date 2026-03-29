@@ -29,7 +29,7 @@ export default function Contact() {
             {/* Left — contact details */}
             <div className="reveal-left">
               {/* Contact info card */}
-              <div style={{ border:'1px solid var(--border-light)', borderRadius:16, overflow:'hidden', marginBottom:24 }}>
+              <div className="glass-card" style={{ borderRadius:16, overflow:'hidden', marginBottom:24 }}>
                 {[
                   { label:'Email',    val: cms?.email    || 'clients@dhwebsiteservices.co.uk', href:'mailto:clients@dhwebsiteservices.co.uk' },
                   { label:'Phone',    val: cms?.phone    || '029 2002 4218', href:'tel:02920024218' },
@@ -80,7 +80,7 @@ export default function Contact() {
 
             {/* Right — booking widget */}
             <div className="reveal-right">
-              <div style={{ background:'#fff', borderRadius:20, border:'1px solid var(--border-light)', padding:'32px', boxShadow:'0 4px 24px rgba(0,0,0,0.06)' }}>
+              <div className="glass-card" style={{ borderRadius:20, padding:'32px' }}>
                 <BookingWidget />
               </div>
             </div>

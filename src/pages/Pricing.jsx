@@ -62,7 +62,7 @@ export default function Pricing() {
           <div className="container">
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:16 }}>
               {BUILDS.map((p,i)=>(
-                <div key={p.name} className="reveal glass-card" style={{ padding:'28px 24px', borderRadius:20, position:'relative', background:p.badge==='Most Popular'?'var(--dark)':'var(--white)', border:p.badge==='Most Popular'?'none':'1px solid var(--border-light)', transitionDelay:`${i*0.07}s` }}>
+                <div key={p.name} className={`reveal pricing-card ${p.badge==='Most Popular' ? 'glass-card-dark' : 'glass-card'}`} style={{ padding:'28px 24px', borderRadius:20, position:'relative', transitionDelay:`${i*0.07}s` }}>
                   {p.badge && <div style={{ position:'absolute', top:16, right:16, padding:'3px 10px', borderRadius:100, background: p.badge==='Most Popular'?'var(--accent)':'var(--accent-soft)', fontSize:11, fontWeight:600, color:p.badge==='Most Popular'?'white':'var(--accent)', letterSpacing:'0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:p.badge==='Most Popular'?'rgba(255,255,255,0.4)':'var(--light)', marginBottom:12 }}>{p.name}</p>
                   <div style={{ fontSize:40, fontWeight:600, letterSpacing:'-0.03em', lineHeight:1, color:p.badge==='Most Popular'?'white':'var(--dark)', marginBottom:6 }}>£{p.price.toLocaleString()}</div>
@@ -77,8 +77,7 @@ export default function Pricing() {
                     </div>
                   ))}
                   <Link to="/contact" style={{ display:'block', textAlign:'center', padding:'12px', borderRadius:100, fontSize:14, fontWeight:500, marginTop:20, background:p.badge==='Most Popular'?'white':'var(--accent)', color:p.badge==='Most Popular'?'var(--dark)':'white', transition:'opacity 0.15s' }}
-                    onMouseOver={e=>e.currentTarget.style.opacity='0.85'}
-                    onMouseOut={e=>e.currentTarget.style.opacity='1'}
+                    className="card-cta"
                   >Get started</Link>
                 </div>
               ))}
@@ -96,15 +95,14 @@ export default function Pricing() {
             </div>
             <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:16 }}>
               {HOSTING.map((p,i)=>(
-                <div key={p.name} className="reveal glass-card" style={{ padding:'28px 24px', borderRadius:20, position:'relative', background:p.badge?'var(--dark)':'var(--white)', border:p.badge?'none':'1px solid var(--border-light)', transitionDelay:`${i*0.07}s` }}>
+                <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding:'28px 24px', borderRadius:20, position:'relative', transitionDelay:`${i*0.07}s` }}>
                   {p.badge && <div style={{ position:'absolute', top:16, right:16, padding:'3px 10px', borderRadius:100, background:'var(--accent)', fontSize:11, fontWeight:600, color:'white', letterSpacing:'0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:p.badge?'rgba(255,255,255,0.4)':'var(--light)', marginBottom:12 }}>{p.name}</p>
                   <div style={{ fontSize:40, fontWeight:600, letterSpacing:'-0.03em', lineHeight:1, color:p.badge?'white':'var(--dark)', marginBottom:4 }}>£{p.price}</div>
                   <p style={{ fontFamily:'var(--font-mono)', fontSize:11, color:p.badge?'rgba(255,255,255,0.4)':'var(--light)', marginBottom:20, letterSpacing:'0.04em' }}>PER MONTH</p>
                   <p style={{ fontSize:14, lineHeight:1.6, color:p.badge?'rgba(255,255,255,0.6)':'var(--mid)', marginBottom:24 }}>{p.desc}</p>
                   <Link to="/contact" style={{ display:'block', textAlign:'center', padding:'12px', borderRadius:100, fontSize:14, fontWeight:500, background:p.badge?'white':'var(--accent)', color:p.badge?'var(--dark)':'white', transition:'opacity 0.15s' }}
-                    onMouseOver={e=>e.currentTarget.style.opacity='0.85'}
-                    onMouseOut={e=>e.currentTarget.style.opacity='1'}
+                    className="card-cta"
                   >Get started</Link>
                 </div>
               ))}
@@ -122,7 +120,7 @@ export default function Pricing() {
             </div>
             <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16 }}>
               {HR.map((p,i)=>(
-                <div key={p.name} className="reveal glass-card" style={{ padding:'28px 24px', borderRadius:16, position:'relative', transitionDelay:`${i*0.07}s` }}>
+                <div key={p.name} className="reveal glass-card pricing-card" style={{ padding:'28px 24px', borderRadius:16, position:'relative', transitionDelay:`${i*0.07}s` }}>
                   {p.badge && <div style={{ position:'absolute', top:16, right:16, padding:'3px 10px', borderRadius:100, background:'var(--accent-soft)', fontSize:11, fontWeight:600, color:'var(--accent)', letterSpacing:'0.04em' }}>{p.badge}</div>}
                   <div style={{ fontSize:32, fontWeight:600, letterSpacing:'-0.02em', marginBottom:4 }}>{p.price}</div>
                   <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:16 }}>{p.type}</p>

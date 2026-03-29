@@ -212,7 +212,7 @@ export default function Home() {
             </div>
             <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'var(--border-light)', border:'1px solid var(--border-light)', borderRadius:20, overflow:'hidden' }}>
               {SERVICES.map((s,i) => (
-                <div key={s.title} className="reveal glass-card" style={{ borderRadius:0, border:'none', padding:'28px 24px', background:'var(--white)', transitionDelay:`${i*0.04}s` }}>
+                <div key={s.title} className="reveal glass-card" style={{ borderRadius:0, border:'none', padding:'28px 24px', transitionDelay:`${i*0.04}s` }}>
                   <div style={{ fontSize:22, marginBottom:12, filter:'grayscale(1) opacity(0.4)' }}>{s.icon}</div>
                   <div style={{ fontSize:15, fontWeight:600, marginBottom:8, letterSpacing:'-0.01em' }}>{s.title}</div>
                   <p className="body-sm">{s.desc}</p>
@@ -265,10 +265,10 @@ export default function Home() {
               { name:'Pro', price:'£1,499', desc:'Advanced features for established businesses.', popular:false },
               { name:'Enterprise', price:'£2,499', desc:'Full enterprise site with integrated HR system.', popular:false },
             ].map((p,i) => (
-              <div key={p.name} className={`reveal glass-card${p.popular?' stagger-'+i:''}`} style={{
+              <div key={p.name} className={`reveal pricing-card ${p.popular ? 'glass-card-dark' : 'glass-card'}${p.popular?' stagger-'+i:''}`} style={{
                 padding:'28px 24px', borderRadius:20, position:'relative',
-                background: p.popular ? 'var(--dark)' : 'var(--white)',
-                border: p.popular ? 'none' : '1px solid var(--border-light)',
+                background: 'transparent',
+                border: 'none',
                 transitionDelay:`${i*0.07}s`,
               }}>
                 {p.popular && <div style={{ position:'absolute', top:16, right:16, padding:'3px 10px', borderRadius:100, background:'var(--accent)', fontSize:11, fontWeight:600, color:'white', letterSpacing:'0.04em' }}>Popular</div>}

@@ -125,7 +125,7 @@ export default function Calculator() {
                 <div style={{ display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:10 }}>
                   {PAGE_OPTIONS.map(p => (
                     <button key={p.id} onClick={() => setPages(p.id)}
-                      style={{ padding:'14px 18px', borderRadius:12, border:'2px solid', borderColor: pages===p.id ? 'var(--dark)' : 'var(--border-light)', background: pages===p.id ? 'var(--dark)' : 'var(--white)', color: pages===p.id ? '#fff' : 'var(--dark)', cursor:'pointer', textAlign:'left', transition:'all 0.15s', display:'flex', flexDirection:'column', gap:4 }}>
+                      style={{ padding:'14px 18px', borderRadius:12, border:'2px solid', borderColor: pages===p.id ? 'var(--dark)' : 'var(--border-light)', background: pages===p.id ? 'var(--dark)' : 'transparent', color: pages===p.id ? '#fff' : 'var(--dark)', cursor:'pointer', textAlign:'left', transition:'all 0.15s', display:'flex', flexDirection:'column', gap:4 }}>
                       <span style={{ fontSize:14, fontWeight:600 }}>{p.label}</span>
                       <span style={{ fontSize:11, color: pages===p.id ? 'rgba(255,255,255,0.55)' : 'var(--light)' }}>{p.desc}</span>
                     </button>
