@@ -40,25 +40,25 @@ const SNAPSHOT = [
 const DELIVERABLES = [
   {
     icon: <SparkIcon />,
-    title: 'Luxury-first presentation',
-    description: 'The page architecture leans into softness, premium spacing, and warm neutrals so the brand feels calm and giftable rather than generic craft retail.',
+    title: 'Softer premium presentation',
+    description: 'The layout leans into calm spacing, warm neutrals, and a more considered brand feel so the site reads as polished rather than homemade in the wrong way.',
   },
   {
     icon: <DeviceIcon />,
-    title: 'Mobile conversion ready',
-    description: 'The layout is designed to work cleanly on smaller screens, where most social and gifting traffic tends to land first.',
+    title: 'Clean mobile browsing',
+    description: 'The experience is designed to stay tidy and readable on smaller screens, where social traffic and gift-led browsing often start.',
   },
   {
     icon: <DomainIcon />,
-    title: 'Own-domain credibility',
-    description: 'Shipping on a branded `.co.uk` domain gives the business stronger trust signals than relying on a marketplace or social profile alone.',
+    title: 'Direct-brand credibility',
+    description: 'A branded `.co.uk` site gives the business a stronger home for direct traffic than relying only on marketplaces or social platforms.',
   },
 ]
 
 const IMPACT = [
-  'Clearer premium positioning for a handmade product business',
-  'A proper branded web presence to support Instagram, word of mouth, and direct sales',
-  'A site structure that can grow into seasonal drops, gift sets, and future e-commerce expansion',
+  'Sharper positioning for a handmade candle brand',
+  'A proper web presence for Instagram traffic, referrals, and direct enquiries',
+  'A stronger base for later catalogue, gifting, and e-commerce growth',
 ]
 
 export default function Portfolio() {
@@ -69,12 +69,12 @@ export default function Portfolio() {
       <section className="section" style={{ paddingBottom: 'clamp(40px,6vw,72px)' }}>
         <div className="container portfolio-hero-grid" style={{ alignItems: 'center', gap: 'clamp(28px,5vw,64px)' }}>
           <div className="reveal">
-            <p className="eyebrow" style={{ marginBottom: 18 }}>Selected work</p>
+            <p className="eyebrow" style={{ marginBottom: 18 }}>Featured project</p>
             <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(40px,6vw,74px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.02, marginBottom: 18 }}>
               Glow With Lucy
             </h1>
             <p className="body-lg" style={{ maxWidth: 560, marginBottom: 28 }}>
-              A soft, premium web presence for a candle brand built around warmth, gifting, and a more polished commercial identity.
+              A cleaner, softer web presence for a candle business that needed to feel more polished, giftable, and commercially credible.
             </p>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 22 }}>
               <a href="https://glowwithlucy.co.uk" target="_blank" rel="noreferrer" className="btn-primary">
@@ -83,7 +83,7 @@ export default function Portfolio() {
               <Link to="/contact" className="btn-secondary">Book a project call</Link>
             </div>
             <p style={{ fontSize: 14, color: 'var(--mid)', lineHeight: 1.65, maxWidth: 520 }}>
-              This project was designed to feel calmer and more elevated than a template-led small business site, while still keeping the structure practical and easy to grow.
+              The goal was to give the brand a better-quality home online without overcomplicating it, so the business feels more established from the first click.
             </p>
           </div>
 
@@ -121,7 +121,7 @@ export default function Portfolio() {
           <div className="reveal" style={{ maxWidth: 720, marginBottom: 34 }}>
             <h2 className="headline-md" style={{ marginBottom: 12 }}>Project snapshot</h2>
             <p className="body-md">
-              Glow With Lucy needed a site that looked more like a considered brand experience than a starter storefront. The goal was to support trust, gifting appeal, and future growth without losing the softness of the product.
+              Glow With Lucy needed a site that felt more like a considered brand than a starter storefront. The aim was to support trust, gifting appeal, and future growth without losing the softness of the product.
             </p>
           </div>
 
@@ -154,10 +154,10 @@ export default function Portfolio() {
       <section className="section">
         <div className="container">
           <div className="reveal" style={{ maxWidth: 680, marginBottom: 34 }}>
-            <p className="eyebrow" style={{ marginBottom: 14 }}>What we delivered</p>
-            <h2 className="headline-md" style={{ marginBottom: 12 }}>A boutique brand feel with room to grow.</h2>
+            <p className="eyebrow" style={{ marginBottom: 14 }}>What changed</p>
+            <h2 className="headline-md" style={{ marginBottom: 12 }}>A neater brand experience with room to grow.</h2>
             <p className="body-md">
-              The build direction focuses on visual calm, product credibility, and a structure that can later expand into richer catalogue and campaign work without redesigning from scratch.
+              The build direction focuses on visual calm, product credibility, and a structure that can later expand into richer catalogue and campaign work without having to start over.
             </p>
           </div>
 
@@ -193,7 +193,7 @@ export default function Portfolio() {
               GlowWithLucy.co.uk
             </h2>
             <p style={{ fontSize: 16, color: 'rgba(29,29,31,0.74)', lineHeight: 1.7, maxWidth: 520 }}>
-              The live site gives the business a cleaner home for its brand story and product direction, while positioning it more credibly for direct customer traffic.
+              The live site gives the business a cleaner home for its brand story and product direction, with a stronger base for direct traffic than relying on social alone.
             </p>
           </div>
 

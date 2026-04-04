@@ -133,6 +133,27 @@ function PageMeta() {
   return null
 }
 
+function MarketingEnhancements() {
+  const { pathname } = useLocation()
+  const allowedRoutes = new Set([
+    '/',
+    '/services',
+    '/pricing',
+    '/portfolio',
+    '/about',
+    '/calculator',
+  ])
+
+  if (!allowedRoutes.has(pathname)) return null
+
+  return (
+    <>
+      <WhatsAppButton />
+      <ExitIntent />
+    </>
+  )
+}
+
 function Layout() {
   const { data: mlSettings } = useCMS('mailing_list')
   return (
@@ -143,8 +164,7 @@ function Layout() {
       <CustomCursor />
       <Nav />
       <MailingListPopup settings={mlSettings} />
-      <WhatsAppButton />
-      <ExitIntent />
+      <MarketingEnhancements />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />

@@ -230,6 +230,7 @@ img { max-width: 100%; display: block; }
 .section-narrow { max-width: 720px; margin: 0 auto; }
 .container { max-width: var(--max-w); margin: 0 auto; }
 .contact-layout,
+.about-hero-grid,
 .portfolio-hero-grid,
 .portfolio-detail-grid,
 .services-intro-grid,
@@ -243,6 +244,7 @@ img { max-width: 100%; display: block; }
   display: grid;
 }
 .contact-layout { grid-template-columns: 1fr 1.6fr; }
+.about-hero-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .portfolio-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr); }
 .portfolio-detail-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
 .services-intro-grid { grid-template-columns: 1fr 2fr; }
@@ -253,6 +255,7 @@ img { max-width: 100%; display: block; }
 .service-row { grid-template-columns: 72px 1fr 1fr; }
 .process-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .health-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; }
 
 /* ── Divider ── */
 .div-h { height: 1px; background: var(--border-light); }
@@ -313,12 +316,14 @@ img { max-width: 100%; display: block; }
   .hamburger { display: flex !important; }
   .section { padding: 64px 20px; }
   .contact-layout,
+  .about-hero-grid,
   .portfolio-hero-grid,
   .portfolio-detail-grid,
   .services-intro-grid,
   .service-row,
   .pricing-grid-two,
-  .pricing-grid-three {
+  .pricing-grid-three,
+  .footer-grid {
     grid-template-columns: 1fr;
   }
   .feature-grid-two,
@@ -333,10 +338,12 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 1024px) {
   .contact-layout,
+  .about-hero-grid,
   .portfolio-hero-grid,
   .portfolio-detail-grid,
   .services-intro-grid,
-  .service-row {
+  .service-row,
+  .footer-grid {
     grid-template-columns: 1fr;
   }
   .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

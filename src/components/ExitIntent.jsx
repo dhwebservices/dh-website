@@ -5,37 +5,27 @@ export default function ExitIntent() {
   const [visible, setVisible] = useState(false)
   const [dismissed, setDismissed] = useState(false)
   const firedRef = useRef(false)
+  const armedRef = useRef(false)
 
   useEffect(() => {
-    // Don't show if dismissed this session
     if (sessionStorage.getItem('exit_dismissed')) return
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
 
-    // Only on desktop — detect mouse leaving toward top of screen
     const onMouseOut = (e) => {
       if (firedRef.current) return
-      if (e.clientY <= 8 && e.relatedTarget === null) {
+      if (!armedRef.current) return
+      if (e.clientY <= 4 && e.relatedTarget === null) {
         firedRef.current = true
-        // Small delay so it doesn't feel jarring
         setTimeout(() => setVisible(true), 150)
       }
     }
 
-    // On mobile — show after 45s of inactivity (different trigger)
-    const onMobile = !window.matchMedia('(hover: hover)').matches
-    let mobileTimer
-    if (onMobile) {
-      mobileTimer = setTimeout(() => {
-        if (!firedRef.current && !sessionStorage.getItem('exit_dismissed')) {
-          firedRef.current = true
-          setVisible(true)
-        }
-      }, 45000)
-    }
+    const armTimer = setTimeout(() => { armedRef.current = true }, 12000)
 
     document.addEventListener('mouseout', onMouseOut)
     return () => {
       document.removeEventListener('mouseout', onMouseOut)
-      clearTimeout(mobileTimer)
+      clearTimeout(armTimer)
     }
   }, [])
 
@@ -65,23 +55,21 @@ export default function ExitIntent() {
         <div style={{ height: 4, background: 'linear-gradient(90deg, var(--accent) 0%, #C9A84C 100%)' }} />
 
         <div style={{ padding: '36px 36px 32px' }}>
-          {/* Close */}
           <button onClick={dismiss} style={{ position: 'absolute', top: 16, right: 16, width: 28, height: 28, borderRadius: '50%', background: 'var(--cream)', border: 'none', cursor: 'pointer', fontSize: 16, color: 'var(--mid)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
 
-          <div style={{ fontSize: 32, marginBottom: 12 }}>👋</div>
+          <p className="eyebrow" style={{ marginBottom: 10, color: 'var(--accent)' }}>Quick question</p>
           <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 10, color: 'var(--dark)' }}>
-            Before you go —
+            Need an answer before you leave?
           </h2>
           <p style={{ fontSize: 15, color: 'var(--mid)', lineHeight: 1.65, marginBottom: 24 }}>
-            Got a question about pricing, timelines, or what we can build? We reply within 24 hours and the first call is completely free.
+            If you are weighing up pricing, timelines, or whether we are the right fit, you can book a quick call and get a straight answer.
           </p>
 
-          {/* Options */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 20 }}>
             <Link to="/contact" onClick={dismiss} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '13px 20px', borderRadius: 100, background: 'var(--dark)', color: '#fff', textDecoration: 'none', fontSize: 14, fontWeight: 600, transition: 'opacity 0.15s' }}
               onMouseOver={e => e.currentTarget.style.opacity = '0.88'}
               onMouseOut={e => e.currentTarget.style.opacity = '1'}>
-              Book a free 15 min call →
+              Book a free call →
             </Link>
             <a href="https://wa.me/447359587007?text=Hi%2C%20I%20have%20a%20quick%20question%20about%20your%20services" target="_blank" rel="noreferrer" onClick={dismiss}
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px 20px', borderRadius: 100, background: '#25D366', color: '#fff', textDecoration: 'none', fontSize: 14, fontWeight: 600, transition: 'opacity 0.15s' }}
@@ -93,7 +81,7 @@ export default function ExitIntent() {
           </div>
 
           <button onClick={dismiss} style={{ display: 'block', width: '100%', textAlign: 'center', fontSize: 13, color: 'var(--light)', background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0' }}>
-            No thanks, I will have a look around
+            Carry on browsing
           </button>
         </div>
       </div>

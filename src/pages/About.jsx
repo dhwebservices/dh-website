@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 
@@ -13,9 +12,9 @@ const VALUES = [
 
 const TIMELINE = [
   ['Feb 2026', 'Founded', 'DH Website Services launched in Cardiff with a simple idea — production-quality websites at honest prices.'],
-  ['Mar 2026', 'Portal launch', 'Built and launched an internal HR and operations platform for our own team — staff scheduling, leave management, client outreach and more.'],
-  ['Mar 2026', 'UK-wide', 'Expanded to serve clients across the UK while keeping our Cardiff roots and founder-led approach.'],
-  ['Apr 2026', 'DH Workplace', 'Launched DH Workplace — a SaaS HR and CRM platform for UK small businesses, built from our own internal tooling.'],
+  ['Mar 2026', 'First launches', 'Delivered early websites for small businesses that needed something more credible than a template or social-only presence.'],
+  ['Mar 2026', 'Portfolio growth', 'Expanded the project mix across brochure sites, booking-led builds, and more commercially focused landing pages.'],
+  ['Apr 2026', 'UK-wide delivery', 'Continued serving clients across Wales and the UK while keeping the same direct, founder-led way of working.'],
 ]
 
 export default function About() {
@@ -27,7 +26,7 @@ export default function About() {
       {/* Hero */}
       <section className="section" style={{ paddingBottom: 0 }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(48px,7vw,100px)', alignItems: 'center' }}>
+          <div className="about-hero-grid" style={{ gap: 'clamp(48px,7vw,100px)', alignItems: 'center' }}>
             <div className="reveal">
               <p className="eyebrow" style={{ marginBottom: 16 }}>About us</p>
               <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
@@ -37,7 +36,7 @@ export default function About() {
                 DH Website Services is a Cardiff-based web agency built around one principle — your website should work as hard as you do.
               </p>
               <p className="body-md" style={{ color: 'var(--mid)', marginBottom: 32 }}>
-                We build production-ready websites, booking systems, and business platforms for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.
+                We build production-ready websites, booking systems, and lead-generation experiences for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <Link to="/contact" className="btn-primary">Start a project →</Link>
@@ -60,7 +59,7 @@ export default function About() {
                   I started DH Website Services because I kept seeing small businesses in Wales paying agency prices for template work, then getting handed off to junior staff who did not understand their business.
                 </p>
                 <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--mid)', marginBottom: 24 }}>
-                  When you work with us, you work with me. I scope the project, I build it, and I support it after launch. No layers, no surprises.
+                  When you work with us, you work with me. I scope the project, I build it, and I support it after launch. No layers, no surprises, and no blurred line between sales and delivery.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingTop: 20, borderTop: '1px solid var(--border-light)' }}>
                   <a href="mailto:clients@dhwebsiteservices.co.uk" style={{ fontSize: 13, color: 'var(--mid)', display: 'flex', alignItems: 'center', gap: 8, transition: 'color 0.15s' }}

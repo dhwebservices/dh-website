@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer style={{ background:'var(--cream)', borderTop:'1px solid var(--border-light)' }}>
       <div style={{ maxWidth:'var(--max-w)', margin:'0 auto', padding:'clamp(48px,6vw,72px) clamp(20px,5vw,60px) 32px' }}>
-        <div style={{ display:'grid', gridTemplateColumns:'2fr 1fr 1fr 1fr', gap:40, marginBottom:48 }}>
+        <div className="footer-grid" style={{ gap:40, marginBottom:48 }}>
           {/* Brand */}
           <div>
             <img src="/dh-logo.png" alt="DH Website Services" style={{ height:18, filter:'brightness(0)', marginBottom:16 }} />
