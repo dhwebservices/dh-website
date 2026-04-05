@@ -17,6 +17,11 @@ export default function CareerJobCard({ job }) {
         ) : null}
       </div>
       <div className="body-sm" style={{ fontSize: 14, lineHeight: 1.7 }}>{job.summary || 'Open role at DH Website Services.'}</div>
+      {job.hiring_manager_name || job.hiring_manager_email ? (
+        <div style={{ fontSize: 12.5, color: 'var(--mid)' }}>
+          Hiring manager: {job.hiring_manager_name || 'DH Website Services HR'}{job.hiring_manager_email ? ` · ${job.hiring_manager_email}` : ''}
+        </div>
+      ) : null}
       <div className="career-job-actions">
         <Link to={`/careers/${job.slug}`} className="btn-secondary">View role</Link>
         <Link to={`/careers/${job.slug}/apply`} className="btn-primary">Apply now</Link>

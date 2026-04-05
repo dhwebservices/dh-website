@@ -20,6 +20,17 @@ function encodePath(path = '') {
   return String(path || '').split('/').map((part) => encodeURIComponent(part)).join('/')
 }
 
+function buildJobProfileSettingKey(jobId = '') {
+  return `recruiting:job_profile:${jobId}`
+}
+
+function normalizeJobProfileMeta(raw = {}) {
+  return {
+    hiring_manager_name: String(raw.hiring_manager_name || '').trim(),
+    hiring_manager_email: String(raw.hiring_manager_email || '').trim().toLowerCase(),
+  }
+}
+
 export function normalizeQuestion(raw = {}, index = 0) {
   return {
     id: String(raw?.id || `q_${index + 1}`),
@@ -52,7 +63,28 @@ export function normalizeJob(row = {}) {
     status: row.status || 'draft',
     closing_at: row.closing_at || '',
     published_at: row.published_at || '',
+    hiring_manager_name: row.hiring_manager_name || '',
+    hiring_manager_email: row.hiring_manager_email || '',
   }
+}
+
+async function listJobProfileMetaMap(jobIds = []) {
+  if (!jobIds.length) return {}
+
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/portal_settings?select=key,value&key=like.recruiting:job_profile:%`, {
+    headers: restHeaders(),
+  })
+  const payload = await response.json().catch(() => [])
+  if (!response.ok) throw new Error(payload?.message || 'Could not load hiring manager details')
+
+  const jobIdSet = new Set(jobIds)
+  return (payload || []).reduce((acc, row) => {
+    const key = String(row.key || '')
+    const jobId = key.split(':').pop()
+    if (!jobIdSet.has(jobId)) return acc
+    acc[jobId] = normalizeJobProfileMeta(row.value?.value ?? row.value ?? {})
+    return acc
+  }, {})
 }
 
 export async function getPublishedJobs() {
@@ -61,7 +93,9 @@ export async function getPublishedJobs() {
   })
   const payload = await response.json()
   if (!response.ok) throw new Error(payload?.message || 'Could not load jobs')
-  return (payload || []).map(normalizeJob)
+  const jobs = (payload || []).map(normalizeJob)
+  const metaMap = await listJobProfileMetaMap(jobs.map((job) => job.id))
+  return jobs.map((job) => ({ ...job, ...(metaMap[job.id] || {}) }))
 }
 
 export async function getJobBySlug(slug) {
@@ -70,7 +104,10 @@ export async function getJobBySlug(slug) {
   })
   const payload = await response.json()
   if (!response.ok) throw new Error(payload?.message || 'Could not load the role')
-  return payload?.[0] ? normalizeJob(payload[0]) : null
+  if (!payload?.[0]) return null
+  const job = normalizeJob(payload[0])
+  const metaMap = await listJobProfileMetaMap([job.id])
+  return { ...job, ...(metaMap[job.id] || {}) }
 }
 
 export async function uploadCv(file, applicationRef) {

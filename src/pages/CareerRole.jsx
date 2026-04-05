@@ -35,7 +35,7 @@ export default function CareerRole() {
               <p className="body-lg" style={{ maxWidth: 720 }}>{job.summary || job.description || 'Join DH Website Services in a live role now open for applications.'}</p>
             </div>
             <aside className="glass-card career-meta-card" style={{ padding: 26, display: 'grid', gap: 14 }}>
-              {[['Department', job.department || 'General'], ['Location', job.location_text || job.location_type], ['Employment', job.employment_type.replace(/_/g, ' ')], ['Package', job.salary_text || (job.commission_only ? 'Commission only' : 'Discussed at interview')]].map(([label, value]) => (
+              {[['Department', job.department || 'General'], ['Location', job.location_text || job.location_type], ['Employment', job.employment_type.replace(/_/g, ' ')], ['Package', job.salary_text || (job.commission_only ? 'Commission only' : 'Discussed at interview')], ['Hiring manager', job.hiring_manager_name || 'DH Website Services HR'], ['Manager email', job.hiring_manager_email || 'HR@dhwebsiteservices.co.uk']].map(([label, value]) => (
                 <div key={label}>
                   <div style={{ fontSize: 12, color: 'var(--light)', marginBottom: 4 }}>{label}</div>
                   <div style={{ fontSize: 14.5, color: 'var(--dark2)' }}>{value}</div>
