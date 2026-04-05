@@ -1,5 +1,13 @@
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from './siteConfig'
 
+const HIRING_PERMISSION_KEYS = [
+  'recruiting_dashboard',
+  'recruiting_jobs',
+  'recruiting_applications',
+  'recruiting_board',
+  'recruiting_settings',
+]
+
 function restHeaders(extra = {}) {
   return {
     apikey: SUPABASE_ANON_KEY,
@@ -92,6 +100,60 @@ export function buildApplicationRef() {
   return `DH-${stamp}-${random}`
 }
 
+function hasHiringAccess(permissions = {}) {
+  if (!permissions || typeof permissions !== 'object' || Array.isArray(permissions)) return false
+  return HIRING_PERMISSION_KEYS.some((key) => permissions[key] === true)
+}
+
+async function createHiringNotifications(application, job) {
+  const recipientsResponse = await fetch(`${SUPABASE_URL}/rest/v1/user_permissions?select=user_email,permissions`, {
+    headers: restHeaders(),
+  })
+  const recipients = await recipientsResponse.json().catch(() => [])
+  if (!recipientsResponse.ok) {
+    throw new Error(recipients?.message || 'Could not load hiring recipients')
+  }
+
+  const targetEmails = [...new Set(
+    (recipients || [])
+      .filter((row) => hasHiringAccess(row.permissions))
+      .map((row) => String(row.user_email || '').toLowerCase().trim())
+      .filter(Boolean)
+  )]
+
+  if (!targetEmails.length) return
+
+  const createdAt = new Date().toISOString()
+  const title = `New application for ${job.title || 'open role'}`
+  const applicantLabel = application.full_name || application.email || 'A new applicant'
+  const message = `${applicantLabel} applied for ${job.title || 'this role'}.`
+  const link = `/recruiting/applications/${application.id}`
+
+  const insertResponse = await fetch(`${SUPABASE_URL}/rest/v1/notifications`, {
+    method: 'POST',
+    headers: restHeaders({
+      'Content-Type': 'application/json',
+      Prefer: 'return=minimal',
+    }),
+    body: JSON.stringify(
+      targetEmails.map((user_email) => ({
+        user_email,
+        title,
+        message,
+        type: 'info',
+        link,
+        read: false,
+        created_at: createdAt,
+      }))
+    ),
+  })
+
+  if (!insertResponse.ok) {
+    const payload = await insertResponse.text()
+    throw new Error(payload || 'Could not create hiring notifications')
+  }
+}
+
 export async function submitApplication({ job, form, cvUpload }) {
   const payload = {
     job_post_id: job.id,
@@ -130,5 +192,9 @@ export async function submitApplication({ job, form, cvUpload }) {
   })
   const result = await response.json().catch(() => [])
   if (!response.ok) throw new Error(result?.message || 'Could not submit application')
-  return result?.[0] || payload
+  const saved = result?.[0] || payload
+  await createHiringNotifications(saved, job).catch((error) => {
+    console.warn('Could not create hiring notifications', error)
+  })
+  return saved
 }
