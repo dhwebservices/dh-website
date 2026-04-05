@@ -103,6 +103,10 @@ export async function postWorker(type, data) {
   return payload
 }
 
+export async function sendCustomEmail({ to, subject, html, from }) {
+  return postWorker('custom_email', { to, subject, html, from })
+}
+
 export async function sendOutreachContact({ to, name, subject, message }) {
   return postWorker('outreach_contact', {
     to_email: to,

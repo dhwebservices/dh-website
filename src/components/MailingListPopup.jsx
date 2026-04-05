@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { postWorker } from '../lib/booking'
+import { sendCustomEmail } from '../lib/booking'
 import { trackEvent } from '../lib/analytics'
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from '../lib/siteConfig'
 
@@ -67,19 +67,17 @@ export default function MailingListPopup({ settings }) {
       }
       if (!res.ok) throw new Error('Failed to subscribe')
 
-      await postWorker('send_email', {
+      await sendCustomEmail({
         to: email,
-          subject: "You're on the list! Your discount is on its way",
-        from_name: 'DH Website Services',
-        from_email: 'clients@dhwebsiteservices.co.uk',
+        subject: "You're on the list! Your discount is on its way",
+        from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
         html: buildSubscriberEmail(name || email.split('@')[0]),
       })
 
-      await postWorker('send_email', {
+      await sendCustomEmail({
         to: 'clients@dhwebsiteservices.co.uk',
         subject: 'New mailing list signup - ' + email,
-        from_name: 'DH Website Services',
-        from_email: 'clients@dhwebsiteservices.co.uk',
+        from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
         html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:500px"><h2 style="color:#1A1612">New Mailing List Signup</h2><table style="width:100%;border-collapse:collapse;margin:16px 0"><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px;width:100px">Email</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${email}</td></tr>${name ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Name</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${name}</td></tr>` : ''}<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Source</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">Website popup</td></tr><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Time</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${new Date().toLocaleString('en-GB')}</td></tr></table><p style="font-size:13px;color:#6b7280">Remember to reach out with their discount code.</p></div>`
       })
 

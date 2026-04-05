@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import CareerQuestionField from './CareerQuestionField'
 import { buildApplicationRef, submitApplication, uploadCv } from '../lib/careers'
 import { buildApplicationConfirmationEmail, buildInternalApplicationEmail } from '../lib/recruitingEmail'
-import { postWorker } from '../lib/booking'
+import { sendCustomEmail } from '../lib/booking'
 
 const EMPTY_FORM = {
   first_name: '',
@@ -68,17 +68,17 @@ export default function CareerApplicationForm({ job, onSuccess }) {
       })
 
       await Promise.allSettled([
-        postWorker('send_email', {
+        sendCustomEmail({
           to: form.email,
           subject: `Application received — ${job.title}`,
           html: buildApplicationConfirmationEmail(application, job),
-          from_email: 'DH Website Services HR <HR@dhwebsiteservices.co.uk>',
+          from: 'DH Website Services HR <HR@dhwebsiteservices.co.uk>',
         }),
-        postWorker('send_email', {
+        sendCustomEmail({
           to: 'HR@dhwebsiteservices.co.uk',
           subject: `New application — ${job.title} — ${application.full_name}`,
           html: buildInternalApplicationEmail(application, job),
-          from_email: 'DH Website Services HR <HR@dhwebsiteservices.co.uk>',
+          from: 'DH Website Services HR <HR@dhwebsiteservices.co.uk>',
         }),
       ])
 

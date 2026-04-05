@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { useCMS } from '../hooks/useCMS'
 import { BookingWidget } from '../components/BookingWidget'
-import { postWorker } from '../lib/booking'
+import { sendCustomEmail } from '../lib/booking'
 import { trackEvent } from '../lib/analytics'
 
 export default function Contact() {
@@ -40,19 +40,17 @@ export default function Contact() {
       : ''
 
     try {
-      await postWorker('send_email', {
+      await sendCustomEmail({
         to: 'clients@dhwebsiteservices.co.uk',
         subject: `New website enquiry - ${form.name}`,
-        from_name: 'DH Website Services',
-        from_email: 'clients@dhwebsiteservices.co.uk',
+        from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
         html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:560px"><h2 style="color:#1A1612;margin-bottom:4px">New Website Enquiry</h2><p style="color:#6E6E73;margin-bottom:20px;font-size:14px">Submitted via dhwebsiteservices.co.uk/contact</p><table style="width:100%;border-collapse:collapse;margin-bottom:20px"><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px;width:140px">Name</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.name}</td></tr><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Email</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.email}</td></tr>${form.business ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Business</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.business}</td></tr>` : ''}${form.budget ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Budget</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.budget}</td></tr>` : ''}${form.timeline ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Timeline</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.timeline}</td></tr>` : ''}${summaryHtml}</table><div style="padding:16px 18px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px"><div style="font-size:12px;font-weight:700;color:#6E6E73;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Project brief</div><p style="font-size:14px;line-height:1.7;color:#1A1612;white-space:pre-wrap;margin:0">${form.message}</p></div></div>`,
       })
 
-      await postWorker('send_email', {
+      await sendCustomEmail({
         to: form.email,
         subject: 'We received your enquiry - DH Website Services',
-        from_name: 'DH Website Services',
-        from_email: 'clients@dhwebsiteservices.co.uk',
+        from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
         html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:560px"><h2 style="color:#1A1612;margin-bottom:10px">Thanks, ${form.name.split(' ')[0]}</h2><p style="font-size:14px;line-height:1.7;color:#3D3D3F">We have your enquiry and will reply within 24 hours with a clear next step. If your brief needs a call, we will say so. If it can be priced directly, we will do that too.</p><p style="font-size:14px;line-height:1.7;color:#3D3D3F;margin-top:16px">If you need anything in the meantime, reply to this email or call 029 2002 4218.</p></div>`,
       })
 
