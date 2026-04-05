@@ -20,10 +20,6 @@ function encodePath(path = '') {
   return String(path || '').split('/').map((part) => encodeURIComponent(part)).join('/')
 }
 
-function buildJobProfileSettingKey(jobId = '') {
-  return `recruiting:job_profile:${jobId}`
-}
-
 function normalizeJobProfileMeta(raw = {}) {
   return {
     hiring_manager_name: String(raw.hiring_manager_name || '').trim(),
@@ -87,6 +83,15 @@ async function listJobProfileMetaMap(jobIds = []) {
   }, {})
 }
 
+async function tryListJobProfileMetaMap(jobIds = []) {
+  try {
+    return await listJobProfileMetaMap(jobIds)
+  } catch (error) {
+    console.warn('Could not load public job profile metadata', error)
+    return {}
+  }
+}
+
 export async function getPublishedJobs() {
   const response = await fetch(`${SUPABASE_URL}/rest/v1/job_posts?status=eq.published&select=*&order=published_at.desc.nullslast`, {
     headers: restHeaders(),
@@ -94,7 +99,7 @@ export async function getPublishedJobs() {
   const payload = await response.json()
   if (!response.ok) throw new Error(payload?.message || 'Could not load jobs')
   const jobs = (payload || []).map(normalizeJob)
-  const metaMap = await listJobProfileMetaMap(jobs.map((job) => job.id))
+  const metaMap = await tryListJobProfileMetaMap(jobs.map((job) => job.id))
   return jobs.map((job) => ({ ...job, ...(metaMap[job.id] || {}) }))
 }
 
@@ -106,7 +111,7 @@ export async function getJobBySlug(slug) {
   if (!response.ok) throw new Error(payload?.message || 'Could not load the role')
   if (!payload?.[0]) return null
   const job = normalizeJob(payload[0])
-  const metaMap = await listJobProfileMetaMap([job.id])
+  const metaMap = await tryListJobProfileMetaMap([job.id])
   return { ...job, ...(metaMap[job.id] || {}) }
 }
 
