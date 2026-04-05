@@ -9,6 +9,9 @@ import Pricing from './pages/Pricing'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import Careers from './pages/Careers'
+import CareerRole from './pages/CareerRole'
+import CareerApply from './pages/CareerApply'
+import ApplicationSuccess from './pages/ApplicationSuccess'
 import Legal from './pages/Legal'
 import Appointment from './pages/Appointment'
 import Calculator from './pages/Calculator'
@@ -59,7 +62,7 @@ const PAGE_META = {
   },
   '/careers': {
     title: 'Careers | DH Website Services',
-    description: 'Expression of interest for designers, developers, and client-facing roles at DH Website Services.',
+    description: 'Live vacancies, role details, and direct online applications at DH Website Services.',
   },
   '/about': {
     title: 'About | DH Website Services',
@@ -77,11 +80,51 @@ function ScrollToTop() {
   return null
 }
 
+function MarketingEnhancements() {
+  const { pathname } = useLocation()
+  const enabledRoutes = new Set([
+    '/',
+    '/services',
+    '/pricing',
+    '/portfolio',
+    '/about',
+    '/calculator',
+  ])
+
+  if (!enabledRoutes.has(pathname)) return null
+
+  return (
+    <>
+      <WhatsAppButton />
+      <ExitIntent />
+    </>
+  )
+}
+
 function PageMeta() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const meta = PAGE_META[pathname] || {
+    let meta = PAGE_META[pathname]
+    if (!meta && /^\/careers\/[^/]+$/.test(pathname)) {
+      meta = {
+        title: 'Role details | DH Website Services Careers',
+        description: 'Review the role detail, expectations, and package before applying to DH Website Services.',
+      }
+    }
+    if (!meta && /^\/careers\/[^/]+\/apply$/.test(pathname)) {
+      meta = {
+        title: 'Apply | DH Website Services Careers',
+        description: 'Submit your CV and complete the DH Website Services application form online.',
+      }
+    }
+    if (!meta && pathname === '/careers/application-success') {
+      meta = {
+        title: 'Application submitted | DH Website Services Careers',
+        description: 'Your application has been submitted successfully.',
+      }
+    }
+    meta = meta || {
       title: 'DH Website Services',
       description: 'Production-ready websites built for growth.',
     }
@@ -133,27 +176,6 @@ function PageMeta() {
   return null
 }
 
-function MarketingEnhancements() {
-  const { pathname } = useLocation()
-  const allowedRoutes = new Set([
-    '/',
-    '/services',
-    '/pricing',
-    '/portfolio',
-    '/about',
-    '/calculator',
-  ])
-
-  if (!allowedRoutes.has(pathname)) return null
-
-  return (
-    <>
-      <WhatsAppButton />
-      <ExitIntent />
-    </>
-  )
-}
-
 function Layout() {
   const { data: mlSettings } = useCMS('mailing_list')
   return (
@@ -172,6 +194,9 @@ function Layout() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/careers/:slug" element={<CareerRole />} />
+        <Route path="/careers/:slug/apply" element={<CareerApply />} />
+        <Route path="/careers/application-success" element={<ApplicationSuccess />} />
         <Route path="/privacy" element={<Legal page="privacy" />} />
         <Route path="/terms" element={<Legal page="terms" />} />
         <Route path="/services-terms" element={<Legal page="services-terms" />} />
