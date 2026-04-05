@@ -16,7 +16,7 @@ export default function ApplicationSuccess() {
             <div style={{ display: 'inline-flex', padding: '10px 16px', borderRadius: 999, border: '1px solid var(--border-light)', background: 'var(--off-white)', fontSize: 13.5, color: 'var(--dark2)', marginBottom: 24 }}>
               Reference: {applicationRef}
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 10, flexWrap: 'wrap' }}>
+            <div className="career-success-actions">
               <Link to="/careers" className="btn-secondary">Back to careers</Link>
               <Link to="/" className="btn-primary">Return home</Link>
             </div>

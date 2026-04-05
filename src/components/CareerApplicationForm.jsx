@@ -93,7 +93,7 @@ export default function CareerApplicationForm({ job, onSuccess }) {
 
   return (
     <form onSubmit={submit} style={{ display: 'grid', gap: 14 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12 }}>
+      <div className="career-form-grid">
         <div><label className="field-label">First name *</label><input className="field-inp" value={form.first_name} onChange={(e) => update('first_name', e.target.value)} /></div>
         <div><label className="field-label">Last name *</label><input className="field-inp" value={form.last_name} onChange={(e) => update('last_name', e.target.value)} /></div>
         <div><label className="field-label">Email *</label><input className="field-inp" type="email" value={form.email} onChange={(e) => update('email', e.target.value)} /></div>
@@ -147,7 +147,7 @@ export default function CareerApplicationForm({ job, onSuccess }) {
 
       {error ? <div style={{ fontSize: 13.5, color: '#C23B22' }}>{error}</div> : null}
 
-      <button type="submit" className="btn-primary" disabled={submitting} style={{ justifyContent: 'center', opacity: submitting ? 0.7 : 1 }}>
+      <button type="submit" className="btn-primary career-submit-btn" disabled={submitting} style={{ justifyContent: 'center', opacity: submitting ? 0.7 : 1 }}>
         {submitting ? 'Submitting application...' : 'Submit application'}
       </button>
     </form>

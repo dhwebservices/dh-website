@@ -20,7 +20,7 @@ export default function Careers() {
     <main style={{ paddingTop:'var(--nav-h)' }}>
       <section className="section">
         <div className="container">
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1.15fr', gap:'clamp(48px,7vw,100px)', alignItems:'start' }}>
+          <div className="careers-hero-grid">
             <div>
               <div className="reveal">
                 <p className="eyebrow" style={{ marginBottom:16 }}>Careers</p>
@@ -55,9 +55,9 @@ export default function Careers() {
 
             <div className="reveal">
               <div style={{ display:'grid', gap:16 }}>
-                <div style={{ display:'flex', justifyContent:'space-between', gap:12, alignItems:'center', flexWrap:'wrap' }}>
+                <div className="career-jobs-head">
                   <h2 style={{ fontSize:20, fontWeight:600, letterSpacing:'-0.02em' }}>Open positions</h2>
-                  <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
+                  <div className="career-filter-row">
                     {departments.map((department) => (
                       <button
                         key={department}

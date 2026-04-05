@@ -28,13 +28,13 @@ export default function CareerRole() {
     <main style={{ paddingTop: 'var(--nav-h)' }}>
       <section className="section">
         <div className="container" style={{ display: 'grid', gap: 24 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.1fr) minmax(300px, 0.9fr)', gap: 24, alignItems: 'start' }}>
+          <div className="career-role-layout">
             <div>
               <p className="eyebrow" style={{ marginBottom: 16 }}>Open role</p>
               <h1 className="headline-lg" style={{ marginBottom: 18 }}>{job.title}</h1>
               <p className="body-lg" style={{ maxWidth: 720 }}>{job.summary || job.description || 'Join DH Website Services in a live role now open for applications.'}</p>
             </div>
-            <aside className="glass-card" style={{ padding: 26, display: 'grid', gap: 14 }}>
+            <aside className="glass-card career-meta-card" style={{ padding: 26, display: 'grid', gap: 14 }}>
               {[['Department', job.department || 'General'], ['Location', job.location_text || job.location_type], ['Employment', job.employment_type.replace(/_/g, ' ')], ['Package', job.salary_text || (job.commission_only ? 'Commission only' : 'Discussed at interview')]].map(([label, value]) => (
                 <div key={label}>
                   <div style={{ fontSize: 12, color: 'var(--light)', marginBottom: 4 }}>{label}</div>
@@ -46,7 +46,7 @@ export default function CareerRole() {
                   This role is commission only with no basic salary. The application form requires confirmation that you understand this before submission.
                 </div>
               ) : null}
-              <Link to={`/careers/${job.slug}/apply`} className="btn-primary" style={{ justifyContent: 'center', marginTop: 4 }}>Apply for this role</Link>
+              <Link to={`/careers/${job.slug}/apply`} className="btn-primary career-role-cta" style={{ justifyContent: 'center', marginTop: 4 }}>Apply for this role</Link>
             </aside>
           </div>
 

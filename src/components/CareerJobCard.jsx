@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function CareerJobCard({ job }) {
   return (
     <article className="glass-card" style={{ padding: 24, display: 'grid', gap: 16 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'flex-start' }}>
+      <div className="career-job-head">
         <div>
           <div style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.02em', color: 'var(--dark)', marginBottom: 8 }}>{job.title}</div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -17,7 +17,7 @@ export default function CareerJobCard({ job }) {
         ) : null}
       </div>
       <div className="body-sm" style={{ fontSize: 14, lineHeight: 1.7 }}>{job.summary || 'Open role at DH Website Services.'}</div>
-      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+      <div className="career-job-actions">
         <Link to={`/careers/${job.slug}`} className="btn-secondary">View role</Link>
         <Link to={`/careers/${job.slug}/apply`} className="btn-primary">Apply now</Link>
       </div>
