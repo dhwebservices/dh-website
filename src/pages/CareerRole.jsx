@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { getJobBySlug } from '../lib/careers'
+import { getCandidatePortalApplyUrl, getJobBySlug } from '../lib/careers'
 
 function BulletSection({ title, content }) {
   if (!content) return null
@@ -46,7 +46,7 @@ export default function CareerRole() {
                   This role is commission only with no basic salary. The application form requires confirmation that you understand this before submission.
                 </div>
               ) : null}
-              <Link to={`/careers/${job.slug}/apply`} className="btn-primary career-role-cta" style={{ justifyContent: 'center', marginTop: 4 }}>Apply for this role</Link>
+              <a href={getCandidatePortalApplyUrl(job.slug)} className="btn-primary career-role-cta" style={{ justifyContent: 'center', marginTop: 4 }}>Apply for this role</a>
             </aside>
           </div>
 

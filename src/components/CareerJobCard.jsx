@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getCandidatePortalApplyUrl } from '../lib/careers'
 
 export default function CareerJobCard({ job }) {
   return (
@@ -24,7 +25,7 @@ export default function CareerJobCard({ job }) {
       ) : null}
       <div className="career-job-actions">
         <Link to={`/careers/${job.slug}`} className="btn-secondary">View role</Link>
-        <Link to={`/careers/${job.slug}/apply`} className="btn-primary">Apply now</Link>
+        <a href={getCandidatePortalApplyUrl(job.slug)} className="btn-primary">Apply now</a>
       </div>
     </article>
   )

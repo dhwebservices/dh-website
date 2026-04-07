@@ -27,7 +27,7 @@ export default function Careers() {
                 <h1 style={{ fontFamily:'var(--font-sans)', fontSize:'clamp(36px,5vw,60px)', fontWeight:600, letterSpacing:'-0.03em', lineHeight:1.0, marginBottom:24 }}>
                   Join the team<br />building with us.
                 </h1>
-                <p className="body-lg" style={{ marginBottom:40 }}>Explore live roles at DH Website Services and apply directly online with your CV, experience summary, and screening responses.</p>
+                <p className="body-lg" style={{ marginBottom:40 }}>Explore live roles at DH Website Services and apply through our secure candidate portal, where you can manage your profile, applications, and interview updates in one place.</p>
               </div>
               <div className="reveal" style={{ display:'flex', flexDirection:'column', gap:0, border:'1px solid var(--border-light)', borderRadius:16, overflow:'hidden', marginBottom:24 }}>
                 {[

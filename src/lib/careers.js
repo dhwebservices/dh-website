@@ -1,5 +1,7 @@
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from './siteConfig'
 
+export const CANDIDATE_PORTAL_URL = 'https://careers.dhwebsiteservices.co.uk'
+
 const HIRING_PERMISSION_KEYS = [
   'recruiting_dashboard',
   'recruiting_jobs',
@@ -140,6 +142,14 @@ export function buildApplicationRef() {
   const stamp = new Date().toISOString().slice(2, 10).replace(/-/g, '')
   const random = Math.random().toString(36).slice(2, 7).toUpperCase()
   return `DH-${stamp}-${random}`
+}
+
+export function getCandidatePortalJobUrl(slug = '') {
+  return `${CANDIDATE_PORTAL_URL}/jobs/${slug}`
+}
+
+export function getCandidatePortalApplyUrl(slug = '') {
+  return `${CANDIDATE_PORTAL_URL}/apply/${slug}`
 }
 
 function hasHiringAccess(permissions = {}) {
