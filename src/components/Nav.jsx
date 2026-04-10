@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 const LINKS = [
   { to: '/services',   label: 'Services' },
   { to: '/about',      label: 'About' },
+  { to: '/partners',   label: 'Partners' },
   { to: '/portfolio',  label: 'Portfolio' },
   { to: '/pricing',    label: 'Pricing' },
   { to: '/calculator', label: '⚡ Get a quote', accent: true },

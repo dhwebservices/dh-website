@@ -16,6 +16,7 @@ import Legal from './pages/Legal'
 import Appointment from './pages/Appointment'
 import Calculator from './pages/Calculator'
 import About from './pages/About'
+import Partners from './pages/Partners'
 import WhatsAppButton from './components/WhatsAppButton'
 import ExitIntent from './components/ExitIntent'
 import NotFound from './pages/NotFound'
@@ -68,6 +69,10 @@ const PAGE_META = {
     title: 'About | DH Website Services',
     description: 'DH Website Services is a Cardiff-based web agency founded by David Hooper. Fixed prices, founder-led delivery, production-quality websites for UK businesses.',
   },
+  '/partners': {
+    title: 'Partners | DH Website Services',
+    description: 'DH Website Services is a Microsoft approved partner building websites and practical workflows for businesses already operating in the Microsoft ecosystem.',
+  },
   '/calculator': {
     title: 'Project Calculator | DH Website Services',
     description: 'Build a live website quote based on pages, features, design, and support needs.',
@@ -88,6 +93,7 @@ function MarketingEnhancements() {
     '/pricing',
     '/portfolio',
     '/about',
+    '/partners',
     '/calculator',
   ])
 
@@ -209,6 +215,7 @@ function Layout() {
         <Route path="/appointment/:token" element={<Appointment />} />
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/about" element={<About />} />
+        <Route path="/partners" element={<Partners />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

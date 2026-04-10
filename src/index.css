@@ -234,6 +234,9 @@ img { max-width: 100%; display: block; }
 .footer-grid,
 .portfolio-hero-grid,
 .portfolio-detail-grid,
+.partner-highlight-grid,
+.partners-fit-grid,
+.partners-hero-grid,
 .services-intro-grid,
 .feature-grid-two,
 .why-grid,
@@ -249,6 +252,9 @@ img { max-width: 100%; display: block; }
 .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
 .portfolio-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr); }
 .portfolio-detail-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+.partner-highlight-grid { grid-template-columns: minmax(0, 1fr) minmax(280px, 420px); }
+.partners-fit-grid { grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr); }
+.partners-hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); }
 .services-intro-grid { grid-template-columns: 1fr 2fr; }
 .feature-grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .why-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -368,6 +374,9 @@ img { max-width: 100%; display: block; }
   .footer-grid,
   .portfolio-hero-grid,
   .portfolio-detail-grid,
+  .partner-highlight-grid,
+  .partners-fit-grid,
+  .partners-hero-grid,
   .services-intro-grid,
   .service-row,
   .pricing-grid-two,

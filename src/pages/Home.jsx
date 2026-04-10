@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { trackEvent } from '../lib/analytics'
+import MicrosoftPartnerBadge from '../components/MicrosoftPartnerBadge'
 
 /* ── Typewriter ─────────────────────────────────────── */
 const LINES = [
@@ -276,6 +277,51 @@ export default function Home() {
         <div style={{ position:'absolute', bottom:28, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:6, animation:'fadeIn 1s ease 1.5s both', opacity:0, animationFillMode:'forwards' }}>
           <div style={{ width:1, height:32, background:'linear-gradient(to bottom, transparent, var(--border))' }} />
           <span style={{ fontFamily:'var(--font-mono)', fontSize:9, letterSpacing:'0.14em', textTransform:'uppercase', color:'var(--light)' }}>Scroll</span>
+        </div>
+      </section>
+
+      <section
+        className="section"
+        style={{ background:'var(--cream)', borderTop:'1px solid var(--border-light)', borderBottom:'1px solid var(--border-light)' }}
+      >
+        <div
+          className="container partner-highlight-grid"
+          style={{
+            gap:32,
+            alignItems:'center',
+          }}
+        >
+          <div className="reveal">
+            <p className="eyebrow" style={{ marginBottom:12 }}>Microsoft approved partner</p>
+            <h2 style={{ fontFamily:'var(--font-sans)', fontSize:'clamp(30px,4vw,50px)', fontWeight:600, letterSpacing:'-0.03em', lineHeight:1.08, marginBottom:14, maxWidth:680 }}>
+              Better suited to businesses already built around Microsoft.
+            </h2>
+            <p style={{ fontSize:16, lineHeight:1.75, color:'var(--mid)', maxWidth:650, marginBottom:24 }}>
+              We now hold Microsoft approved partner status. If your business already runs on Microsoft tools, we can scope websites and operational workflows with that ecosystem in mind from the start.
+            </p>
+            <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
+              <Link to="/partners" className="btn-primary">Explore partnerships</Link>
+              <Link to="/contact" className="btn-secondary">Talk to us</Link>
+            </div>
+          </div>
+
+          <div className="reveal">
+            <div className="glass-card" style={{ padding:'28px clamp(22px,3vw,32px)' }}>
+              <MicrosoftPartnerBadge width={280} />
+              <div style={{ marginTop:20, paddingTop:20, borderTop:'1px solid var(--border-light)', display:'grid', gap:10 }}>
+                {[
+                  'Microsoft-aware delivery for service businesses',
+                  'Cleaner planning around Microsoft 365 workflows',
+                  'Founder-led build process with fixed pricing',
+                ].map((item) => (
+                  <div key={item} style={{ display:'flex', gap:10, alignItems:'flex-start' }}>
+                    <span aria-hidden style={{ width:8, height:8, borderRadius:'50%', background:'var(--accent)', marginTop:7, flexShrink:0 }} />
+                    <p style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
