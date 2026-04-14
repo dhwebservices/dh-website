@@ -25,6 +25,7 @@ import './index.css'
 import MailingListPopup from './components/MailingListPopup'
 import CustomCursor from './components/CustomCursor'
 import SiteBanner from './components/SiteBanner'
+import InitialLoader from './components/InitialLoader'
 import { useCMS } from './hooks/useCMS'
 import { SITE_URL } from './lib/siteConfig'
 
@@ -189,6 +190,7 @@ function Layout() {
   const { data: bannerSettings } = useCMS('banner')
   return (
     <>
+      <InitialLoader />
       <ScrollToTop />
       <PageMeta />
       <Analytics />
