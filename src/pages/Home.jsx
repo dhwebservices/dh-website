@@ -203,18 +203,8 @@ const SERVICES = [
 const TESTIMONIALS = [
   {
     quote: "DH Website Services delivered our new site in under 3 weeks. The quality is exceptional — it genuinely looks better than agencies we were quoted 10x more from.",
-    name: "Lucy Patterson",
+    name: "Lucy Deane",
     business: "Glow With Lucy",
-  },
-  {
-    quote: "David was straight-talking, fast, and the end result was exactly what we needed. Fixed price meant no nasty surprises. We have already seen more enquiries coming through.",
-    name: "James R.",
-    business: "Local trades business, Cardiff",
-  },
-  {
-    quote: "We needed a professional online presence quickly. DH built it, launched it, and it has been ranking on Google ever since. Exactly what a small business needs.",
-    name: "Sarah M.",
-    business: "Service business, South Wales",
   },
 ]
 
