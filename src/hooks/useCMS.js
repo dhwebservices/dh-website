@@ -11,7 +11,21 @@ const DEFAULTS = {
     pill2: '✓ Fully Functional',
     pill3: '🚀 Ready to Deploy',
   },
-  banner: { text: 'First month free on Starter plans | Students get free pay monthly starter sites', enabled: true },
+  banner: {
+    enabled: false,
+    bars: [
+      {
+        id: 1,
+        text: 'First month free on Starter plans',
+        link: '',
+        link_text: '',
+        bg_color: '#1a1a2e',
+        text_color: '#ffffff',
+        pages: ['home', 'services', 'pricing', 'contact', 'careers'],
+        size: 'normal',
+      },
+    ],
+  },
   services: [
     { icon: '💻', title: 'Custom Web Development', desc: 'Tailored solutions built from the ground up for your unique business needs. Production-ready code, not templates.', color: 'var(--cyan)' },
     { icon: '🎨', title: 'User-Centric Design', desc: 'Beautiful interfaces that engage visitors and drive conversions. Every pixel intentional, every interaction purposeful.', color: 'var(--purple2)' },

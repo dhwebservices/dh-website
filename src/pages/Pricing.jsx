@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
+import { useCMS } from '../hooks/useCMS'
 
 const BUILDS = [
   { name:'Starter', price:449, badge:'', delivery:'2–3 weeks', revisions:'1 round', desc:'5 pages, mobile responsive, basic SEO, contact form, SSL.', features:['5-page professional website','Mobile responsive design','Basic SEO setup','Contact form','Google Maps embed','SSL certificate'] },
@@ -29,8 +30,13 @@ const FAQS = [
 
 export default function Pricing() {
   useReveal()
+  const { data: pricingCms } = useCMS('pricing')
+  const { data: faqCms } = useCMS('faq')
   const [tab, setTab] = useState('build')
   const [openFaq, setOpenFaq] = useState(null)
+  const buildPackages = Array.isArray(pricingCms?.builds) && pricingCms.builds.length > 0 ? pricingCms.builds : BUILDS
+  const hostingPlans = Array.isArray(pricingCms?.hosting) && pricingCms.hosting.length > 0 ? pricingCms.hosting : HOSTING
+  const faqs = Array.isArray(faqCms) && faqCms.length > 0 ? faqCms : FAQS
 
   return (
     <main style={{ paddingTop:'var(--nav-h)' }}>
@@ -61,7 +67,7 @@ export default function Pricing() {
         <section className="section">
           <div className="container">
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:16 }}>
-              {BUILDS.map((p,i)=>(
+              {buildPackages.map((p,i)=>(
                 <div key={p.name} className={`reveal pricing-card ${p.badge==='Most Popular' ? 'glass-card-dark' : 'glass-card'}`} style={{ padding:'28px 24px', borderRadius:20, position:'relative', transitionDelay:`${i*0.07}s` }}>
                   {p.badge && <div style={{ position:'absolute', top:16, right:16, padding:'3px 10px', borderRadius:100, background: p.badge==='Most Popular'?'var(--accent)':'var(--accent-soft)', fontSize:11, fontWeight:600, color:p.badge==='Most Popular'?'white':'var(--accent)', letterSpacing:'0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:p.badge==='Most Popular'?'rgba(255,255,255,0.4)':'var(--light)', marginBottom:12 }}>{p.name}</p>
@@ -94,7 +100,7 @@ export default function Pricing() {
               <p className="body-md">Monthly hosting plans to keep your site fast, secure and up to date.</p>
             </div>
             <div className="pricing-grid-three" style={{ gap:16 }}>
-              {HOSTING.map((p,i)=>(
+              {hostingPlans.map((p,i)=>(
                 <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding:'28px 24px', borderRadius:20, position:'relative', transitionDelay:`${i*0.07}s` }}>
                   {p.badge && <div style={{ position:'absolute', top:16, right:16, padding:'3px 10px', borderRadius:100, background:'var(--accent)', fontSize:11, fontWeight:600, color:'white', letterSpacing:'0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:p.badge?'rgba(255,255,255,0.4)':'var(--light)', marginBottom:12 }}>{p.name}</p>
@@ -153,7 +159,7 @@ export default function Pricing() {
             <p className="eyebrow" style={{ marginBottom:14 }}>FAQ</p>
             <h2 className="headline-md">Common questions</h2>
           </div>
-          {FAQS.map((f,i)=>(
+          {faqs.map((f,i)=>(
             <div key={i} className="reveal" style={{ borderTop:'1px solid var(--border-light)' }}>
               <button onClick={()=>setOpenFaq(openFaq===i?null:i)} style={{ width:'100%', padding:'20px 0', background:'none', border:'none', display:'flex', justifyContent:'space-between', alignItems:'center', gap:16, cursor:'pointer', textAlign:'left' }}>
                 <span style={{ fontSize:16, fontWeight:500, letterSpacing:'-0.01em', color:'var(--dark)' }}>{f.q}</span>

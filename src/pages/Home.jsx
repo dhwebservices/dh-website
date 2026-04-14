@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
+import { useCMS } from '../hooks/useCMS'
 import { trackEvent } from '../lib/analytics'
 import MicrosoftPartnerBadge from '../components/MicrosoftPartnerBadge'
 
@@ -234,6 +235,11 @@ const CREDIBILITY = [
 
 export default function Home() {
   useReveal()
+  const { data: servicesCms } = useCMS('services')
+  const { data: pricingCms } = useCMS('pricing')
+  const serviceCards = Array.isArray(servicesCms) && servicesCms.length > 0 ? servicesCms : SERVICES
+  const buildCards = Array.isArray(pricingCms?.builds) && pricingCms.builds.length > 0 ? pricingCms.builds : []
+
   return (
     <main>
 
@@ -340,7 +346,7 @@ export default function Home() {
               </div>
             </div>
             <div className="feature-grid-two" style={{ gap:1, background:'var(--border-light)', border:'1px solid var(--border-light)', borderRadius:20, overflow:'hidden' }}>
-              {SERVICES.map((s,i) => (
+              {serviceCards.map((s,i) => (
                 <div key={s.title} className="reveal glass-card" style={{ borderRadius:0, border:'none', padding:'28px 24px', transitionDelay:`${i*0.04}s` }}>
                   <div style={{ fontSize:22, marginBottom:12, filter:'grayscale(1) opacity(0.4)' }}>{s.icon}</div>
                   <div style={{ fontSize:15, fontWeight:600, marginBottom:8, letterSpacing:'-0.01em' }}>{s.title}</div>
@@ -406,13 +412,21 @@ export default function Home() {
 
           {/* Pricing cards — hover to reveal price */}
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:16 }}>
-            {[
-              { name:'Starter', price:'£449', tagline:'For small businesses ready to launch.', who:'Solo traders, startups, local services', features:'5 pages · Mobile ready · Basic SEO · Contact form', popular:false },
-              { name:'Growth', price:'£999', tagline:'For businesses that need more reach.', who:'SMEs, growing brands, service companies', features:'10 pages · Blog · Full SEO · Analytics', popular:true },
-              { name:'Pro', price:'£1,499', tagline:'For established businesses scaling up.', who:'E-commerce, agencies, professional firms', features:'15 pages · E-commerce · Custom integrations', popular:false },
-              { name:'Enterprise', price:'£2,499', tagline:'The complete business operating system.', who:'Companies needing HR + web in one', features:'Full site · Integrated HR · Staff portal', popular:false },
-            ].map((p,i) => (
-              <PriceRevealCard key={p.name} {...p} delay={i*0.07} />
+            {(buildCards.length > 0 ? buildCards.slice(0, 4).map((pkg, i) => ({
+              name: pkg.name,
+              price: `£${Number(pkg.price || 0).toLocaleString()}`,
+              tagline: pkg.badge || 'Fixed-price website package.',
+              who: pkg.delivery ? `Typical delivery: ${pkg.delivery}` : 'Clear fixed scope and delivery.',
+              features: Array.isArray(pkg.features) ? pkg.features.slice(0, 4).join(' · ') : '',
+              popular: /popular/i.test(pkg.badge || ''),
+              key: `${pkg.name}-${i}`,
+            })) : [
+              { name:'Starter', price:'£449', tagline:'For small businesses ready to launch.', who:'Solo traders, startups, local services', features:'5 pages · Mobile ready · Basic SEO · Contact form', popular:false, key:'Starter' },
+              { name:'Growth', price:'£999', tagline:'For businesses that need more reach.', who:'SMEs, growing brands, service companies', features:'10 pages · Blog · Full SEO · Analytics', popular:true, key:'Growth' },
+              { name:'Pro', price:'£1,499', tagline:'For established businesses scaling up.', who:'E-commerce, agencies, professional firms', features:'15 pages · E-commerce · Custom integrations', popular:false, key:'Pro' },
+              { name:'Enterprise', price:'£2,499', tagline:'The complete business operating system.', who:'Companies needing HR + web in one', features:'Full site · Integrated HR · Staff portal', popular:false, key:'Enterprise' },
+            ]).map((p,i) => (
+              <PriceRevealCard key={p.key || p.name} {...p} delay={i*0.07} />
             ))}
           </div>
 

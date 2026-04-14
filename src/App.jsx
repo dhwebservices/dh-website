@@ -23,6 +23,7 @@ import NotFound from './pages/NotFound'
 import './index.css'
 import MailingListPopup from './components/MailingListPopup'
 import CustomCursor from './components/CustomCursor'
+import SiteBanner from './components/SiteBanner'
 import { useCMS } from './hooks/useCMS'
 import { SITE_URL } from './lib/siteConfig'
 
@@ -184,6 +185,7 @@ function PageMeta() {
 
 function Layout() {
   const { data: mlSettings } = useCMS('mailing_list')
+  const { data: bannerSettings } = useCMS('banner')
   return (
     <>
       <ScrollToTop />
@@ -191,6 +193,7 @@ function Layout() {
       <Analytics />
       <CustomCursor />
       <Nav />
+      <SiteBanner settings={bannerSettings} />
       <MailingListPopup settings={mlSettings} />
       <MarketingEnhancements />
       <Routes>
