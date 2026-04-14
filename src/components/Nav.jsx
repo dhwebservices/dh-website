@@ -1,6 +1,7 @@
 import { BookingWidget } from './BookingWidget'
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useWebsitePages } from '../hooks/useWebsitePages'
 
 const LINKS = [
   { to: '/services',   label: 'Services' },
@@ -18,6 +19,18 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
   const [bookModal, setBookModal] = useState(false)
   const loc = useLocation()
+  const { pages } = useWebsitePages()
+  const customLinks = pages
+    .filter((page) => page.show_in_nav)
+    .map((page) => ({
+      to: `/${page.slug}`,
+      label: page.nav_label || page.title,
+    }))
+  const navLinks = [
+    ...LINKS.slice(0, 4),
+    ...customLinks,
+    ...LINKS.slice(4),
+  ]
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 16)
@@ -57,7 +70,7 @@ export default function Nav() {
 
         {/* Links */}
         <nav className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          {LINKS.map(l => (
+          {navLinks.map(l => (
             <Link key={l.to} to={l.to} style={{
               padding: '6px 14px', borderRadius: 100,
               fontSize: 14, fontWeight: l.accent ? 600 : 400,
@@ -114,7 +127,7 @@ export default function Nav() {
         opacity: open ? 1 : 0, pointerEvents: open ? 'all' : 'none',
         transition: 'opacity 0.25s ease',
       }}>
-        {LINKS.map(l => (
+        {navLinks.map(l => (
           <Link key={l.to} to={l.to} style={{
             fontSize: 32, fontWeight: 600, color: loc.pathname===l.to ? 'var(--accent)' : 'var(--dark)',
             padding: '12px 0', letterSpacing: '-0.02em',

@@ -17,6 +17,7 @@ import Appointment from './pages/Appointment'
 import Calculator from './pages/Calculator'
 import About from './pages/About'
 import Partners from './pages/Partners'
+import ManagedPage from './pages/ManagedPage'
 import WhatsAppButton from './components/WhatsAppButton'
 import ExitIntent from './components/ExitIntent'
 import NotFound from './pages/NotFound'
@@ -219,6 +220,7 @@ function Layout() {
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/about" element={<About />} />
         <Route path="/partners" element={<Partners />} />
+        <Route path="/:slug" element={<ManagedPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
