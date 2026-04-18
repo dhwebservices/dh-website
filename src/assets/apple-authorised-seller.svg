@@ -1,0 +1,6 @@
+<svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="160" rx="24" fill="#111111"/>
+  <rect x="28" y="28" width="584" height="104" rx="18" fill="#171717" stroke="#2A2A2A"/>
+  <text x="60" y="72" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="600" letter-spacing="0.18em">APPLE</text>
+  <text x="60" y="112" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="34" font-weight="700" letter-spacing="-0.03em">Authorised Seller</text>
+</svg>

@@ -34,6 +34,7 @@ import MailingListPopup from './components/MailingListPopup'
 import CustomCursor from './components/CustomCursor'
 import SiteBanner from './components/SiteBanner'
 import InitialLoader from './components/InitialLoader'
+import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
 import { SITE_URL } from './lib/siteConfig'
 
@@ -216,6 +217,20 @@ function PageMeta() {
 function Layout() {
   const { data: mlSettings } = useCMS('mailing_list')
   const { data: bannerSettings } = useCMS('banner')
+  const { data: maintenanceSettings } = useCMS('maintenance')
+
+  if (maintenanceSettings?.enabled) {
+    return (
+      <>
+        <InitialLoader />
+        <ScrollToTop />
+        <PageMeta />
+        <Analytics />
+        <MaintenanceMode settings={maintenanceSettings} />
+      </>
+    )
+  }
+
   return (
     <>
       <InitialLoader />

@@ -26,6 +26,14 @@ const DEFAULTS = {
       },
     ],
   },
+  maintenance: {
+    enabled: false,
+    headline: 'We are currently carrying out scheduled maintenance.',
+    message: 'Leave your name and phone number and a member of our team will call you back as soon as possible.',
+    form_enabled: true,
+    button_text: 'Request a callback',
+    email_to: 'mgmt@dhwebsiteservices.co.uk',
+  },
   services: [
     { icon: '💻', title: 'Custom Web Development', desc: 'Tailored solutions built from the ground up for your unique business needs. Production-ready code, not templates.', color: 'var(--cyan)' },
     { icon: '🎨', title: 'User-Centric Design', desc: 'Beautiful interfaces that engage visitors and drive conversions. Every pixel intentional, every interaction purposeful.', color: 'var(--purple2)' },

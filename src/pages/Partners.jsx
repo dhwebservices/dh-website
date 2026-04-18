@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import MicrosoftPartnerBadge from '../components/MicrosoftPartnerBadge'
 import { useReveal } from '../hooks/useReveal'
+import appleAuthorisedSellerBadge from '../assets/apple-authorised-seller.svg'
 
 const PARTNER_POINTS = [
   [
@@ -192,6 +193,54 @@ export default function Partners() {
                 <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--dark2)' }}>{body}</p>
               </div>
             ))}
+          </div>
+
+          <div
+            className="reveal"
+            style={{
+              marginTop: 28,
+              borderRadius: 28,
+              border: '1px solid var(--border-light)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,245,247,0.96) 100%)',
+              boxShadow: '0 18px 40px rgba(29,29,31,0.05)',
+              padding: 'clamp(22px,3vw,30px)',
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 280px) minmax(0, 1fr)',
+              gap: 24,
+              alignItems: 'center',
+            }}
+          >
+            <img
+              src={appleAuthorisedSellerBadge}
+              alt="Apple Authorised Seller"
+              style={{
+                width: '100%',
+                maxWidth: 320,
+                display: 'block',
+              }}
+            />
+            <div>
+              <p className="eyebrow" style={{ marginBottom: 10 }}>
+                Device supply
+              </p>
+              <h3
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: 'clamp(24px,3.1vw,36px)',
+                  fontWeight: 600,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.08,
+                  marginBottom: 12,
+                }}
+              >
+                We also supply Apple hardware through our authorised seller channel.
+              </h3>
+              <p style={{ fontSize: 15, lineHeight: 1.75, color: 'var(--mid)', maxWidth: 680 }}>
+                Alongside websites and business systems, DH Website Services can support Apple device
+                procurement for teams that need iPads, iPhones, and related hardware as part of a wider
+                project rollout.
+              </p>
+            </div>
           </div>
         </div>
       </section>
