@@ -44,36 +44,36 @@ export default function ShopProduct() {
   }
 
   return (
-    <main style={{ padding: 'calc(var(--nav-h) + 32px) max(24px, 50vw - 680px) 96px' }}>
+    <main style={{ padding: 'calc(var(--nav-h) + 24px) max(20px, 50vw - 640px) 88px' }}>
       <div style={{ marginBottom: 18 }}>
         <Link to="/shop" style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent)' }}>← Back to shop</Link>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(320px, 0.9fr) minmax(320px, 0.85fr)', gap: 24, alignItems: 'start' }}>
-        <div style={{ borderRadius: 24, overflow: 'hidden', background: 'linear-gradient(180deg, #f8f9fb, #edf1f7)', minHeight: 360, padding: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(280px, 0.8fr) minmax(320px, 0.9fr)', gap: 20, alignItems: 'start' }}>
+        <div style={{ borderRadius: 20, overflow: 'hidden', background: 'linear-gradient(180deg, #f8f9fb, #edf1f7)', minHeight: 300, padding: 20 }}>
           {imageUrl ? (
             <img src={imageUrl} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           ) : (
-            <div style={{ minHeight: 312, display: 'grid', placeItems: 'center', color: 'var(--mid)' }}>{product.brand}</div>
+            <div style={{ minHeight: 260, display: 'grid', placeItems: 'center', color: 'var(--mid)' }}>{product.brand}</div>
           )}
         </div>
 
-        <div style={{ display: 'grid', gap: 18 }}>
-          <div style={{ display: 'grid', gap: 10 }}>
+        <div style={{ display: 'grid', gap: 16 }}>
+          <div style={{ display: 'grid', gap: 8 }}>
             <span style={{ display: 'inline-flex', width: 'fit-content', padding: '6px 10px', borderRadius: 999, background: 'var(--accent-soft)', color: 'var(--accent)', fontSize: 12, fontWeight: 600 }}>
               {product.brand}
             </span>
-            <h1 style={{ fontSize: 'clamp(28px, 4vw, 42px)', lineHeight: 0.98, letterSpacing: '-0.05em', fontWeight: 600 }}>{product.name}</h1>
-            <p style={{ fontSize: 15, lineHeight: 1.75, color: 'var(--mid)' }}>
+            <h1 style={{ fontSize: 'clamp(24px, 3vw, 34px)', lineHeight: 1.02, letterSpacing: '-0.05em', fontWeight: 600 }}>{product.name}</h1>
+            <p style={{ fontSize: 14, lineHeight: 1.65, color: 'var(--mid)' }}>
               {product.description || 'Explore current configurations, choose the right specification and move straight to checkout.'}
             </p>
           </div>
 
-          <div style={{ padding: 20, borderRadius: 20, border: '1px solid var(--border-light)', background: '#fff', display: 'grid', gap: 18 }}>
+          <div style={{ padding: 18, borderRadius: 18, border: '1px solid var(--border-light)', background: '#fff', display: 'grid', gap: 16 }}>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12 }}>
               <div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)' }}>Selected price</div>
-                <div style={{ marginTop: 8, fontSize: 28, fontWeight: 600, letterSpacing: '-0.04em' }}>
+                <div style={{ marginTop: 8, fontSize: 24, fontWeight: 600, letterSpacing: '-0.04em' }}>
                   {formatPrice(selectedVariant?.price || 0)}
                 </div>
               </div>
@@ -100,8 +100,8 @@ export default function ShopProduct() {
                         alignItems: 'center',
                         justifyContent: 'space-between',
                         gap: 12,
-                        padding: '12px 14px',
-                        borderRadius: 14,
+                        padding: '10px 12px',
+                        borderRadius: 12,
                         border: selected ? '1px solid rgba(0,113,227,0.4)' : '1px solid var(--border-light)',
                         background: selected ? 'rgba(0,113,227,0.06)' : '#fff',
                         color: variant.is_available === false ? 'var(--light)' : 'var(--dark)',
@@ -110,12 +110,12 @@ export default function ShopProduct() {
                       }}
                     >
                       <div>
-                        <div style={{ fontSize: 14, fontWeight: 600 }}>{buildVariantLabel(variant) || 'Standard configuration'}</div>
+                        <div style={{ fontSize: 13, fontWeight: 600 }}>{buildVariantLabel(variant) || 'Standard configuration'}</div>
                         <div style={{ fontSize: 12, color: 'var(--mid)', marginTop: 4 }}>
                           {variant.is_available === false ? 'Unavailable' : `Supplier lead time: ${variant.lead_time_days || 2} days`}
                         </div>
                       </div>
-                      <div style={{ fontSize: 14, fontWeight: 600 }}>{formatPrice(variant.price)}</div>
+                      <div style={{ fontSize: 13, fontWeight: 600 }}>{formatPrice(variant.price)}</div>
                     </button>
                   )
                 })}
