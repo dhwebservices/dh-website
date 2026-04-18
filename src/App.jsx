@@ -7,6 +7,12 @@ import Home from './pages/Home'
 import Services from './pages/Services'
 import Pricing from './pages/Pricing'
 import Portfolio from './pages/Portfolio'
+import ShopHome from './pages/ShopHome'
+import ShopCategory from './pages/ShopCategory'
+import ShopProduct from './pages/ShopProduct'
+import ShopCart from './pages/ShopCart'
+import ShopCheckout from './pages/ShopCheckout'
+import ShopInfo from './pages/ShopInfo'
 import Contact from './pages/Contact'
 import Careers from './pages/Careers'
 import CareerRole from './pages/CareerRole'
@@ -59,6 +65,18 @@ const PAGE_META = {
   '/portfolio': {
     title: 'Portfolio | DH Website Services',
     description: 'Recent website work from DH Website Services, including Glow With Lucy at glowwithlucy.co.uk.',
+  },
+  '/shop': {
+    title: 'Shop | DH Website Services',
+    description: 'Buy iPhones, iPads, Samsung phones, laptops, and business devices through the DH Website Services shop.',
+  },
+  '/shop/cart': {
+    title: 'Your Cart | DH Website Services Shop',
+    description: 'Review your selected devices and continue to checkout.',
+  },
+  '/shop/checkout': {
+    title: 'Checkout | DH Website Services Shop',
+    description: 'Complete your order and submit it to the DH Website Services procurement team.',
   },
   '/contact': {
     title: 'Book a Call | DH Website Services',
@@ -204,6 +222,15 @@ function Layout() {
         <Route path="/services" element={<Services />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/shop" element={<ShopHome />} />
+        <Route path="/shop/category/:slug" element={<ShopCategory />} />
+        <Route path="/shop/product/:slug" element={<ShopProduct />} />
+        <Route path="/shop/cart" element={<ShopCart />} />
+        <Route path="/shop/checkout" element={<ShopCheckout />} />
+        <Route path="/shop/delivery" element={<ShopInfo type="delivery" />} />
+        <Route path="/shop/returns" element={<ShopInfo type="returns" />} />
+        <Route path="/shop/warranty" element={<ShopInfo type="warranty" />} />
+        <Route path="/shop/cancellations" element={<ShopInfo type="cancellations" />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/:slug" element={<CareerRole />} />
