@@ -64,7 +64,7 @@ export default function ShopProduct() {
             </span>
             <h1 style={{ fontSize: 'clamp(34px, 5vw, 54px)', lineHeight: 0.98, letterSpacing: '-0.05em', fontWeight: 600 }}>{product.name}</h1>
             <p style={{ fontSize: 16, lineHeight: 1.8, color: 'var(--mid)' }}>
-              {product.description || 'Managed device fulfilment through DH Website Services.'}
+              {product.description || 'Explore current configurations, choose the right specification and move straight to checkout.'}
             </p>
           </div>
 
@@ -133,7 +133,7 @@ export default function ShopProduct() {
             </div>
 
             <div style={{ padding: 14, borderRadius: 18, background: 'var(--cream)', color: 'var(--mid)', fontSize: 13, lineHeight: 1.7 }}>
-              Orders are reviewed and procured by DH Website Services after checkout. Delivery timelines depend on supplier confirmation for the selected configuration.
+              Select your preferred configuration, add it to cart and complete checkout when you are ready.
             </div>
           </div>
         </div>
