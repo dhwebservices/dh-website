@@ -20,7 +20,6 @@ export default function ShopHome() {
 
   const introStats = useMemo(() => [
     { label: 'Brands', value: 'Apple · Samsung · Windows' },
-    { label: 'Fulfilment model', value: 'Ordered after payment confirmation' },
     { label: 'Support', value: 'Managed through DH Website Services' },
   ], [])
 
@@ -61,7 +60,7 @@ export default function ShopHome() {
                 Apple, Samsung and work-ready hardware.
               </h1>
               <p style={{ maxWidth: 620, fontSize: 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.72)' }}>
-                Browse devices through DH Website Services, submit the order in one place, and let our team manage procurement and fulfilment.
+                Browse devices through DH Website Services and submit the order in one place.
               </p>
             </div>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -90,9 +89,6 @@ export default function ShopHome() {
                 <div style={{ fontSize: 18, lineHeight: 1.5, fontWeight: 600 }}>{item.value}</div>
               </div>
             ))}
-            <div style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--mid)' }}>
-              Checkout captures the order and customer details. Procurement, dispatch and fulfilment are then managed by DH Website Services.
-            </div>
           </div>
         </div>
       </section>
