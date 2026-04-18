@@ -49,6 +49,12 @@ function normalizeProduct(product) {
   }
 }
 
+export function getShopProductImage(product = {}) {
+  const direct = String(product.image_url || '').trim()
+  if (direct) return direct
+  return null
+}
+
 export function formatPrice(value) {
   return new Intl.NumberFormat('en-GB', {
     style: 'currency',

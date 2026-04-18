@@ -1,50 +1,51 @@
 import { Link } from 'react-router-dom'
-import { formatPrice, getProductStartingPrice } from '../../lib/shop'
+import { formatPrice, getProductStartingPrice, getShopProductImage } from '../../lib/shop'
 
 export default function ShopProductCard({ product }) {
   const startPrice = getProductStartingPrice(product)
   const availableVariants = (product.variants || []).filter((variant) => variant.is_available !== false)
   const leadTime = Math.min(...availableVariants.map((variant) => Number(variant.lead_time_days || 2)).filter(Number.isFinite))
+  const imageUrl = getShopProductImage(product)
 
   return (
     <Link
       to={`/shop/product/${product.slug}`}
       style={{
         display: 'grid',
-        gap: 14,
-        padding: 16,
-        borderRadius: 22,
+        gap: 12,
+        padding: 14,
+        borderRadius: 18,
         background: '#fff',
         border: '1px solid var(--border-light)',
-        boxShadow: '0 10px 32px rgba(15, 23, 42, 0.04)',
+        boxShadow: '0 6px 18px rgba(15, 23, 42, 0.045)',
         transition: 'transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease',
       }}
       onMouseOver={(event) => {
         event.currentTarget.style.transform = 'translateY(-2px)'
-        event.currentTarget.style.boxShadow = '0 16px 40px rgba(15, 23, 42, 0.08)'
+        event.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)'
         event.currentTarget.style.borderColor = 'rgba(0, 113, 227, 0.18)'
       }}
       onMouseOut={(event) => {
         event.currentTarget.style.transform = 'translateY(0)'
-        event.currentTarget.style.boxShadow = '0 10px 32px rgba(15, 23, 42, 0.04)'
+        event.currentTarget.style.boxShadow = '0 6px 18px rgba(15, 23, 42, 0.045)'
         event.currentTarget.style.borderColor = 'var(--border-light)'
       }}
     >
       <div
         style={{
           aspectRatio: '1 / 1',
-          borderRadius: 18,
-          background: product.image_url
+          borderRadius: 16,
+          background: imageUrl
             ? 'linear-gradient(180deg, #f7f8fb, #eef2f6)'
             : 'linear-gradient(180deg, #f4f6fb, #e9edf5)',
           display: 'grid',
           placeItems: 'center',
           overflow: 'hidden',
-          padding: 18,
+          padding: 14,
         }}
       >
-        {product.image_url ? (
-          <img src={product.image_url} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+        {imageUrl ? (
+          <img src={imageUrl} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         ) : (
           <div style={{ fontSize: 13, color: 'var(--mid)' }}>{product.brand}</div>
         )}
@@ -73,8 +74,8 @@ export default function ShopProductCard({ product }) {
         </div>
 
         <div style={{ display: 'grid', gap: 5 }}>
-          <div style={{ fontSize: 24, fontWeight: 600, letterSpacing: '-0.04em', color: 'var(--dark)' }}>{product.name}</div>
-          <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--mid)', minHeight: 38 }}>
+          <div style={{ fontSize: 19, fontWeight: 600, letterSpacing: '-0.04em', color: 'var(--dark)' }}>{product.name}</div>
+          <div style={{ fontSize: 12, lineHeight: 1.5, color: 'var(--mid)', minHeight: 34 }}>
             {product.description || `Configured ${product.brand} hardware for business teams and personal upgrades.`}
           </div>
         </div>
@@ -84,14 +85,14 @@ export default function ShopProductCard({ product }) {
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--light)' }}>
               From
             </div>
-            <div style={{ fontSize: 28, fontWeight: 600, letterSpacing: '-0.04em', color: 'var(--dark)' }}>
+            <div style={{ fontSize: 23, fontWeight: 600, letterSpacing: '-0.04em', color: 'var(--dark)' }}>
               {formatPrice(startPrice)}
             </div>
-            <div style={{ fontSize: 12, color: 'var(--mid)' }}>
+            <div style={{ fontSize: 11, color: 'var(--mid)' }}>
               {Number.isFinite(leadTime) ? `${leadTime} day lead estimate` : 'Configured to order'}
             </div>
           </div>
-          <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--accent)' }}>View</span>
+          <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--accent)' }}>View</span>
         </div>
       </div>
     </Link>

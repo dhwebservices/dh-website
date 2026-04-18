@@ -21,7 +21,7 @@ export default function ShopCategory() {
   }, [slug])
 
   return (
-    <main style={{ padding: 'calc(var(--nav-h) + 48px) max(24px, 50vw - 580px) 96px' }}>
+    <main style={{ padding: 'calc(var(--nav-h) + 40px) max(24px, 50vw - 640px) 96px' }}>
       <div style={{ marginBottom: 18 }}>
         <Link to="/shop" style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent)' }}>← Back to shop</Link>
       </div>
@@ -30,10 +30,10 @@ export default function ShopCategory() {
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)' }}>
           Category
         </div>
-        <h1 style={{ marginTop: 10, fontSize: 'clamp(36px, 5vw, 60px)', letterSpacing: '-0.05em', fontWeight: 600 }}>
+        <h1 style={{ marginTop: 10, fontSize: 'clamp(28px, 4vw, 46px)', letterSpacing: '-0.05em', fontWeight: 600 }}>
           {category?.name || 'Shop'}
         </h1>
-        <p style={{ marginTop: 12, maxWidth: 760, fontSize: 16, lineHeight: 1.8, color: 'var(--mid)' }}>
+        <p style={{ marginTop: 12, maxWidth: 760, fontSize: 15, lineHeight: 1.7, color: 'var(--mid)' }}>
           {category?.description || 'Browse the current catalogue in this category.'}
         </p>
       </div>
@@ -45,7 +45,7 @@ export default function ShopCategory() {
           No products are live in this category yet.
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
           {products.map((product) => (
             <ShopProductCard key={product.id} product={product} />
           ))}
