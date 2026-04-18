@@ -179,6 +179,20 @@ export function clearCart() {
   writeCart([])
 }
 
+export async function startShopCheckout(payload) {
+  const response = await fetch('/api/shop/create-checkout-session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+
+  const result = await response.json().catch(() => ({}))
+  if (!response.ok) {
+    throw new Error(result?.error || 'Could not start checkout')
+  }
+  return result
+}
+
 function createOrderNumber() {
   const now = new Date()
   const y = now.getFullYear().toString().slice(-2)

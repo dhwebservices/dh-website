@@ -12,6 +12,8 @@ import ShopCategory from './pages/ShopCategory'
 import ShopProduct from './pages/ShopProduct'
 import ShopCart from './pages/ShopCart'
 import ShopCheckout from './pages/ShopCheckout'
+import ShopCheckoutSuccess from './pages/ShopCheckoutSuccess'
+import ShopCheckoutCancel from './pages/ShopCheckoutCancel'
 import ShopInfo from './pages/ShopInfo'
 import Contact from './pages/Contact'
 import Careers from './pages/Careers'
@@ -76,7 +78,15 @@ const PAGE_META = {
   },
   '/shop/checkout': {
     title: 'Checkout | DH Website Services Shop',
-    description: 'Complete your order and submit it to the DH Website Services procurement team.',
+    description: 'Complete payment securely with Stripe for your selected devices.',
+  },
+  '/shop/checkout/success': {
+    title: 'Order confirmed | DH Website Services Shop',
+    description: 'Your payment has been confirmed and your order has been received.',
+  },
+  '/shop/checkout/cancel': {
+    title: 'Checkout cancelled | DH Website Services Shop',
+    description: 'Your checkout was cancelled before payment completed.',
   },
   '/contact': {
     title: 'Book a Call | DH Website Services',
@@ -227,6 +237,8 @@ function Layout() {
         <Route path="/shop/product/:slug" element={<ShopProduct />} />
         <Route path="/shop/cart" element={<ShopCart />} />
         <Route path="/shop/checkout" element={<ShopCheckout />} />
+        <Route path="/shop/checkout/success" element={<ShopCheckoutSuccess />} />
+        <Route path="/shop/checkout/cancel" element={<ShopCheckoutCancel />} />
         <Route path="/shop/delivery" element={<ShopInfo type="delivery" />} />
         <Route path="/shop/returns" element={<ShopInfo type="returns" />} />
         <Route path="/shop/warranty" element={<ShopInfo type="warranty" />} />

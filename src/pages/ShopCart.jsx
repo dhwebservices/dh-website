@@ -70,7 +70,7 @@ export default function ShopCart() {
               <div style={{ marginTop: 8, fontSize: 28, fontWeight: 600, letterSpacing: '-0.04em' }}>{formatPrice(subtotal)}</div>
             </div>
             <div style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--mid)' }}>
-              Prices are shown before delivery. Procurement and fulfilment are managed after order confirmation.
+              Prices are shown before delivery. Payment is completed securely in Stripe at the next step.
             </div>
             <button className="btn-primary" style={{ justifyContent: 'center', padding: '14px 18px', border: 0 }} onClick={() => navigate('/shop/checkout')}>
               Continue to checkout

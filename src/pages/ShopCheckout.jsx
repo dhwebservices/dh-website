@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { clearCart, createShopOrder, formatPrice, getCartSubtotal, readCart } from '../lib/shop'
+import { formatPrice, getCartSubtotal, readCart, startShopCheckout } from '../lib/shop'
 
 const EMPTY_FORM = {
   firstName: '',
@@ -20,8 +20,6 @@ export default function ShopCheckout() {
   const [form, setForm] = useState(EMPTY_FORM)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
-  const [success, setSuccess] = useState(null)
-
   const subtotal = useMemo(() => getCartSubtotal(items), [items])
 
   const updateField = (key, value) => setForm((current) => ({ ...current, [key]: value }))
@@ -43,7 +41,7 @@ export default function ShopCheckout() {
         postcode: form.postcode,
         country: 'United Kingdom',
       }
-      const order = await createShopOrder({
+      const result = await startShopCheckout({
         customer: {
           firstName: form.firstName,
           lastName: form.lastName,
@@ -55,9 +53,8 @@ export default function ShopCheckout() {
         notes: form.notes,
         items,
       })
-      clearCart()
-      setItems([])
-      setSuccess(order)
+      if (!result?.url) throw new Error('Checkout session did not return a payment URL')
+      window.location.href = result.url
     } catch (err) {
       setError(err.message || 'Checkout failed.')
     } finally {
@@ -76,19 +73,7 @@ export default function ShopCheckout() {
         <h1 style={{ marginTop: 8, fontSize: 'clamp(34px, 5vw, 54px)', lineHeight: 0.98, letterSpacing: '-0.05em', fontWeight: 600 }}>Submit your order</h1>
       </div>
 
-      {success ? (
-        <div style={{ maxWidth: 760, padding: 32, borderRadius: 28, border: '1px solid rgba(0,113,227,0.18)', background: 'rgba(0,113,227,0.04)' }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--accent)' }}>Order received</div>
-          <div style={{ marginTop: 10, fontSize: 34, fontWeight: 600, letterSpacing: '-0.04em' }}>{success.order_number}</div>
-          <p style={{ marginTop: 12, fontSize: 16, lineHeight: 1.8, color: 'var(--mid)' }}>
-            Your order has been captured and queued for procurement review. DH Website Services will progress it through confirmation, supplier ordering and dispatch.
-          </p>
-          <div style={{ marginTop: 22 }}>
-            <Link to="/shop" className="btn-primary">Back to shop</Link>
-          </div>
-        </div>
-      ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 360px', gap: 24, alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 360px', gap: 24, alignItems: 'start' }}>
           <form onSubmit={handleSubmit} style={{ display: 'grid', gap: 18 }}>
             <div style={{ padding: 24, borderRadius: 24, border: '1px solid var(--border-light)', background: '#fff', display: 'grid', gap: 16 }}>
               <div style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.03em' }}>Customer details</div>
@@ -121,7 +106,7 @@ export default function ShopCheckout() {
             ) : null}
 
             <button type="submit" className="btn-primary" style={{ justifyContent: 'center', padding: '14px 18px', border: 0 }} disabled={submitting}>
-              {submitting ? 'Submitting order…' : 'Submit order'}
+              {submitting ? 'Redirecting to payment…' : 'Continue to payment'}
             </button>
           </form>
 
@@ -142,11 +127,10 @@ export default function ShopCheckout() {
               ))}
             </div>
             <div style={{ padding: 14, borderRadius: 18, background: 'var(--cream)', color: 'var(--mid)', fontSize: 13, lineHeight: 1.7 }}>
-              Payment integration is completed separately. This phase captures the order, customer, and fulfilment workflow in the shared commerce backend.
+              You will be redirected to secure Stripe-hosted checkout to complete payment.
             </div>
           </aside>
         </div>
-      )}
     </main>
   )
 }

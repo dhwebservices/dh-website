@@ -79,6 +79,12 @@ create table if not exists public.shop_orders (
   fulfilment_status text not null default 'unfulfilled' check (fulfilment_status in ('unfulfilled', 'part_fulfilled', 'fulfilled', 'returned')),
   payment_provider text,
   payment_reference text,
+  stripe_checkout_session_id text,
+  stripe_payment_intent_id text,
+  payment_confirmed_at timestamptz,
+  confirmation_emailed_at timestamptz,
+  awaiting_dispatch_emailed_at timestamptz,
+  delivered_emailed_at timestamptz,
   customer_notes text,
   internal_notes text,
   created_at timestamptz not null default now(),
@@ -113,6 +119,7 @@ create index if not exists idx_shop_products_status on public.shop_products(stat
 create index if not exists idx_shop_product_variants_product on public.shop_product_variants(product_id, is_available);
 create index if not exists idx_shop_orders_customer on public.shop_orders(customer_id, created_at desc);
 create index if not exists idx_shop_orders_status on public.shop_orders(order_status, payment_status, created_at desc);
+create index if not exists idx_shop_orders_checkout_session on public.shop_orders(stripe_checkout_session_id);
 create index if not exists idx_shop_order_items_order on public.shop_order_items(order_id);
 
 alter table public.shop_categories disable row level security;
