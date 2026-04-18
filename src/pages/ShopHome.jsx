@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 import ShopProductCard from '../components/shop/ShopProductCard'
-import { fetchFeaturedProducts, fetchShopCategories } from '../lib/shop'
+import { fetchAllShopProducts, fetchShopCategories } from '../lib/shop'
 
 export default function ShopHome() {
   const [categories, setCategories] = useState([])
@@ -10,7 +10,7 @@ export default function ShopHome() {
 
   useEffect(() => {
     document.title = 'Shop | DH Website Services'
-    Promise.all([fetchShopCategories(), fetchFeaturedProducts(8)])
+    Promise.all([fetchShopCategories(), fetchAllShopProducts()])
       .then(([nextCategories, nextProducts]) => {
         setCategories(nextCategories || [])
         setProducts(nextProducts || [])
