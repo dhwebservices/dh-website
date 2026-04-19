@@ -4,6 +4,8 @@ export default function MaintenanceMode({ settings }) {
   const [form, setForm] = useState({ name: '', phone: '' })
   const [submitting, setSubmitting] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
+  const callNumber = '02920024218'
+  const formattedCallNumber = '02920 024218'
 
   const canSubmit = form.name.trim() && form.phone.trim() && !submitting
 
@@ -55,6 +57,16 @@ export default function MaintenanceMode({ settings }) {
         padding: '40px 20px 56px',
       }}
     >
+      <style>{`
+        @keyframes maintenancePulse {
+          0%, 100% { transform: scale(1); box-shadow: 0 20px 50px rgba(0,113,227,0.18); }
+          50% { transform: scale(1.015); box-shadow: 0 24px 60px rgba(0,113,227,0.28); }
+        }
+        @keyframes maintenanceNumberReveal {
+          from { opacity: 0; transform: translateY(8px); letter-spacing: 0.18em; }
+          to { opacity: 1; transform: translateY(0); letter-spacing: 0.04em; }
+        }
+      `}</style>
       <div
         style={{
           width: 'min(100%, 1120px)',
@@ -166,7 +178,7 @@ export default function MaintenanceMode({ settings }) {
                 zIndex: 1,
               }}
             >
-              {settings?.message || 'We are carrying out a short maintenance window to improve the public website. Leave your name and number and our team will call you back directly.'}
+              {settings?.message || 'We are carrying out a short maintenance window to improve the public website. If you need us straight away, call the team directly or leave your details for a callback.'}
             </p>
           </div>
 
@@ -234,7 +246,7 @@ export default function MaintenanceMode({ settings }) {
                 marginBottom: 10,
               }}
             >
-              Request a callback
+              Speak to the team
             </div>
             <h2
               style={{
@@ -244,15 +256,51 @@ export default function MaintenanceMode({ settings }) {
                 marginBottom: 12,
               }}
             >
-              We can call you instead.
+              Give us a call.
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--mid)' }}>
-              Leave your details and we will email the management team immediately so you can still speak to someone while the site is offline.
+              If you need us now, tap the number below and we will pick it up manually. If you would rather not wait, leave your details and we will call you back.
             </p>
           </div>
 
+          <a
+            href={`tel:${callNumber}`}
+            style={{
+              display: 'grid',
+              gap: 10,
+              padding: '22px 22px 20px',
+              borderRadius: 24,
+              background: 'linear-gradient(135deg, rgba(0,113,227,0.08), rgba(0,113,227,0.14))',
+              border: '1px solid rgba(0,113,227,0.16)',
+              boxShadow: '0 20px 50px rgba(0,113,227,0.18)',
+              animation: 'maintenancePulse 2.6s ease-in-out infinite',
+            }}
+          >
+            <div style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mid)' }}>
+              Tap to call
+            </div>
+            <div
+              style={{
+                fontSize: 'clamp(28px, 4vw, 42px)',
+                lineHeight: 1,
+                letterSpacing: '-0.04em',
+                color: 'var(--dark)',
+                fontWeight: 700,
+                animation: 'maintenanceNumberReveal 0.55s cubic-bezier(0.16,1,0.3,1) both',
+              }}
+            >
+              {formattedCallNumber}
+            </div>
+            <div style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--dark2)' }}>
+              Direct line to DH Website Services while the site is offline.
+            </div>
+          </a>
+
           {settings?.form_enabled !== false ? (
             <form onSubmit={submitRequest} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--faint)' }}>
+                Or request a callback
+              </div>
               <label style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
                 <span style={{ fontSize: 12, color: 'var(--faint)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Your name</span>
                 <input
@@ -308,12 +356,12 @@ export default function MaintenanceMode({ settings }) {
                 type="submit"
                 disabled={!canSubmit}
                 style={{
-                  height: 54,
+                  height: 52,
                   borderRadius: 999,
                   border: 'none',
-                  background: canSubmit ? 'var(--dark)' : 'rgba(29,29,31,0.18)',
+                  background: canSubmit ? 'var(--accent)' : 'rgba(0,113,227,0.18)',
                   color: '#fff',
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: 600,
                   cursor: canSubmit ? 'pointer' : 'not-allowed',
                   marginTop: 2,
