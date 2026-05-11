@@ -406,7 +406,7 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: var(--nav-h);
   z-index: 450;
-  padding: 6px 16px 0;
+  padding: 2px 16px 0;
   margin-top: 0;
 }
 .booking-modal-shell {
