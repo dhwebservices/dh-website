@@ -1,14 +1,11 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, lazy, Suspense } from 'react'
+import { useEffect, lazy, Suspense, useState } from 'react'
 import Analytics from './components/Analytics'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import WhatsAppButton from './components/WhatsAppButton'
-import ExitIntent from './components/ExitIntent'
 import NotFound from './pages/NotFound'
 import './index.css'
-import MailingListPopup from './components/MailingListPopup'
 import SiteBanner from './components/SiteBanner'
 import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
@@ -37,6 +34,9 @@ const Calculator = lazy(() => import('./pages/Calculator'))
 const About = lazy(() => import('./pages/About'))
 const Partners = lazy(() => import('./pages/Partners'))
 const ManagedPage = lazy(() => import('./pages/ManagedPage'))
+const MailingListPopup = lazy(() => import('./components/MailingListPopup'))
+const WhatsAppButtonLazy = lazy(() => import('./components/WhatsAppButton'))
+const ExitIntentLazy = lazy(() => import('./components/ExitIntent'))
 
 function RouteFallback() {
   return (
@@ -131,6 +131,7 @@ function ScrollToTop() {
 
 function MarketingEnhancements() {
   const { pathname } = useLocation()
+  const [ready, setReady] = useState(false)
   const enabledRoutes = new Set([
     '/',
     '/services',
@@ -141,13 +142,31 @@ function MarketingEnhancements() {
     '/calculator',
   ])
 
+  useEffect(() => {
+    const canIdle = typeof window.requestIdleCallback === 'function'
+    const handle = canIdle
+      ? window.requestIdleCallback(() => setReady(true), { timeout: 1500 })
+      : window.setTimeout(() => setReady(true), 300)
+
+    return () => {
+      if (canIdle && typeof window.cancelIdleCallback === 'function') {
+        window.cancelIdleCallback(handle)
+      } else {
+        window.clearTimeout(handle)
+      }
+    }
+  }, [])
+
+  if (!ready) return null
   if (!enabledRoutes.has(pathname)) return null
 
   return (
-    <>
-      <WhatsAppButton />
-      <ExitIntent />
-    </>
+    <Suspense fallback={null}>
+      <>
+        <WhatsAppButtonLazy />
+        <ExitIntentLazy />
+      </>
+    </Suspense>
   )
 }
 
@@ -230,6 +249,22 @@ function Layout() {
   const { data: mlSettings } = useCMS('mailing_list')
   const { data: bannerSettings } = useCMS('banner')
   const { data: maintenanceSettings } = useCMS('maintenance')
+  const [popupReady, setPopupReady] = useState(false)
+
+  useEffect(() => {
+    const canIdle = typeof window.requestIdleCallback === 'function'
+    const handle = canIdle
+      ? window.requestIdleCallback(() => setPopupReady(true), { timeout: 1800 })
+      : window.setTimeout(() => setPopupReady(true), 500)
+
+    return () => {
+      if (canIdle && typeof window.cancelIdleCallback === 'function') {
+        window.cancelIdleCallback(handle)
+      } else {
+        window.clearTimeout(handle)
+      }
+    }
+  }, [])
 
   if (maintenanceSettings?.enabled) {
     return (
@@ -251,7 +286,11 @@ function Layout() {
       <Analytics />
       <Nav />
       <SiteBanner settings={bannerSettings} />
-      <MailingListPopup settings={mlSettings} />
+      {popupReady && (
+        <Suspense fallback={null}>
+          <MailingListPopup settings={mlSettings} />
+        </Suspense>
+      )}
       <MarketingEnhancements />
       <Suspense fallback={<RouteFallback />}>
         <Routes>

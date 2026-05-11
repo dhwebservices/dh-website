@@ -1,8 +1,9 @@
-import { BookingWidget } from './BookingWidget'
-import { useState, useEffect, useMemo, useRef } from 'react'
+import { lazy, Suspense, useState, useEffect, useMemo, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useWebsitePages } from '../hooks/useWebsitePages'
 import BrandLogo from './BrandLogo'
+
+const BookingWidget = lazy(() => import('./BookingWidget').then((module) => ({ default: module.BookingWidget })))
 
 const LINKS = [
   { to: '/services',   label: 'Services' },
@@ -198,7 +199,9 @@ export default function Nav() {
           </div>
           <button onClick={() => setBookModal(false)} style={{ background:'none', border:'none', color:'var(--mid)', cursor:'pointer', fontSize:24, lineHeight:1, padding:4 }}>×</button>
         </div>
-        <BookingWidget onClose={() => setBookModal(false)} />
+        <Suspense fallback={<div style={{ padding: '24px 0', color: 'var(--mid)', fontSize: 14 }}>Loading booking options…</div>}>
+          <BookingWidget onClose={() => setBookModal(false)} />
+        </Suspense>
       </div>
     </div>
   )}
