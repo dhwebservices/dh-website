@@ -203,7 +203,10 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .brand-logo.is-compact .brand-logo__text {
-  font-size: 13px;
+  font-size: 15px;
+}
+.brand-logo.is-compact .brand-logo__icon {
+  width: 34px;
 }
 .site-nav {
   position: relative;
