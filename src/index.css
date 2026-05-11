@@ -188,9 +188,10 @@ img { max-width: 100%; display: block; }
   color: var(--dark);
 }
 .brand-logo__icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: auto;
   flex-shrink: 0;
+  object-fit: contain;
 }
 .brand-logo__text {
   display: inline-flex;
