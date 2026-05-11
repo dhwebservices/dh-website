@@ -2,6 +2,7 @@ import { BookingWidget } from './BookingWidget'
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useWebsitePages } from '../hooks/useWebsitePages'
+import BrandLogo from './BrandLogo'
 
 const LINKS = [
   { to: '/services',   label: 'Services' },
@@ -93,9 +94,8 @@ export default function Nav() {
     <>
       <header className={`site-header${scrolled || open ? ' is-solid' : ''}`}>
         <div className="site-header__inner">
-        <Link to="/" style={{ flex: 1, minWidth: 0 }}>
-          <img src="/dh-logo.png" alt="DH Website Services"
-            style={{ height: 20, filter: 'brightness(0)', transition: 'filter 0.3s' }} />
+        <Link to="/" aria-label="DH Website Services" style={{ flex: 1, minWidth: 0 }}>
+          <BrandLogo compact />
         </Link>
 
         <div className="nav-links site-nav" ref={desktopMenuRef}>

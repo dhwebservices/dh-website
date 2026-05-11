@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import MicrosoftPartnerBadge from './MicrosoftPartnerBadge'
+import BrandLogo from './BrandLogo'
 
 const LEGAL = [
   { l: 'Privacy', to: '/privacy' },
@@ -32,11 +33,9 @@ export default function Footer() {
       >
         <div className="footer-grid" style={{ gap: 40, marginBottom: 48 }}>
           <div>
-            <img
-              src="/dh-logo.png"
-              alt="DH Website Services"
-              style={{ height: 18, filter: 'brightness(0)', marginBottom: 16 }}
-            />
+            <div style={{ marginBottom: 16 }}>
+              <BrandLogo compact />
+            </div>
             <p
               style={{
                 fontSize: 14,

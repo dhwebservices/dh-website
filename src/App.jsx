@@ -1,31 +1,9 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import Analytics from './components/Analytics'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import Services from './pages/Services'
-import Pricing from './pages/Pricing'
-import Portfolio from './pages/Portfolio'
-import ShopHome from './pages/ShopHome'
-import ShopCategory from './pages/ShopCategory'
-import ShopProduct from './pages/ShopProduct'
-import ShopCart from './pages/ShopCart'
-import ShopCheckout from './pages/ShopCheckout'
-import ShopCheckoutSuccess from './pages/ShopCheckoutSuccess'
-import ShopCheckoutCancel from './pages/ShopCheckoutCancel'
-import ShopInfo from './pages/ShopInfo'
-import Contact from './pages/Contact'
-import Careers from './pages/Careers'
-import CareerRole from './pages/CareerRole'
-import CareerApply from './pages/CareerApply'
-import ApplicationSuccess from './pages/ApplicationSuccess'
-import Legal from './pages/Legal'
-import Appointment from './pages/Appointment'
-import Calculator from './pages/Calculator'
-import About from './pages/About'
-import Partners from './pages/Partners'
-import ManagedPage from './pages/ManagedPage'
 import WhatsAppButton from './components/WhatsAppButton'
 import ExitIntent from './components/ExitIntent'
 import NotFound from './pages/NotFound'
@@ -36,6 +14,41 @@ import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
 import { SITE_URL } from './lib/siteConfig'
+
+const Services = lazy(() => import('./pages/Services'))
+const Pricing = lazy(() => import('./pages/Pricing'))
+const Portfolio = lazy(() => import('./pages/Portfolio'))
+const ShopHome = lazy(() => import('./pages/ShopHome'))
+const ShopCategory = lazy(() => import('./pages/ShopCategory'))
+const ShopProduct = lazy(() => import('./pages/ShopProduct'))
+const ShopCart = lazy(() => import('./pages/ShopCart'))
+const ShopCheckout = lazy(() => import('./pages/ShopCheckout'))
+const ShopCheckoutSuccess = lazy(() => import('./pages/ShopCheckoutSuccess'))
+const ShopCheckoutCancel = lazy(() => import('./pages/ShopCheckoutCancel'))
+const ShopInfo = lazy(() => import('./pages/ShopInfo'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Careers = lazy(() => import('./pages/Careers'))
+const CareerRole = lazy(() => import('./pages/CareerRole'))
+const CareerApply = lazy(() => import('./pages/CareerApply'))
+const ApplicationSuccess = lazy(() => import('./pages/ApplicationSuccess'))
+const Legal = lazy(() => import('./pages/Legal'))
+const Appointment = lazy(() => import('./pages/Appointment'))
+const Calculator = lazy(() => import('./pages/Calculator'))
+const About = lazy(() => import('./pages/About'))
+const Partners = lazy(() => import('./pages/Partners'))
+const ManagedPage = lazy(() => import('./pages/ManagedPage'))
+
+function RouteFallback() {
+  return (
+    <main style={{ paddingTop: 'var(--nav-h)' }}>
+      <section className="section">
+        <div className="container section-narrow">
+          <p className="body-md">Loading…</p>
+        </div>
+      </section>
+    </main>
+  )
+}
 
 const PAGE_META = {
   '/': {
@@ -240,43 +253,45 @@ function Layout() {
       <SiteBanner settings={bannerSettings} />
       <MailingListPopup settings={mlSettings} />
       <MarketingEnhancements />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/shop" element={<ShopHome />} />
-        <Route path="/shop/category/:slug" element={<ShopCategory />} />
-        <Route path="/shop/product/:slug" element={<ShopProduct />} />
-        <Route path="/shop/cart" element={<ShopCart />} />
-        <Route path="/shop/checkout" element={<ShopCheckout />} />
-        <Route path="/shop/checkout/success" element={<ShopCheckoutSuccess />} />
-        <Route path="/shop/checkout/cancel" element={<ShopCheckoutCancel />} />
-        <Route path="/shop/delivery" element={<ShopInfo type="delivery" />} />
-        <Route path="/shop/returns" element={<ShopInfo type="returns" />} />
-        <Route path="/shop/warranty" element={<ShopInfo type="warranty" />} />
-        <Route path="/shop/cancellations" element={<ShopInfo type="cancellations" />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/careers/:slug" element={<CareerRole />} />
-        <Route path="/careers/:slug/apply" element={<CareerApply />} />
-        <Route path="/careers/application-success" element={<ApplicationSuccess />} />
-        <Route path="/privacy" element={<Legal page="privacy" />} />
-        <Route path="/terms" element={<Legal page="terms" />} />
-        <Route path="/services-terms" element={<Legal page="services-terms" />} />
-        <Route path="/refunds" element={<Legal page="refunds" />} />
-        <Route path="/cookies" element={<Legal page="cookies" />} />
-        <Route path="/acceptable-use" element={<Legal page="acceptable-use" />} />
-        <Route path="/accessibility" element={<Legal page="accessibility" />} />
-        <Route path="/security" element={<Legal page="security" />} />
-        <Route path="/complaints" element={<Legal page="complaints" />} />
-        <Route path="/appointment/:token" element={<Appointment />} />
-        <Route path="/calculator" element={<Calculator />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/partners" element={<Partners />} />
-        <Route path="/:slug" element={<ManagedPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<RouteFallback />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/shop" element={<ShopHome />} />
+          <Route path="/shop/category/:slug" element={<ShopCategory />} />
+          <Route path="/shop/product/:slug" element={<ShopProduct />} />
+          <Route path="/shop/cart" element={<ShopCart />} />
+          <Route path="/shop/checkout" element={<ShopCheckout />} />
+          <Route path="/shop/checkout/success" element={<ShopCheckoutSuccess />} />
+          <Route path="/shop/checkout/cancel" element={<ShopCheckoutCancel />} />
+          <Route path="/shop/delivery" element={<ShopInfo type="delivery" />} />
+          <Route path="/shop/returns" element={<ShopInfo type="returns" />} />
+          <Route path="/shop/warranty" element={<ShopInfo type="warranty" />} />
+          <Route path="/shop/cancellations" element={<ShopInfo type="cancellations" />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/careers/:slug" element={<CareerRole />} />
+          <Route path="/careers/:slug/apply" element={<CareerApply />} />
+          <Route path="/careers/application-success" element={<ApplicationSuccess />} />
+          <Route path="/privacy" element={<Legal page="privacy" />} />
+          <Route path="/terms" element={<Legal page="terms" />} />
+          <Route path="/services-terms" element={<Legal page="services-terms" />} />
+          <Route path="/refunds" element={<Legal page="refunds" />} />
+          <Route path="/cookies" element={<Legal page="cookies" />} />
+          <Route path="/acceptable-use" element={<Legal page="acceptable-use" />} />
+          <Route path="/accessibility" element={<Legal page="accessibility" />} />
+          <Route path="/security" element={<Legal page="security" />} />
+          <Route path="/complaints" element={<Legal page="complaints" />} />
+          <Route path="/appointment/:token" element={<Appointment />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/:slug" element={<ManagedPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </>
   )

@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from '../lib/siteConfig'
 
+const CMS_CACHE_KEY = 'dh:website_content:v1'
+let cmsContentCache = null
+let cmsContentPromise = null
+
 const DEFAULTS = {
   hero: {
     headline: 'Elevate Your Digital Presence',
@@ -70,23 +74,64 @@ const DEFAULTS = {
   },
 }
 
+function readCmsCache() {
+  if (cmsContentCache || typeof window === 'undefined') return cmsContentCache
+  try {
+    const raw = window.sessionStorage.getItem(CMS_CACHE_KEY)
+    cmsContentCache = raw ? JSON.parse(raw) : null
+  } catch {
+    cmsContentCache = null
+  }
+  return cmsContentCache
+}
+
+async function fetchCmsContentMap() {
+  if (cmsContentCache) return cmsContentCache
+  if (!cmsContentPromise) {
+    cmsContentPromise = fetch(
+      `${SUPABASE_URL}/rest/v1/website_content?select=section,content`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    )
+      .then((res) => res.json())
+      .then((rows) => {
+        const map = Array.isArray(rows)
+          ? rows.reduce((acc, row) => {
+              if (row?.section) acc[row.section] = row.content
+              return acc
+            }, {})
+          : {}
+        cmsContentCache = map
+        if (typeof window !== 'undefined') {
+          window.sessionStorage.setItem(CMS_CACHE_KEY, JSON.stringify(map))
+        }
+        return map
+      })
+      .catch(() => ({}))
+      .finally(() => {
+        cmsContentPromise = null
+      })
+  }
+  return cmsContentPromise
+}
+
 export function useCMS(section) {
-  const [data, setData] = useState(DEFAULTS[section] || null)
-  const [loading, setLoading] = useState(true)
+  const cached = readCmsCache()
+  const [data, setData] = useState(cached?.[section] ?? DEFAULTS[section] ?? null)
+  const [loading, setLoading] = useState(!cached)
 
   useEffect(() => {
+    let active = true
     const fetch_ = async () => {
       try {
-        const res = await fetch(
-          `${SUPABASE_URL}/rest/v1/website_content?section=eq.${section}&limit=1`,
-          { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
-        )
-        const rows = await res.json()
-        if (rows?.[0]?.content) setData(rows[0].content)
+        const map = await fetchCmsContentMap()
+        if (active && map?.[section]) setData(map[section])
       } catch { /* use defaults */ }
-      setLoading(false)
+      if (active) setLoading(false)
     }
     fetch_()
+    return () => {
+      active = false
+    }
   }, [section])
 
   return { data, loading }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const PAGE_KEY_BY_PATH = {
@@ -22,8 +22,6 @@ function bannerItemStyle(size) {
 
 export default function SiteBanner({ settings }) {
   const { pathname } = useLocation()
-  const ref = useRef(null)
-  const [height, setHeight] = useState(0)
 
   const visibleBars = useMemo(() => {
     if (!settings || settings.enabled === false) return []
@@ -34,42 +32,10 @@ export default function SiteBanner({ settings }) {
     })
   }, [pathname, settings])
 
-  useEffect(() => {
-    const node = ref.current
-    if (!node || visibleBars.length === 0) {
-      setHeight(0)
-      document.body.style.paddingTop = ''
-      return undefined
-    }
-
-    const syncHeight = () => {
-      const nextHeight = node.offsetHeight
-      setHeight(nextHeight)
-      document.body.style.paddingTop = nextHeight > 0 ? `${nextHeight}px` : ''
-    }
-
-    syncHeight()
-
-    const observer = new ResizeObserver(syncHeight)
-    observer.observe(node)
-    window.addEventListener('resize', syncHeight, { passive: true })
-
-    return () => {
-      observer.disconnect()
-      window.removeEventListener('resize', syncHeight)
-      document.body.style.paddingTop = ''
-    }
-  }, [visibleBars])
-
-  useEffect(() => {
-    document.documentElement.style.setProperty('--site-banner-h', `${height}px`)
-    return () => document.documentElement.style.setProperty('--site-banner-h', '0px')
-  }, [height])
-
   if (visibleBars.length === 0) return null
 
   return (
-    <div ref={ref} className="site-banner">
+    <div className="site-banner">
       <div className="site-banner__inner">
       {visibleBars.map((bar, index) => {
         const style = bannerItemStyle(bar.size)

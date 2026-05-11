@@ -33,7 +33,7 @@ function paragraphize(content) {
 
 export default function ManagedPage() {
   const { slug } = useParams()
-  const { pages, loading } = useWebsitePages()
+  const { pages, loading } = useWebsitePages(true)
 
   if (!slug || RESERVED_SLUGS.has(slug)) {
     return <NotFound />
