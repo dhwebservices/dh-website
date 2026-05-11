@@ -129,6 +129,9 @@ export default function Nav() {
         </div>
 
         <div className="site-header__actions">
+          <Link to="/contact" className="btn-primary show-mob site-header__mobile-cta">
+            Start
+          </Link>
           <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer"
             className="site-header__signin hide-mob"
           >Sign in</a>
@@ -189,15 +192,15 @@ export default function Nav() {
 
   {/* Booking Modal */}
   {bookModal && (
-    <div style={{ position:'fixed', inset:0, zIndex:1000, display:'flex', alignItems:'center', justifyContent:'center', padding:24 }}>
-      <div onClick={() => setBookModal(false)} style={{ position:'absolute', inset:0, background:'rgba(0,0,0,0.5)', backdropFilter:'blur(4px)' }}/>
-      <div role="dialog" aria-modal="true" aria-labelledby="booking-modal-heading" style={{ position:'relative', background:'#ffffff', borderRadius:20, padding:'32px', maxWidth:520, width:'100%', maxHeight:'85vh', overflowY:'auto', boxShadow:'0 32px 80px rgba(0,0,0,0.25)', marginTop:40, border:'1px solid rgba(0,0,0,0.08)' }}>
-        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:24 }}>
+    <div className="booking-modal-shell">
+      <div onClick={() => setBookModal(false)} className="booking-modal-backdrop" />
+      <div role="dialog" aria-modal="true" aria-labelledby="booking-modal-heading" className="booking-modal-card">
+        <div className="booking-modal-head">
           <div>
             <h2 id="booking-modal-heading" style={{ fontFamily:'var(--font-sans)', fontSize:22, fontWeight:600, letterSpacing:'-0.02em', marginBottom:4 }}>Book a Call</h2>
             <p style={{ color:'var(--mid)', fontSize:13 }}>Free 15 or 30 minute consultation</p>
           </div>
-          <button onClick={() => setBookModal(false)} style={{ background:'none', border:'none', color:'var(--mid)', cursor:'pointer', fontSize:24, lineHeight:1, padding:4 }}>×</button>
+          <button onClick={() => setBookModal(false)} className="booking-modal-close">×</button>
         </div>
         <Suspense fallback={<div style={{ padding: '24px 0', color: 'var(--mid)', fontSize: 14 }}>Loading booking options…</div>}>
           <BookingWidget onClose={() => setBookModal(false)} />

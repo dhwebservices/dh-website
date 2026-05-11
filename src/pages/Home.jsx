@@ -116,6 +116,9 @@ function HealthChecker() {
 /* ── Price Reveal Card ──────────────────────────────── */
 function PriceRevealCard({ name, price, tagline, who, features, popular, delay }) {
   const [hovered, setHovered] = useState(false)
+  const isTouchLayout = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px), (hover: none)').matches
+  const revealPrice = isTouchLayout || hovered
+
   return (
     <div
       className={`reveal pricing-card ${popular ? 'glass-card-dark' : 'glass-card'}`}
@@ -141,9 +144,9 @@ function PriceRevealCard({ name, price, tagline, who, features, popular, delay }
       {/* Default state — tagline + who it's for */}
       <div style={{
         transition:'opacity 0.3s ease, transform 0.3s ease',
-        opacity: hovered ? 0 : 1,
-        transform: hovered ? 'translateY(-8px)' : 'translateY(0)',
-        position: hovered ? 'absolute' : 'relative',
+        opacity: revealPrice ? 0 : 1,
+        transform: revealPrice ? 'translateY(-8px)' : 'translateY(0)',
+        position: revealPrice ? 'absolute' : 'relative',
         pointerEvents:'none',
       }}>
         <div style={{ fontSize:18, fontWeight:600, letterSpacing:'-0.02em', lineHeight:1.3, color:popular?'white':'var(--dark)', marginBottom:10 }}>
@@ -160,18 +163,20 @@ function PriceRevealCard({ name, price, tagline, who, features, popular, delay }
             </div>
           ))}
         </div>
-        <div style={{ marginTop:20, fontSize:13, color:popular?'rgba(255,255,255,0.35)':'var(--light)', fontStyle:'italic' }}>
-          Hover to see pricing →
-        </div>
+        {!isTouchLayout && (
+          <div style={{ marginTop:20, fontSize:13, color:popular?'rgba(255,255,255,0.35)':'var(--light)', fontStyle:'italic' }}>
+            Hover to see pricing →
+          </div>
+        )}
       </div>
 
       {/* Hovered state — price reveal */}
       <div style={{
         transition:'opacity 0.3s ease, transform 0.3s ease',
-        opacity: hovered ? 1 : 0,
-        transform: hovered ? 'translateY(0)' : 'translateY(12px)',
-        position: hovered ? 'relative' : 'absolute',
-        pointerEvents: hovered ? 'auto' : 'none',
+        opacity: revealPrice ? 1 : 0,
+        transform: revealPrice ? 'translateY(0)' : 'translateY(12px)',
+        position: revealPrice ? 'relative' : 'absolute',
+        pointerEvents: revealPrice ? 'auto' : 'none',
       }}>
         <div style={{ fontSize:48, fontWeight:700, letterSpacing:'-0.04em', lineHeight:1, color:popular?'white':'var(--dark)', marginBottom:6 }}>
           {price}
@@ -234,12 +239,12 @@ export default function Home() {
     <main>
 
       {/* ── HERO ── */}
-      <section style={{ minHeight:'100svh', display:'flex', flexDirection:'column', justifyContent:'center', position:'relative', overflow:'hidden', padding:`calc(var(--nav-h) + clamp(40px,6vw,80px)) clamp(20px,5vw,60px) clamp(60px,8vw,100px)` }}>
+      <section className="home-hero" style={{ minHeight:'100svh', display:'flex', flexDirection:'column', justifyContent:'center', position:'relative', overflow:'hidden', padding:`calc(var(--nav-h) + clamp(40px,6vw,80px)) clamp(20px,5vw,60px) clamp(60px,8vw,100px)` }}>
         <HeroBg />
         <div style={{ position:'relative', zIndex:1, maxWidth:880, margin:'0 auto', width:'100%' }}>
 
           {/* Pill badge */}
-          <div style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'6px 16px', borderRadius:100, background:'var(--cream)', border:'1px solid var(--border-light)', fontSize:13, color:'var(--dark2)', marginBottom:32, animation:'fadeUp 0.6s ease both' }}>
+          <div className="home-hero__badge" style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'6px 16px', borderRadius:100, background:'var(--cream)', border:'1px solid var(--border-light)', fontSize:13, color:'var(--dark2)', marginBottom:32, animation:'fadeUp 0.6s ease both' }}>
             <span style={{ width:6, height:6, borderRadius:'50%', background:'#34C759', display:'inline-block', animation:'pulse 2s ease infinite' }} />
             Founder-led web builds for UK businesses
           </div>
@@ -254,12 +259,12 @@ export default function Home() {
             Production-ready websites for businesses that need speed, clarity, and something stronger than a template. Fixed pricing, direct communication, and a build you actually own.
           </p>
 
-          <div style={{ display:'flex', gap:12, flexWrap:'wrap', animation:'fadeUp 0.7s ease 0.15s both' }}>
+          <div className="home-hero__actions" style={{ display:'flex', gap:12, flexWrap:'wrap', animation:'fadeUp 0.7s ease 0.15s both' }}>
             <Link to="/contact" className="btn-primary" onClick={() => trackEvent('homepage_primary_cta', { location: 'hero' })}>Start a project<span style={{ marginLeft:2, opacity:0.7 }}>→</span></Link>
             <Link to="/pricing" className="btn-secondary">View pricing</Link>
           </div>
 
-          <div style={{ display:'flex', alignItems:'center', gap:24, marginTop:56, flexWrap:'wrap', animation:'fadeUp 0.7s ease 0.2s both' }}>
+          <div className="home-hero__stats" style={{ display:'flex', alignItems:'center', gap:24, marginTop:56, flexWrap:'wrap', animation:'fadeUp 0.7s ease 0.2s both' }}>
             {[['Founder-led','Direct accountability'],['24h','Response target'],['£449','Entry package'],['Built from scratch','No template lock-in']].map(([v,l]) => (
               <div key={l}>
                 <div style={{ fontSize:20, fontWeight:600, letterSpacing:'-0.02em', lineHeight:1 }}>{v}</div>
@@ -270,7 +275,7 @@ export default function Home() {
         </div>
 
         {/* Scroll hint */}
-        <div style={{ position:'absolute', bottom:28, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:6, animation:'fadeIn 1s ease 1.5s both', opacity:0, animationFillMode:'forwards' }}>
+        <div className="home-hero__scroll-hint" style={{ position:'absolute', bottom:28, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:6, animation:'fadeIn 1s ease 1.5s both', opacity:0, animationFillMode:'forwards' }}>
           <div style={{ width:1, height:32, background:'linear-gradient(to bottom, transparent, var(--border))' }} />
           <span style={{ fontFamily:'var(--font-mono)', fontSize:9, letterSpacing:'0.14em', textTransform:'uppercase', color:'var(--light)' }}>Scroll</span>
         </div>
