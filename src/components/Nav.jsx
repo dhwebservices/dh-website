@@ -1,5 +1,5 @@
 import { BookingWidget } from './BookingWidget'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useWebsitePages } from '../hooks/useWebsitePages'
 
@@ -17,7 +17,9 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false)
   const [bookModal, setBookModal] = useState(false)
+  const desktopMenuRef = useRef(null)
   const loc = useLocation()
   const { pages } = useWebsitePages()
   const customLinks = useMemo(() => (
@@ -52,7 +54,10 @@ export default function Nav() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-  useEffect(() => setOpen(false), [loc])
+  useEffect(() => {
+    setOpen(false)
+    setDesktopMenuOpen(false)
+  }, [loc])
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -60,16 +65,29 @@ export default function Nav() {
     }
   }, [open])
   useEffect(() => {
-    if (!bookModal && !open) return undefined
+    if (!bookModal && !open && !desktopMenuOpen) return undefined
 
     const onKeyDown = (event) => {
       if (event.key === 'Escape') setBookModal(false)
       if (event.key === 'Escape') setOpen(false)
+      if (event.key === 'Escape') setDesktopMenuOpen(false)
     }
 
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [bookModal, open])
+  }, [bookModal, open, desktopMenuOpen])
+  useEffect(() => {
+    if (!desktopMenuOpen) return undefined
+
+    const onPointerDown = (event) => {
+      if (!desktopMenuRef.current?.contains(event.target)) {
+        setDesktopMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', onPointerDown)
+    return () => document.removeEventListener('mousedown', onPointerDown)
+  }, [desktopMenuOpen])
 
   return (
     <>
@@ -80,17 +98,34 @@ export default function Nav() {
             style={{ height: 20, filter: 'brightness(0)', transition: 'filter 0.3s' }} />
         </Link>
 
-        <nav className="nav-links site-nav" aria-label="Primary navigation">
-          {navLinks.map(l => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className={`site-nav__link${l.accent ? ' is-accent' : ''}${loc.pathname === l.to ? ' is-active' : ''}`}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="nav-links site-nav" ref={desktopMenuRef}>
+          <button
+            type="button"
+            className={`site-nav__trigger${desktopMenuOpen ? ' is-open' : ''}`}
+            aria-label="Open site navigation"
+            aria-expanded={desktopMenuOpen}
+            aria-controls="desktop-navigation"
+            onClick={() => setDesktopMenuOpen((value) => !value)}
+          >
+            <span>Browse</span>
+            <span className="site-nav__chevron" aria-hidden="true">⌄</span>
+          </button>
+
+          {desktopMenuOpen && (
+            <nav id="desktop-navigation" className="site-nav__menu" aria-label="Primary navigation">
+              {navLinks.map(l => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className={`site-nav__menu-link${l.accent ? ' is-accent' : ''}${loc.pathname === l.to ? ' is-active' : ''}`}
+                >
+                  <span>{l.label}</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </nav>
+          )}
+        </div>
 
         <div className="site-header__actions">
           <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer"
