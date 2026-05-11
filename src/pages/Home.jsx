@@ -49,70 +49,6 @@ function HeroBg() {
   )
 }
 
-/* ── Score ring ─────────────────────────────────────── */
-function Ring({ score }) {
-  const r=24, circ=2*Math.PI*r
-  const c = score>=90?'#34C759':score>=50?'#FF9500':'#FF3B30'
-  return (
-    <svg width="56" height="56" viewBox="0 0 56 56">
-      <circle cx="28" cy="28" r={r} fill="none" stroke="var(--border-light)" strokeWidth="4"/>
-      <circle cx="28" cy="28" r={r} fill="none" stroke={c} strokeWidth="4"
-        strokeDasharray={`${circ*score/100} ${circ}`} strokeLinecap="round"
-        transform="rotate(-90 28 28)" style={{ transition:'stroke-dasharray 1s ease' }}/>
-      <text x="28" y="33" textAnchor="middle" fontSize="12" fontWeight="600" fill={c} fontFamily="var(--font-sans)">{score}</text>
-    </svg>
-  )
-}
-
-/* ── Health checker ─────────────────────────────────── */
-function HealthChecker() {
-  const [url, setUrl] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [res, setRes] = useState(null)
-  const [err, setErr] = useState('')
-  const run = async () => {
-    if (!url.trim()) return
-    setLoading(true); setErr(''); setRes(null)
-    try {
-      let u = url.trim(); if(!u.startsWith('http')) u='https://'+u
-      const d = await (await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(u)}&strategy=mobile&category=performance&category=seo&category=accessibility&category=best-practices`)).json()
-      const c = d.lighthouseResult?.categories; if(!c) throw new Error('Could not analyse this URL.')
-      setRes({ performance:Math.round((c.performance?.score||0)*100), seo:Math.round((c.seo?.score||0)*100), accessibility:Math.round((c.accessibility?.score||0)*100), bestPractices:Math.round((c['best-practices']?.score||0)*100) })
-    } catch(e) { setErr(e.message) }
-    setLoading(false)
-  }
-  return (
-    <div className="reveal" style={{ background:'var(--cream)', borderRadius:24, padding:'clamp(32px,4vw,56px)', border:'1px solid var(--border-light)' }}>
-      <p className="eyebrow" style={{ marginBottom:12 }}>Free tool</p>
-      <h2 style={{ fontFamily:'var(--font-serif)', fontSize:'clamp(28px,3.5vw,42px)', fontWeight:400, letterSpacing:'-0.02em', marginBottom:8, lineHeight:1.1 }}>
-        How healthy is your website?
-      </h2>
-      <p className="body-sm" style={{ marginBottom:24 }}>Instant analysis — performance, SEO, accessibility, best practices.</p>
-      <div style={{ display:'flex', gap:8, marginBottom:16 }}>
-        <input value={url} onChange={e=>setUrl(e.target.value)} onKeyDown={e=>e.key==='Enter'&&run()}
-          placeholder="yourwebsite.com"
-          className="field-inp" style={{ flex:1, borderRadius:100, padding:'12px 20px' }} />
-        <button onClick={run} disabled={loading||!url.trim()} className="btn-primary" style={{ padding:'12px 24px', fontSize:14, opacity:url.trim()?1:0.45 }}>
-          {loading ? <span className="spinner" style={{width:14,height:14,borderWidth:1.5}} /> : 'Analyse'}
-        </button>
-      </div>
-      {err && <p style={{ fontSize:13, color:'#FF3B30', marginBottom:12 }}>{err}</p>}
-      {!res && !loading && !err && <p style={{ fontSize:13, color:'var(--light)', fontStyle:'italic' }}>Enter any URL to get a free health report</p>}
-      {res && (
-        <div className="health-grid" style={{ gap:16, marginTop:4 }}>
-          {[['Performance',res.performance],['SEO',res.seo],['Accessibility',res.accessibility],['Best Practices',res.bestPractices]].map(([l,v])=>(
-            <div key={l} style={{ textAlign:'center', animation:'scaleIn 0.4s ease both' }}>
-              <Ring score={v} />
-              <div style={{ fontFamily:'var(--font-mono)', fontSize:10, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginTop:8 }}>{l}</div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-
 /* ── Price Reveal Card ──────────────────────────────── */
 function PriceRevealCard({ name, price, tagline, who, features, popular, delay }) {
   const [hovered, setHovered] = useState(false)
@@ -483,13 +419,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── HEALTH CHECKER ── */}
-      <section className="section">
-        <div className="container" style={{ maxWidth:760 }}>
-          <HealthChecker />
         </div>
       </section>
 
