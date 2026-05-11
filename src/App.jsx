@@ -11,6 +11,7 @@ import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
 import { SITE_URL } from './lib/siteConfig'
+const OG_IMAGE_URL = `${SITE_URL}/og-image.svg`
 
 const Services = lazy(() => import('./pages/Services'))
 const Pricing = lazy(() => import('./pages/Pricing'))
@@ -54,11 +55,14 @@ const PAGE_META = {
   '/': {
     title: 'DH Website Services | Production-Ready Websites for Growth',
     description: 'Production-ready websites, booking systems, and business platforms built for speed, SEO, and conversion.',
+    robots: 'index,follow',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
       name: 'DH Website Services',
       url: SITE_URL,
+      image: OG_IMAGE_URL,
+      logo: `${SITE_URL}/dh-logo-icon.png`,
       email: 'clients@dhwebsiteservices.co.uk',
       telephone: '02920024218',
       areaServed: 'United Kingdom',
@@ -72,54 +76,72 @@ const PAGE_META = {
   '/services': {
     title: 'Services | DH Website Services',
     description: 'Custom website development, UX design, SEO, e-commerce, hosting, and HR portal integrations.',
+    robots: 'index,follow',
   },
   '/pricing': {
     title: 'Pricing | DH Website Services',
     description: 'Clear website build, hosting, and HR system pricing with fixed packages and no hidden fees.',
+    robots: 'index,follow',
   },
   '/portfolio': {
     title: 'Portfolio | DH Website Services',
     description: 'Recent website work from DH Website Services, including Glow With Lucy at glowwithlucy.co.uk.',
+    robots: 'index,follow',
   },
   '/shop': {
     title: 'Shop | DH Website Services',
     description: 'Buy iPhones, iPads, Samsung phones, laptops, and business devices through the DH Website Services shop.',
+    robots: 'index,follow',
   },
   '/shop/cart': {
     title: 'Your Cart | DH Website Services Shop',
     description: 'Review your selected devices and continue to checkout.',
+    robots: 'noindex,nofollow',
   },
   '/shop/checkout': {
     title: 'Checkout | DH Website Services Shop',
     description: 'Complete payment securely with Stripe for your selected devices.',
+    robots: 'noindex,nofollow',
   },
   '/shop/checkout/success': {
     title: 'Order confirmed | DH Website Services Shop',
     description: 'Your payment has been confirmed and your order has been received.',
+    robots: 'noindex,nofollow',
   },
   '/shop/checkout/cancel': {
     title: 'Checkout cancelled | DH Website Services Shop',
     description: 'Your checkout was cancelled before payment completed.',
+    robots: 'noindex,nofollow',
   },
   '/contact': {
     title: 'Book a Call | DH Website Services',
     description: 'Book a free project consultation and get a clear plan with a fixed price.',
+    robots: 'index,follow',
   },
   '/careers': {
     title: 'Careers | DH Website Services',
     description: 'Live vacancies, role details, and direct online applications at DH Website Services.',
+    robots: 'index,follow',
   },
   '/about': {
     title: 'About | DH Website Services',
     description: 'DH Website Services is a Cardiff-based web agency founded by David Hooper. Fixed prices, founder-led delivery, production-quality websites for UK businesses.',
+    robots: 'index,follow',
   },
   '/partners': {
     title: 'Partners | DH Website Services',
     description: 'DH Website Services is a Microsoft approved partner building websites and practical workflows for businesses already operating in the Microsoft ecosystem.',
+    robots: 'index,follow',
   },
   '/calculator': {
     title: 'Project Calculator | DH Website Services',
     description: 'Build a live website quote based on pages, features, design, and support needs.',
+    robots: 'index,follow',
+  },
+  '/404': {
+    title: 'Page not found | DH Website Services',
+    description: 'The page you requested could not be found.',
+    robots: 'noindex,nofollow',
   },
 }
 
@@ -179,23 +201,34 @@ function PageMeta() {
       meta = {
         title: 'Role details | DH Website Services Careers',
         description: 'Review the role detail, expectations, and package before applying to DH Website Services.',
+        robots: 'index,follow',
       }
     }
     if (!meta && /^\/careers\/[^/]+\/apply$/.test(pathname)) {
       meta = {
         title: 'Apply | DH Website Services Careers',
         description: 'Submit your CV and complete the DH Website Services application form online.',
+        robots: 'noindex,nofollow',
       }
     }
     if (!meta && pathname === '/careers/application-success') {
       meta = {
         title: 'Application submitted | DH Website Services Careers',
         description: 'Your application has been submitted successfully.',
+        robots: 'noindex,nofollow',
+      }
+    }
+    if (!meta && pathname.startsWith('/appointment/')) {
+      meta = {
+        title: 'Manage appointment | DH Website Services',
+        description: 'Reschedule or cancel your appointment with DH Website Services.',
+        robots: 'noindex,nofollow',
       }
     }
     meta = meta || {
       title: 'DH Website Services',
       description: 'Production-ready websites built for growth.',
+      robots: 'index,follow',
     }
 
     document.title = meta.title
@@ -217,10 +250,19 @@ function PageMeta() {
       document.head.appendChild(description)
     }
     description.setAttribute('content', meta.description)
+    ensureMeta('meta[name="robots"]', 'name', 'robots').setAttribute('content', meta.robots || 'index,follow')
 
     ensureMeta('meta[property="og:title"]', 'property', 'og:title').setAttribute('content', meta.title)
     ensureMeta('meta[property="og:description"]', 'property', 'og:description').setAttribute('content', meta.description)
     ensureMeta('meta[property="og:url"]', 'property', 'og:url').setAttribute('content', `${SITE_URL}${pathname}`)
+    ensureMeta('meta[property="og:type"]', 'property', 'og:type').setAttribute('content', pathname === '/' ? 'website' : 'article')
+    ensureMeta('meta[property="og:image"]', 'property', 'og:image').setAttribute('content', OG_IMAGE_URL)
+    ensureMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt').setAttribute('content', `${meta.title} - DH Website Services`)
+    ensureMeta('meta[property="og:site_name"]', 'property', 'og:site_name').setAttribute('content', 'DH Website Services')
+    ensureMeta('meta[name="twitter:card"]', 'name', 'twitter:card').setAttribute('content', 'summary_large_image')
+    ensureMeta('meta[name="twitter:title"]', 'name', 'twitter:title').setAttribute('content', meta.title)
+    ensureMeta('meta[name="twitter:description"]', 'name', 'twitter:description').setAttribute('content', meta.description)
+    ensureMeta('meta[name="twitter:image"]', 'name', 'twitter:image').setAttribute('content', OG_IMAGE_URL)
 
     let canonical = document.querySelector('link[rel="canonical"]')
     if (!canonical) {
