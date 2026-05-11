@@ -1,5 +1,5 @@
 import { BookingWidget } from './BookingWidget'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useWebsitePages } from '../hooks/useWebsitePages'
 
@@ -21,124 +21,136 @@ export default function Nav() {
   const [bookModal, setBookModal] = useState(false)
   const loc = useLocation()
   const { pages } = useWebsitePages()
-  const customLinks = pages
-    .filter((page) => page.show_in_nav)
-    .map((page) => ({
-      to: `/${page.slug}`,
-      label: page.nav_label || page.title,
-    }))
-  const navLinks = [
+  const customLinks = useMemo(() => (
+    pages
+      .filter((page) => page.show_in_nav)
+      .map((page) => ({
+        to: `/${page.slug}`,
+        label: page.nav_label || page.title,
+      }))
+  ), [pages])
+  const navLinks = useMemo(() => ([
     ...LINKS.slice(0, 4),
     ...customLinks,
     ...LINKS.slice(4),
-  ]
+  ]), [customLinks])
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 16)
-    window.addEventListener('scroll', fn, { passive: true })
-    return () => window.removeEventListener('scroll', fn)
+    let ticking = false
+
+    const update = () => {
+      setScrolled(window.scrollY > 12)
+      ticking = false
+    }
+
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      window.requestAnimationFrame(update)
+    }
+
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
   useEffect(() => setOpen(false), [loc])
   useEffect(() => {
-    if (!bookModal) return undefined
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+  useEffect(() => {
+    if (!bookModal && !open) return undefined
 
     const onKeyDown = (event) => {
       if (event.key === 'Escape') setBookModal(false)
+      if (event.key === 'Escape') setOpen(false)
     }
 
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [bookModal])
+  }, [bookModal, open])
 
   return (
     <>
-      <header style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
-        height: 'var(--nav-h)',
-        display: 'flex', alignItems: 'center',
-        padding: '0 max(20px, 50vw - 580px)',
-        background: scrolled ? 'rgba(255,255,255,0.82)' : 'rgba(255,255,255,0)',
-        backdropFilter: scrolled ? 'saturate(1.8) blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'saturate(1.8) blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : '1px solid transparent',
-        transition: 'background 0.35s ease, border-color 0.35s ease',
-      }}>
-        {/* Logo */}
-        <Link to="/" style={{ flex: 1 }}>
+      <header className={`site-header${scrolled || open ? ' is-solid' : ''}`}>
+        <div className="site-header__inner">
+        <Link to="/" style={{ flex: 1, minWidth: 0 }}>
           <img src="/dh-logo.png" alt="DH Website Services"
             style={{ height: 20, filter: 'brightness(0)', transition: 'filter 0.3s' }} />
         </Link>
 
-        {/* Links */}
-        <nav className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <nav className="nav-links site-nav" aria-label="Primary navigation">
           {navLinks.map(l => (
-            <Link key={l.to} to={l.to} style={{
-              padding: '6px 14px', borderRadius: 100,
-              fontSize: 14, fontWeight: l.accent ? 600 : 400,
-              color: l.accent ? 'var(--accent)' : loc.pathname === l.to ? 'var(--dark)' : 'var(--mid)',
-              background: l.accent ? 'rgba(0,113,227,0.08)' : loc.pathname === l.to ? 'rgba(0,0,0,0.05)' : 'transparent',
-              border: l.accent ? '1px solid rgba(0,113,227,0.2)' : 'none',
-              transition: 'all 0.15s',
-            }}
-              onMouseOver={e => { e.currentTarget.style.color = l.accent ? 'var(--accent-hover)' : 'var(--dark)'; if(l.accent) e.currentTarget.style.background='rgba(0,113,227,0.14)' }}
-              onMouseOut={e => { e.currentTarget.style.color = l.accent ? 'var(--accent)' : loc.pathname === l.to ? 'var(--dark)' : 'var(--mid)'; if(l.accent) e.currentTarget.style.background='rgba(0,113,227,0.08)' }}
-            >{l.label}</Link>
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`site-nav__link${l.accent ? ' is-accent' : ''}${loc.pathname === l.to ? ' is-active' : ''}`}
+            >
+              {l.label}
+            </Link>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginLeft: 16 }}>
+        <div className="site-header__actions">
           <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer"
-            className="hide-mob"
-            style={{ fontSize: 14, fontWeight: 400, color: 'var(--mid)', padding: '6px 14px', transition: 'color 0.15s' }}
-            onMouseOver={e => e.currentTarget.style.color = 'var(--dark)'}
-            onMouseOut={e => e.currentTarget.style.color = 'var(--mid)'}
+            className="site-header__signin hide-mob"
           >Sign in</a>
-          <button onClick={() => setBookModal(true)} className="hide-mob" style={{ padding:'8px 18px', fontSize:14, fontWeight:500, borderRadius:100, border:'1px solid var(--dark)', background:'transparent', color:'var(--dark)', cursor:'pointer', whiteSpace:'nowrap', transition:'all 0.2s' }}
-            onMouseOver={e=>{ e.currentTarget.style.background='var(--dark)'; e.currentTarget.style.color='#fff' }}
-            onMouseOut={e=>{ e.currentTarget.style.background='transparent'; e.currentTarget.style.color='var(--dark)' }}>
+          <button onClick={() => setBookModal(true)} className="site-header__ghost hide-mob">
             Book a call
           </button>
-          <Link to="/contact" className="btn-primary hide-mob" style={{ padding: '8px 18px', fontSize: 14, fontWeight: 500 }}>
+          <Link to="/contact" className="btn-primary hide-mob" style={{ padding: '10px 18px', fontSize: 14, fontWeight: 500 }}>
             Get started
           </Link>
 
-          {/* Hamburger */}
-          <button onClick={() => setOpen(o => !o)} className="hamburger"
-            aria-label="Menu"
-            style={{ display: 'none', background: 'none', border: 'none', padding: 6, flexDirection: 'column', gap: 5, cursor: 'pointer' }}>
+          <button
+            onClick={() => setOpen(o => !o)}
+            className={`hamburger${open ? ' is-open' : ''}`}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+          >
             {[0,1,2].map(i => (
-              <span key={i} style={{
-                display: 'block', width: 22, height: 1.5, background: 'var(--dark)',
-                borderRadius: 2, transition: 'all 0.25s',
-                transform: open ? (i===0?'rotate(45deg) translate(4.5px,4.5px)':i===2?'rotate(-45deg) translate(4.5px,-4.5px)':'none'):'none',
-                opacity: open && i===1 ? 0 : 1,
-              }} />
+              <span key={i} />
             ))}
           </button>
         </div>
+        </div>
       </header>
 
-      {/* Mobile menu */}
-      <div className="mob-menu" style={{
-        position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 499,
-        background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(24px)',
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        alignItems: 'center', gap: 4, padding: 32,
-        opacity: open ? 1 : 0, pointerEvents: open ? 'all' : 'none',
-        transition: 'opacity 0.25s ease',
-      }}>
-        {navLinks.map(l => (
-          <Link key={l.to} to={l.to} style={{
-            fontSize: 32, fontWeight: 600, color: loc.pathname===l.to ? 'var(--accent)' : 'var(--dark)',
-            padding: '12px 0', letterSpacing: '-0.02em',
-          }}>{l.label}</Link>
-        ))}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 24, width: '100%', maxWidth: 280 }}>
-          <Link to="/contact" className="btn-primary" style={{ justifyContent: 'center' }}>Get started</Link>
-          <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer" className="btn-secondary" style={{ justifyContent: 'center' }}>Client login</a>
-        </div>
-      </div>
+      {open && (
+        <>
+          <button
+            type="button"
+            className="mob-menu-backdrop"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+          />
+          <div id="mobile-navigation" className="mob-menu" aria-label="Mobile navigation">
+            <div className="mob-menu__eyebrow">Menu</div>
+            <nav className="mob-menu__links">
+              {navLinks.map(l => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className={`mob-menu__link${loc.pathname === l.to ? ' is-active' : ''}`}
+                >
+                  <span>{l.label}</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </nav>
+            <div className="mob-menu__actions">
+              <button onClick={() => { setOpen(false); setBookModal(true) }} className="site-header__ghost">
+                Book a call
+              </button>
+              <Link to="/contact" className="btn-primary" style={{ justifyContent: 'center' }}>Get started</Link>
+              <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer" className="btn-secondary" style={{ justifyContent: 'center' }}>Client login</a>
+            </div>
+          </div>
+        </>
+      )}
 
   {/* Booking Modal */}
   {bookModal && (

@@ -36,10 +36,27 @@ export default function SiteBanner({ settings }) {
 
   useEffect(() => {
     const node = ref.current
-    const nextHeight = visibleBars.length > 0 && node ? node.offsetHeight : 0
-    setHeight(nextHeight)
-    document.body.style.paddingTop = nextHeight > 0 ? `${nextHeight}px` : ''
+    if (!node || visibleBars.length === 0) {
+      setHeight(0)
+      document.body.style.paddingTop = ''
+      return undefined
+    }
+
+    const syncHeight = () => {
+      const nextHeight = node.offsetHeight
+      setHeight(nextHeight)
+      document.body.style.paddingTop = nextHeight > 0 ? `${nextHeight}px` : ''
+    }
+
+    syncHeight()
+
+    const observer = new ResizeObserver(syncHeight)
+    observer.observe(node)
+    window.addEventListener('resize', syncHeight, { passive: true })
+
     return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', syncHeight)
       document.body.style.paddingTop = ''
     }
   }, [visibleBars])
@@ -52,36 +69,15 @@ export default function SiteBanner({ settings }) {
   if (visibleBars.length === 0) return null
 
   return (
-    <div
-      ref={ref}
-      style={{
-        position: 'fixed',
-        top: 'var(--nav-h)',
-        left: 0,
-        right: 0,
-        zIndex: 450,
-        boxShadow: '0 10px 24px rgba(0,0,0,0.06)',
-      }}
-    >
+    <div ref={ref} className="site-banner">
+      <div className="site-banner__inner">
       {visibleBars.map((bar, index) => {
         const style = bannerItemStyle(bar.size)
         const content = (
           <>
-            <span style={{ lineHeight: 1.4 }}>{bar.text}</span>
+            <span className="site-banner__text">{bar.text}</span>
             {bar.link && bar.link_text && (
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  padding: '5px 12px',
-                  borderRadius: 999,
-                  background: 'rgba(255,255,255,0.18)',
-                  border: '1px solid rgba(255,255,255,0.22)',
-                  fontSize: Math.max(style.fontSize - 1, 11),
-                  fontWeight: 600,
-                  whiteSpace: 'nowrap',
-                }}
-              >
+              <span className="site-banner__pill" style={{ fontSize: Math.max(style.fontSize - 1, 11) }}>
                 {bar.link_text} →
               </span>
             )}
@@ -91,20 +87,12 @@ export default function SiteBanner({ settings }) {
         return (
           <div
             key={bar.id || `${bar.text}-${index}`}
+            className={`site-banner__item site-banner__item--${bar.size || 'normal'}`}
             style={{
-              minHeight: style.minHeight,
               background: bar.bg_color || '#1a1a2e',
               color: bar.text_color || '#ffffff',
-              borderBottom: index < visibleBars.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '8px 18px',
-              textAlign: 'center',
               fontSize: style.fontSize,
-              fontWeight: 500,
-              gap: 10,
-              flexWrap: 'wrap',
+              minHeight: style.minHeight,
             }}
           >
             {bar.link ? (
@@ -113,14 +101,14 @@ export default function SiteBanner({ settings }) {
                   href={bar.link}
                   target="_blank"
                   rel="noreferrer"
-                  style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}
+                  className="site-banner__link"
                 >
                   {content}
                 </a>
               ) : (
                 <Link
                   to={bar.link}
-                  style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}
+                  className="site-banner__link"
                 >
                   {content}
                 </Link>
@@ -131,6 +119,7 @@ export default function SiteBanner({ settings }) {
           </div>
         )
       })}
+      </div>
     </div>
   )
 }

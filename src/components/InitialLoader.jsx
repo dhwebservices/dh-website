@@ -9,6 +9,10 @@ export default function InitialLoader() {
   useEffect(() => {
     if (typeof window === 'undefined') return undefined
     if (window.sessionStorage.getItem(STORAGE_KEY) === '1') return undefined
+    if (window.matchMedia?.('(max-width: 768px), (hover: none) and (pointer: coarse)')?.matches) {
+      window.sessionStorage.setItem(STORAGE_KEY, '1')
+      return undefined
+    }
 
     const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
     const minVisible = reducedMotion ? 320 : 900

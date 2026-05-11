@@ -37,7 +37,7 @@ export function useReveal() {
     observeAll()
 
     const mo = new MutationObserver(() => observeAll())
-    mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] })
+    mo.observe(document.body, { childList: true, subtree: true })
 
     return () => {
       mo.disconnect()

@@ -21,6 +21,7 @@ export default function MailingListPopup({ settings }) {
   useEffect(() => {
     if (!enabled) return
     if (sessionStorage.getItem('ml_dismissed')) return
+    if (window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches) return
     const t = setTimeout(() => setVisible(true), delay)
     return () => clearTimeout(t)
   }, [enabled, delay])
