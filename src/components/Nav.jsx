@@ -130,7 +130,7 @@ export default function Nav() {
 
         <div className="site-header__actions">
           <Link to="/contact?mode=brief#brief" className="btn-primary show-mob site-header__mobile-cta">
-            Start
+            Start brief
           </Link>
           <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer"
             className="site-header__signin hide-mob"

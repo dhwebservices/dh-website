@@ -3,6 +3,13 @@ import { useEffect } from 'react'
 export function useReveal() {
   useEffect(() => {
     const selectors = '.reveal, .reveal-scale'
+    const isMobile = window.matchMedia('(max-width: 768px), (hover: none)').matches
+
+    if (isMobile) {
+      document.querySelectorAll(selectors).forEach((el) => el.classList.add('visible'))
+      return undefined
+    }
+
     const seen = new WeakSet()
     const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
@@ -36,11 +43,7 @@ export function useReveal() {
 
     observeAll()
 
-    const mo = new MutationObserver(() => observeAll())
-    mo.observe(document.body, { childList: true, subtree: true })
-
     return () => {
-      mo.disconnect()
       obs.disconnect()
     }
   }, [])
