@@ -31,7 +31,6 @@ import ExitIntent from './components/ExitIntent'
 import NotFound from './pages/NotFound'
 import './index.css'
 import MailingListPopup from './components/MailingListPopup'
-import CustomCursor from './components/CustomCursor'
 import SiteBanner from './components/SiteBanner'
 import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
@@ -237,7 +236,6 @@ function Layout() {
       <ScrollToTop />
       <PageMeta />
       <Analytics />
-      <CustomCursor />
       <Nav />
       <SiteBanner settings={bannerSettings} />
       <MailingListPopup settings={mlSettings} />

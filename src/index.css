@@ -149,19 +149,6 @@ body {
     transition-duration: 0.18s !important;
   }
 }
-@media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor body,
-  html.has-custom-cursor a,
-  html.has-custom-cursor button,
-  html.has-custom-cursor [role="button"],
-  html.has-custom-cursor input,
-  html.has-custom-cursor textarea,
-  html.has-custom-cursor select,
-  html.has-custom-cursor label {
-    cursor: none;
-  }
-}
-
 ::selection { background: rgba(0,113,227,0.12); color: var(--dark); }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
