@@ -16,6 +16,7 @@ export default function Contact() {
   const [error, setError] = useState('')
 
   const params = new URLSearchParams(search)
+  const preferredMode = params.get('mode')
   const quoteSummary = params.get('source') !== 'calculator' ? null : {
     total: params.get('total'),
     monthly: params.get('monthly'),
@@ -66,12 +67,12 @@ export default function Contact() {
   }
 
   return (
-    <main style={{ paddingTop:'var(--nav-h)' }}>
+    <main className={`contact-page${preferredMode === 'brief' ? ' prefers-brief' : ''}`} style={{ paddingTop:'var(--nav-h)' }}>
       <section className="section">
         <div className="container">
 
           {/* Header */}
-          <div className="reveal" style={{ textAlign:'center', maxWidth:640, margin:'0 auto 64px' }}>
+          <div className="reveal contact-hero" style={{ textAlign:'center', maxWidth:640, margin:'0 auto 64px' }}>
             <p className="eyebrow" style={{ marginBottom:16 }}>Contact</p>
             <h1 style={{ fontFamily:'var(--font-sans)', fontSize:'clamp(40px,6vw,72px)', fontWeight:600, letterSpacing:'-0.03em', lineHeight:1.0, marginBottom:20 }}>
               Start with a call<br />or a brief.
@@ -79,6 +80,11 @@ export default function Contact() {
             <p className="body-md" style={{ marginBottom:0 }}>
               Book a free consultation, or send your project brief if you would rather skip the call first. Either way, you get a direct response and a clear next step.
             </p>
+          </div>
+
+          <div className="contact-mobile-actions reveal">
+            <a href="#brief" className="btn-primary" style={{ justifyContent:'center' }}>Send a brief</a>
+            <a href="#booking" className="btn-secondary" style={{ justifyContent:'center' }}>Book a call</a>
           </div>
 
           {quoteSummary && (
@@ -98,7 +104,7 @@ export default function Contact() {
           <div className="contact-layout" style={{ gap:'clamp(40px,6vw,96px)', alignItems:'start', maxWidth:960, margin:'0 auto' }}>
 
             {/* Left — contact details */}
-            <div className="reveal">
+            <div className="reveal contact-details-panel">
               {/* Contact info card */}
               <div className="glass-card" style={{ borderRadius:16, overflow:'hidden', marginBottom:24 }}>
                 {[
@@ -150,14 +156,14 @@ export default function Contact() {
             </div>
 
             {/* Right — booking widget */}
-            <div className="reveal">
-              <div className="glass-card" style={{ borderRadius:20, padding:'32px' }}>
+            <div className="reveal contact-booking-panel" id="booking">
+              <div className="glass-card contact-booking-card" style={{ borderRadius:20, padding:'32px' }}>
                 <BookingWidget />
               </div>
             </div>
           </div>
 
-          <div className="reveal section-narrow" style={{ marginTop:72 }}>
+          <div id="brief" className="reveal section-narrow contact-brief-panel" style={{ marginTop:72 }}>
             <div className="glass-card" style={{ borderRadius:20, padding:'clamp(28px,4vw,40px)' }}>
               <div style={{ marginBottom:24 }}>
                 <p className="eyebrow" style={{ marginBottom:12 }}>Prefer email?</p>

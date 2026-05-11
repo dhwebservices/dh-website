@@ -451,6 +451,13 @@ img { max-width: 100%; display: block; }
   line-height: 1;
   padding: 4px;
 }
+.contact-mobile-actions {
+  display: none;
+}
+.contact-brief-panel,
+.contact-booking-panel {
+  scroll-margin-top: calc(var(--nav-h) + 18px);
+}
 .site-banner__inner {
   max-width: min(1120px, 100%);
   margin: 0 auto;
@@ -886,6 +893,36 @@ img { max-width: 100%; display: block; }
   }
   .home-hero__scroll-hint {
     display: none !important;
+  }
+  .contact-hero {
+    margin-bottom: 28px !important;
+    text-align: left !important;
+  }
+  .contact-mobile-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 640px;
+    margin: 0 auto 28px;
+  }
+  .contact-page.prefers-brief .contact-mobile-actions {
+    margin-bottom: 22px;
+  }
+  .contact-page .contact-layout {
+    gap: 22px !important;
+  }
+  .contact-page.prefers-brief .contact-details-panel {
+    order: 3;
+  }
+  .contact-page.prefers-brief .contact-booking-panel {
+    order: 2;
+  }
+  .contact-page.prefers-brief .contact-brief-panel {
+    order: 1;
+    margin-top: 22px !important;
+  }
+  .contact-booking-card {
+    padding: 22px 18px !important;
   }
   .pricing-card {
     min-height: auto;
