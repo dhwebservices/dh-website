@@ -457,6 +457,19 @@ export const GEO_REDIRECTS = [
   ['/website-design-services', '/services'],
 ]
 
+export function withTrailingSlash(path) {
+  if (!path || path === '/') return '/'
+  return path.endsWith('/') ? path : `${path}/`
+}
+
+export function toAbsolutePublicUrl(path) {
+  return `${SEO_SITE_URL}${withTrailingSlash(path)}`
+}
+
 export function getIndexablePage(pathname) {
-  return INDEXABLE_PAGES.find((page) => page.path === pathname) || null
+  const normalizedPath = pathname && pathname !== '/' && pathname.endsWith('/')
+    ? pathname.slice(0, -1)
+    : pathname
+
+  return INDEXABLE_PAGES.find((page) => page.path === normalizedPath) || null
 }

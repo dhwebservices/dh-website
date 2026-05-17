@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { INDEXABLE_PAGES, SEO_SITE_URL } from '../src/lib/seoContent.js'
+import { INDEXABLE_PAGES, SEO_SITE_URL, withTrailingSlash } from '../src/lib/seoContent.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -74,7 +74,7 @@ function buildHtml(page, assetTags) {
     <meta property="og:site_name" content="DH Website Services" />
     <meta property="og:title" content="${escapeHtml(page.title)}" />
     <meta property="og:description" content="${escapeHtml(page.description)}" />
-    <meta property="og:url" content="${SEO_SITE_URL}${page.path}" />
+    <meta property="og:url" content="${SEO_SITE_URL}${withTrailingSlash(page.path)}" />
     <meta property="og:image" content="${ogImageUrl}" />
     <meta property="og:image:alt" content="${escapeHtml(page.title)} - DH Website Services" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,7 +83,7 @@ function buildHtml(page, assetTags) {
     <meta name="twitter:image" content="${ogImageUrl}" />
     <meta name="theme-color" content="#FFFFFF" />
     <link rel="icon" href="/dh-logo-icon.png" />
-    <link rel="canonical" href="${SEO_SITE_URL}${page.path}" />
+    <link rel="canonical" href="${SEO_SITE_URL}${withTrailingSlash(page.path)}" />
     ${assetTags.styles}
     ${schema}
   </head>
@@ -123,7 +123,7 @@ async function writeLlmFiles() {
     'Production-ready website development for UK businesses.',
     '',
     'Key public pages:',
-    ...INDEXABLE_PAGES.map((page) => `- ${SEO_SITE_URL}${page.path} | ${page.title}`),
+    ...INDEXABLE_PAGES.map((page) => `- ${SEO_SITE_URL}${withTrailingSlash(page.path)} | ${page.title}`),
     '',
     'Primary offer:',
     '- Custom websites, landing pages, booking systems, technical SEO, and founder-led delivery.',
@@ -136,7 +136,7 @@ async function writeLlmFiles() {
     const sections = page.sections.map((section) => `- ${section.title}: ${section.body}`).join('\n')
     return [
       `## ${page.title}`,
-      `URL: ${SEO_SITE_URL}${page.path}`,
+      `URL: ${SEO_SITE_URL}${withTrailingSlash(page.path)}`,
       `Description: ${page.description}`,
       `Summary: ${page.intro}`,
       sections,

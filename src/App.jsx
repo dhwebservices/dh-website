@@ -11,7 +11,7 @@ import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
 import { SITE_URL } from './lib/siteConfig'
-import { INDEXABLE_PAGE_META } from './lib/seoContent'
+import { INDEXABLE_PAGE_META, withTrailingSlash } from './lib/seoContent'
 const OG_IMAGE_URL = `${SITE_URL}/og-image.svg`
 
 const Services = lazy(() => import('./pages/Services'))
@@ -138,29 +138,30 @@ function PageMeta() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    let meta = PAGE_META[pathname]
-    if (!meta && /^\/careers\/[^/]+$/.test(pathname)) {
+    const normalizedPath = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+    let meta = PAGE_META[normalizedPath]
+    if (!meta && /^\/careers\/[^/]+\/?$/.test(pathname)) {
       meta = {
         title: 'Role details | DH Website Services Careers',
         description: 'Review the role detail, expectations, and package before applying to DH Website Services.',
         robots: 'index,follow',
       }
     }
-    if (!meta && /^\/careers\/[^/]+\/apply$/.test(pathname)) {
+    if (!meta && /^\/careers\/[^/]+\/apply\/?$/.test(pathname)) {
       meta = {
         title: 'Apply | DH Website Services Careers',
         description: 'Submit your CV and complete the DH Website Services application form online.',
         robots: 'noindex,nofollow',
       }
     }
-    if (!meta && pathname === '/careers/application-success') {
+    if (!meta && normalizedPath === '/careers/application-success') {
       meta = {
         title: 'Application submitted | DH Website Services Careers',
         description: 'Your application has been submitted successfully.',
         robots: 'noindex,nofollow',
       }
     }
-    if (!meta && pathname.startsWith('/appointment/')) {
+    if (!meta && normalizedPath.startsWith('/appointment/')) {
       meta = {
         title: 'Manage appointment | DH Website Services',
         description: 'Reschedule or cancel your appointment with DH Website Services.',
@@ -196,8 +197,8 @@ function PageMeta() {
 
     ensureMeta('meta[property="og:title"]', 'property', 'og:title').setAttribute('content', meta.title)
     ensureMeta('meta[property="og:description"]', 'property', 'og:description').setAttribute('content', meta.description)
-    ensureMeta('meta[property="og:url"]', 'property', 'og:url').setAttribute('content', `${SITE_URL}${pathname}`)
-    ensureMeta('meta[property="og:type"]', 'property', 'og:type').setAttribute('content', pathname === '/' ? 'website' : 'article')
+    ensureMeta('meta[property="og:url"]', 'property', 'og:url').setAttribute('content', `${SITE_URL}${withTrailingSlash(normalizedPath)}`)
+    ensureMeta('meta[property="og:type"]', 'property', 'og:type').setAttribute('content', normalizedPath === '/' ? 'website' : 'article')
     ensureMeta('meta[property="og:image"]', 'property', 'og:image').setAttribute('content', OG_IMAGE_URL)
     ensureMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt').setAttribute('content', `${meta.title} - DH Website Services`)
     ensureMeta('meta[property="og:site_name"]', 'property', 'og:site_name').setAttribute('content', 'DH Website Services')
@@ -212,7 +213,7 @@ function PageMeta() {
       canonical.setAttribute('rel', 'canonical')
       document.head.appendChild(canonical)
     }
-    canonical.setAttribute('href', `${SITE_URL}${pathname}`)
+    canonical.setAttribute('href', `${SITE_URL}${withTrailingSlash(normalizedPath)}`)
 
     const existingSchema = document.getElementById('route-schema')
     if (existingSchema) existingSchema.remove()

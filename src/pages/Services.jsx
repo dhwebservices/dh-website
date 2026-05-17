@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
+import { GEO_PAGES } from '../lib/seoContent'
 
 const SVCS = [
   { num:'01', title:'Custom Web Development', desc:"We don't use templates. Every site is purpose-built for your business using production-ready code.", points:['React, Next.js or vanilla JS','Backend APIs and database integration','Authentication and user accounts','Third-party integrations','Performance-optimised from day one'] },
@@ -76,6 +77,30 @@ export default function Services() {
           <div className="reveal" style={{ marginTop:64, display:'flex', gap:12, alignItems:'center' }}>
             <Link to="/contact" className="btn-primary">Start a project →</Link>
             <Link to="/pricing" className="btn-ghost">View pricing <span className="arrow">→</span></Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ borderTop:'1px solid var(--border-light)' }}>
+        <div className="container" style={{ maxWidth: 960 }}>
+          <div className="reveal" style={{ marginBottom: 24 }}>
+            <p className="eyebrow" style={{ marginBottom: 12 }}>Areas we cover</p>
+            <h2 className="headline-md" style={{ marginBottom: 12 }}>Location-focused website builder pages.</h2>
+            <p className="body-sm" style={{ maxWidth: 720 }}>
+              We serve businesses across the UK. These pages are tailored to common search intent for local website builder and web design queries.
+            </p>
+          </div>
+          <div className="reveal" style={{ display:'flex', flexWrap:'wrap', gap:12 }}>
+            {GEO_PAGES.map((page) => (
+              <Link
+                key={page.path}
+                to={page.path}
+                className="btn-secondary"
+                style={{ minWidth: 0 }}
+              >
+                {page.city}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import MicrosoftPartnerBadge from './MicrosoftPartnerBadge'
 import BrandLogo from './BrandLogo'
+import { GEO_PAGES } from '../lib/seoContent'
 
 const LEGAL = [
   { l: 'Privacy', to: '/privacy' },
@@ -20,6 +21,11 @@ const COMPANY = [
   { l: 'Portfolio', to: '/portfolio' },
   { l: 'Contact', to: '/contact' },
 ]
+
+const AREAS = GEO_PAGES.map((page) => ({
+  label: page.city,
+  to: page.path,
+}))
 
 export default function Footer() {
   return (
@@ -94,6 +100,34 @@ export default function Footer() {
                   onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
                 >
                   {item.l}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: 10,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--light)',
+                marginBottom: 14,
+              }}
+            >
+              Areas
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {AREAS.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  style={{ fontSize: 14, color: 'var(--mid)', transition: 'color 0.15s' }}
+                  onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
+                  onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
+                >
+                  Website Builder {item.label}
                 </Link>
               ))}
             </div>

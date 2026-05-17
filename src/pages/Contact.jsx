@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { useCMS } from '../hooks/useCMS'
 import { BookingWidget } from '../components/BookingWidget'
 import { sendCustomEmail } from '../lib/booking'
 import { trackEvent } from '../lib/analytics'
+import { GEO_PAGES } from '../lib/seoContent'
 
 export default function Contact() {
   useReveal()
@@ -218,6 +219,24 @@ export default function Contact() {
                   </button>
                 </form>
               )}
+            </div>
+          </div>
+
+          <div className="reveal section-narrow" style={{ marginTop: 28 }}>
+            <div style={{ padding:'18px 20px', border:'1px solid var(--border-light)', borderRadius:16, background:'var(--cream)' }}>
+              <div style={{ fontSize:12, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--accent)', marginBottom:10 }}>
+                Areas we work with
+              </div>
+              <p className="body-sm" style={{ marginBottom: 14 }}>
+                Looking for a city-specific page first? Use the links below.
+              </p>
+              <div style={{ display:'flex', flexWrap:'wrap', gap:10 }}>
+                {GEO_PAGES.map((page) => (
+                  <Link key={page.path} to={page.path} className="btn-secondary">
+                    {page.city}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
