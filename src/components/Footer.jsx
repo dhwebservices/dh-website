@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import MicrosoftPartnerBadge from './MicrosoftPartnerBadge'
 import BrandLogo from './BrandLogo'
-import { GEO_PAGES } from '../lib/seoContent'
+import { GEO_CITY_LINKS } from '../lib/seoContent'
 
 const LEGAL = [
   { l: 'Privacy', to: '/privacy' },
@@ -22,9 +22,9 @@ const COMPANY = [
   { l: 'Contact', to: '/contact' },
 ]
 
-const AREAS = GEO_PAGES.map((page) => ({
+const AREAS = GEO_CITY_LINKS.map((page) => ({
   label: page.city,
-  to: page.path,
+  to: page.to,
 }))
 
 export default function Footer() {

@@ -323,103 +323,139 @@ const BASE_INDEXABLE_PAGES = [
   },
 ]
 
-export const GEO_PAGES = [
+const GEO_MARKETS = [
   {
-    path: '/website-builder-cardiff',
     city: 'Cardiff',
-    title: 'Website Builder Cardiff | DH Website Services',
-    description: 'Cardiff website builder for businesses that need custom websites, technical SEO, fixed pricing, and direct delivery.',
-    heading: 'Website builder in Cardiff for businesses that need something stronger than a template.',
-    intro: 'DH Website Services works with Cardiff businesses that need a website to generate enquiries, support sales conversations, and hold up technically after launch.',
-    sections: [
-      {
-        title: 'What Cardiff businesses usually need',
-        body: 'A fast brochure site, a better lead-generation journey, clearer service positioning, and technical SEO that gives Google usable page content from day one.',
-      },
-      {
-        title: 'Why work locally',
-        body: 'Local context helps with tone, targeting, operational understanding, and the practical realities of how service businesses in Cardiff actually sell.',
-      },
-    ],
+    needs: 'A fast brochure site, a better lead-generation journey, clearer service positioning, and technical SEO that gives Google usable page content from day one.',
+    localAngle: 'Local context helps with tone, targeting, operational understanding, and the practical realities of how service businesses in Cardiff actually sell.',
+    builderIntro: 'DH Website Services works with Cardiff businesses that need a website to generate enquiries, support sales conversations, and hold up technically after launch.',
+    designIntro: 'Cardiff businesses usually need web design that looks credible, explains the offer quickly, and moves visitors toward a clear enquiry or booking action.',
+    websiteDesignIntro: 'A Cardiff website design project should balance visuals, content structure, mobile clarity, and technical build quality rather than stopping at mockups.',
   },
   {
-    path: '/website-builder-newport',
     city: 'Newport',
-    title: 'Website Builder Newport | DH Website Services',
-    description: 'Newport website builder for businesses that need custom websites, fixed pricing, SEO-ready delivery, and founder-led communication.',
-    heading: 'Website builder in Newport for businesses that want clarity, speed, and direct delivery.',
-    intro: 'For Newport businesses, we build websites that are commercially useful, technically strong, and easy to extend as the business grows.',
-    sections: [
-      {
-        title: 'What this covers',
-        body: 'Service websites, landing pages, booking journeys, and business sites that need better messaging and more usable conversion paths.',
-      },
-      {
-        title: 'What matters most',
-        body: 'Clear scope, fixed pricing, and a website that helps sales instead of just existing online.',
-      },
-    ],
+    needs: 'Service websites, landing pages, booking journeys, and business sites that need better messaging and more usable conversion paths.',
+    localAngle: 'Clear scope, fixed pricing, and a website that helps sales instead of just existing online matters particularly for growing Newport businesses.',
+    builderIntro: 'For Newport businesses, we build websites that are commercially useful, technically strong, and easy to extend as the business grows.',
+    designIntro: 'Newport web design work needs to make a business easier to trust quickly, especially when the website is doing the first part of the sales conversation.',
+    websiteDesignIntro: 'Website design in Newport should support real business use: clearer offers, better local visibility, and a stronger journey from page view to enquiry.',
   },
   {
-    path: '/website-builder-swansea',
     city: 'Swansea',
-    title: 'Website Builder Swansea | DH Website Services',
-    description: 'Swansea website builder services for businesses that need custom websites, technical SEO, and direct founder-led delivery.',
-    heading: 'Website builder in Swansea for businesses that need custom build quality.',
-    intro: 'We help Swansea businesses move beyond basic template websites and into sites that are faster, clearer, and more credible in front of customers.',
-    sections: [
-      {
-        title: 'Typical outcomes',
-        body: 'Sharper service pages, better local search visibility, cleaner calls to action, and an easier route from first click to enquiry.',
-      },
-      {
-        title: 'Delivery style',
-        body: 'Projects stay founder-led and direct, with fixed pricing and a straightforward path from brief to launch.',
-      },
-    ],
+    needs: 'Sharper service pages, better local search visibility, cleaner calls to action, and an easier route from first click to enquiry.',
+    localAngle: 'Projects stay founder-led and direct, with fixed pricing and a straightforward path from brief to launch.',
+    builderIntro: 'We help Swansea businesses move beyond basic template websites and into sites that are faster, clearer, and more credible in front of customers.',
+    designIntro: 'Swansea web design should improve both presentation and usability so the site is easier to scan, easier to trust, and easier to act on.',
+    websiteDesignIntro: 'A Swansea website design project should combine better structure, stronger messaging, and technical foundations that support long-term visibility.',
   },
   {
-    path: '/website-builder-bristol',
     city: 'Bristol',
-    title: 'Website Builder Bristol | DH Website Services',
-    description: 'Bristol website builder for businesses that need high-performance custom websites, conversion-focused UX, and technical SEO.',
-    heading: 'Website builder in Bristol for businesses that need a site to perform commercially.',
-    intro: 'For Bristol businesses, the priority is usually not having a website at all. It is having one that is credible, fast, and easier for customers to act on.',
-    sections: [
-      {
-        title: 'What we build',
-        body: 'Custom business websites, campaign pages, lead funnels, and service pages written and structured to support conversion.',
-      },
-      {
-        title: 'What makes the difference',
-        body: 'Technical quality, SEO foundations, good information architecture, and direct communication during delivery.',
-      },
-    ],
+    needs: 'Custom business websites, campaign pages, lead funnels, and service pages written and structured to support conversion.',
+    localAngle: 'Technical quality, SEO foundations, good information architecture, and direct communication during delivery are what usually separate average sites from useful ones in Bristol.',
+    builderIntro: 'For Bristol businesses, the priority is usually not having a website at all. It is having one that is credible, fast, and easier for customers to act on.',
+    designIntro: 'Bristol web design needs to carry more weight in competitive markets, where clarity and credibility are often the difference between an enquiry and a bounce.',
+    websiteDesignIntro: 'Website design in Bristol should support sharper positioning, cleaner service presentation, and better conversion paths for competitive sectors.',
   },
   {
-    path: '/website-builder-london',
     city: 'London',
-    title: 'Website Builder London | DH Website Services',
-    description: 'London website builder services for businesses that need custom websites, fixed pricing, clear positioning, and strong technical delivery.',
-    heading: 'Website builder in London for teams that need a sharper, faster website.',
-    intro: 'London businesses often need a website that stands up in a more competitive market, with better positioning, stronger page quality, and cleaner conversion paths.',
+    needs: 'Sharper messaging, better technical SEO, and a build that supports proposals, inbound leads, and higher-trust first impressions.',
+    localAngle: 'Remote-friendly, founder-led, and direct from scoping through launch.',
+    builderIntro: 'London businesses often need a website that stands up in a more competitive market, with better positioning, stronger page quality, and cleaner conversion paths.',
+    designIntro: 'London web design needs to be commercially sharp. The site has to communicate value quickly and support higher-intent visitors without wasting their time.',
+    websiteDesignIntro: 'A London website design project should prioritise positioning, hierarchy, copy structure, and technical execution together rather than treating design in isolation.',
+  },
+]
+
+export const GEO_CITY_LINKS = GEO_MARKETS.map((market) => ({
+  city: market.city,
+  to: `/website-builder-${market.city.toLowerCase()}`,
+}))
+
+function makeGeoPage(market, kind) {
+  const cityLower = market.city.toLowerCase()
+
+  if (kind === 'website-builder') {
+    return {
+      path: `/website-builder-${cityLower}`,
+      city: market.city,
+      intent: 'website-builder',
+      intentLabel: 'Website builder',
+      title: `Website Builder ${market.city} | DH Website Services`,
+      description: `${market.city} website builder for businesses that need custom websites, technical SEO, fixed pricing, and direct delivery.`,
+      heading: `Website builder in ${market.city} for businesses that need something stronger than a template.`,
+      intro: market.builderIntro,
+      sections: [
+        {
+          title: `What ${market.city} businesses usually need`,
+          body: market.needs,
+        },
+        {
+          title: 'Why work this way',
+          body: market.localAngle,
+        },
+      ],
+      ctaLabel: `Discuss your ${market.city} website project`,
+      ctaHref: '/contact',
+      schema: makeServiceSchema(`/website-builder-${cityLower}`, `Website builder ${market.city}`, `${market.city} website builder for businesses that need custom websites, technical SEO, fixed pricing, and direct delivery.`),
+    }
+  }
+
+  if (kind === 'web-design') {
+    return {
+      path: `/web-design-${cityLower}`,
+      city: market.city,
+      intent: 'web-design',
+      intentLabel: 'Web design',
+      title: `Web Design ${market.city} | DH Website Services`,
+      description: `${market.city} web design for businesses that need clearer service pages, better conversion paths, and modern custom build quality.`,
+      heading: `Web design in ${market.city} for businesses that need sharper positioning and cleaner conversion.`,
+      intro: market.designIntro,
+      sections: [
+        {
+          title: 'What good web design should do',
+          body: 'It should help a visitor understand the offer, trust the business, and know what to do next without friction.',
+        },
+        {
+          title: `What that looks like in ${market.city}`,
+          body: market.needs,
+        },
+      ],
+      ctaLabel: `Talk about web design in ${market.city}`,
+      ctaHref: '/contact',
+      schema: makeServiceSchema(`/web-design-${cityLower}`, `Web design ${market.city}`, `${market.city} web design for businesses that need clearer service pages, better conversion paths, and modern custom build quality.`),
+    }
+  }
+
+  return {
+    path: `/website-design-${cityLower}`,
+    city: market.city,
+    intent: 'website-design',
+    intentLabel: 'Website design',
+    title: `Website Design ${market.city} | DH Website Services`,
+    description: `${market.city} website design services for businesses that need custom page structure, technical SEO, and a site that supports growth.`,
+    heading: `Website design in ${market.city} for businesses that need more than surface-level visuals.`,
+    intro: market.websiteDesignIntro,
     sections: [
       {
-        title: 'Where the value is',
-        body: 'Sharper messaging, better technical SEO, and a build that supports proposals, inbound leads, and higher-trust first impressions.',
+        title: 'What website design actually includes',
+        body: 'Page structure, content hierarchy, calls to action, mobile layout, trust signals, and the technical foundations needed for the site to perform after launch.',
       },
       {
-        title: 'How we work',
-        body: 'Remote-friendly, founder-led, and direct from scoping through launch.',
+        title: `Why it matters in ${market.city}`,
+        body: market.localAngle,
       },
     ],
-  },
-].map((page) => ({
-  ...page,
-  ctaLabel: `Discuss your ${page.city} website project`,
-  ctaHref: '/contact',
-  schema: makeServiceSchema(page.path, `Website builder ${page.city}`, page.description),
-}))
+    ctaLabel: `Start a ${market.city} website design brief`,
+    ctaHref: '/contact?mode=brief#brief',
+    schema: makeServiceSchema(`/website-design-${cityLower}`, `Website design ${market.city}`, `${market.city} website design services for businesses that need custom page structure, technical SEO, and a site that supports growth.`),
+  }
+}
+
+export const GEO_PAGES = GEO_MARKETS.flatMap((market) => ([
+  makeGeoPage(market, 'website-builder'),
+  makeGeoPage(market, 'web-design'),
+  makeGeoPage(market, 'website-design'),
+]))
 
 export const INDEXABLE_PAGES = [...BASE_INDEXABLE_PAGES, ...GEO_PAGES]
 
@@ -438,20 +474,24 @@ export const INDEXABLE_PAGE_META = Object.fromEntries(
 export const GEO_REDIRECTS = [
   ['/cardiff-website-builder', '/website-builder-cardiff'],
   ['/website-builder-in-cardiff', '/website-builder-cardiff'],
-  ['/web-design-cardiff', '/website-builder-cardiff'],
-  ['/website-design-cardiff', '/website-builder-cardiff'],
+  ['/cardiff-web-design', '/web-design-cardiff'],
+  ['/website-design-in-cardiff', '/website-design-cardiff'],
   ['/newport-website-builder', '/website-builder-newport'],
   ['/website-builder-in-newport', '/website-builder-newport'],
-  ['/web-design-newport', '/website-builder-newport'],
+  ['/newport-web-design', '/web-design-newport'],
+  ['/website-design-in-newport', '/website-design-newport'],
   ['/swansea-website-builder', '/website-builder-swansea'],
   ['/website-builder-in-swansea', '/website-builder-swansea'],
-  ['/web-design-swansea', '/website-builder-swansea'],
+  ['/swansea-web-design', '/web-design-swansea'],
+  ['/website-design-in-swansea', '/website-design-swansea'],
   ['/bristol-website-builder', '/website-builder-bristol'],
   ['/website-builder-in-bristol', '/website-builder-bristol'],
-  ['/web-design-bristol', '/website-builder-bristol'],
+  ['/bristol-web-design', '/web-design-bristol'],
+  ['/website-design-in-bristol', '/website-design-bristol'],
   ['/london-website-builder', '/website-builder-london'],
   ['/website-builder-in-london', '/website-builder-london'],
-  ['/web-design-london', '/website-builder-london'],
+  ['/london-web-design', '/web-design-london'],
+  ['/website-design-in-london', '/website-design-london'],
   ['/website-builder-uk', '/website-builder'],
   ['/web-design-services', '/services'],
   ['/website-design-services', '/services'],
@@ -472,4 +512,9 @@ export function getIndexablePage(pathname) {
     : pathname
 
   return INDEXABLE_PAGES.find((page) => page.path === normalizedPath) || null
+}
+
+export function getRelatedGeoPages(page) {
+  if (!page?.city) return []
+  return GEO_PAGES.filter((entry) => entry.city === page.city && entry.path !== page.path)
 }

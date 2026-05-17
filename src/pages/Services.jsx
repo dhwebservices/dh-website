@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
-import { GEO_PAGES } from '../lib/seoContent'
+import { GEO_CITY_LINKS } from '../lib/seoContent'
 
 const SVCS = [
   { num:'01', title:'Custom Web Development', desc:"We don't use templates. Every site is purpose-built for your business using production-ready code.", points:['React, Next.js or vanilla JS','Backend APIs and database integration','Authentication and user accounts','Third-party integrations','Performance-optimised from day one'] },
@@ -91,10 +91,10 @@ export default function Services() {
             </p>
           </div>
           <div className="reveal" style={{ display:'flex', flexWrap:'wrap', gap:12 }}>
-            {GEO_PAGES.map((page) => (
+            {GEO_CITY_LINKS.map((page) => (
               <Link
-                key={page.path}
-                to={page.path}
+                key={page.to}
+                to={page.to}
                 className="btn-secondary"
                 style={{ minWidth: 0 }}
               >

@@ -301,6 +301,8 @@ function Layout() {
           <Route path="/careers/application-success" element={<ApplicationSuccess />} />
           <Route path="/website-builder" element={<GeoPage />} />
           <Route path="/website-builder-:location" element={<GeoPage />} />
+          <Route path="/web-design-:location" element={<GeoPage />} />
+          <Route path="/website-design-:location" element={<GeoPage />} />
           <Route path="/privacy" element={<Legal page="privacy" />} />
           <Route path="/terms" element={<Legal page="terms" />} />
           <Route path="/services-terms" element={<Legal page="services-terms" />} />

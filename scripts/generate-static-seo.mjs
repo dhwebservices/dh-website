@@ -20,7 +20,7 @@ function escapeHtml(value) {
 
 function pageContent(page) {
   const eyebrow = page.city
-    ? `${page.city} website builder`
+    ? `${page.city} ${page.intentLabel.toLowerCase()}`
     : page.path === '/website-builder'
       ? 'Website builder UK'
       : 'DH Website Services'

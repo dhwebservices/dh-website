@@ -5,7 +5,7 @@ import { useCMS } from '../hooks/useCMS'
 import { BookingWidget } from '../components/BookingWidget'
 import { sendCustomEmail } from '../lib/booking'
 import { trackEvent } from '../lib/analytics'
-import { GEO_PAGES } from '../lib/seoContent'
+import { GEO_CITY_LINKS } from '../lib/seoContent'
 
 export default function Contact() {
   useReveal()
@@ -231,8 +231,8 @@ export default function Contact() {
                 Looking for a city-specific page first? Use the links below.
               </p>
               <div style={{ display:'flex', flexWrap:'wrap', gap:10 }}>
-                {GEO_PAGES.map((page) => (
-                  <Link key={page.path} to={page.path} className="btn-secondary">
+                {GEO_CITY_LINKS.map((page) => (
+                  <Link key={page.to} to={page.to} className="btn-secondary">
                     {page.city}
                   </Link>
                 ))}

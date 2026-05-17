@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { getIndexablePage } from '../lib/seoContent'
+import { getIndexablePage, getRelatedGeoPages } from '../lib/seoContent'
 import { useReveal } from '../hooks/useReveal'
 import NotFound from './NotFound'
 
@@ -7,8 +7,9 @@ export default function GeoPage() {
   useReveal()
   const { pathname } = useLocation()
   const page = getIndexablePage(pathname)
+  const relatedPages = getRelatedGeoPages(page)
 
-  if (!page || !pathname.startsWith('/website-builder')) {
+  if (!page || !page.city) {
     return <NotFound />
   }
 
@@ -18,7 +19,7 @@ export default function GeoPage() {
         <div className="container" style={{ maxWidth: 860 }}>
           <div className="reveal">
             <p className="eyebrow" style={{ marginBottom: 16 }}>
-              {page.city ? `${page.city} website builder` : 'Website builder UK'}
+              {page.city ? `${page.city} ${page.intentLabel.toLowerCase()}` : 'Website builder UK'}
             </p>
             <h1
               style={{
@@ -91,7 +92,7 @@ export default function GeoPage() {
               Search intent matched to a real service.
             </h2>
             <p className="body-md" style={{ maxWidth: 700 }}>
-              These pages target businesses searching for a website builder in a specific area,
+              These pages target businesses searching for {page.intentLabel.toLowerCase()} in a specific area,
               but the offer is still the same: custom website delivery, technical SEO, fixed
               pricing, and direct founder-led communication.
             </p>
@@ -104,6 +105,29 @@ export default function GeoPage() {
               Send a brief
             </Link>
           </div>
+          {relatedPages.length > 0 && (
+            <div className="reveal" style={{ marginTop: 32 }}>
+              <p
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 11,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--light)',
+                  marginBottom: 14,
+                }}
+              >
+                Related {page.city} pages
+              </p>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                {relatedPages.map((entry) => (
+                  <Link key={entry.path} to={entry.path} className="btn-secondary">
+                    {entry.intentLabel} {entry.city}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </main>
