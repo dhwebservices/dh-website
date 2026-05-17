@@ -1,6 +1,6 @@
 const env = import.meta.env
 
-export const SITE_URL = env.VITE_SITE_URL || 'https://dhwebsiteservices.co.uk'
+export const SITE_URL = env.VITE_SITE_URL || 'https://www.dhwebsiteservices.co.uk'
 export const WORKER_URL =
   env.VITE_WORKER_URL || 'https://dh-email-worker.aged-silence-66a7.workers.dev'
 export const SUPABASE_URL =

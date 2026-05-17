@@ -11,6 +11,7 @@ import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
 import { SITE_URL } from './lib/siteConfig'
+import { INDEXABLE_PAGE_META } from './lib/seoContent'
 const OG_IMAGE_URL = `${SITE_URL}/og-image.svg`
 
 const Services = lazy(() => import('./pages/Services'))
@@ -35,6 +36,7 @@ const Calculator = lazy(() => import('./pages/Calculator'))
 const About = lazy(() => import('./pages/About'))
 const Partners = lazy(() => import('./pages/Partners'))
 const ManagedPage = lazy(() => import('./pages/ManagedPage'))
+const GeoPage = lazy(() => import('./pages/GeoPage'))
 const MailingListPopup = lazy(() => import('./components/MailingListPopup'))
 const WhatsAppButtonLazy = lazy(() => import('./components/WhatsAppButton'))
 const ExitIntentLazy = lazy(() => import('./components/ExitIntent'))
@@ -52,42 +54,7 @@ function RouteFallback() {
 }
 
 const PAGE_META = {
-  '/': {
-    title: 'DH Website Services | Production-Ready Websites for Growth',
-    description: 'Production-ready websites, booking systems, and business platforms built for speed, SEO, and conversion.',
-    robots: 'index,follow',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'ProfessionalService',
-      name: 'DH Website Services',
-      url: SITE_URL,
-      image: OG_IMAGE_URL,
-      logo: `${SITE_URL}/dh-logo-icon.png`,
-      email: 'clients@dhwebsiteservices.co.uk',
-      telephone: '02920024218',
-      areaServed: 'United Kingdom',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Cardiff',
-        addressCountry: 'GB',
-      },
-    },
-  },
-  '/services': {
-    title: 'Services | DH Website Services',
-    description: 'Custom website development, UX design, SEO, e-commerce, hosting, and HR portal integrations.',
-    robots: 'index,follow',
-  },
-  '/pricing': {
-    title: 'Pricing | DH Website Services',
-    description: 'Clear website build, hosting, and HR system pricing with fixed packages and no hidden fees.',
-    robots: 'index,follow',
-  },
-  '/portfolio': {
-    title: 'Portfolio | DH Website Services',
-    description: 'Recent website work from DH Website Services, including Glow With Lucy at glowwithlucy.co.uk.',
-    robots: 'index,follow',
-  },
+  ...INDEXABLE_PAGE_META,
   '/shop': {
     title: 'Shop | DH Website Services',
     description: 'Buy iPhones, iPads, Samsung phones, laptops, and business devices through the DH Website Services shop.',
@@ -112,31 +79,6 @@ const PAGE_META = {
     title: 'Checkout cancelled | DH Website Services Shop',
     description: 'Your checkout was cancelled before payment completed.',
     robots: 'noindex,nofollow',
-  },
-  '/contact': {
-    title: 'Book a Call | DH Website Services',
-    description: 'Book a free project consultation and get a clear plan with a fixed price.',
-    robots: 'index,follow',
-  },
-  '/careers': {
-    title: 'Careers | DH Website Services',
-    description: 'Live vacancies, role details, and direct online applications at DH Website Services.',
-    robots: 'index,follow',
-  },
-  '/about': {
-    title: 'About | DH Website Services',
-    description: 'DH Website Services is a Cardiff-based web agency founded by David Hooper. Fixed prices, founder-led delivery, production-quality websites for UK businesses.',
-    robots: 'index,follow',
-  },
-  '/partners': {
-    title: 'Partners | DH Website Services',
-    description: 'DH Website Services is a Microsoft approved partner building websites and practical workflows for businesses already operating in the Microsoft ecosystem.',
-    robots: 'index,follow',
-  },
-  '/calculator': {
-    title: 'Project Calculator | DH Website Services',
-    description: 'Build a live website quote based on pages, features, design, and support needs.',
-    robots: 'index,follow',
   },
   '/404': {
     title: 'Page not found | DH Website Services',
@@ -356,6 +298,8 @@ function Layout() {
           <Route path="/careers/:slug" element={<CareerRole />} />
           <Route path="/careers/:slug/apply" element={<CareerApply />} />
           <Route path="/careers/application-success" element={<ApplicationSuccess />} />
+          <Route path="/website-builder" element={<GeoPage />} />
+          <Route path="/website-builder-:location" element={<GeoPage />} />
           <Route path="/privacy" element={<Legal page="privacy" />} />
           <Route path="/terms" element={<Legal page="terms" />} />
           <Route path="/services-terms" element={<Legal page="services-terms" />} />
