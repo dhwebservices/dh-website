@@ -46,7 +46,7 @@ export default function CareerRole() {
                   This role is commission only with no basic salary. The application form requires confirmation that you understand this before submission.
                 </div>
               ) : null}
-              <Link to={`/careers/${job.slug}/apply`} className="btn-primary career-role-cta" style={{ justifyContent: 'center', marginTop: 4 }}>Apply for this role</Link>
+              <Link to={`/careers/${job.slug}/apply`} className="btn-primary career-role-cta" style={{ justifyContent: 'center', marginTop: 4 }}>Apply via careers</Link>
             </aside>
           </div>
 

@@ -8,6 +8,14 @@ const HIRING_PERMISSION_KEYS = [
   'recruiting_settings',
 ]
 
+export const CANDIDATE_DOCUMENT_MAX_BYTES = 5 * 1024 * 1024
+export const CANDIDATE_DOCUMENT_ACCEPTED_TYPES = [
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+]
+export const CANDIDATE_DOCUMENT_ACCEPTED_EXTENSIONS = ['.pdf', '.doc', '.docx']
+
 function restHeaders(extra = {}) {
   return {
     apikey: SUPABASE_ANON_KEY,
@@ -18,6 +26,34 @@ function restHeaders(extra = {}) {
 
 function encodePath(path = '') {
   return String(path || '').split('/').map((part) => encodeURIComponent(part)).join('/')
+}
+
+function sanitizeFilename(name = 'document') {
+  return String(name || 'document')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-zA-Z0-9._-]/g, '')
+    .replace(/-+/g, '-')
+}
+
+function getFileExtension(name = '') {
+  const match = String(name || '').toLowerCase().match(/\.[^.]+$/)
+  return match ? match[0] : ''
+}
+
+export function validateCandidateDocument(file, label = 'file') {
+  if (!file) return ''
+  const extension = getFileExtension(file.name)
+  const hasAcceptedType = !file.type || CANDIDATE_DOCUMENT_ACCEPTED_TYPES.includes(file.type)
+  const hasAcceptedExtension = CANDIDATE_DOCUMENT_ACCEPTED_EXTENSIONS.includes(extension)
+
+  if (!hasAcceptedType && !hasAcceptedExtension) {
+    return `Please upload ${label} as a PDF, DOC, or DOCX file.`
+  }
+  if (file.size > CANDIDATE_DOCUMENT_MAX_BYTES) {
+    return `${label.charAt(0).toUpperCase() + label.slice(1)} must be 5MB or smaller.`
+  }
+  return ''
 }
 
 function normalizeJobProfileMeta(raw = {}) {
@@ -115,8 +151,8 @@ export async function getJobBySlug(slug) {
   return { ...job, ...(metaMap[job.id] || {}) }
 }
 
-export async function uploadCv(file, applicationRef) {
-  const filePath = `applications/${applicationRef}/${Date.now()}-${file.name.replace(/\s+/g, '-')}`
+export async function uploadCandidateDocument(file, applicationRef, type = 'cv') {
+  const filePath = `applications/${applicationRef}/${type}-${Date.now()}-${sanitizeFilename(file.name)}`
   const uploadResponse = await fetch(`${SUPABASE_URL}/storage/v1/object/recruiting-documents/${encodePath(filePath)}`, {
     method: 'POST',
     headers: restHeaders({
@@ -133,6 +169,8 @@ export async function uploadCv(file, applicationRef) {
   return {
     path: filePath,
     url: `${SUPABASE_URL}/storage/v1/object/public/recruiting-documents/${encodePath(filePath)}`,
+    name: file.name,
+    contentType: file.type || 'application/octet-stream',
   }
 }
 
@@ -196,7 +234,7 @@ async function createHiringNotifications(application, job) {
   }
 }
 
-export async function submitApplication({ job, form, cvUpload }) {
+export async function submitApplication({ job, form, cvUpload, coverLetterUpload = null }) {
   const payload = {
     job_post_id: job.id,
     application_ref: form.application_ref,
@@ -211,6 +249,12 @@ export async function submitApplication({ job, form, cvUpload }) {
     portfolio_url: form.portfolio_url.trim(),
     cv_file_url: cvUpload.url,
     cv_file_path: cvUpload.path,
+    cv_file_name: cvUpload.name,
+    cv_file_content_type: cvUpload.contentType,
+    cover_letter_file_url: coverLetterUpload?.url || null,
+    cover_letter_file_path: coverLetterUpload?.path || null,
+    cover_letter_file_name: coverLetterUpload?.name || null,
+    cover_letter_file_content_type: coverLetterUpload?.contentType || null,
     cover_note: form.cover_note.trim(),
     experience_summary: form.experience_summary.trim(),
     current_job_title: form.current_job_title.trim(),

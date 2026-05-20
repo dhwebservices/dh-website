@@ -27,12 +27,12 @@ export default function Careers() {
                 <h1 style={{ fontFamily:'var(--font-sans)', fontSize:'clamp(36px,5vw,60px)', fontWeight:600, letterSpacing:'-0.03em', lineHeight:1.0, marginBottom:24 }}>
                   Join the team<br />building with us.
                 </h1>
-                <p className="body-lg" style={{ marginBottom:40 }}>Explore live roles at DH Website Services and apply directly online with your CV, experience summary, and screening responses.</p>
+                <p className="body-lg" style={{ marginBottom:40 }}>Explore live roles at DH Website Services and apply directly here with your CV, optional cover letter, experience summary, and screening responses.</p>
               </div>
               <div className="reveal" style={{ display:'flex', flexDirection:'column', gap:0, border:'1px solid var(--border-light)', borderRadius:16, overflow:'hidden', marginBottom:24 }}>
                 {[
-                  ['Live vacancies', 'Every role shown here is managed from our internal recruiting workspace.'],
-                  ['Fast review', 'Applicants move through a structured pipeline with direct status updates.'],
+                  ['Live vacancies', 'Every role shown here is open for direct application through this careers page.'],
+                  ['Fast review', 'Our hiring team reviews applications directly and contacts shortlisted candidates by email or phone.'],
                   ['Built for clarity', 'Role detail, application steps, and expectations are visible before you apply.'],
                   ['Human process', 'We keep the process practical and avoid long, unclear hiring loops.'],
                 ].map(([t, d], i, arr) => (
@@ -44,7 +44,7 @@ export default function Careers() {
               </div>
               <div className="reveal" style={{ padding:'18px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--border-light)' }}>
                 <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:12 }}>Application essentials</p>
-                {['Upload your CV', 'Add relevant experience', 'Complete role-specific questions', 'Confirm commission-only terms where required', 'Receive confirmation by email'].map(r => (
+                {['Upload your CV', 'Add an optional cover letter or cover note', 'Complete role-specific questions', 'Confirm commission-only terms where required', 'Receive a confirmation email after applying'].map(r => (
                   <div key={r} style={{ display:'flex', gap:8, marginBottom:8, fontSize:14, color:'var(--dark2)', alignItems:'baseline' }}>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink:0, marginTop:2 }}><path d="M1.5 6.5L4 9L10.5 2.5" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     {r}

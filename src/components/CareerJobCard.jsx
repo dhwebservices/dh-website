@@ -24,7 +24,7 @@ export default function CareerJobCard({ job }) {
       ) : null}
       <div className="career-job-actions">
         <Link to={`/careers/${job.slug}`} className="btn-secondary">View role</Link>
-        <Link to={`/careers/${job.slug}/apply`} className="btn-primary">Apply now</Link>
+        <Link to={`/careers/${job.slug}/apply`} className="btn-primary">Apply via careers</Link>
       </div>
     </article>
   )

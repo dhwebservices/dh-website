@@ -23,7 +23,7 @@ export default function CareerApply() {
           <div>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Apply now</p>
             <h1 className="headline-lg" style={{ marginBottom: 18 }}>Apply for {job.title}</h1>
-            <p className="body-md" style={{ maxWidth: 620 }}>{job.summary || 'Complete the application form below and upload your CV to apply.'}</p>
+            <p className="body-md" style={{ maxWidth: 620 }}>{job.summary || 'Complete the application form below, upload your CV, and add an optional cover letter or cover note.'}</p>
           </div>
           <div className="glass-card career-apply-card" style={{ padding: 'clamp(24px,4vw,36px)' }}>
             <CareerApplicationForm

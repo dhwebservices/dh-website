@@ -41,10 +41,13 @@ function buildEmailShell({ eyebrow, title, intro, accent = '#2F6FED', detailRows
 
 export function buildApplicationConfirmationEmail(application, job) {
   const firstName = (application.first_name || application.full_name || application.email || 'there').split(' ')[0]
+  const attachmentLabel = application.cover_letter_file_url
+    ? 'your application, CV, and cover letter'
+    : 'your application and CV'
   return buildEmailShell({
     eyebrow: 'Application received',
     title: `Application received, ${firstName}`,
-    intro: `Thanks for applying for ${job.title}. We have received your application and CV successfully.`,
+    intro: `Thanks for applying for ${job.title}. We have received ${attachmentLabel} successfully.`,
     accent: '#2F6FED',
     detailRows: [
       { label: 'Application reference', value: application.application_ref },
@@ -55,7 +58,7 @@ export function buildApplicationConfirmationEmail(application, job) {
     bodyBlocks: [
       `<div style="margin-top:20px;padding:16px 18px;border-radius:16px;background:#EEF4FF;border:1px solid #D6E4FF">
         <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5170A6;margin-bottom:8px">What happens next</div>
-        <div style="font-size:14px;line-height:1.7;color:#20304D">Our hiring team will review your application and contact you if we would like to move you forward.</div>
+        <div style="font-size:14px;line-height:1.7;color:#20304D">Our hiring team will review your application and contact you directly by email or phone if we would like to move you forward.</div>
       </div>`,
     ],
   })
@@ -76,6 +79,7 @@ export function buildInternalApplicationEmail(application, job) {
       { label: 'Reference', value: application.application_ref },
       { label: 'Commission acknowledgement', value: application.commission_acknowledged ? 'Confirmed' : 'Missing' },
       { label: 'CV', value: application.cv_file_url ? `<a href="${application.cv_file_url}" style="color:#2F6FED;text-decoration:none">Open CV</a>` : '—', html: true },
+      { label: 'Cover letter', value: application.cover_letter_file_url ? `<a href="${application.cover_letter_file_url}" style="color:#2F6FED;text-decoration:none">Open cover letter</a>` : '—', html: true },
     ],
     bodyBlocks: [
       `<div style="margin-top:20px;padding:18px;border:1px solid #E7ECF5;border-radius:18px;background:#FFFFFF">

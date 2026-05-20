@@ -1,6 +1,11 @@
 import { useMemo, useState } from 'react'
 import CareerQuestionField from './CareerQuestionField'
-import { buildApplicationRef, submitApplication, uploadCv } from '../lib/careers'
+import {
+  buildApplicationRef,
+  submitApplication,
+  uploadCandidateDocument,
+  validateCandidateDocument,
+} from '../lib/careers'
 import { buildApplicationConfirmationEmail, buildInternalApplicationEmail } from '../lib/recruitingEmail'
 import { sendCustomEmail } from '../lib/booking'
 
@@ -24,6 +29,7 @@ const EMPTY_FORM = {
 export default function CareerApplicationForm({ job, onSuccess }) {
   const [form, setForm] = useState(EMPTY_FORM)
   const [cvFile, setCvFile] = useState(null)
+  const [coverLetterFile, setCoverLetterFile] = useState(null)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
 
@@ -35,6 +41,10 @@ export default function CareerApplicationForm({ job, onSuccess }) {
   const validate = () => {
     if (!form.first_name || !form.last_name || !form.email || !form.phone || !form.experience_summary) return 'Please complete all required applicant fields.'
     if (!cvFile) return 'Please upload your CV before submitting.'
+    const cvFileError = validateCandidateDocument(cvFile, 'your CV')
+    if (cvFileError) return cvFileError
+    const coverLetterError = validateCandidateDocument(coverLetterFile, 'your cover letter')
+    if (coverLetterError) return coverLetterError
     if (job.commission_only && !form.commission_acknowledged) return 'You must confirm that you understand this is a commission-only role with no basic salary.'
     if (!form.privacy_acknowledged) return 'Please confirm that you agree to the privacy acknowledgement.'
     for (const question of questions) {
@@ -57,7 +67,10 @@ export default function CareerApplicationForm({ job, onSuccess }) {
     setError('')
     try {
       const application_ref = buildApplicationRef()
-      const cvUpload = await uploadCv(cvFile, application_ref)
+      const cvUpload = await uploadCandidateDocument(cvFile, application_ref, 'cv')
+      const coverLetterUpload = coverLetterFile
+        ? await uploadCandidateDocument(coverLetterFile, application_ref, 'cover-letter')
+        : null
       const application = await submitApplication({
         job,
         form: {
@@ -65,6 +78,7 @@ export default function CareerApplicationForm({ job, onSuccess }) {
           application_ref,
         },
         cvUpload,
+        coverLetterUpload,
       })
 
       await Promise.allSettled([
@@ -130,7 +144,13 @@ export default function CareerApplicationForm({ job, onSuccess }) {
       <div>
         <label className="field-label">Upload CV *</label>
         <input className="field-inp" type="file" accept=".pdf,.doc,.docx" onChange={(e) => setCvFile(e.target.files?.[0] || null)} />
-        <div style={{ fontSize: 12.5, color: 'var(--light)', marginTop: 6 }}>{cvFile ? `Selected: ${cvFile.name}` : 'Accepted formats: PDF, DOC, DOCX'}</div>
+        <div style={{ fontSize: 12.5, color: 'var(--light)', marginTop: 6 }}>{cvFile ? `Selected: ${cvFile.name}` : 'Accepted formats: PDF, DOC, DOCX · Max 5MB'}</div>
+      </div>
+
+      <div>
+        <label className="field-label">Upload cover letter</label>
+        <input className="field-inp" type="file" accept=".pdf,.doc,.docx" onChange={(e) => setCoverLetterFile(e.target.files?.[0] || null)} />
+        <div style={{ fontSize: 12.5, color: 'var(--light)', marginTop: 6 }}>{coverLetterFile ? `Selected: ${coverLetterFile.name}` : 'Optional attachment · PDF, DOC, DOCX · Max 5MB'}</div>
       </div>
 
       {job.commission_only ? (
