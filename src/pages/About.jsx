@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 
 const VALUES = [
-  ['Fixed price', 'I quote before starting. That's what you pay. No extras.'],
+  ['Fixed price', 'I quote before starting. That is what you pay. No extras.'],
   ['Just me', 'You email me. I reply. No team to go through.'],
-  ['You own it', 'When it's done, you get all the files. Host it anywhere.'],
+  ['You own it', 'When it is done, you get all the files. Host it anywhere.'],
   ['Built to work', 'Not trying to win design awards. Built to get you customers.'],
-  ['Quick replies', 'Usually same day. If it'll take longer, I'll tell you.'],
+  ['Quick replies', 'Usually same day. If it will take longer, I will tell you.'],
   ['Cardiff-based', 'Working from Wales. Happy to work with clients anywhere in UK.'],
 ]
 

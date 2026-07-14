@@ -130,7 +130,7 @@ const TESTIMONIALS = [
 
 const WHY = [
   ['You work with me', 'Not a sales team. Not juniors. Just David, from start to finish.'],
-  ['Fixed price', 'Quote upfront, no surprises. That's the price.'],
+  ['Fixed price', 'Quote upfront, no surprises. That is the price.'],
   ['Built properly', 'Fast, ranks on Google, works on mobile. Not a rushed template.'],
   ['Your website', 'You own the code, the design, the domain. Take it anywhere.'],
   ['Quick replies', 'Email or call back same day. Usually within a few hours.'],
