@@ -614,7 +614,11 @@ async function handleBook(context, request, body) {
 
   const created = payload?.[0] || appointment
   await logEvent(context, request, 'website_booking_created', 'appointment', created)
-  void sendBookingEmails(context, 'booked', created)
+
+  // Send booking emails (don't block on errors)
+  sendBookingEmails(context, 'booked', created).catch((err) => {
+    console.error('Failed to send booking emails:', err)
+  })
 
   return json({
     success: true,
@@ -640,7 +644,10 @@ async function handleCancel(context, request, body) {
 
   const updated = payload?.[0] || { ...appointment, status: 'cancelled' }
   await logEvent(context, request, 'website_booking_cancelled', 'appointment', updated)
-  void sendBookingEmails(context, 'cancelled', updated)
+
+  sendBookingEmails(context, 'cancelled', updated).catch((err) => {
+    console.error('Failed to send cancellation emails:', err)
+  })
   return json({ success: true, appointment: updated })
 }
 
@@ -689,7 +696,10 @@ async function handleReschedule(context, request, body) {
   }
 
   await logEvent(context, request, 'website_booking_rescheduled', 'appointment', updated)
-  void sendBookingEmails(context, 'rescheduled', updated)
+
+  sendBookingEmails(context, 'rescheduled', updated).catch((err) => {
+    console.error('Failed to send reschedule emails:', err)
+  })
 
   return json({
     success: true,
