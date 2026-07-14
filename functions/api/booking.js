@@ -465,7 +465,7 @@ async function sendBookingEmails(context, type, appointment) {
     rescheduled: `Booking rescheduled - ${appointment.client_name}`,
   }
 
-  await Promise.allSettled([
+  const results = await Promise.allSettled([
     sendOutreachContact(context, {
       to: appointment.client_email,
       name: appointment.client_name,
@@ -479,6 +479,13 @@ async function sendBookingEmails(context, type, appointment) {
       message: internalMessages[type].filter(Boolean).join('<br/>'),
     }),
   ])
+
+  // Log email failures
+  results.forEach((result, i) => {
+    if (result.status === 'rejected') {
+      console.error(`Email ${i + 1} failed:`, result.reason)
+    }
+  })
 }
 
 async function validateBooking(context, request, payload, currentAppointment = null) {
