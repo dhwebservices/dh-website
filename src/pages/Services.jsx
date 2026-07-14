@@ -12,10 +12,10 @@ const SVCS = [
 ]
 
 const PROCESS = [
-  { n:'01', title:'Brief', desc:'Tell me what you need. I'll ask questions until it's clear.' },
-  { n:'02', title:'Quote', desc:'Fixed price. You'll know exactly what you're paying before I start.' },
+  { n:'01', title:'Brief', desc:'Tell me what you need. I will ask questions until it is clear.' },
+  { n:'02', title:'Quote', desc:'Fixed price. You will know exactly what you are paying before I start.' },
   { n:'03', title:'Design', desc:'Mockups first. You approve the look before I write any code.' },
-  { n:'04', title:'Build', desc:'7-10 days. I'll send progress updates so you know where it's at.' },
+  { n:'04', title:'Build', desc:'7-10 days. I will send progress updates so you know where it is at.' },
   { n:'05', title:'Launch', desc:'Test it, fix any issues, then it goes live. You get the login details.' },
 ]
 
