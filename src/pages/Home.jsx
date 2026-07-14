@@ -49,22 +49,16 @@ function HeroBg() {
   )
 }
 
-/* ── Price Reveal Card ──────────────────────────────── */
-function PriceRevealCard({ name, price, tagline, who, features, popular, delay }) {
-  const [hovered, setHovered] = useState(false)
-  const isTouchLayout = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px), (hover: none)').matches
-  const revealPrice = isTouchLayout || hovered
-
+/* ── Pricing Card (Direct Display) ──────────────────── */
+function PricingCard({ name, price, tagline, who, features, popular, delay }) {
   return (
     <div
       className={`reveal pricing-card ${popular ? 'glass-card-dark' : 'glass-card'}`}
       style={{
         padding:'28px 24px', borderRadius:20, position:'relative',
-        transitionDelay:`${delay}s`, cursor:'default',
-        overflow:'hidden',
+        transitionDelay:`${delay}s`,
+        display:'flex', flexDirection:'column',
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       {popular && (
         <div style={{ position:'absolute', top:16, right:16, padding:'3px 10px', borderRadius:100, background:'var(--accent)', fontSize:11, fontWeight:600, color:'white', letterSpacing:'0.04em' }}>
@@ -72,61 +66,46 @@ function PriceRevealCard({ name, price, tagline, who, features, popular, delay }
         </div>
       )}
 
-      {/* Package name — always visible */}
-      <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:popular?'rgba(255,255,255,0.45)':'var(--light)', marginBottom:16 }}>
+      {/* Package name */}
+      <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:popular?'rgba(255,255,255,0.45)':'var(--light)', marginBottom:8 }}>
         {name}
       </p>
 
-      {/* Default state — tagline + who it's for */}
-      <div style={{
-        transition:'opacity 0.3s ease, transform 0.3s ease',
-        opacity: revealPrice ? 0 : 1,
-        transform: revealPrice ? 'translateY(-8px)' : 'translateY(0)',
-        position: revealPrice ? 'absolute' : 'relative',
-        pointerEvents:'none',
-      }}>
-        <div style={{ fontSize:18, fontWeight:600, letterSpacing:'-0.02em', lineHeight:1.3, color:popular?'white':'var(--dark)', marginBottom:10 }}>
-          {tagline}
-        </div>
-        <p style={{ fontSize:13, color:popular?'rgba(255,255,255,0.5)':'var(--mid)', lineHeight:1.6, marginBottom:16 }}>
-          {who}
-        </p>
-        <div style={{ fontSize:12, fontFamily:'var(--font-mono)', color:popular?'rgba(255,255,255,0.3)':'var(--light)', lineHeight:1.8 }}>
-          {features.split(' · ').map(f => (
-            <div key={f} style={{ display:'flex', alignItems:'center', gap:6, marginBottom:4 }}>
-              <span style={{ width:4, height:4, borderRadius:'50%', background:popular?'rgba(255,255,255,0.3)':'var(--accent)', flexShrink:0, display:'inline-block' }}/>
-              {f}
-            </div>
-          ))}
-        </div>
-        {!isTouchLayout && (
-          <div style={{ marginTop:20, fontSize:13, color:popular?'rgba(255,255,255,0.35)':'var(--light)', fontStyle:'italic' }}>
-            Hover to see pricing →
-          </div>
-        )}
+      {/* Price - prominent and upfront */}
+      <div style={{ fontSize:44, fontWeight:700, letterSpacing:'-0.04em', lineHeight:1, color:popular?'white':'var(--dark)', marginBottom:6 }}>
+        {price}
+      </div>
+      <p style={{ fontSize:12, color:popular?'rgba(255,255,255,0.4)':'var(--light)', marginBottom:16, fontFamily:'var(--font-mono)', letterSpacing:'0.04em', textTransform:'uppercase' }}>
+        One-off · Fixed price
+      </p>
+
+      {/* Tagline */}
+      <div style={{ fontSize:15, fontWeight:600, letterSpacing:'-0.01em', lineHeight:1.3, color:popular?'white':'var(--dark)', marginBottom:8 }}>
+        {tagline}
       </div>
 
-      {/* Hovered state — price reveal */}
-      <div style={{
-        transition:'opacity 0.3s ease, transform 0.3s ease',
-        opacity: revealPrice ? 1 : 0,
-        transform: revealPrice ? 'translateY(0)' : 'translateY(12px)',
-        position: revealPrice ? 'relative' : 'absolute',
-        pointerEvents: revealPrice ? 'auto' : 'none',
-      }}>
-        <div style={{ fontSize:48, fontWeight:700, letterSpacing:'-0.04em', lineHeight:1, color:popular?'white':'var(--dark)', marginBottom:6 }}>
-          {price}
-        </div>
-        <p style={{ fontSize:12, color:popular?'rgba(255,255,255,0.4)':'var(--light)', marginBottom:20, fontFamily:'var(--font-mono)', letterSpacing:'0.04em', textTransform:'uppercase' }}>
-          One-off · Fixed price
-        </p>
-        <Link to="/pricing" style={{ display:'block', textAlign:'center', padding:'11px 20px', borderRadius:100, fontSize:13.5, fontWeight:600, background:popular?'white':'var(--accent)', color:popular?'var(--dark)':'white', transition:'opacity 0.15s', textDecoration:'none' }}
-          onMouseOver={e=>e.currentTarget.style.opacity='0.85'}
-          onMouseOut={e=>e.currentTarget.style.opacity='1'}
-        >
-          See what is included →
-        </Link>
+      {/* Who it's for */}
+      <p style={{ fontSize:13, color:popular?'rgba(255,255,255,0.5)':'var(--mid)', lineHeight:1.6, marginBottom:16, flex:1 }}>
+        {who}
+      </p>
+
+      {/* Features */}
+      <div style={{ fontSize:12, fontFamily:'var(--font-mono)', color:popular?'rgba(255,255,255,0.3)':'var(--light)', lineHeight:1.8, marginBottom:20 }}>
+        {features.split(' · ').map(f => (
+          <div key={f} style={{ display:'flex', alignItems:'center', gap:6, marginBottom:4 }}>
+            <span style={{ width:4, height:4, borderRadius:'50%', background:popular?'rgba(255,255,255,0.3)':'var(--accent)', flexShrink:0, display:'inline-block' }}/>
+            {f}
+          </div>
+        ))}
       </div>
+
+      {/* CTA */}
+      <Link to="/pricing" style={{ display:'block', textAlign:'center', padding:'11px 20px', borderRadius:100, fontSize:13.5, fontWeight:600, background:popular?'white':'var(--accent)', color:popular?'var(--dark)':'white', transition:'opacity 0.15s', textDecoration:'none' }}
+        onMouseOver={e=>e.currentTarget.style.opacity='0.85'}
+        onMouseOut={e=>e.currentTarget.style.opacity='1'}
+      >
+        See what's included →
+      </Link>
     </div>
   )
 }
@@ -179,12 +158,6 @@ export default function Home() {
         <HeroBg />
         <div style={{ position:'relative', zIndex:1, maxWidth:880, margin:'0 auto', width:'100%' }}>
 
-          {/* Pill badge */}
-          <div className="home-hero__badge" style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'6px 16px', borderRadius:100, background:'var(--cream)', border:'1px solid var(--border-light)', fontSize:13, color:'var(--dark2)', marginBottom:32, animation:'fadeUp 0.6s ease both' }}>
-            <span style={{ width:6, height:6, borderRadius:'50%', background:'#34C759', display:'inline-block', animation:'pulse 2s ease infinite' }} />
-            Founder-led web builds for UK businesses
-          </div>
-
           {/* Main headline */}
           <h1 style={{ fontFamily:'var(--font-sans)', fontSize:'clamp(44px,7vw,88px)', fontWeight:600, letterSpacing:'-0.035em', lineHeight:1.0, marginBottom:24, animation:'fadeUp 0.7s ease 0.05s both' }}>
             Your website,<br />
@@ -196,8 +169,8 @@ export default function Home() {
           </p>
 
           <div className="home-hero__actions" style={{ display:'flex', gap:12, flexWrap:'wrap', animation:'fadeUp 0.7s ease 0.15s both' }}>
-            <Link to="/contact" className="btn-primary" onClick={() => trackEvent('homepage_primary_cta', { location: 'hero' })}>Start a project<span style={{ marginLeft:2, opacity:0.7 }}>→</span></Link>
-            <Link to="/pricing" className="btn-secondary">View pricing</Link>
+            <Link to="/contact" className="btn-primary" onClick={() => trackEvent('homepage_primary_cta', { location: 'hero' })}>Get started<span style={{ marginLeft:2, opacity:0.7 }}>→</span></Link>
+            <Link to="/pricing" className="btn-ghost">See pricing</Link>
           </div>
 
           <div className="home-hero__stats" style={{ display:'flex', alignItems:'center', gap:24, marginTop:56, flexWrap:'wrap', animation:'fadeUp 0.7s ease 0.2s both' }}>
@@ -214,6 +187,28 @@ export default function Home() {
         <div className="home-hero__scroll-hint" style={{ position:'absolute', bottom:28, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:6, animation:'fadeIn 1s ease 1.5s both', opacity:0, animationFillMode:'forwards' }}>
           <div style={{ width:1, height:32, background:'linear-gradient(to bottom, transparent, var(--border))' }} />
           <span style={{ fontFamily:'var(--font-mono)', fontSize:9, letterSpacing:'0.14em', textTransform:'uppercase', color:'var(--light)' }}>Scroll</span>
+        </div>
+      </section>
+
+      {/* ── TRUST BAR ── */}
+      <section style={{ background:'var(--white)', borderBottom:'1px solid var(--border-light)', padding:'clamp(20px,3vw,28px) 0' }}>
+        <div className="container">
+          <div className="reveal" style={{ display:'flex', justifyContent:'center', alignItems:'center', gap:'clamp(24px,5vw,48px)', flexWrap:'wrap' }}>
+            {[
+              { icon:'⭐', label:'5.0 rating', sub:'Google Reviews' },
+              { icon:'🔒', label:'GDPR compliant', sub:'Data protection' },
+              { icon:'🏆', label:'Microsoft Partner', sub:'Verified status' },
+              { icon:'⚡', label:'2-6 week delivery', sub:'Fixed timeline' },
+            ].map((item, i) => (
+              <div key={i} style={{ display:'flex', alignItems:'center', gap:10 }}>
+                <div style={{ fontSize:24, filter:'grayscale(0.3)', opacity:0.7 }}>{item.icon}</div>
+                <div>
+                  <div style={{ fontSize:14, fontWeight:600, color:'var(--dark)', lineHeight:1.3 }}>{item.label}</div>
+                  <div style={{ fontSize:11, color:'var(--light)', fontFamily:'var(--font-mono)', letterSpacing:'0.04em' }}>{item.sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -357,7 +352,7 @@ export default function Home() {
               { name:'Pro', price:'£1,499', tagline:'For established businesses scaling up.', who:'E-commerce, agencies, professional firms', features:'15 pages · E-commerce · Custom integrations', popular:false, key:'Pro' },
               { name:'Enterprise', price:'£2,499', tagline:'The complete business operating system.', who:'Companies needing HR + web in one', features:'Full site · Integrated HR · Staff portal', popular:false, key:'Enterprise' },
             ]).map((p,i) => (
-              <PriceRevealCard key={p.key || p.name} {...p} delay={i*0.07} />
+              <PricingCard key={p.key || p.name} {...p} delay={i*0.07} />
             ))}
           </div>
 

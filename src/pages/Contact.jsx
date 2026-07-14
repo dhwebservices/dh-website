@@ -173,9 +173,32 @@ export default function Contact() {
               </div>
 
               {sent ? (
-                <div style={{ padding:'12px 0' }}>
-                  <h3 style={{ fontSize:18, fontWeight:600, marginBottom:8 }}>Brief received</h3>
-                  <p className="body-sm">We have your enquiry and will reply within 24 hours.</p>
+                <div style={{ padding:'32px 0' }}>
+                  <div style={{ textAlign:'center', marginBottom:32 }}>
+                    <div style={{ width:64, height:64, borderRadius:'50%', background:'var(--accent-soft)', border:'2px solid var(--accent)', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 16px', fontSize:32, color:'var(--accent)' }}>✓</div>
+                    <h3 style={{ fontSize:22, fontWeight:600, marginBottom:8, color:'var(--dark)' }}>Thanks, {form.name.split(' ')[0]}!</h3>
+                    <p className="body-md" style={{ color:'var(--mid)', maxWidth:400, margin:'0 auto' }}>We've received your enquiry and will respond within 24 hours with a clear next step.</p>
+                  </div>
+
+                  <div style={{ background:'var(--cream)', borderRadius:12, padding:'20px 24px', marginBottom:24 }}>
+                    <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:12 }}>What happens next</p>
+                    <ol style={{ paddingLeft:20, display:'grid', gap:8 }}>
+                      <li style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>We'll review your project brief and requirements</li>
+                      <li style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>Reply with a detailed plan and fixed price quote</li>
+                      <li style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>Schedule a call if needed to clarify any details</li>
+                    </ol>
+                  </div>
+
+                  <div style={{ textAlign:'center', paddingTop:24, borderTop:'1px solid var(--border-light)' }}>
+                    <p style={{ fontSize:13, color:'var(--mid)', marginBottom:16 }}>While you wait, explore our work and pricing:</p>
+                    <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
+                      <Link to="/portfolio" className="btn-ghost" style={{ fontSize:13 }}>View portfolio →</Link>
+                      <Link to="/pricing" className="btn-ghost" style={{ fontSize:13 }}>See pricing →</Link>
+                    </div>
+                    <div style={{ marginTop:20, padding:'12px 16px', background:'var(--accent-soft)', borderRadius:8, border:'1px solid rgba(0,113,227,0.15)' }}>
+                      <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:02920024218" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>029 2002 4218</a></p>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={submitEnquiry} style={{ display:'grid', gap:14 }}>
@@ -192,26 +215,36 @@ export default function Contact() {
                   <div className="pricing-grid-two" style={{ gap:12 }}>
                     <div>
                       <label className="field-label">Business</label>
-                      <input className="field-inp" value={form.business} onChange={(e) => update('business', e.target.value)} />
+                      <input className="field-inp" value={form.business} onChange={(e) => update('business', e.target.value)} placeholder="Your company name" />
                     </div>
                     <div>
-                      <label className="field-label">Rough budget</label>
-                      <select className="field-inp" value={form.budget} onChange={(e) => update('budget', e.target.value)}>
-                        <option value="">Select budget</option>
-                        <option>Under £1,000</option>
-                        <option>£1,000 - £2,500</option>
-                        <option>£2,500 - £5,000</option>
-                        <option>£5,000+</option>
+                      <label className="field-label">Budget range</label>
+                      <select className="field-inp" value={form.budget} onChange={(e) => update('budget', e.target.value)} style={{ cursor:'pointer' }}>
+                        <option value="">Select your budget</option>
+                        <option value="£449-£999">£449-£999 — Starter websites</option>
+                        <option value="£1,000-£2,500">£1,000-£2,500 — Growing businesses</option>
+                        <option value="£2,500-£5,000">£2,500-£5,000 — Pro solutions</option>
+                        <option value="£5,000+">£5,000+ — Enterprise builds</option>
+                        <option value="Not sure yet">Not sure yet — Help me estimate</option>
                       </select>
                     </div>
                   </div>
                   <div>
                     <label className="field-label">Timeline</label>
-                    <input className="field-inp" value={form.timeline} onChange={(e) => update('timeline', e.target.value)} placeholder="e.g. Within 4 weeks" />
+                    <input className="field-inp" value={form.timeline} onChange={(e) => update('timeline', e.target.value)} placeholder="e.g. Within 4 weeks, ASAP, Flexible" />
                   </div>
                   <div>
-                    <label className="field-label">Project brief *</label>
-                    <textarea className="field-inp" rows={6} value={form.message} onChange={(e) => update('message', e.target.value)} placeholder="What do you need, what matters most, and what should this website help your business do?" style={{ resize:'vertical', lineHeight:1.7 }} />
+                    <label className="field-label">Project brief <span style={{ color:'var(--accent)' }}>*</span></label>
+                    <textarea
+                      className="field-inp"
+                      rows={6}
+                      value={form.message}
+                      onChange={(e) => update('message', e.target.value)}
+                      placeholder="Tell us about your project: What do you need built? What matters most? What should this website help your business achieve?"
+                      style={{ resize:'vertical', lineHeight:1.7 }}
+                      required
+                    />
+                    <p style={{ fontSize:12, color:'var(--mid)', marginTop:6, fontStyle:'italic' }}>Tip: Include what you like/dislike about your current site, target audience, and key features needed.</p>
                   </div>
                   {error && <p style={{ fontSize:13, color:'#FF3B30' }}>{error}</p>}
                   <button className="btn-primary" type="submit" disabled={sending} style={{ justifyContent:'center' }}>

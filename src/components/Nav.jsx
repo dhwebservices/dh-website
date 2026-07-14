@@ -7,13 +7,9 @@ const BookingWidget = lazy(() => import('./BookingWidget').then((module) => ({ d
 
 const LINKS = [
   { to: '/services',   label: 'Services' },
-  { to: '/about',      label: 'About' },
-  { to: '/partners',   label: 'Partners' },
   { to: '/portfolio',  label: 'Portfolio' },
   { to: '/pricing',    label: 'Pricing' },
-  { to: '/calculator', label: 'Get a quote', accent: true },
-  { to: '/careers',    label: 'Careers' },
-  { to: '/contact',    label: 'Contact' },
+  { to: '/about',      label: 'About' },
 ]
 
 export default function Nav() {
@@ -33,9 +29,8 @@ export default function Nav() {
       }))
   ), [pages])
   const navLinks = useMemo(() => ([
-    ...LINKS.slice(0, 4),
+    ...LINKS,
     ...customLinks,
-    ...LINKS.slice(4),
   ]), [customLinks])
 
   useEffect(() => {
