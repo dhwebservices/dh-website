@@ -122,19 +122,19 @@ const SERVICES = [
 
 const TESTIMONIALS = [
   {
-    quote: "DH Website Services delivered our new site in under 3 weeks. The quality is exceptional — it genuinely looks better than agencies we were quoted 10x more from.",
+    quote: "DH Website Services delivered our new site in 7 days. The quality is exceptional — it genuinely looks better than agencies we were quoted 10x more from.",
     name: "Lucy Deane",
     business: "Glow With Lucy",
   },
 ]
 
 const WHY = [
-  ['Founder-led', 'You speak directly to the person doing the work, not a sales layer.'],
-  ['Fixed pricing', 'Clear scope, clear cost, and no drifting hourly invoices.'],
-  ['Technical build quality', 'Performance, SEO, integrations, and maintainability are part of the build.'],
-  ['Commercial focus', 'The site should help you win work, not just sit online.'],
-  ['Fast replies', 'Direct communication and a response target within 24 hours.'],
-  ['Built for ownership', 'No rental trap. Your website should be an asset you control.'],
+  ['You work with me', 'Not a sales team. Not juniors. Just David, from start to finish.'],
+  ['Fixed price', 'Quote upfront, no surprises. That's the price.'],
+  ['Built properly', 'Fast, ranks on Google, works on mobile. Not a rushed template.'],
+  ['Your website', 'You own the code, the design, the domain. Take it anywhere.'],
+  ['Quick replies', 'Email or call back same day. Usually within a few hours.'],
+  ['Cardiff-based', 'Working from Wales. Happy to work with clients across the UK.'],
 ]
 
 const CREDIBILITY = [
@@ -174,7 +174,7 @@ export default function Home() {
           </div>
 
           <div className="home-hero__stats" style={{ display:'flex', alignItems:'center', gap:24, marginTop:56, flexWrap:'wrap', animation:'fadeUp 0.7s ease 0.2s both' }}>
-            {[['Founder-led','Direct accountability'],['24h','Response target'],['£449','Entry package'],['Built from scratch','No template lock-in']].map(([v,l]) => (
+            {[['David Hooper','Your only contact'],['Cardiff','Based in Wales'],['From £449','Real pricing'],['7-10 days','Typical delivery']].map(([v,l]) => (
               <div key={l}>
                 <div style={{ fontSize:20, fontWeight:600, letterSpacing:'-0.02em', lineHeight:1 }}>{v}</div>
                 <div style={{ fontSize:12, color:'var(--light)', marginTop:3 }}>{l}</div>
@@ -195,10 +195,10 @@ export default function Home() {
         <div className="container">
           <div className="reveal" style={{ display:'flex', justifyContent:'center', alignItems:'center', gap:'clamp(24px,5vw,48px)', flexWrap:'wrap' }}>
             {[
-              { icon:'⭐', label:'5.0 rating', sub:'Google Reviews' },
+              { icon:'✓', label:'Real client work', sub:'Glow With Lucy' },
               { icon:'🔒', label:'GDPR compliant', sub:'Data protection' },
-              { icon:'🏆', label:'Microsoft Partner', sub:'Verified status' },
-              { icon:'⚡', label:'2-6 week delivery', sub:'Fixed timeline' },
+              { icon:'🏆', label:'Microsoft Partner', sub:'Verified' },
+              { icon:'⚡', label:'7-10 day delivery', sub:'Fixed timeline' },
             ].map((item, i) => (
               <div key={i} style={{ display:'flex', alignItems:'center', gap:10 }}>
                 <div style={{ fontSize:24, filter:'grayscale(0.3)', opacity:0.7 }}>{item.icon}</div>
@@ -430,7 +430,7 @@ export default function Home() {
             {[
               {
                 q: 'How long does a website project take?',
-                a: 'Typical delivery ranges from 2-6 weeks depending on scope. Starter websites can launch within 2 weeks, while complex builds with e-commerce or HR integration may take 4-6 weeks. We provide a clear timeline during the scoping phase.',
+                a: 'Standard websites are delivered in 7 days. HR portals and complex integrations take 10 days. Timeline is confirmed during scoping, and we stick to it.',
               },
               {
                 q: 'What\'s included in your fixed pricing?',

@@ -3,20 +3,20 @@ import { useReveal } from '../hooks/useReveal'
 import { GEO_CITY_LINKS } from '../lib/seoContent'
 
 const SVCS = [
-  { num:'01', title:'Custom Web Development', desc:"We don't use templates. Every site is purpose-built for your business using production-ready code.", points:['React, Next.js or vanilla JS','Backend APIs and database integration','Authentication and user accounts','Third-party integrations','Performance-optimised from day one'] },
-  { num:'02', title:'User-Centric Design', desc:'Interfaces built around what your customers actually need. Every decision has a reason.', points:['Brand-aligned design system','Mobile-first responsive layouts','WCAG 2.1 accessibility','Conversion-focused UX','Purposeful interaction design'] },
-  { num:'03', title:'SEO & Performance', desc:'A website nobody finds is worthless. SEO is built in from line one, not bolted on at the end.', points:['Technical SEO setup','Core Web Vitals optimisation','Structured data and schema markup','Google Analytics integration','Ongoing health monitoring'] },
-  { num:'04', title:'Hosting & Maintenance', desc:"We stay after launch. Your site is kept fast, secure, and current without you worrying about it.", points:['Managed Cloudflare hosting','Weekly backups','Security updates and patches','Content updates on request','Uptime monitoring and alerts'] },
-  { num:'05', title:'E-commerce', desc:'Sell online with a store built for conversion. From simple product pages to complex catalogues.', points:['Product catalogue management','Secure payment processing','Inventory and order management','Discount codes and promotions','Mobile-optimised checkout'] },
-  { num:'06', title:'HR System Integration', desc:'A complete staff management portal — onboarding, leave, timesheets, payslips — built into your site or standalone.', points:['Staff onboarding portal','Leave and timesheet management','Payslip delivery system','Policy document storage','Manager dashboard and approvals'] },
+  { num:'01', title:'Custom Web Development', desc:"No templates. I build your site from scratch, specifically for what you need.", points:['React, Next.js or vanilla JS','Backend APIs and database integration','Authentication and user accounts','Third-party integrations','Fast and optimised from the start'] },
+  { num:'02', title:'Design That Works', desc:'Clean, fast, and easy to use. Looks professional on phones and desktops.', points:['Brand-aligned design','Mobile-first responsive','Accessibility built-in','Conversion-focused','Clear user journeys'] },
+  { num:'03', title:'SEO & Performance', desc:'Built to rank on Google. Fast loading, clean code, proper setup from the start.', points:['Technical SEO setup','Core Web Vitals optimisation','Structured data and schema markup','Google Analytics integration','Ongoing health monitoring'] },
+  { num:'04', title:'Hosting & Maintenance', desc:"Hosting on Cloudflare. I keep it updated, backed up, and running fast.", points:['Managed Cloudflare hosting','Weekly backups','Security updates and patches','Content updates on request','Uptime monitoring and alerts'] },
+  { num:'05', title:'E-commerce', desc:'Sell online with a store built to convert. Simple products or full catalogues.', points:['Product catalogue management','Secure payment processing','Inventory and order management','Discount codes and promotions','Mobile-optimised checkout'] },
+  { num:'06', title:'HR System Integration', desc:'Staff portal for onboarding, leave requests, timesheets, and payslips. Built into your site or standalone.', points:['Staff onboarding portal','Leave and timesheet management','Payslip delivery system','Policy document storage','Manager dashboard and approvals'] },
 ]
 
 const PROCESS = [
-  { n:'01', title:'Discovery', desc:'We learn your business, your customers, and what success looks like. This shapes every decision.' },
-  { n:'02', title:'Design', desc:'Wireframes and mockups before any code. You see it and approve it before we build.' },
-  { n:'03', title:'Build', desc:'Development with regular check-ins. No surprises, no scope creep, no disappearing.' },
-  { n:'04', title:'Launch', desc:'Testing, revisions, and a smooth handover. You go live with confidence.' },
-  { n:'05', title:'Support', desc:'Ongoing maintenance and support through one of our hosting plans. We\'re here.' },
+  { n:'01', title:'Brief', desc:'Tell me what you need. I'll ask questions until it's clear.' },
+  { n:'02', title:'Quote', desc:'Fixed price. You'll know exactly what you're paying before I start.' },
+  { n:'03', title:'Design', desc:'Mockups first. You approve the look before I write any code.' },
+  { n:'04', title:'Build', desc:'7-10 days. I'll send progress updates so you know where it's at.' },
+  { n:'05', title:'Launch', desc:'Test it, fix any issues, then it goes live. You get the login details.' },
 ]
 
 export default function Services() {

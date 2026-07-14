@@ -84,7 +84,7 @@ Notable project: Glow With Lucy (glowwithlucy.co.uk) - Full e-commerce beauty bu
 ## Common Questions
 
 **How long does a website take?**
-Typical delivery: 2-6 weeks depending on scope. Starter sites can launch within 2 weeks.
+Standard websites: 7 days. HR portals and complex integrations: 10 days.
 
 **What's included in the price?**
 Custom design, development, SEO setup, analytics, hosting setup, and launch support. Ongoing hosting billed separately.

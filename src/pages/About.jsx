@@ -2,19 +2,12 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 
 const VALUES = [
-  ['Fixed price, always', 'We quote before we start and we honour it. No scope creep invoices, no hourly billing surprises.'],
-  ['Founder-led', 'You speak directly to the person doing the work. No account managers, no handoffs, no telephone game.'],
-  ['Built for ownership', 'When we hand over your site, it is yours. You control it, you own it, no vendor lock-in.'],
-  ['Commercial focus', 'A website is not art. It is a business tool. Every decision we make is about helping you win more work.'],
-  ['Fast and honest', 'We reply within 24 hours. If something is wrong, we say so. If something will take longer, we tell you first.'],
-  ['Built in Wales', 'We are a Cardiff business serving Cardiff businesses — and clients across the UK who want that same directness.'],
-]
-
-const TIMELINE = [
-  ['Feb 2026', 'Founded', 'DH Website Services launched in Cardiff with a simple idea — production-quality websites at honest prices.'],
-  ['Mar 2026', 'First launches', 'Delivered early websites for small businesses that needed something more credible than a template or social-only presence.'],
-  ['Mar 2026', 'Portfolio growth', 'Expanded the project mix across brochure sites, booking-led builds, and more commercially focused landing pages.'],
-  ['Apr 2026', 'UK-wide delivery', 'Continued serving clients across Wales and the UK while keeping the same direct, founder-led way of working.'],
+  ['Fixed price', 'I quote before starting. That's what you pay. No extras.'],
+  ['Just me', 'You email me. I reply. No team to go through.'],
+  ['You own it', 'When it's done, you get all the files. Host it anywhere.'],
+  ['Built to work', 'Not trying to win design awards. Built to get you customers.'],
+  ['Quick replies', 'Usually same day. If it'll take longer, I'll tell you.'],
+  ['Cardiff-based', 'Working from Wales. Happy to work with clients anywhere in UK.'],
 ]
 
 export default function About() {
@@ -102,35 +95,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="section">
-        <div className="container" style={{ maxWidth: 760 }}>
-          <div className="reveal" style={{ marginBottom: 'clamp(40px,5vw,56px)' }}>
-            <p className="eyebrow" style={{ marginBottom: 14 }}>Our story</p>
-            <h2 className="headline-lg">How we got here.</h2>
-          </div>
-          <div style={{ position: 'relative' }}>
-            {/* Vertical line */}
-            <div style={{ position: 'absolute', left: 15, top: 8, bottom: 8, width: 1, background: 'var(--border-light)' }} />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-              {TIMELINE.map(([year, title, desc], i) => (
-                <div key={i} className="reveal" style={{ display: 'flex', gap: 32, paddingBottom: 36, transitionDelay: `${i * 0.08}s` }}>
-                  {/* Dot */}
-                  <div style={{ flexShrink: 0, width: 30, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 4 }}>
-                    <div style={{ width: 10, height: 10, borderRadius: '50%', background: 'var(--accent)', border: '2px solid var(--white)', boxShadow: '0 0 0 3px var(--accent-soft)', flexShrink: 0 }} />
-                  </div>
-                  {/* Content */}
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 4 }}>{year}</div>
-                    <div style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 8 }}>{title}</div>
-                    <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--mid)' }}>{desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="section" style={{ background: 'var(--dark)' }}>

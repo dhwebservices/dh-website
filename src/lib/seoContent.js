@@ -79,7 +79,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/portfolio',
     title: 'Portfolio | DH Website Services',
-    description: 'Recent website work and client projects from DH Website Services, including Glow With Lucy e-commerce platform delivered in under 3 weeks.',
+    description: 'Recent website work and client projects from DH Website Services, including Glow With Lucy e-commerce platform delivered in 7 days.',
     heading: 'Recent website work and delivery examples.',
     intro: 'Portfolio content highlights the kind of commercial website work DH Website Services ships for real businesses.',
     sections: [
