@@ -280,7 +280,7 @@ export default function Home() {
               {serviceCards.map((s,i) => (
                 <div key={s.title} className="reveal glass-card" style={{ borderRadius:0, border:'none', padding:'28px 24px', transitionDelay:`${i*0.04}s` }}>
                   <div style={{ fontSize:22, marginBottom:12, filter:'grayscale(1) opacity(0.4)' }}>{s.icon}</div>
-                  <div style={{ fontSize:15, fontWeight:600, marginBottom:8, letterSpacing:'-0.01em' }}>{s.title}</div>
+                  <h3 style={{ fontSize:15, fontWeight:600, marginBottom:8, letterSpacing:'-0.01em' }}>{s.title}</h3>
                   <p className="body-sm">{s.desc}</p>
                 </div>
               ))}
@@ -302,7 +302,7 @@ export default function Home() {
                 <div style={{ width:32, height:32, borderRadius:8, background:'var(--accent-soft)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:16 }}>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
-                <div style={{ fontSize:15, fontWeight:600, marginBottom:6, letterSpacing:'-0.01em' }}>{title}</div>
+                <h3 style={{ fontSize:15, fontWeight:600, marginBottom:6, letterSpacing:'-0.01em' }}>{title}</h3>
                 <p className="body-sm">{desc}</p>
               </div>
             ))}
@@ -320,7 +320,7 @@ export default function Home() {
           <div className="pricing-grid-three" style={{ gap:16 }}>
             {CREDIBILITY.map(([title, desc], index) => (
               <div key={title} className="reveal glass-card" style={{ padding:'28px 24px', transitionDelay:`${index * 0.06}s` }}>
-                <div style={{ fontSize:16, fontWeight:600, marginBottom:10 }}>{title}</div>
+                <h3 style={{ fontSize:16, fontWeight:600, marginBottom:10 }}>{title}</h3>
                 <p className="body-sm">{desc}</p>
               </div>
             ))}
@@ -418,6 +418,56 @@ export default function Home() {
                 <div style={{ fontSize:12, color:'var(--light)', fontFamily:'var(--font-mono)', letterSpacing:'0.04em', textTransform:'uppercase' }}>{label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="section" style={{ background:'var(--white)', borderTop:'1px solid var(--border-light)' }}>
+        <div className="container section-narrow">
+          <div className="reveal" style={{ textAlign:'center', marginBottom:'clamp(40px,5vw,56px)' }}>
+            <p className="eyebrow" style={{ marginBottom:14 }}>Common questions</p>
+            <h2 className="headline-lg">Everything you need to know</h2>
+            <p className="body-md" style={{ marginTop:16 }}>Quick answers to questions we hear most often about our website development process.</p>
+          </div>
+
+          <div style={{ display:'grid', gap:20 }}>
+            {[
+              {
+                q: 'How long does a website project take?',
+                a: 'Typical delivery ranges from 2-6 weeks depending on scope. Starter websites can launch within 2 weeks, while complex builds with e-commerce or HR integration may take 4-6 weeks. We provide a clear timeline during the scoping phase.',
+              },
+              {
+                q: 'What\'s included in your fixed pricing?',
+                a: 'Our fixed-price packages include custom design, development, mobile optimization, technical SEO setup, analytics integration, contact forms, and launch support. Ongoing hosting and support are billed separately so you can see exactly what\'s one-off versus recurring.',
+              },
+              {
+                q: 'Do you offer website hosting and maintenance?',
+                a: 'Yes. We provide managed hosting on Cloudflare Pages with 99.9%+ uptime, global CDN, automatic SSL, and regular security updates. Hosting plans start from £29/month and include ongoing technical support, updates, and monitoring.',
+              },
+              {
+                q: 'Can you integrate with our existing systems?',
+                a: 'Absolutely. We specialize in integrations with Microsoft 365, Supabase databases, payment processors (Stripe), booking systems, email platforms (Resend), and HR management tools. As a Microsoft Partner, we\'re particularly strong with Microsoft ecosystem integrations.',
+              },
+              {
+                q: 'What makes you different from other web agencies?',
+                a: 'Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. We build production-quality code from day one, not MVP filler that needs rebuilding later.',
+              },
+              {
+                q: 'Do I own the website after launch?',
+                a: 'Yes, completely. You own all design files, source code, content, and domain. There\'s no rental trap or proprietary platform lock-in. You can take the website to another developer or host if needed, though we provide ongoing support for clients who want it.',
+              },
+            ].map((faq, i) => (
+              <div key={i} className="reveal glass-card" style={{ padding:'28px 24px', transitionDelay:`${i*0.05}s` }}>
+                <h3 style={{ fontSize:16, fontWeight:600, marginBottom:12, lineHeight:1.3 }}>{faq.q}</h3>
+                <p className="body-sm" style={{ lineHeight:1.7 }}>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal" style={{ textAlign:'center', marginTop:32 }}>
+            <p className="body-sm" style={{ marginBottom:16 }}>Still have questions?</p>
+            <Link to="/contact" className="btn-ghost">Get in touch <span className="arrow">→</span></Link>
           </div>
         </div>
       </section>

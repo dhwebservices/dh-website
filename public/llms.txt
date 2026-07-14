@@ -1,0 +1,104 @@
+# DH Website Services
+
+> Production-ready websites, booking systems, and business platforms built for speed, SEO, and conversion.
+
+## About
+
+DH Website Services is a Cardiff-based web development agency founded by David Hooper. We build custom websites, booking systems, and business platforms for UK businesses that need more than templates. Founder-led delivery with fixed pricing and no hourly ambiguity.
+
+## Services
+
+- Custom website development (React, modern web technologies)
+- Conversion-led UX design
+- Technical SEO optimization
+- E-commerce platforms
+- HR system integrations (onboarding, leave management, timesheets, payslips)
+- Managed hosting on Cloudflare Pages
+- Ongoing website support and maintenance
+
+## Pricing
+
+Fixed-price packages with transparent pricing:
+- Starter websites from £449
+- Growth packages for expanding businesses
+- Pro and Enterprise solutions for complex requirements
+- No hidden fees, no hourly ambiguity
+- One-off build costs separate from ongoing hosting
+
+## Locations Served
+
+Serving businesses across the UK with particular focus on:
+- Cardiff, Wales
+- Newport
+- Swansea
+- Bristol
+- London
+- All UK regions
+
+## Technology Stack
+
+- Frontend: React 18, Vite
+- Hosting: Cloudflare Pages
+- Email: Resend API via Cloudflare Workers
+- Database: Supabase
+- Performance: Optimized for 100/100 PageSpeed scores
+
+## Partnerships
+
+- Microsoft Approved Partner
+- Authorized reseller for business devices
+- Integration expertise with Microsoft 365 ecosystem
+
+## Contact Information
+
+- Website: https://www.dhwebsiteservices.co.uk
+- Email: clients@dhwebsiteservices.co.uk
+- Phone: 029 2002 4218
+- Location: Cardiff, Wales, United Kingdom
+- Hours: Monday-Friday 9am-5pm GMT
+
+## Key Pages
+
+- Homepage: https://www.dhwebsiteservices.co.uk/
+- Services: https://www.dhwebsiteservices.co.uk/services/
+- Pricing: https://www.dhwebsiteservices.co.uk/pricing/
+- Portfolio: https://www.dhwebsiteservices.co.uk/portfolio/
+- About: https://www.dhwebsiteservices.co.uk/about/
+- Contact/Booking: https://www.dhwebsiteservices.co.uk/contact/
+- Project Calculator: https://www.dhwebsiteservices.co.uk/calculator/
+- Careers: https://www.dhwebsiteservices.co.uk/careers/
+
+## Client Portfolio
+
+Notable project: Glow With Lucy (glowwithlucy.co.uk) - Full e-commerce beauty business website delivered in under 3 weeks.
+
+## What Makes Us Different
+
+- Founder-led: Direct communication with David Hooper throughout
+- Fixed pricing: No scope creep or hourly billing surprises
+- Production quality: Built to launch standards, not MVP filler
+- Technical excellence: Modern stack, fast performance, proper SEO
+- UK-based: Cardiff office with nationwide service
+- Post-launch support: We don't disappear after go-live
+
+## Common Questions
+
+**How long does a website take?**
+Typical delivery: 2-6 weeks depending on scope. Starter sites can launch within 2 weeks.
+
+**What's included in the price?**
+Custom design, development, SEO setup, analytics, hosting setup, and launch support. Ongoing hosting billed separately.
+
+**Do you offer hosting?**
+Yes, managed hosting on Cloudflare Pages with 99.9%+ uptime and global CDN.
+
+**Can you integrate with existing systems?**
+Yes, especially Microsoft 365, Supabase, payment processors, booking systems, and HR platforms.
+
+## Business Details
+
+- Legal Entity: David Hooper Home Limited
+- Company Number: 17018784
+- Registered: Wales, United Kingdom
+- Industry: Web Development & Digital Services
+- Founded: 2024

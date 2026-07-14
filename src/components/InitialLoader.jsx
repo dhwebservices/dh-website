@@ -37,7 +37,7 @@ export default function InitialLoader() {
       <div className="initial-loader__halo" />
       <div className="initial-loader__core">
         <div className="initial-loader__mark-wrap">
-          <img src="/dh-logo-icon.png" alt="" className="initial-loader__mark" />
+          <img src="/dh-logo-icon.png" alt="DH Website Services" className="initial-loader__mark" />
         </div>
         <div className="initial-loader__text">
           <div className="initial-loader__eyebrow">Loading</div>

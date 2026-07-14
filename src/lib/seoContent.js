@@ -19,7 +19,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
     title: 'DH Website Services | Production-Ready Websites for Growth',
-    description: 'Production-ready websites, booking systems, and business platforms built for speed, SEO, and conversion.',
+    description: 'Production-ready websites, booking systems, and business platforms built for speed, SEO, and conversion. Fixed pricing, founder-led delivery across the UK.',
     heading: 'Production-ready websites for businesses that need speed, clarity, and real commercial value.',
     intro: 'DH Website Services builds custom websites, landing pages, booking systems, and business platforms for companies that need more than a template.',
     sections: [
@@ -39,7 +39,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/services',
     title: 'Services | DH Website Services',
-    description: 'Custom website development, UX design, SEO, e-commerce, hosting, and HR portal integrations.',
+    description: 'Custom website development, conversion-led UX design, technical SEO, e-commerce platforms, managed hosting, and HR portal integrations for UK businesses.',
     heading: 'Website services built around growth, conversion, and maintainable delivery.',
     intro: 'We cover the full website build process from UX and front-end development through SEO foundations, integrations, and post-launch support.',
     sections: [
@@ -59,7 +59,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/pricing',
     title: 'Pricing | DH Website Services',
-    description: 'Clear website build, hosting, and HR system pricing with fixed packages and no hidden fees.',
+    description: 'Clear website build, hosting, and HR system pricing with fixed packages from £449. Transparent pricing with no hidden fees or hourly ambiguity.',
     heading: 'Fixed website pricing without hourly ambiguity.',
     intro: 'DH Website Services offers clear build packages, monthly hosting plans, and HR system pricing so businesses can budget properly before a project starts.',
     sections: [
@@ -79,7 +79,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/portfolio',
     title: 'Portfolio | DH Website Services',
-    description: 'Recent website work from DH Website Services, including Glow With Lucy at glowwithlucy.co.uk.',
+    description: 'Recent website work and client projects from DH Website Services, including Glow With Lucy e-commerce platform delivered in under 3 weeks.',
     heading: 'Recent website work and delivery examples.',
     intro: 'Portfolio content highlights the kind of commercial website work DH Website Services ships for real businesses.',
     sections: [
@@ -94,7 +94,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/about',
     title: 'About | DH Website Services',
-    description: 'DH Website Services is a Cardiff-based web agency founded by David Hooper. Fixed prices, founder-led delivery, production-quality websites for UK businesses.',
+    description: 'Cardiff-based web development agency founded by David Hooper. Fixed pricing, founder-led delivery, production-quality websites for UK businesses. Microsoft Partner.',
     heading: 'Founder-led website delivery based in Cardiff.',
     intro: 'DH Website Services works with UK businesses that want direct accountability, fixed pricing, and a stronger technical standard than template-led web builds.',
     sections: [
