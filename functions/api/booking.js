@@ -76,8 +76,12 @@ async function postWorker(context, type, data) {
 async function sendOutreachContact(context, { to, name, subject, message }) {
   // Send directly via Resend API instead of worker
   const { env } = context
-  const resendKey = env.RESEND_API_KEY || 're_jYqpqSfe_51Nc89fN7ysN9GEEUgBo7hsd'
+  const resendKey = env.RESEND_API_KEY
   const fromEmail = env.FROM_EMAIL || 'DH Website Services <noreply@dhwebsiteservices.co.uk>'
+
+  if (!resendKey) {
+    throw new Error('RESEND_API_KEY environment variable is required')
+  }
 
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
