@@ -74,12 +74,32 @@ async function postWorker(context, type, data) {
 }
 
 async function sendOutreachContact(context, { to, name, subject, message }) {
-  return postWorker(context, 'outreach_contact', {
-    to_email: to,
-    contact_name: name,
-    subject,
-    message,
+  // Send directly via Resend API instead of worker
+  const { env } = context
+  const resendKey = env.RESEND_API_KEY || 're_jYqpqSfe_51Nc89fN7ysN9GEEUgBo7hsd'
+  const fromEmail = env.FROM_EMAIL || 'DH Website Services <noreply@dhwebsiteservices.co.uk>'
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${resendKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: fromEmail,
+      to: [to],
+      subject: subject,
+      html: message,
+    }),
   })
+
+  if (!response.ok) {
+    const error = await response.text()
+    console.error('Resend error:', error)
+    throw new Error(`Email send failed: ${error}`)
+  }
+
+  return await response.json()
 }
 
 async function logEvent(context, request, action, target, details = {}) {
