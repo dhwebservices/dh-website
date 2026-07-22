@@ -110,7 +110,7 @@ export default function Contact() {
               <div className="glass-card" style={{ borderRadius:16, overflow:'hidden', marginBottom:24 }}>
                 {[
                   { label:'Email',    val: cms?.email    || 'clients@dhwebsiteservices.co.uk', href:'mailto:clients@dhwebsiteservices.co.uk' },
-                  { label:'Phone',    val: cms?.phone    || '029 2002 4218', href:'tel:02920024218' },
+                  { label:'Phone',    val: cms?.phone    || '07364 166285', href:'tel:07364166285' },
                   { label:'Location', val: cms?.location || 'Cardiff, United Kingdom' },
                   { label:'Response', val: cms?.response_time || 'Within 24 hours' },
                 ].map((c,i,arr) => (
@@ -141,7 +141,7 @@ export default function Contact() {
               <div style={{ marginTop:24 }}>
                 <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:14 }}>What to expect</p>
                 {[
-                  ['📞', 'We call you', 'From 029 2002 4218 at your chosen time'],
+                  ['📞', 'We call you', 'From 07364 166285 at your chosen time'],
                   ['💬', 'Discuss your project', 'Tell us what you need, we listen'],
                   ['📋', 'Clear plan & price', 'Fixed quote, no surprises'],
                 ].map(([icon, title, desc]) => (
@@ -196,7 +196,7 @@ export default function Contact() {
                       <Link to="/pricing" className="btn-ghost" style={{ fontSize:13 }}>See pricing →</Link>
                     </div>
                     <div style={{ marginTop:20, padding:'12px 16px', background:'var(--accent-soft)', borderRadius:8, border:'1px solid rgba(0,113,227,0.15)' }}>
-                      <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:02920024218" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>029 2002 4218</a></p>
+                      <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:07364166285" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>07364 166285</a></p>
                     </div>
                   </div>
                 </div>

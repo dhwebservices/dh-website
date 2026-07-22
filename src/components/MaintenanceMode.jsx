@@ -4,8 +4,8 @@ export default function MaintenanceMode({ settings }) {
   const [form, setForm] = useState({ name: '', phone: '' })
   const [submitting, setSubmitting] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
-  const callNumber = '02920024218'
-  const formattedCallNumber = '02920 024218'
+  const callNumber = '07364166285'
+  const formattedCallNumber = '07364 166285'
 
   const canSubmit = form.name.trim() && form.phone.trim() && !submitting
 
