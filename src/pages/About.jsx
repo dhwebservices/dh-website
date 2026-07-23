@@ -61,6 +61,12 @@ export default function About() {
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
                     clients@dhwebsiteservices.co.uk
                   </a>
+                  <a href="tel:02920024218" style={{ fontSize: 13, color: 'var(--mid)', display: 'flex', alignItems: 'center', gap: 8, transition: 'color 0.15s' }}
+                    onMouseOver={e => e.currentTarget.style.color = 'var(--dark)'}
+                    onMouseOut={e => e.currentTarget.style.color = 'var(--mid)'}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.61 19.79 19.79 0 01.01 1A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+                    029 2002 4218
+                  </a>
                   <a href="tel:07364166285" style={{ fontSize: 13, color: 'var(--mid)', display: 'flex', alignItems: 'center', gap: 8, transition: 'color 0.15s' }}
                     onMouseOver={e => e.currentTarget.style.color = 'var(--dark)'}
                     onMouseOut={e => e.currentTarget.style.color = 'var(--mid)'}>

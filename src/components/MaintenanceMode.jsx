@@ -4,8 +4,10 @@ export default function MaintenanceMode({ settings }) {
   const [form, setForm] = useState({ name: '', phone: '' })
   const [submitting, setSubmitting] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
-  const callNumber = '07364166285'
-  const formattedCallNumber = '07364 166285'
+  const primaryCallNumber = '02920024218'
+  const formattedPrimaryNumber = '02920 024218'
+  const secondaryCallNumber = '07364166285'
+  const formattedSecondaryNumber = '07364 166285'
 
   const canSubmit = form.name.trim() && form.phone.trim() && !submitting
 
@@ -263,38 +265,60 @@ export default function MaintenanceMode({ settings }) {
             </p>
           </div>
 
-          <a
-            href={`tel:${callNumber}`}
-            style={{
-              display: 'grid',
-              gap: 10,
-              padding: '22px 22px 20px',
-              borderRadius: 24,
-              background: 'linear-gradient(135deg, rgba(0,113,227,0.08), rgba(0,113,227,0.14))',
-              border: '1px solid rgba(0,113,227,0.16)',
-              boxShadow: '0 20px 50px rgba(0,113,227,0.18)',
-              animation: 'maintenancePulse 2.6s ease-in-out infinite',
-            }}
-          >
-            <div style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mid)' }}>
-              Tap to call
-            </div>
-            <div
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <a
+              href={`tel:${primaryCallNumber}`}
               style={{
-                fontSize: 'clamp(28px, 4vw, 42px)',
-                lineHeight: 1,
-                letterSpacing: '-0.04em',
-                color: 'var(--dark)',
-                fontWeight: 700,
-                animation: 'maintenanceNumberReveal 0.55s cubic-bezier(0.16,1,0.3,1) both',
+                display: 'grid',
+                gap: 10,
+                padding: '22px 22px 20px',
+                borderRadius: 24,
+                background: 'linear-gradient(135deg, rgba(0,113,227,0.08), rgba(0,113,227,0.14))',
+                border: '1px solid rgba(0,113,227,0.16)',
+                boxShadow: '0 20px 50px rgba(0,113,227,0.18)',
+                animation: 'maintenancePulse 2.6s ease-in-out infinite',
               }}
             >
-              {formattedCallNumber}
-            </div>
-            <div style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--dark2)' }}>
-              Direct line to DH Website Services while the site is offline.
-            </div>
-          </a>
+              <div style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mid)' }}>
+                Main line
+              </div>
+              <div
+                style={{
+                  fontSize: 'clamp(28px, 4vw, 42px)',
+                  lineHeight: 1,
+                  letterSpacing: '-0.04em',
+                  color: 'var(--dark)',
+                  fontWeight: 700,
+                  animation: 'maintenanceNumberReveal 0.55s cubic-bezier(0.16,1,0.3,1) both',
+                }}
+              >
+                {formattedPrimaryNumber}
+              </div>
+              <div style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--dark2)' }}>
+                Direct line to DH Website Services while the site is offline.
+              </div>
+            </a>
+
+            <a
+              href={`tel:${secondaryCallNumber}`}
+              style={{
+                display: 'grid',
+                gap: 8,
+                padding: '16px 22px',
+                borderRadius: 16,
+                background: 'rgba(48,164,108,0.08)',
+                border: '1px solid rgba(48,164,108,0.16)',
+                boxShadow: '0 8px 24px rgba(48,164,108,0.12)',
+              }}
+            >
+              <div style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mid)' }}>
+                Alternative
+              </div>
+              <div style={{ fontSize: 24, lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--dark)', fontWeight: 600 }}>
+                {formattedSecondaryNumber}
+              </div>
+            </a>
+          </div>
 
           {settings?.form_enabled !== false ? (
             <form onSubmit={submitRequest} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>

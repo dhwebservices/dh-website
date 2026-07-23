@@ -218,7 +218,7 @@ function buildSubscriberEmail(firstName) {
   <!-- CTA -->
   <div style="padding:24px 48px 48px;text-align:center">
     <a href="https://dhwebsiteservices.co.uk/contact" style="display:inline-block;padding:14px 36px;background:#1A1612;color:#ffffff;text-decoration:none;border-radius:100px;font-size:14px;font-weight:700;letter-spacing:0.01em">Book a free call →</a>
-    <p style="font-size:13px;color:#A1A1A6;margin:20px 0 0">Questions? Call us on <a href="tel:07364166285" style="color:#0071E3;text-decoration:none">07364 166285</a> or email <a href="mailto:clients@dhwebsiteservices.co.uk" style="color:#0071E3;text-decoration:none">clients@dhwebsiteservices.co.uk</a></p>
+    <p style="font-size:13px;color:#A1A1A6;margin:20px 0 0">Questions? Call us on <a href="tel:02920024218" style="color:#0071E3;text-decoration:none">029 2002 4218</a> or <a href="tel:07364166285" style="color:#0071E3;text-decoration:none">07364 166285</a>, or email <a href="mailto:clients@dhwebsiteservices.co.uk" style="color:#0071E3;text-decoration:none">clients@dhwebsiteservices.co.uk</a></p>
   </div>
 
   <!-- Footer -->

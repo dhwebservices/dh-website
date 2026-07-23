@@ -67,6 +67,14 @@ export default function Footer() {
                 clients@dhwebsiteservices.co.uk
               </a>
               <a
+                href="tel:02920024218"
+                style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s' }}
+                onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
+                onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
+              >
+                029 2002 4218
+              </a>
+              <a
                 href="tel:07364166285"
                 style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s' }}
                 onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
