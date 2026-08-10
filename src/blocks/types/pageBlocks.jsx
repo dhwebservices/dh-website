@@ -5,11 +5,13 @@
  * from the page they came from, with only the words turned into props.
  */
 
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
 import appleAuthorisedSellerBadge from '../../assets/apple-authorised-seller.svg'
+import CareerJobCard from '../../components/CareerJobCard'
+import { getPublishedJobs } from '../../lib/careers'
 
 /** Headings on these pages used <br />; editors type a newline instead. */
 function Lines({ text }) {
@@ -612,6 +614,99 @@ export function TypicalFitBlock({ eyebrow, heading, body, areas }) {
                 <p style={{ fontSize: 15, lineHeight: 1.65, color: 'var(--dark2)' }}>{item}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Careers (app block) ────────────────────────────────────────────────── */
+
+/**
+ * The careers page. An app block rather than a content one: the right-hand
+ * column loads live vacancies from the database and filters them, which is
+ * behaviour. Everything on the left is editable copy.
+ *
+ * It is one block because it is one CSS grid - splitting the copy and the
+ * listing into separate blocks would break the two-column layout.
+ */
+export function CareersBlock({ eyebrow, heading, body, infoRows, essentialsLabel, essentials, listingHeading, allLabel, loadingLabel, emptyHeading, emptyBody }) {
+  const [jobs, setJobs] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [filter, setFilter] = useState('all')
+
+  useEffect(() => {
+    getPublishedJobs().then(setJobs).finally(() => setLoading(false))
+  }, [])
+
+  const departments = useMemo(
+    () => ['all', ...new Set(jobs.map((job) => job.department).filter(Boolean))],
+    [jobs],
+  )
+  const filteredJobs = useMemo(
+    () => jobs.filter((job) => (filter === 'all' ? true : job.department === filter)),
+    [jobs, filter],
+  )
+
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="careers-hero-grid">
+          <div>
+            <div className="reveal">
+              <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p>
+              <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
+                <Lines text={heading} />
+              </h1>
+              <p className="body-lg" style={{ marginBottom: 40 }}>{body}</p>
+            </div>
+
+            <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 0, border: '1px solid var(--border-light)', borderRadius: 16, overflow: 'hidden', marginBottom: 24 }}>
+              {(infoRows || []).map((row, i, arr) => (
+                <div key={row.title} style={{ padding: '18px 20px', borderBottom: i < arr.length - 1 ? '1px solid var(--border-light)' : 'none' }}>
+                  <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4, letterSpacing: '-0.01em' }}>{row.title}</div>
+                  <div className="body-sm" style={{ fontSize: 13 }}>{row.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="reveal" style={{ padding: '18px 20px', background: 'var(--cream)', borderRadius: 12, border: '1px solid var(--border-light)' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)', marginBottom: 12 }}>{essentialsLabel}</p>
+              {(essentials || []).map((r) => (
+                <div key={r} style={{ display: 'flex', gap: 8, marginBottom: 8, fontSize: 14, color: 'var(--dark2)', alignItems: 'baseline' }}>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, marginTop: 2 }}><path d="M1.5 6.5L4 9L10.5 2.5" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  {r}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="reveal">
+            <div style={{ display: 'grid', gap: 16 }}>
+              <div className="career-jobs-head">
+                <h2 style={{ fontSize: 20, fontWeight: 600, letterSpacing: '-0.02em' }}>{listingHeading}</h2>
+                <div className="career-filter-row">
+                  {departments.map((department) => (
+                    <button
+                      key={department}
+                      onClick={() => setFilter(department)}
+                      style={{ padding: '9px 14px', borderRadius: 999, border: '1px solid var(--border-light)', background: filter === department ? 'var(--accent)' : 'var(--white)', color: filter === department ? '#fff' : 'var(--dark2)', fontSize: 13 }}
+                    >
+                      {department === 'all' ? allLabel : department}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {loading ? <div className="glass-card" style={{ padding: 26 }}>{loadingLabel}</div> : null}
+              {!loading && filteredJobs.length === 0 ? (
+                <div className="glass-card" style={{ padding: 26 }}>
+                  <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{emptyHeading}</div>
+                  <div className="body-sm">{emptyBody}</div>
+                </div>
+              ) : null}
+              {filteredJobs.map((job) => <CareerJobCard key={job.id} job={job} />)}
+            </div>
           </div>
         </div>
       </div>

@@ -44,6 +44,7 @@ import {
   PartnerHeroBlock,
   PartnerBenefitsBlock,
   TypicalFitBlock,
+  CareersBlock,
 } from './types/pageBlocks'
 
 import {
@@ -610,6 +611,37 @@ export const BLOCKS = {
       { key: 'areas', type: 'list', label: 'Areas', itemType: 'text' },
     ],
     defaults: { eyebrow: '', heading: '', body: '', areas: [] },
+  },
+
+  'app.careers': {
+    label: 'Careers listing',
+    group: 'Apps',
+    component: CareersBlock,
+    hint: 'Live vacancies come from the recruitment system. The wording around them is editable here.',
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Intro' },
+      {
+        key: 'infoRows', type: 'list', label: 'Info rows',
+        itemFields: [
+          { key: 'title', type: 'text', label: 'Title' },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+        ],
+      },
+      { key: 'essentialsLabel', type: 'text', label: 'Checklist label' },
+      { key: 'essentials', type: 'list', label: 'Checklist items', itemType: 'text' },
+      { key: 'listingHeading', type: 'text', label: 'Listing heading' },
+      { key: 'allLabel', type: 'text', label: 'All-departments filter label' },
+      { key: 'loadingLabel', type: 'text', label: 'Loading text' },
+      { key: 'emptyHeading', type: 'text', label: 'No-vacancies heading' },
+      { key: 'emptyBody', type: 'textarea', label: 'No-vacancies body' },
+    ],
+    defaults: {
+      eyebrow: 'Careers', heading: '', body: '', infoRows: [], essentials: [],
+      listingHeading: 'Open positions', allLabel: 'All departments',
+      loadingLabel: 'Loading careers...', emptyHeading: 'No live roles right now', emptyBody: '',
+    },
   },
 
   'rich-text': {

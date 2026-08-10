@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T17:50:48.473Z",
+  "generatedAt": "2026-08-10T19:17:57.928Z",
   "blocks": [
     {
       "type": "hero",
@@ -1532,6 +1532,95 @@
       }
     },
     {
+      "type": "app.careers",
+      "label": "Careers listing",
+      "group": "Apps",
+      "hint": "Live vacancies come from the recruitment system. The wording around them is editable here.",
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "textarea",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro"
+        },
+        {
+          "key": "infoRows",
+          "type": "list",
+          "label": "Info rows",
+          "itemFields": [
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        },
+        {
+          "key": "essentialsLabel",
+          "type": "text",
+          "label": "Checklist label"
+        },
+        {
+          "key": "essentials",
+          "type": "list",
+          "label": "Checklist items",
+          "itemType": "text"
+        },
+        {
+          "key": "listingHeading",
+          "type": "text",
+          "label": "Listing heading"
+        },
+        {
+          "key": "allLabel",
+          "type": "text",
+          "label": "All-departments filter label"
+        },
+        {
+          "key": "loadingLabel",
+          "type": "text",
+          "label": "Loading text"
+        },
+        {
+          "key": "emptyHeading",
+          "type": "text",
+          "label": "No-vacancies heading"
+        },
+        {
+          "key": "emptyBody",
+          "type": "textarea",
+          "label": "No-vacancies body"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Careers",
+        "heading": "",
+        "body": "",
+        "infoRows": [],
+        "essentials": [],
+        "listingHeading": "Open positions",
+        "allLabel": "All departments",
+        "loadingLabel": "Loading careers...",
+        "emptyHeading": "No live roles right now",
+        "emptyBody": ""
+      }
+    },
+    {
       "type": "rich-text",
       "label": "Text",
       "group": "Basics",
@@ -1913,6 +2002,51 @@
             "headingSize": "clamp(32px,4vw,52px)",
             "bodySize": 16,
             "bodyGap": 36
+          }
+        }
+      ]
+    },
+    "careers": {
+      "version": 1,
+      "blocks": [
+        {
+          "id": "careers-main",
+          "type": "app.careers",
+          "props": {
+            "eyebrow": "Careers",
+            "heading": "Join the team\nbuilding with us.",
+            "body": "Explore live roles at DH Website Services and apply directly here with your CV, optional cover letter, experience summary, and screening responses.",
+            "infoRows": [
+              {
+                "title": "Live vacancies",
+                "desc": "Every role shown here is open for direct application through this careers page."
+              },
+              {
+                "title": "Fast review",
+                "desc": "Our hiring team reviews applications directly and contacts shortlisted candidates by email or phone."
+              },
+              {
+                "title": "Built for clarity",
+                "desc": "Role detail, application steps, and expectations are visible before you apply."
+              },
+              {
+                "title": "Human process",
+                "desc": "We keep the process practical and avoid long, unclear hiring loops."
+              }
+            ],
+            "essentialsLabel": "Application essentials",
+            "essentials": [
+              "Upload your CV",
+              "Add an optional cover letter or cover note",
+              "Complete role-specific questions",
+              "Confirm commission-only terms where required",
+              "Receive a confirmation email after applying"
+            ],
+            "listingHeading": "Open positions",
+            "allLabel": "All departments",
+            "loadingLabel": "Loading careers...",
+            "emptyHeading": "No live roles right now",
+            "emptyBody": "We do not have an open vacancy in this filter at the moment. Please check back soon."
           }
         }
       ]
