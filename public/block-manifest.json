@@ -1,0 +1,1201 @@
+{
+  "generatedAt": "2026-08-10T14:37:11.464Z",
+  "blocks": [
+    {
+      "type": "hero",
+      "label": "Hero",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "headlineLead",
+          "type": "text",
+          "label": "Headline (first line)"
+        },
+        {
+          "key": "typewriterLines",
+          "type": "list",
+          "label": "Rotating lines",
+          "itemType": "text",
+          "hint": "Typed out one after another under the headline."
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro paragraph"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "showScrollHint",
+          "type": "boolean",
+          "label": "Show scroll hint"
+        },
+        {
+          "key": "stats",
+          "type": "list",
+          "label": "Stats",
+          "itemFields": [
+            {
+              "key": "value",
+              "type": "text",
+              "label": "Value"
+            },
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Caption"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "headlineLead": "Your website,",
+        "typewriterLines": [],
+        "body": "",
+        "primaryLabel": "Get started",
+        "primaryHref": "/contact",
+        "secondaryLabel": "See pricing",
+        "secondaryHref": "/pricing",
+        "showScrollHint": true,
+        "stats": []
+      }
+    },
+    {
+      "type": "trust-bar",
+      "label": "Trust bar",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Items",
+          "itemFields": [
+            {
+              "key": "icon",
+              "type": "text",
+              "label": "Icon (emoji)"
+            },
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Label"
+            },
+            {
+              "key": "sub",
+              "type": "text",
+              "label": "Sub-label"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "items": []
+      }
+    },
+    {
+      "type": "partner-highlight",
+      "label": "Partner highlight",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "points",
+          "type": "list",
+          "label": "Bullet points",
+          "itemType": "text"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "points": []
+      }
+    },
+    {
+      "type": "services-grid",
+      "label": "Services grid",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Link text"
+        },
+        {
+          "key": "linkHref",
+          "type": "link",
+          "label": "Link target"
+        },
+        {
+          "key": "services",
+          "type": "list",
+          "label": "Service cards",
+          "itemFields": [
+            {
+              "key": "icon",
+              "type": "text",
+              "label": "Icon (emoji)"
+            },
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "linkLabel": "See all services",
+        "linkHref": "/services",
+        "services": []
+      }
+    },
+    {
+      "type": "why-grid",
+      "label": "Feature grid",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Features",
+          "itemFields": [
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "items": []
+      }
+    },
+    {
+      "type": "card-row",
+      "label": "Card row",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro"
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        },
+        {
+          "key": "cards",
+          "type": "list",
+          "label": "Cards",
+          "itemFields": [
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "cards": []
+      }
+    },
+    {
+      "type": "pricing-preview",
+      "label": "Pricing preview",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "note",
+          "type": "textarea",
+          "label": "Note (right side)"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Link text"
+        },
+        {
+          "key": "linkHref",
+          "type": "link",
+          "label": "Link target"
+        },
+        {
+          "key": "packages",
+          "type": "list",
+          "label": "Packages",
+          "itemFields": [
+            {
+              "key": "name",
+              "type": "text",
+              "label": "Name"
+            },
+            {
+              "key": "price",
+              "type": "text",
+              "label": "Price"
+            },
+            {
+              "key": "tagline",
+              "type": "text",
+              "label": "Tagline"
+            },
+            {
+              "key": "who",
+              "type": "textarea",
+              "label": "Who it is for"
+            },
+            {
+              "key": "features",
+              "type": "text",
+              "label": "Features",
+              "hint": "Separate with \" · \""
+            },
+            {
+              "key": "popular",
+              "type": "boolean",
+              "label": "Mark as popular"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Pricing",
+        "heading": "",
+        "note": "",
+        "linkLabel": "See full pricing",
+        "linkHref": "/pricing",
+        "packages": []
+      }
+    },
+    {
+      "type": "testimonials",
+      "label": "Testimonials",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "testimonials",
+          "type": "list",
+          "label": "Quotes",
+          "itemFields": [
+            {
+              "key": "quote",
+              "type": "textarea",
+              "label": "Quote"
+            },
+            {
+              "key": "name",
+              "type": "text",
+              "label": "Name"
+            },
+            {
+              "key": "business",
+              "type": "text",
+              "label": "Business"
+            }
+          ]
+        },
+        {
+          "key": "stats",
+          "type": "list",
+          "label": "Stats bar",
+          "itemFields": [
+            {
+              "key": "value",
+              "type": "text",
+              "label": "Value"
+            },
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Caption"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "testimonials": [],
+        "stats": []
+      }
+    },
+    {
+      "type": "faq",
+      "label": "FAQ",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Questions",
+          "itemFields": [
+            {
+              "key": "q",
+              "type": "text",
+              "label": "Question"
+            },
+            {
+              "key": "a",
+              "type": "textarea",
+              "label": "Answer"
+            }
+          ]
+        },
+        {
+          "key": "footerNote",
+          "type": "text",
+          "label": "Footer note"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Footer link text"
+        },
+        {
+          "key": "linkHref",
+          "type": "link",
+          "label": "Footer link target"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "items": [],
+        "linkHref": "/contact"
+      }
+    },
+    {
+      "type": "closing-cta",
+      "label": "Closing CTA (dark)",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "assurances",
+          "type": "list",
+          "label": "Reassurance points",
+          "itemType": "text"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Ready to start?",
+        "heading": "",
+        "body": "",
+        "primaryLabel": "Start a project →",
+        "primaryHref": "/contact",
+        "secondaryLabel": "View pricing",
+        "secondaryHref": "/pricing",
+        "assurances": []
+      }
+    },
+    {
+      "type": "rich-text",
+      "label": "Text",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body",
+          "hint": "Blank line starts a new paragraph."
+        },
+        {
+          "key": "align",
+          "type": "select",
+          "label": "Alignment",
+          "options": [
+            "left",
+            "center"
+          ]
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        }
+      ],
+      "defaults": {
+        "heading": "New section",
+        "body": "",
+        "align": "left"
+      }
+    },
+    {
+      "type": "image",
+      "label": "Image",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "src",
+          "type": "image",
+          "label": "Image"
+        },
+        {
+          "key": "alt",
+          "type": "text",
+          "label": "Alt text",
+          "hint": "Describes the image to screen readers and search engines."
+        },
+        {
+          "key": "caption",
+          "type": "text",
+          "label": "Caption"
+        },
+        {
+          "key": "maxWidth",
+          "type": "number",
+          "label": "Max width (px)"
+        },
+        {
+          "key": "rounded",
+          "type": "boolean",
+          "label": "Rounded corners"
+        }
+      ],
+      "defaults": {
+        "alt": "",
+        "maxWidth": 960,
+        "rounded": true
+      }
+    },
+    {
+      "type": "cta",
+      "label": "Call to action",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "tone",
+          "type": "select",
+          "label": "Tone",
+          "options": [
+            "dark",
+            "light"
+          ]
+        }
+      ],
+      "defaults": {
+        "heading": "Ready to start?",
+        "primaryLabel": "Get in touch",
+        "primaryHref": "/contact",
+        "tone": "dark"
+      }
+    },
+    {
+      "type": "columns",
+      "label": "Columns",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "columns",
+          "type": "list",
+          "label": "Columns",
+          "itemFields": [
+            {
+              "key": "heading",
+              "type": "text",
+              "label": "Heading"
+            },
+            {
+              "key": "body",
+              "type": "textarea",
+              "label": "Body"
+            }
+          ]
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        }
+      ],
+      "defaults": {
+        "columns": [
+          {
+            "heading": "Column one",
+            "body": ""
+          },
+          {
+            "heading": "Column two",
+            "body": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "spacer",
+      "label": "Spacer",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "height",
+          "type": "number",
+          "label": "Height (px)"
+        }
+      ],
+      "defaults": {
+        "height": 48
+      }
+    },
+    {
+      "type": "canvas",
+      "label": "Free canvas",
+      "group": "Advanced",
+      "hint": "Place items anywhere. Positions are percentages, so it scales with the screen.",
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "height",
+          "type": "number",
+          "label": "Height (px)"
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Items",
+          "itemFields": [
+            {
+              "key": "kind",
+              "type": "select",
+              "label": "Type",
+              "options": [
+                "text",
+                "image"
+              ]
+            },
+            {
+              "key": "text",
+              "type": "text",
+              "label": "Text"
+            },
+            {
+              "key": "src",
+              "type": "image",
+              "label": "Image"
+            },
+            {
+              "key": "x",
+              "type": "number",
+              "label": "X (%)"
+            },
+            {
+              "key": "y",
+              "type": "number",
+              "label": "Y (%)"
+            },
+            {
+              "key": "w",
+              "type": "number",
+              "label": "Width (%)"
+            },
+            {
+              "key": "fontSize",
+              "type": "number",
+              "label": "Font size"
+            },
+            {
+              "key": "color",
+              "type": "colour",
+              "label": "Colour"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "height": 480,
+        "items": []
+      }
+    },
+    {
+      "type": "html",
+      "label": "Custom HTML",
+      "group": "Advanced",
+      "hint": "Runs as-is on the live site.",
+      "directorOnly": true,
+      "fields": [
+        {
+          "key": "html",
+          "type": "textarea",
+          "label": "HTML"
+        }
+      ],
+      "defaults": {
+        "html": ""
+      }
+    }
+  ],
+  "documents": {
+    "home": {
+      "version": 1,
+      "blocks": [
+        {
+          "id": "home-hero",
+          "type": "hero",
+          "props": {
+            "headlineLead": "Your website,",
+            "typewriterLines": [
+              "ready before your next meeting.",
+              "faster than any template.",
+              "built to rank on Google.",
+              "designed to win customers.",
+              "yours. Not a rental."
+            ],
+            "body": "Production-ready websites for businesses that need speed, clarity, and something stronger than a template. Fixed pricing, direct communication, and a build you actually own.",
+            "primaryLabel": "Get started",
+            "primaryHref": "/contact",
+            "secondaryLabel": "See pricing",
+            "secondaryHref": "/pricing",
+            "showScrollHint": true,
+            "stats": [
+              {
+                "value": "David Hooper",
+                "label": "Your only contact"
+              },
+              {
+                "value": "Cardiff",
+                "label": "Based in Wales"
+              },
+              {
+                "value": "From £449",
+                "label": "Real pricing"
+              },
+              {
+                "value": "7-10 days",
+                "label": "Typical delivery"
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-trust",
+          "type": "trust-bar",
+          "props": {
+            "items": [
+              {
+                "icon": "✓",
+                "label": "Real client work",
+                "sub": "Glow With Lucy"
+              },
+              {
+                "icon": "🔒",
+                "label": "GDPR compliant",
+                "sub": "Data protection"
+              },
+              {
+                "icon": "🏆",
+                "label": "Microsoft Partner",
+                "sub": "Verified"
+              },
+              {
+                "icon": "⚡",
+                "label": "7-10 day delivery",
+                "sub": "Fixed timeline"
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-partner",
+          "type": "partner-highlight",
+          "props": {
+            "eyebrow": "Microsoft approved partner",
+            "heading": "Better suited to businesses already built around Microsoft.",
+            "body": "We now hold Microsoft approved partner status. If your business already runs on Microsoft tools, we can scope websites and operational workflows with that ecosystem in mind from the start.",
+            "primaryLabel": "Explore partnerships",
+            "primaryHref": "/partners",
+            "secondaryLabel": "Talk to us",
+            "secondaryHref": "/contact",
+            "points": [
+              "Microsoft-aware delivery for service businesses",
+              "Cleaner planning around Microsoft 365 workflows",
+              "Founder-led build process with fixed pricing"
+            ]
+          }
+        },
+        {
+          "id": "home-services",
+          "type": "services-grid",
+          "props": {
+            "eyebrow": "What we build",
+            "heading": "Everything\nyou need.",
+            "body": "From your first website to a full enterprise stack with HR integration — we cover every layer.",
+            "linkLabel": "See all services",
+            "linkHref": "/services",
+            "services": [
+              {
+                "icon": "💻",
+                "title": "Custom Web Development",
+                "desc": "Tailored solutions built from the ground up for your unique business needs. Production-ready code, not templates."
+              },
+              {
+                "icon": "🎨",
+                "title": "User-Centric Design",
+                "desc": "Beautiful interfaces that engage visitors and drive conversions. Every pixel intentional, every interaction purposeful."
+              },
+              {
+                "icon": "🛠",
+                "title": "Full Support & Maintenance",
+                "desc": "Ongoing maintenance to keep your site running at peak performance. We're here long after launch."
+              },
+              {
+                "icon": "👥",
+                "title": "HR System Integration",
+                "desc": "Full HR portal built into your website — onboarding, leave, payslips, timesheets and more."
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-why",
+          "type": "why-grid",
+          "props": {
+            "eyebrow": "Why choose us",
+            "heading": "Built different.\nDelivered properly.",
+            "items": [
+              {
+                "title": "You work with me",
+                "desc": "Not a sales team. Not juniors. Just David, from start to finish."
+              },
+              {
+                "title": "Fixed price",
+                "desc": "Quote upfront, no surprises. That is the price."
+              },
+              {
+                "title": "Built properly",
+                "desc": "Fast, ranks on Google, works on mobile. Not a rushed template."
+              },
+              {
+                "title": "Your website",
+                "desc": "You own the code, the design, the domain. Take it anywhere."
+              },
+              {
+                "title": "Quick replies",
+                "desc": "Email or call back same day. Usually within a few hours."
+              },
+              {
+                "title": "Cardiff-based",
+                "desc": "Working from Wales. Happy to work with clients across the UK."
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-credibility",
+          "type": "card-row",
+          "props": {
+            "eyebrow": "Before you hire us",
+            "heading": "Judge the process.",
+            "body": "If we are early-stage, the right way to earn trust is through how we think, how we communicate, and how we build.",
+            "cards": [
+              {
+                "title": "How we work",
+                "desc": "Every project starts with scope clarity, priorities, and a defined outcome before we build."
+              },
+              {
+                "title": "How we communicate",
+                "desc": "Short feedback loops, direct updates, and one accountable point of contact."
+              },
+              {
+                "title": "How we price",
+                "desc": "We scope tightly enough to give fixed pricing instead of vague ranges and surprise costs."
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-pricing",
+          "type": "pricing-preview",
+          "props": {
+            "eyebrow": "Pricing",
+            "heading": "Simple,\nfixed pricing.",
+            "note": "No hidden fees. No hourly billing. One price, everything included.",
+            "linkLabel": "See full pricing & hosting plans",
+            "linkHref": "/pricing",
+            "packages": [
+              {
+                "name": "Starter",
+                "price": "£449",
+                "tagline": "Fixed-price website package.",
+                "who": "Typical delivery: 2–3 weeks",
+                "features": "5-page professional website · Mobile responsive design · Basic SEO setup · Contact form",
+                "popular": false
+              },
+              {
+                "name": "Growth",
+                "price": "£999",
+                "tagline": "Most Popular",
+                "who": "Typical delivery: 3–4 weeks",
+                "features": "10-page website · Blog section · Full SEO setup · Branding integration",
+                "popular": true
+              },
+              {
+                "name": "Pro",
+                "price": "£1,499",
+                "tagline": "Fixed-price website package.",
+                "who": "Typical delivery: 4–6 weeks",
+                "features": "15 pages · E-commerce ready · Custom integrations · Advanced SEO",
+                "popular": false
+              },
+              {
+                "name": "Enterprise + HR",
+                "price": "£2,499",
+                "tagline": "Most Complete",
+                "who": "Typical delivery: 6–8 weeks",
+                "features": "Full enterprise website · Integrated HR system · Staff onboarding portal · Leave & timesheet management",
+                "popular": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-social-proof",
+          "type": "testimonials",
+          "props": {
+            "eyebrow": "Client results",
+            "heading": "Real businesses.\nReal outcomes.",
+            "testimonials": [
+              {
+                "quote": "DH Website Services delivered our new site in 7 days. The quality is exceptional — it genuinely looks better than agencies we were quoted 10x more from.",
+                "name": "Lucy Deane",
+                "business": "Glow With Lucy"
+              }
+            ],
+            "stats": [
+              {
+                "value": "100%",
+                "label": "Client satisfaction"
+              },
+              {
+                "value": "< 24h",
+                "label": "Response time"
+              },
+              {
+                "value": "3 weeks",
+                "label": "Avg. delivery"
+              },
+              {
+                "value": "£449",
+                "label": "Starting from"
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-faq",
+          "type": "faq",
+          "props": {
+            "eyebrow": "Common questions",
+            "heading": "Everything you need to know",
+            "body": "Quick answers to questions we hear most often about our website development process.",
+            "items": [
+              {
+                "q": "How long does a website project take?",
+                "a": "Standard websites are delivered in 7 days. HR portals and complex integrations take 10 days. Timeline is confirmed during scoping, and we stick to it."
+              },
+              {
+                "q": "What's included in your fixed pricing?",
+                "a": "Our fixed-price packages include custom design, development, mobile optimization, technical SEO setup, analytics integration, contact forms, and launch support. Ongoing hosting and support are billed separately so you can see exactly what's one-off versus recurring."
+              },
+              {
+                "q": "Do you offer website hosting and maintenance?",
+                "a": "Yes. We provide managed hosting on Cloudflare Pages with 99.9%+ uptime, global CDN, automatic SSL, and regular security updates. Hosting plans start from £29/month and include ongoing technical support, updates, and monitoring."
+              },
+              {
+                "q": "Can you integrate with our existing systems?",
+                "a": "Absolutely. We specialize in integrations with Microsoft 365, Supabase databases, payment processors (Stripe), booking systems, email platforms (Resend), and HR management tools. As a Microsoft Partner, we're particularly strong with Microsoft ecosystem integrations."
+              },
+              {
+                "q": "What makes you different from other web agencies?",
+                "a": "Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. We build production-quality code from day one, not MVP filler that needs rebuilding later."
+              },
+              {
+                "q": "Do I own the website after launch?",
+                "a": "Yes, completely. You own all design files, source code, content, and domain. There's no rental trap or proprietary platform lock-in. You can take the website to another developer or host if needed, though we provide ongoing support for clients who want it."
+              }
+            ],
+            "footerNote": "Still have questions?",
+            "linkLabel": "Get in touch",
+            "linkHref": "/contact"
+          }
+        },
+        {
+          "id": "home-cta",
+          "type": "closing-cta",
+          "props": {
+            "eyebrow": "Ready to start?",
+            "heading": "Let's build something that works.",
+            "body": "Tell us about your project. We'll reply within 24 hours with a clear plan and a fixed price.",
+            "primaryLabel": "Start a project →",
+            "primaryHref": "/contact",
+            "secondaryLabel": "View pricing",
+            "secondaryHref": "/pricing",
+            "assurances": [
+              "Fixed price — always",
+              "No contracts",
+              "Reply within 24 hrs"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
