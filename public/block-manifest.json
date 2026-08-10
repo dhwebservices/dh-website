@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T17:33:02.797Z",
+  "generatedAt": "2026-08-10T17:43:04.898Z",
   "blocks": [
     {
       "type": "hero",
@@ -580,6 +580,21 @@
           "type": "list",
           "label": "Reassurance points",
           "itemType": "text"
+        },
+        {
+          "key": "maxWidth",
+          "type": "number",
+          "label": "Column width (px)"
+        },
+        {
+          "key": "headingSize",
+          "type": "text",
+          "label": "Heading size override"
+        },
+        {
+          "key": "bodySize",
+          "type": "number",
+          "label": "Body size override"
         }
       ],
       "defaults": {
@@ -1211,6 +1226,152 @@
       }
     },
     {
+      "type": "about-hero",
+      "label": "About hero",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "textarea",
+          "label": "Heading"
+        },
+        {
+          "key": "lead",
+          "type": "textarea",
+          "label": "Lead paragraph"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Second paragraph"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "initials",
+          "type": "text",
+          "label": "Card initials"
+        },
+        {
+          "key": "name",
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "key": "role",
+          "type": "text",
+          "label": "Role"
+        },
+        {
+          "key": "cardParagraphs",
+          "type": "list",
+          "label": "Card paragraphs",
+          "itemType": "text"
+        },
+        {
+          "key": "contacts",
+          "type": "list",
+          "label": "Contact links",
+          "itemFields": [
+            {
+              "key": "kind",
+              "type": "select",
+              "label": "Type",
+              "options": [
+                "email",
+                "phone"
+              ]
+            },
+            {
+              "key": "href",
+              "type": "text",
+              "label": "Link",
+              "hint": "mailto: or tel:"
+            },
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Shown as"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "About us",
+        "heading": "",
+        "lead": "",
+        "body": "",
+        "cardParagraphs": [],
+        "contacts": []
+      }
+    },
+    {
+      "type": "values-grid",
+      "label": "Values grid",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Values",
+          "itemFields": [
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "items": []
+      }
+    },
+    {
       "type": "rich-text",
       "label": "Text",
       "group": "Basics",
@@ -1501,6 +1662,101 @@
     }
   ],
   "documents": {
+    "about": {
+      "version": 1,
+      "blocks": [
+        {
+          "id": "about-hero",
+          "type": "about-hero",
+          "props": {
+            "eyebrow": "About us",
+            "heading": "Small team.\nSerious work.",
+            "lead": "DH Website Services is a Cardiff-based web agency built around one principle — your website should work as hard as you do.",
+            "body": "We build production-ready websites, booking systems, and lead-generation experiences for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
+            "primaryLabel": "Start a project →",
+            "primaryHref": "/contact",
+            "secondaryLabel": "See our work",
+            "secondaryHref": "/portfolio",
+            "initials": "DH",
+            "name": "David Hooper",
+            "role": "Founder & Director — Cardiff, Wales",
+            "cardParagraphs": [
+              "I started DH Website Services because I kept seeing small businesses in Wales paying agency prices for template work, then getting handed off to junior staff who did not understand their business.",
+              "When you work with us, you work with me. I scope the project, I build it, and I support it after launch. No layers, no surprises, and no blurred line between sales and delivery."
+            ],
+            "contacts": [
+              {
+                "kind": "email",
+                "href": "mailto:clients@dhwebsiteservices.co.uk",
+                "label": "clients@dhwebsiteservices.co.uk"
+              },
+              {
+                "kind": "phone",
+                "href": "tel:02920024218",
+                "label": "029 2002 4218"
+              },
+              {
+                "kind": "phone",
+                "href": "tel:07364166285",
+                "label": "07364 166285"
+              }
+            ]
+          }
+        },
+        {
+          "id": "about-values",
+          "type": "values-grid",
+          "props": {
+            "eyebrow": "How we work",
+            "heading": "What you can expect.",
+            "items": [
+              {
+                "title": "Fixed price",
+                "desc": "I quote before starting. That is what you pay. No extras."
+              },
+              {
+                "title": "Just me",
+                "desc": "You email me. I reply. No team to go through."
+              },
+              {
+                "title": "You own it",
+                "desc": "When it is done, you get all the files. Host it anywhere."
+              },
+              {
+                "title": "Built to work",
+                "desc": "Not trying to win design awards. Built to get you customers."
+              },
+              {
+                "title": "Quick replies",
+                "desc": "Usually same day. If it will take longer, I will tell you."
+              },
+              {
+                "title": "Cardiff-based",
+                "desc": "Working from Wales. Happy to work with clients anywhere in UK."
+              }
+            ]
+          }
+        },
+        {
+          "id": "about-cta",
+          "type": "closing-cta",
+          "props": {
+            "eyebrow": "Ready to work together?",
+            "heading": "Let us build something that works.",
+            "body": "Free 15 minute call. Clear plan. Fixed price. No obligation.",
+            "primaryLabel": "Book a free call →",
+            "primaryHref": "/contact",
+            "secondaryLabel": "See pricing",
+            "secondaryHref": "/pricing",
+            "assurances": [],
+            "maxWidth": 600,
+            "headingSize": "clamp(32px,4vw,52px)",
+            "bodySize": 16,
+            "bodyGap": 36
+          }
+        }
+      ]
+    },
     "home": {
       "version": 1,
       "blocks": [

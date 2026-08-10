@@ -39,6 +39,8 @@ import {
   DomainFeatureBlock,
   PricingTabsBlock,
   FaqAccordionBlock,
+  AboutHeroBlock,
+  ValuesGridBlock,
 } from './types/pageBlocks'
 
 import {
@@ -284,6 +286,9 @@ export const BLOCKS = {
       { key: 'secondaryLabel', type: 'text', label: 'Secondary button' },
       { key: 'secondaryHref', type: 'link', label: 'Secondary link' },
       { key: 'assurances', type: 'list', label: 'Reassurance points', itemType: 'text' },
+      { key: 'maxWidth', type: 'number', label: 'Column width (px)' },
+      { key: 'headingSize', type: 'text', label: 'Heading size override' },
+      { key: 'bodySize', type: 'number', label: 'Body size override' },
     ],
     defaults: { eyebrow: 'Ready to start?', heading: '', body: '', primaryLabel: 'Start a project \u2192', primaryHref: '/contact', secondaryLabel: 'View pricing', secondaryHref: '/pricing', assurances: [] },
   },
@@ -502,6 +507,53 @@ export const BLOCKS = {
       { key: 'ctaHref', type: 'link', label: 'Footer link' },
     ],
     defaults: { eyebrow: 'FAQ', heading: 'Common questions', items: [], ctaHref: '/contact' },
+  },
+
+  'about-hero': {
+    label: 'About hero',
+    group: 'Sections',
+    component: AboutHeroBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'lead', type: 'textarea', label: 'Lead paragraph' },
+      { key: 'body', type: 'textarea', label: 'Second paragraph' },
+      { key: 'primaryLabel', type: 'text', label: 'Primary button' },
+      { key: 'primaryHref', type: 'link', label: 'Primary link' },
+      { key: 'secondaryLabel', type: 'text', label: 'Secondary button' },
+      { key: 'secondaryHref', type: 'link', label: 'Secondary link' },
+      { key: 'initials', type: 'text', label: 'Card initials' },
+      { key: 'name', type: 'text', label: 'Name' },
+      { key: 'role', type: 'text', label: 'Role' },
+      { key: 'cardParagraphs', type: 'list', label: 'Card paragraphs', itemType: 'text' },
+      {
+        key: 'contacts', type: 'list', label: 'Contact links',
+        itemFields: [
+          { key: 'kind', type: 'select', label: 'Type', options: ['email', 'phone'] },
+          { key: 'href', type: 'text', label: 'Link', hint: 'mailto: or tel:' },
+          { key: 'label', type: 'text', label: 'Shown as' },
+        ],
+      },
+    ],
+    defaults: { eyebrow: 'About us', heading: '', lead: '', body: '', cardParagraphs: [], contacts: [] },
+  },
+
+  'values-grid': {
+    label: 'Values grid',
+    group: 'Sections',
+    component: ValuesGridBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Heading' },
+      {
+        key: 'items', type: 'list', label: 'Values',
+        itemFields: [
+          { key: 'title', type: 'text', label: 'Title' },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+        ],
+      },
+    ],
+    defaults: { eyebrow: '', heading: '', items: [] },
   },
 
   'rich-text': {

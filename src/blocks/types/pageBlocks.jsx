@@ -428,3 +428,89 @@ export function FaqAccordionBlock({ eyebrow, heading, items, footerNote, ctaLabe
     </section>
   )
 }
+
+/* ── About ──────────────────────────────────────────────────────────────── */
+
+const CONTACT_ICONS = {
+  email: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" /></svg>,
+  phone: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.61 19.79 19.79 0 01.01 1A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" /></svg>,
+}
+
+function ContactLink({ kind, href, label }) {
+  return (
+    <a
+      href={href}
+      style={{ fontSize: 13, color: 'var(--mid)', display: 'flex', alignItems: 'center', gap: 8, transition: 'color 0.15s' }}
+      onMouseOver={(e) => { e.currentTarget.style.color = 'var(--dark)' }}
+      onMouseOut={(e) => { e.currentTarget.style.color = 'var(--mid)' }}
+    >
+      {CONTACT_ICONS[kind] || CONTACT_ICONS.phone}
+      {label}
+    </a>
+  )
+}
+
+export function AboutHeroBlock({ eyebrow, heading, lead, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref, initials, name, role, cardParagraphs, contacts }) {
+  return (
+    <section className="section" style={{ paddingBottom: 0 }}>
+      <div className="container">
+        <div className="about-hero-grid" style={{ gap: 'clamp(48px,7vw,100px)', alignItems: 'center' }}>
+          <div className="reveal">
+            <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p>
+            <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
+              <Lines text={heading} />
+            </h1>
+            <p className="body-lg" style={{ marginBottom: 20 }}>{lead}</p>
+            <p className="body-md" style={{ color: 'var(--mid)', marginBottom: 32 }}>{body}</p>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <Link to={primaryHref} className="btn-primary">{primaryLabel}</Link>
+              <Link to={secondaryHref} className="btn-secondary">{secondaryLabel}</Link>
+            </div>
+          </div>
+
+          <div className="reveal" style={{ transitionDelay: '0.1s' }}>
+            <div className="glass-card" style={{ padding: 'clamp(28px,4vw,40px)' }}>
+              <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'linear-gradient(135deg, var(--accent) 0%, #30A46C 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 700, color: '#fff', marginBottom: 20, letterSpacing: '-0.02em' }}>
+                {initials}
+              </div>
+              <div style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 4 }}>{name}</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)', marginBottom: 20 }}>{role}</div>
+              {(cardParagraphs || []).map((text, i) => (
+                <p key={i} style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--mid)', marginBottom: i === (cardParagraphs.length - 1) ? 24 : 20 }}>{text}</p>
+              ))}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingTop: 20, borderTop: '1px solid var(--border-light)' }}>
+                {(contacts || []).map((c) => (
+                  <ContactLink key={c.href} kind={c.kind} href={c.href} label={c.label} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ValuesGridBlock({ eyebrow, heading, items }) {
+  return (
+    <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border-light)' }}>
+      <div className="container">
+        <div className="reveal section-narrow" style={{ textAlign: 'center', marginBottom: 'clamp(40px,5vw,56px)' }}>
+          <p className="eyebrow" style={{ marginBottom: 14 }}>{eyebrow}</p>
+          <h2 className="headline-lg"><Lines text={heading} /></h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+          {(items || []).map((item, i) => (
+            <div key={item.title} className="reveal glass-card" style={{ padding: '28px 24px', transitionDelay: `${i * 0.06}s` }}>
+              <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </div>
+              <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 8, letterSpacing: '-0.01em' }}>{item.title}</div>
+              <p className="body-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -329,16 +329,18 @@ export function FaqBlock({ eyebrow, heading, body, items, footerNote, linkLabel,
 
 /* ── Closing CTA (dark) ─────────────────────────────────────────────────── */
 
-export function ClosingCtaBlock({ eyebrow, heading, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref, assurances }) {
+export function ClosingCtaBlock({ eyebrow, heading, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref, assurances, maxWidth, headingSize, bodySize, bodyGap }) {
   return (
     <section className="section" style={{ background: 'var(--dark)' }}>
-      <div className="container" style={{ textAlign: 'center', maxWidth: 680 }}>
+      {/* About reuses this with a smaller scale, so the sizes are props with
+          the homepage's own values as the defaults. */}
+      <div className="container" style={{ textAlign: 'center', maxWidth: maxWidth || 680 }}>
         <div className="reveal">
           <p className="eyebrow" style={{ color: 'rgba(255,255,255,0.35)', marginBottom: 20 }}>{eyebrow}</p>
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px,5vw,64px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.05, color: 'white', marginBottom: 20 }}>
+          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: headingSize || 'clamp(36px,5vw,64px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.05, color: 'white', marginBottom: 20 }}>
             {heading}
           </h2>
-          <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.5)', lineHeight: 1.65, marginBottom: 40 }}>{body}</p>
+          <p style={{ fontSize: bodySize || 17, color: 'rgba(255,255,255,0.5)', lineHeight: 1.65, marginBottom: bodyGap || 40 }}>{body}</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link
               to={primaryHref} className="btn-primary" style={{ background: 'white', color: 'var(--dark)' }}
@@ -351,6 +353,10 @@ export function ClosingCtaBlock({ eyebrow, heading, body, primaryLabel, primaryH
               onMouseOut={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)' }}
             >{secondaryLabel}</Link>
           </div>
+          {/* Only rendered when there is something in it. The empty wrapper
+              still carried its 20px top margin, which showed up as About's
+              CTA being 19px taller than the live page. */}
+          {(assurances || []).length > 0 && (
           <div style={{ display: 'flex', gap: 20, justifyContent: 'center', marginTop: 20, flexWrap: 'wrap' }}>
             {(assurances || []).map((t) => (
               <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
@@ -359,6 +365,7 @@ export function ClosingCtaBlock({ eyebrow, heading, body, primaryLabel, primaryH
               </div>
             ))}
           </div>
+          )}
         </div>
       </div>
     </section>
