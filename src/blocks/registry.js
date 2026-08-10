@@ -33,6 +33,10 @@ import {
   ServiceRowsBlock,
   ProcessStepsBlock,
   GeoLinksBlock,
+  CaseStudyHeroBlock,
+  ProjectSnapshotBlock,
+  DeliverablesBlock,
+  DomainFeatureBlock,
 } from './types/pageBlocks'
 
 import {
@@ -352,6 +356,82 @@ export const BLOCKS = {
       { key: 'body', type: 'textarea', label: 'Body' },
     ],
     defaults: { eyebrow: '', heading: '', body: '' },
+  },
+
+  'case-study-hero': {
+    label: 'Case study hero',
+    group: 'Sections',
+    component: CaseStudyHeroBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Client name' },
+      { key: 'body', type: 'textarea', label: 'Summary' },
+      { key: 'primaryLabel', type: 'text', label: 'Primary button' },
+      { key: 'primaryHref', type: 'link', label: 'Primary link (external)' },
+      { key: 'secondaryLabel', type: 'text', label: 'Secondary button' },
+      { key: 'secondaryHref', type: 'link', label: 'Secondary link' },
+      { key: 'note', type: 'textarea', label: 'Note under the buttons' },
+      { key: 'image', type: 'image', label: 'Showcase image' },
+      { key: 'imageAlt', type: 'text', label: 'Image alt text' },
+    ],
+    defaults: { eyebrow: 'Featured project', heading: '', body: '', secondaryHref: '/contact' },
+  },
+
+  'project-snapshot': {
+    label: 'Project snapshot',
+    group: 'Sections',
+    component: ProjectSnapshotBlock,
+    fields: [
+      { key: 'heading', type: 'text', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+      {
+        key: 'rows', type: 'list', label: 'Snapshot rows',
+        itemFields: [
+          { key: 'label', type: 'text', label: 'Label' },
+          { key: 'value', type: 'text', label: 'Value' },
+        ],
+      },
+      { key: 'impactEyebrow', type: 'text', label: 'Right-hand eyebrow' },
+      { key: 'impact', type: 'list', label: 'Right-hand points', itemType: 'text' },
+    ],
+    defaults: { heading: 'Project snapshot', body: '', rows: [], impactEyebrow: 'Why it works', impact: [] },
+  },
+
+  deliverables: {
+    label: 'Deliverables',
+    group: 'Sections',
+    component: DeliverablesBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+      {
+        key: 'items', type: 'list', label: 'Items',
+        itemFields: [
+          { key: 'icon', type: 'select', label: 'Icon', options: ['spark', 'device', 'domain'] },
+          { key: 'title', type: 'text', label: 'Title' },
+          { key: 'description', type: 'textarea', label: 'Description' },
+        ],
+      },
+    ],
+    defaults: { eyebrow: '', heading: '', body: '', items: [] },
+  },
+
+  'domain-feature': {
+    label: 'Domain feature',
+    group: 'Sections',
+    component: DomainFeatureBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Domain' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+      { key: 'linkLabel', type: 'text', label: 'Link label' },
+      { key: 'linkHref', type: 'link', label: 'Link target' },
+      { key: 'linkCaption', type: 'text', label: 'Link caption' },
+      { key: 'ctaLabel', type: 'text', label: 'Button' },
+      { key: 'ctaHref', type: 'link', label: 'Button link' },
+    ],
+    defaults: { eyebrow: 'Featured domain', heading: '', body: '', ctaHref: '/contact' },
   },
 
   'rich-text': {

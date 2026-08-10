@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T16:58:00.615Z",
+  "generatedAt": "2026-08-10T17:25:57.842Z",
   "blocks": [
     {
       "type": "hero",
@@ -773,6 +773,237 @@
       }
     },
     {
+      "type": "case-study-hero",
+      "label": "Case study hero",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Client name"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Summary"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link (external)"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "note",
+          "type": "textarea",
+          "label": "Note under the buttons"
+        },
+        {
+          "key": "image",
+          "type": "image",
+          "label": "Showcase image"
+        },
+        {
+          "key": "imageAlt",
+          "type": "text",
+          "label": "Image alt text"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Featured project",
+        "heading": "",
+        "body": "",
+        "secondaryHref": "/contact"
+      }
+    },
+    {
+      "type": "project-snapshot",
+      "label": "Project snapshot",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "rows",
+          "type": "list",
+          "label": "Snapshot rows",
+          "itemFields": [
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Label"
+            },
+            {
+              "key": "value",
+              "type": "text",
+              "label": "Value"
+            }
+          ]
+        },
+        {
+          "key": "impactEyebrow",
+          "type": "text",
+          "label": "Right-hand eyebrow"
+        },
+        {
+          "key": "impact",
+          "type": "list",
+          "label": "Right-hand points",
+          "itemType": "text"
+        }
+      ],
+      "defaults": {
+        "heading": "Project snapshot",
+        "body": "",
+        "rows": [],
+        "impactEyebrow": "Why it works",
+        "impact": []
+      }
+    },
+    {
+      "type": "deliverables",
+      "label": "Deliverables",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Items",
+          "itemFields": [
+            {
+              "key": "icon",
+              "type": "select",
+              "label": "Icon",
+              "options": [
+                "spark",
+                "device",
+                "domain"
+              ]
+            },
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "description",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "items": []
+      }
+    },
+    {
+      "type": "domain-feature",
+      "label": "Domain feature",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Domain"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Link label"
+        },
+        {
+          "key": "linkHref",
+          "type": "link",
+          "label": "Link target"
+        },
+        {
+          "key": "linkCaption",
+          "type": "text",
+          "label": "Link caption"
+        },
+        {
+          "key": "ctaLabel",
+          "type": "text",
+          "label": "Button"
+        },
+        {
+          "key": "ctaHref",
+          "type": "link",
+          "label": "Button link"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Featured domain",
+        "heading": "",
+        "body": "",
+        "ctaHref": "/contact"
+      }
+    },
+    {
       "type": "rich-text",
       "label": "Text",
       "group": "Basics",
@@ -1372,6 +1603,99 @@
               "No contracts",
               "Reply within 24 hrs"
             ]
+          }
+        }
+      ]
+    },
+    "portfolio": {
+      "version": 1,
+      "blocks": [
+        {
+          "id": "portfolio-hero",
+          "type": "case-study-hero",
+          "props": {
+            "eyebrow": "Featured project",
+            "heading": "Glow With Lucy",
+            "body": "A cleaner, softer web presence for a candle business that needed to feel more polished, giftable, and commercially credible.",
+            "primaryLabel": "Visit site",
+            "primaryHref": "https://glowwithlucy.co.uk",
+            "secondaryLabel": "Book a project call",
+            "secondaryHref": "/contact",
+            "note": "The goal was to give the brand a better-quality home online without overcomplicating it, so the business feels more established from the first click.",
+            "image": "/glow-with-lucy-logo.png",
+            "imageAlt": "Glow With Lucy logo"
+          }
+        },
+        {
+          "id": "portfolio-snapshot",
+          "type": "project-snapshot",
+          "props": {
+            "heading": "Project snapshot",
+            "body": "Glow With Lucy needed a site that felt more like a considered brand than a starter storefront. The aim was to support trust, gifting appeal, and future growth without losing the softness of the product.",
+            "rows": [
+              {
+                "label": "Client",
+                "value": "Glow With Lucy"
+              },
+              {
+                "label": "Sector",
+                "value": "Candle business / lifestyle retail"
+              },
+              {
+                "label": "Domain",
+                "value": "GlowWithLucy.co.uk"
+              },
+              {
+                "label": "Scope",
+                "value": "Brand-led marketing website and product showcase"
+              }
+            ],
+            "impactEyebrow": "Why it works",
+            "impact": [
+              "Sharper positioning for a handmade candle brand",
+              "A proper web presence for Instagram traffic, referrals, and direct enquiries",
+              "A stronger base for later catalogue, gifting, and e-commerce growth"
+            ]
+          }
+        },
+        {
+          "id": "portfolio-deliverables",
+          "type": "deliverables",
+          "props": {
+            "eyebrow": "What changed",
+            "heading": "A neater brand experience with room to grow.",
+            "body": "The build direction focuses on visual calm, product credibility, and a structure that can later expand into richer catalogue and campaign work without having to start over.",
+            "items": [
+              {
+                "icon": "spark",
+                "title": "Softer premium presentation",
+                "description": "The layout leans into calm spacing, warm neutrals, and a more considered brand feel so the site reads as polished rather than homemade in the wrong way."
+              },
+              {
+                "icon": "device",
+                "title": "Clean mobile browsing",
+                "description": "The experience is designed to stay tidy and readable on smaller screens, where social traffic and gift-led browsing often start."
+              },
+              {
+                "icon": "domain",
+                "title": "Direct-brand credibility",
+                "description": "A branded .co.uk site gives the business a stronger home for direct traffic than relying only on marketplaces or social platforms."
+              }
+            ]
+          }
+        },
+        {
+          "id": "portfolio-domain",
+          "type": "domain-feature",
+          "props": {
+            "eyebrow": "Featured domain",
+            "heading": "GlowWithLucy.co.uk",
+            "body": "The live site gives the business a cleaner home for its brand story and product direction, with a stronger base for direct traffic than relying on social alone.",
+            "linkLabel": "Open live website",
+            "linkHref": "https://glowwithlucy.co.uk",
+            "linkCaption": "glowwithlucy.co.uk",
+            "ctaLabel": "Want something like this?",
+            "ctaHref": "/contact"
           }
         }
       ]
