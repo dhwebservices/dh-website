@@ -207,7 +207,13 @@ export const CALCULATOR_DOCUMENT = {
             desc: "Unlimited updates, weekly tuning"
           }
         ],
-        ctaLabel: "Book a free call →",
+        tiers: [
+        { upTo: 449, name: "Starter", colour: "#30A46C" },
+        { upTo: 999, name: "Growth", colour: "#0071E3" },
+        { upTo: 1499, name: "Pro", colour: "#8E4EC6" },
+        { upTo: 999999, name: "Enterprise + HR", colour: "#C2500D" }
+      ],
+      ctaLabel: "Book a free call →",
         ctaNote: "This is an estimate. Final price confirmed on your free call."
       }
     }

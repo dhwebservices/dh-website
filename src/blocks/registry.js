@@ -709,6 +709,15 @@ export const BLOCKS = {
           { key: 'cost', type: 'number', label: 'Cost per month (£)' },
         ],
       },
+      {
+        key: 'tiers', type: 'list', label: 'Suggested package bands',
+        hint: 'Which package is suggested for a given total. Highest band catches everything above it.',
+        itemFields: [
+          { key: 'upTo', type: 'number', label: 'Up to (£)' },
+          { key: 'name', type: 'text', label: 'Package name' },
+          { key: 'colour', type: 'colour', label: 'Colour' },
+        ],
+      },
       { key: 'ctaLabel', type: 'text', label: 'Button text' },
       { key: 'ctaNote', type: 'textarea', label: 'Small print under the button' },
     ],

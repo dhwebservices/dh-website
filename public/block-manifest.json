@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T19:40:10.168Z",
+  "generatedAt": "2026-08-10T19:45:51.821Z",
   "blocks": [
     {
       "type": "hero",
@@ -1804,6 +1804,29 @@
           ]
         },
         {
+          "key": "tiers",
+          "type": "list",
+          "label": "Suggested package bands",
+          "hint": "Which package is suggested for a given total. Highest band catches everything above it.",
+          "itemFields": [
+            {
+              "key": "upTo",
+              "type": "number",
+              "label": "Up to (£)"
+            },
+            {
+              "key": "name",
+              "type": "text",
+              "label": "Package name"
+            },
+            {
+              "key": "colour",
+              "type": "colour",
+              "label": "Colour"
+            }
+          ]
+        },
+        {
           "key": "ctaLabel",
           "type": "text",
           "label": "Button text"
@@ -2406,6 +2429,28 @@
                 "label": "Business — £109/mo",
                 "cost": 109,
                 "desc": "Unlimited updates, weekly tuning"
+              }
+            ],
+            "tiers": [
+              {
+                "upTo": 449,
+                "name": "Starter",
+                "colour": "#30A46C"
+              },
+              {
+                "upTo": 999,
+                "name": "Growth",
+                "colour": "#0071E3"
+              },
+              {
+                "upTo": 1499,
+                "name": "Pro",
+                "colour": "#8E4EC6"
+              },
+              {
+                "upTo": 999999,
+                "name": "Enterprise + HR",
+                "colour": "#C2500D"
               }
             ],
             "ctaLabel": "Book a free call →",

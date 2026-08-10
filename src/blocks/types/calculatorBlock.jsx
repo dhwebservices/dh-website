@@ -63,6 +63,14 @@ const HOSTING_OPTIONS_DEFAULT = [
 
 const BASE_PRICE_DEFAULT = 449 // Starter package base
 
+// Upper bound of each band. Anything above the last one falls into it.
+const TIERS_DEFAULT = [
+  { upTo: 449, name: 'Starter', colour: '#30A46C' },
+  { upTo: 999, name: 'Growth', colour: '#0071E3' },
+  { upTo: 1499, name: 'Pro', colour: '#8E4EC6' },
+  { upTo: 999999, name: 'Enterprise + HR', colour: '#C2500D' },
+]
+
 function useCountUp(target, duration = 600) {
   const [value, setValue] = useState(target)
   const prev = useRef(target)
@@ -86,7 +94,7 @@ function useCountUp(target, duration = 600) {
 export function CalculatorBlock({
   eyebrow, heading, intro,
   basePrice, pageOptions, features, designOptions, hostingOptions,
-  ctaLabel, ctaNote,
+  ctaLabel, ctaNote, tiers,
 }) {
   // Prices come from the document so they can be changed without a deploy.
   // The sum itself stays in code: it reads .cost off whatever is here, so
@@ -125,8 +133,16 @@ export function CalculatorBlock({
     .map(id => FEATURES.find(f => f.id === id)?.label)
     .filter(Boolean)
 
-  const suggest = totalBuild <= 449 ? 'Starter' : totalBuild <= 999 ? 'Growth' : totalBuild <= 1499 ? 'Pro' : 'Enterprise + HR'
-  const suggestColour = { Starter:'#30A46C', Growth:'#0071E3', Pro:'#8E4EC6', 'Enterprise + HR':'#C2500D' }[suggest]
+  // The suggested package used to be hardcoded at 449 / 999 / 1499, so it did
+  // not follow the option prices above it: change a price and the boundaries
+  // stayed put, quietly suggesting the wrong package. The bands are editable
+  // now, and sorted here so they do not depend on being entered in order.
+  const bands = [...(tiers?.length ? tiers : TIERS_DEFAULT)]
+    .map((t) => ({ ...t, upTo: Number(t.upTo) }))
+    .sort((a, b) => a.upTo - b.upTo)
+  const matched = bands.find((t) => totalBuild <= t.upTo) || bands[bands.length - 1]
+  const suggest = matched?.name || ''
+  const suggestColour = matched?.colour || 'var(--accent)'
   const contactParams = new URLSearchParams({
     source: 'calculator',
     package: suggest,
