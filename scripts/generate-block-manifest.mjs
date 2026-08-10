@@ -33,6 +33,12 @@ async function main() {
     blocks: getBlockManifest(),
   }
 
+  // The built-in page documents travel with the manifest. The portal imports
+  // these to seed a page's first draft, so the editor opens on the real page
+  // instead of an empty canvas - and it stays correct as these pages change,
+  // because the export is generated from the same source the site renders.
+  manifest.documents = await collectDocuments()
+
   const outDir = path.join(repoRoot, 'public')
   mkdirSync(outDir, { recursive: true })
   writeFileSync(
@@ -55,6 +61,30 @@ async function buildSchemaModule(sourcePath) {
     .replace(/^import[\s\S]*?from\s+'[^']+'\n/gm, '')
     // drop `component: X,` lines - the values no longer exist
     .replace(/^\s*component:\s*\w+,\s*$/gm, '')
+}
+
+async function collectDocuments() {
+  const { readdirSync, readFileSync } = await import('node:fs')
+  const dir = path.join(repoRoot, 'src/blocks/documents')
+
+  let files = []
+  try {
+    files = readdirSync(dir).filter((name) => name.endsWith('.js'))
+  } catch {
+    return {}
+  }
+
+  const documents = {}
+  for (const file of files) {
+    const source = readFileSync(path.join(dir, file), 'utf8')
+    const module = await import(
+      `data:text/javascript,${encodeURIComponent(source)}`
+    )
+    const doc = module.default
+      || Object.values(module).find((value) => value && Array.isArray(value.blocks))
+    if (doc) documents[path.basename(file, '.js')] = doc
+  }
+  return documents
 }
 
 main().catch((error) => {
