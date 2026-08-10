@@ -32,9 +32,18 @@ const state = {
   documents: {},
 }
 
+/**
+ * useSyncExternalStore compares snapshots with Object.is. Returning the mutable
+ * `state` object meant the reference never changed, so React skipped every
+ * re-render and the canvas sat there showing stale content while the editor
+ * thought it had updated. The snapshot is rebuilt on each change instead.
+ */
+let currentSnapshot = { ...state }
+
 const listeners = new Set()
 
 function emit() {
+  currentSnapshot = { ...state }
   listeners.forEach((listener) => listener())
 }
 
@@ -44,7 +53,7 @@ function subscribe(listener) {
 }
 
 function snapshot() {
-  return state
+  return currentSnapshot
 }
 
 export function isEditRequested() {
