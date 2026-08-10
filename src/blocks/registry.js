@@ -48,6 +48,7 @@ import {
 } from './types/pageBlocks'
 
 import { ContactBlock } from './types/contactBlock'
+import { CalculatorBlock } from './types/calculatorBlock'
 
 import {
   RichTextBlock,
@@ -663,6 +664,55 @@ export const BLOCKS = {
       { key: 'geoBody', type: 'textarea', label: 'Locations body' },
     ],
     defaults: { eyebrow: 'Contact', heading: '', intro: '' },
+  },
+
+  'app.calculator': {
+    label: 'Pricing calculator',
+    group: 'Apps',
+    component: CalculatorBlock,
+    hint: 'Prices here are live. The arithmetic stays in code - it adds up whatever options you set.',
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'intro', type: 'textarea', label: 'Intro' },
+      { key: 'basePrice', type: 'number', label: 'Base price (£)', hint: 'Starting point before any options.' },
+      {
+        key: 'pageOptions', type: 'list', label: 'Page count options',
+        itemFields: [
+          { key: 'id', type: 'text', label: 'ID', hint: 'Must stay unique.' },
+          { key: 'label', type: 'text', label: 'Label' },
+          { key: 'cost', type: 'number', label: 'Cost (£)' },
+        ],
+      },
+      {
+        key: 'features', type: 'list', label: 'Features',
+        itemFields: [
+          { key: 'id', type: 'text', label: 'ID', hint: 'Must stay unique.' },
+          { key: 'group', type: 'text', label: 'Group heading' },
+          { key: 'label', type: 'text', label: 'Label' },
+          { key: 'cost', type: 'number', label: 'Cost (£)' },
+        ],
+      },
+      {
+        key: 'designOptions', type: 'list', label: 'Design options',
+        itemFields: [
+          { key: 'id', type: 'text', label: 'ID' },
+          { key: 'label', type: 'text', label: 'Label' },
+          { key: 'cost', type: 'number', label: 'Cost (£)' },
+        ],
+      },
+      {
+        key: 'hostingOptions', type: 'list', label: 'Hosting options',
+        itemFields: [
+          { key: 'id', type: 'text', label: 'ID' },
+          { key: 'label', type: 'text', label: 'Label' },
+          { key: 'cost', type: 'number', label: 'Cost per month (£)' },
+        ],
+      },
+      { key: 'ctaLabel', type: 'text', label: 'Button text' },
+      { key: 'ctaNote', type: 'textarea', label: 'Small print under the button' },
+    ],
+    defaults: { eyebrow: 'Project Calculator', heading: '', intro: '' },
   },
 
   'rich-text': {
