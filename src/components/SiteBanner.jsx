@@ -1,17 +1,28 @@
 import { useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
+// Must cover every page offered as a tick-box in the portal's banner editor.
+// Anything missing here silently never matches, so the banner is configured
+// for a page and simply never appears on it.
 const PAGE_KEY_BY_PATH = {
   '/': 'home',
   '/services': 'services',
+  '/about': 'about',
+  '/partners': 'partners',
+  '/portfolio': 'portfolio',
   '/pricing': 'pricing',
+  '/calculator': 'calculator',
   '/contact': 'contact',
   '/careers': 'careers',
 }
 
 function resolvePageKey(pathname) {
-  if (pathname.startsWith('/careers')) return 'careers'
-  return PAGE_KEY_BY_PATH[pathname] || null
+  // Cloudflare serves these with a trailing slash ("/services/"), which matched
+  // nothing, so the banner only ever showed on the homepage - "/" being the one
+  // path where the slash is not trailing.
+  const normalised = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
+  if (normalised.startsWith('/careers')) return 'careers'
+  return PAGE_KEY_BY_PATH[normalised] || null
 }
 
 function bannerItemStyle(size) {

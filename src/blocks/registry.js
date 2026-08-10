@@ -29,6 +29,13 @@ import {
 } from './types/homeBlocks'
 
 import {
+  PageHeroBlock,
+  ServiceRowsBlock,
+  ProcessStepsBlock,
+  GeoLinksBlock,
+} from './types/pageBlocks'
+
+import {
   RichTextBlock,
   ImageBlock,
   CtaBlock,
@@ -273,6 +280,78 @@ export const BLOCKS = {
       { key: 'assurances', type: 'list', label: 'Reassurance points', itemType: 'text' },
     ],
     defaults: { eyebrow: 'Ready to start?', heading: '', body: '', primaryLabel: 'Start a project \u2192', primaryHref: '/contact', secondaryLabel: 'View pricing', secondaryHref: '/pricing', assurances: [] },
+  },
+
+  'page-hero': {
+    label: 'Page hero',
+    group: 'Sections',
+    component: PageHeroBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading', hint: 'A new line becomes a line break.' },
+      { key: 'body', type: 'textarea', label: 'Intro' },
+      { key: 'maxWidth', type: 'number', label: 'Column width (px)' },
+      { key: 'bodyMaxWidth', type: 'number', label: 'Intro width (px)' },
+    ],
+    defaults: { eyebrow: '', heading: 'New page', body: '', maxWidth: 720, bodyMaxWidth: 480 },
+  },
+
+  'service-rows': {
+    label: 'Numbered rows',
+    group: 'Sections',
+    component: ServiceRowsBlock,
+    fields: [
+      {
+        key: 'items',
+        type: 'list',
+        label: 'Rows',
+        itemFields: [
+          { key: 'num', type: 'text', label: 'Number' },
+          { key: 'title', type: 'text', label: 'Title' },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+          { key: 'points', type: 'list', label: 'Bullet points', itemType: 'text' },
+        ],
+      },
+    ],
+    defaults: { items: [] },
+  },
+
+  'process-steps': {
+    label: 'Process steps',
+    group: 'Sections',
+    component: ProcessStepsBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Heading' },
+      {
+        key: 'steps',
+        type: 'list',
+        label: 'Steps',
+        itemFields: [
+          { key: 'n', type: 'text', label: 'Number' },
+          { key: 'title', type: 'text', label: 'Title' },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+        ],
+      },
+      { key: 'primaryLabel', type: 'text', label: 'Primary button' },
+      { key: 'primaryHref', type: 'link', label: 'Primary link' },
+      { key: 'secondaryLabel', type: 'text', label: 'Secondary button' },
+      { key: 'secondaryHref', type: 'link', label: 'Secondary link' },
+    ],
+    defaults: { eyebrow: '', heading: '', steps: [], primaryHref: '/contact', secondaryHref: '/pricing' },
+  },
+
+  'app.geo-links': {
+    label: 'Location links',
+    group: 'Apps',
+    component: GeoLinksBlock,
+    hint: 'The city list comes from the site\u2019s routes, so it cannot be edited here \u2014 only the wording around it.',
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+    ],
+    defaults: { eyebrow: '', heading: '', body: '' },
   },
 
   'rich-text': {
