@@ -8,6 +8,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
+import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
+import appleAuthorisedSellerBadge from '../../assets/apple-authorised-seller.svg'
 
 /** Headings on these pages used <br />; editors type a newline instead. */
 function Lines({ text }) {
@@ -509,6 +511,108 @@ export function ValuesGridBlock({ eyebrow, heading, items }) {
               <p className="body-sm">{item.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Partners ───────────────────────────────────────────────────────────── */
+
+export function PartnerHeroBlock({ eyebrow, heading, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref, points }) {
+  return (
+    <section
+      style={{
+        padding: 'calc(var(--nav-h) + clamp(44px,7vw,92px)) clamp(20px,5vw,60px) clamp(60px,8vw,90px)',
+        background: 'linear-gradient(180deg, rgba(245,245,247,0.8) 0%, rgba(255,255,255,1) 42%, rgba(255,255,255,1) 100%)',
+        borderBottom: '1px solid var(--border-light)',
+      }}
+    >
+      <div className="reveal partners-hero-grid" style={{ maxWidth: 'var(--max-w)', margin: '0 auto', gap: 'clamp(28px,4vw,56px)', alignItems: 'center' }}>
+        <div>
+          <p className="eyebrow" style={{ marginBottom: 18 }}>{eyebrow}</p>
+          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(38px,6vw,74px)', fontWeight: 600, letterSpacing: '-0.04em', lineHeight: 0.98, marginBottom: 22, maxWidth: 700 }}>
+            {heading}
+          </h1>
+          <p style={{ fontSize: 'clamp(16px,1.5vw,19px)', lineHeight: 1.7, color: 'var(--dark2)', maxWidth: 620, marginBottom: 34 }}>{body}</p>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <Link to={primaryHref} className="btn-primary">{primaryLabel}</Link>
+            <Link to={secondaryHref} className="btn-secondary">{secondaryLabel}</Link>
+          </div>
+        </div>
+
+        <div className="reveal" style={{ padding: 'clamp(24px,3vw,34px)', borderRadius: 28, border: '1px solid var(--border-light)', background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,245,247,0.95) 100%)', boxShadow: '0 18px 40px rgba(29,29,31,0.06)' }}>
+          <MicrosoftPartnerBadge width={320} />
+          <div style={{ marginTop: 24, display: 'grid', gap: 14, paddingTop: 22, borderTop: '1px solid var(--border-light)' }}>
+            {(points || []).map((item) => (
+              <div key={item} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                <span aria-hidden style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--accent)', marginTop: 7, flexShrink: 0 }} />
+                <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--dark2)' }}>{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function PartnerBenefitsBlock({ eyebrow, heading, body, cardEyebrow, cards, appleEyebrow, appleHeading, appleBody }) {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="reveal" style={{ maxWidth: 820, marginBottom: 42 }}>
+          <p className="eyebrow" style={{ marginBottom: 12 }}>{eyebrow}</p>
+          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(30px,4vw,52px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 16 }}>{heading}</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--mid)', maxWidth: 720 }}>{body}</p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 18 }}>
+          {(cards || []).map((card) => (
+            <div key={card.title} className="reveal glass-card" style={{ padding: '26px 24px', minHeight: 220, display: 'flex', flexDirection: 'column' }}>
+              <p style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--light)', marginBottom: 14 }}>{cardEyebrow}</p>
+              <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: 22, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 12 }}>{card.title}</h3>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--dark2)' }}>{card.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="reveal" style={{ marginTop: 28, borderRadius: 28, border: '1px solid var(--border-light)', background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,245,247,0.96) 100%)', boxShadow: '0 18px 40px rgba(29,29,31,0.05)', padding: 'clamp(22px,3vw,30px)', display: 'grid', gridTemplateColumns: 'minmax(0, 280px) minmax(0, 1fr)', gap: 24, alignItems: 'center' }}>
+          <img src={appleAuthorisedSellerBadge} alt="Apple Authorised Seller" style={{ width: '100%', maxWidth: 320, display: 'block' }} />
+          <div>
+            <p className="eyebrow" style={{ marginBottom: 10 }}>{appleEyebrow}</p>
+            <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(24px,3.1vw,36px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 12 }}>{appleHeading}</h3>
+            <p style={{ fontSize: 15, lineHeight: 1.75, color: 'var(--mid)', maxWidth: 680 }}>{appleBody}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function TypicalFitBlock({ eyebrow, heading, body, areas }) {
+  return (
+    <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
+      <div className="container partners-fit-grid" style={{ gap: 32, alignItems: 'start' }}>
+        <div className="reveal">
+          <p className="eyebrow" style={{ marginBottom: 12 }}>{eyebrow}</p>
+          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>{heading}</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--mid)', maxWidth: 560 }}>{body}</p>
+        </div>
+        <div className="reveal" style={{ borderRadius: 26, padding: '28px clamp(22px,3vw,30px)', background: 'white', border: '1px solid var(--border-light)' }}>
+          <div style={{ display: 'grid', gap: 14 }}>
+            {(areas || []).map((item) => (
+              <div key={item} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                <span
+                  aria-hidden
+                  style={{ width: 18, height: 18, borderRadius: 999, background: 'var(--accent-soft)', border: '1px solid rgba(0,113,227,0.14)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontSize: 11, fontWeight: 700, flexShrink: 0, marginTop: 2 }}
+                >
+                  +
+                </span>
+                <p style={{ fontSize: 15, lineHeight: 1.65, color: 'var(--dark2)' }}>{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

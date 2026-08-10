@@ -41,6 +41,9 @@ import {
   FaqAccordionBlock,
   AboutHeroBlock,
   ValuesGridBlock,
+  PartnerHeroBlock,
+  PartnerBenefitsBlock,
+  TypicalFitBlock,
 } from './types/pageBlocks'
 
 import {
@@ -554,6 +557,59 @@ export const BLOCKS = {
       },
     ],
     defaults: { eyebrow: '', heading: '', items: [] },
+  },
+
+  'partner-hero': {
+    label: 'Partner hero',
+    group: 'Sections',
+    component: PartnerHeroBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+      { key: 'primaryLabel', type: 'text', label: 'Primary button' },
+      { key: 'primaryHref', type: 'link', label: 'Primary link' },
+      { key: 'secondaryLabel', type: 'text', label: 'Secondary button' },
+      { key: 'secondaryHref', type: 'link', label: 'Secondary link' },
+      { key: 'points', type: 'list', label: 'Badge card points', itemType: 'text' },
+    ],
+    defaults: { eyebrow: '', heading: '', body: '', points: [] },
+  },
+
+  'partner-benefits': {
+    label: 'Partner benefits',
+    group: 'Sections',
+    component: PartnerBenefitsBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+      { key: 'cardEyebrow', type: 'text', label: 'Label above each card' },
+      {
+        key: 'cards', type: 'list', label: 'Benefit cards',
+        itemFields: [
+          { key: 'title', type: 'text', label: 'Title' },
+          { key: 'body', type: 'textarea', label: 'Body' },
+        ],
+      },
+      { key: 'appleEyebrow', type: 'text', label: 'Apple strip eyebrow' },
+      { key: 'appleHeading', type: 'textarea', label: 'Apple strip heading' },
+      { key: 'appleBody', type: 'textarea', label: 'Apple strip body' },
+    ],
+    defaults: { eyebrow: '', heading: '', body: '', cardEyebrow: 'Partner benefit', cards: [] },
+  },
+
+  'typical-fit': {
+    label: 'Typical fit',
+    group: 'Sections',
+    component: TypicalFitBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+      { key: 'areas', type: 'list', label: 'Areas', itemType: 'text' },
+    ],
+    defaults: { eyebrow: '', heading: '', body: '', areas: [] },
   },
 
   'rich-text': {
