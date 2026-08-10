@@ -20,7 +20,11 @@ async function fetchWebsitePages() {
   if (pagesCache) return pagesCache
   if (!pagesPromise) {
     pagesPromise = fetch(
-      `${SUPABASE_URL}/rest/v1/website_pages?active=eq.true&select=*&order=sort_order.asc.nullslast,created_at.asc`,
+      `${SUPABASE_URL}/rest/v1/website_pages?active=eq.true&status=eq.published`
+      // Explicit columns, not select=*: the wildcard includes `content`,
+      // the unpublished draft, which anon is deliberately not granted.
+      + '&select=id,slug,title,nav_label,summary,published_content,meta_description,show_in_nav,sort_order'
+      + '&order=sort_order.asc.nullslast,created_at.asc',
       {
         headers: {
           apikey: SUPABASE_ANON_KEY,
