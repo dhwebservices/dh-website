@@ -1,0 +1,566 @@
+{
+  "generatedAt": "2026-08-10T12:11:07.602Z",
+  "blocks": [
+    {
+      "type": "hero",
+      "label": "Hero",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "headlineLead",
+          "type": "text",
+          "label": "Headline (first line)"
+        },
+        {
+          "key": "headlineRotating",
+          "type": "text",
+          "label": "Headline (second line)"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro paragraph"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "showScrollHint",
+          "type": "boolean",
+          "label": "Show scroll hint"
+        },
+        {
+          "key": "stats",
+          "type": "list",
+          "label": "Stats",
+          "itemFields": [
+            {
+              "key": "value",
+              "type": "text",
+              "label": "Value"
+            },
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Caption"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "headlineLead": "Your website,",
+        "headlineRotating": "built properly.",
+        "body": "",
+        "primaryLabel": "Get started",
+        "primaryHref": "/contact",
+        "secondaryLabel": "See pricing",
+        "secondaryHref": "/pricing",
+        "showScrollHint": true,
+        "stats": []
+      }
+    },
+    {
+      "type": "trust-bar",
+      "label": "Trust bar",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Items",
+          "itemFields": [
+            {
+              "key": "icon",
+              "type": "text",
+              "label": "Icon (emoji)"
+            },
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Label"
+            },
+            {
+              "key": "sub",
+              "type": "text",
+              "label": "Sub-label"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "items": []
+      }
+    },
+    {
+      "type": "partner-highlight",
+      "label": "Partner highlight",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "points",
+          "type": "list",
+          "label": "Bullet points",
+          "itemType": "text"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "points": []
+      }
+    },
+    {
+      "type": "services-grid",
+      "label": "Services grid",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Link text"
+        },
+        {
+          "key": "linkHref",
+          "type": "link",
+          "label": "Link target"
+        },
+        {
+          "key": "services",
+          "type": "list",
+          "label": "Service cards",
+          "itemFields": [
+            {
+              "key": "icon",
+              "type": "text",
+              "label": "Icon (emoji)"
+            },
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "linkLabel": "See all services",
+        "linkHref": "/services",
+        "services": []
+      }
+    },
+    {
+      "type": "why-grid",
+      "label": "Feature grid",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Features",
+          "itemFields": [
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "items": []
+      }
+    },
+    {
+      "type": "rich-text",
+      "label": "Text",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body",
+          "hint": "Blank line starts a new paragraph."
+        },
+        {
+          "key": "align",
+          "type": "select",
+          "label": "Alignment",
+          "options": [
+            "left",
+            "center"
+          ]
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        }
+      ],
+      "defaults": {
+        "heading": "New section",
+        "body": "",
+        "align": "left"
+      }
+    },
+    {
+      "type": "image",
+      "label": "Image",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "src",
+          "type": "image",
+          "label": "Image"
+        },
+        {
+          "key": "alt",
+          "type": "text",
+          "label": "Alt text",
+          "hint": "Describes the image to screen readers and search engines."
+        },
+        {
+          "key": "caption",
+          "type": "text",
+          "label": "Caption"
+        },
+        {
+          "key": "maxWidth",
+          "type": "number",
+          "label": "Max width (px)"
+        },
+        {
+          "key": "rounded",
+          "type": "boolean",
+          "label": "Rounded corners"
+        }
+      ],
+      "defaults": {
+        "alt": "",
+        "maxWidth": 960,
+        "rounded": true
+      }
+    },
+    {
+      "type": "cta",
+      "label": "Call to action",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "tone",
+          "type": "select",
+          "label": "Tone",
+          "options": [
+            "dark",
+            "light"
+          ]
+        }
+      ],
+      "defaults": {
+        "heading": "Ready to start?",
+        "primaryLabel": "Get in touch",
+        "primaryHref": "/contact",
+        "tone": "dark"
+      }
+    },
+    {
+      "type": "columns",
+      "label": "Columns",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "columns",
+          "type": "list",
+          "label": "Columns",
+          "itemFields": [
+            {
+              "key": "heading",
+              "type": "text",
+              "label": "Heading"
+            },
+            {
+              "key": "body",
+              "type": "textarea",
+              "label": "Body"
+            }
+          ]
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        }
+      ],
+      "defaults": {
+        "columns": [
+          {
+            "heading": "Column one",
+            "body": ""
+          },
+          {
+            "heading": "Column two",
+            "body": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "spacer",
+      "label": "Spacer",
+      "group": "Basics",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "height",
+          "type": "number",
+          "label": "Height (px)"
+        }
+      ],
+      "defaults": {
+        "height": 48
+      }
+    },
+    {
+      "type": "canvas",
+      "label": "Free canvas",
+      "group": "Advanced",
+      "hint": "Place items anywhere. Positions are percentages, so it scales with the screen.",
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "height",
+          "type": "number",
+          "label": "Height (px)"
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Items",
+          "itemFields": [
+            {
+              "key": "kind",
+              "type": "select",
+              "label": "Type",
+              "options": [
+                "text",
+                "image"
+              ]
+            },
+            {
+              "key": "text",
+              "type": "text",
+              "label": "Text"
+            },
+            {
+              "key": "src",
+              "type": "image",
+              "label": "Image"
+            },
+            {
+              "key": "x",
+              "type": "number",
+              "label": "X (%)"
+            },
+            {
+              "key": "y",
+              "type": "number",
+              "label": "Y (%)"
+            },
+            {
+              "key": "w",
+              "type": "number",
+              "label": "Width (%)"
+            },
+            {
+              "key": "fontSize",
+              "type": "number",
+              "label": "Font size"
+            },
+            {
+              "key": "color",
+              "type": "colour",
+              "label": "Colour"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "height": 480,
+        "items": []
+      }
+    },
+    {
+      "type": "html",
+      "label": "Custom HTML",
+      "group": "Advanced",
+      "hint": "Runs as-is on the live site.",
+      "directorOnly": true,
+      "fields": [
+        {
+          "key": "html",
+          "type": "textarea",
+          "label": "HTML"
+        }
+      ],
+      "defaults": {
+        "html": ""
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-static-seo.mjs",
+    "build": "node scripts/generate-block-manifest.mjs && vite build && node scripts/generate-static-seo.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
