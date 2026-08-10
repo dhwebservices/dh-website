@@ -5,6 +5,7 @@
  * from the page they came from, with only the words turned into props.
  */
 
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
 
@@ -21,16 +22,21 @@ function Lines({ text }) {
 
 /* ── Page hero ──────────────────────────────────────────────────────────── */
 
-export function PageHeroBlock({ eyebrow, heading, body, maxWidth, bodyMaxWidth }) {
+export function PageHeroBlock({ eyebrow, heading, body, maxWidth, bodyMaxWidth, paddingBottom }) {
   return (
-    <section className="section">
+    // Pricing trims its hero's bottom padding so the tab bar sits closer;
+    // Services does not. Without this the two heroes differ by 76px.
+    <section className="section" style={paddingBottom ? { paddingBottom } : undefined}>
       <div className="container" style={{ maxWidth: maxWidth || 720 }}>
         <div className="reveal">
           {eyebrow ? <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p> : null}
           <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(40px,6vw,80px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 20 }}>
             <Lines text={heading} />
           </h1>
-          {body ? <p className="body-lg" style={{ maxWidth: bodyMaxWidth || 480 }}>{body}</p> : null}
+          {/* No width set means unconstrained: Services caps its intro at 480px,
+              Pricing deliberately does not, and forcing a default made the
+              Pricing hero 76px taller than the live page. */}
+          {body ? <p className="body-lg" style={bodyMaxWidth ? { maxWidth: bodyMaxWidth } : undefined}>{body}</p> : null}
         </div>
       </div>
     </section>
@@ -277,6 +283,146 @@ export function DomainFeatureBlock({ eyebrow, heading, body, linkLabel, linkHref
               <Link to={ctaHref} className="btn-primary" style={{ justifyContent: 'center' }}>{ctaLabel}</Link>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Pricing tabs ───────────────────────────────────────────────────────── */
+
+function PricingCta({ dark, to, external, children }) {
+  const style = { display: 'block', textAlign: 'center', padding: '12px', borderRadius: 100, fontSize: 14, fontWeight: 500, background: dark ? 'white' : 'var(--accent)', color: dark ? 'var(--dark)' : 'white', transition: 'opacity 0.15s' }
+  if (external) return <a href={to} target="_blank" rel="noreferrer" className="card-cta" style={style}>{children}</a>
+  return <Link to={to} className="card-cta" style={style}>{children}</Link>
+}
+
+/**
+ * The three pricing tabs. Tab state lives inside the block - it is behaviour,
+ * not content, so there is nothing for an editor to set.
+ */
+export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, hostingIntro, hrPrimaryLabel, hrPrimaryHref, hrSecondaryLabel, hrSecondaryHref, ctaLabel }) {
+  const [tab, setTab] = useState('build')
+  const labels = tabs || [
+    { key: 'build', label: 'Website Builds' },
+    { key: 'hosting', label: 'Hosting' },
+    { key: 'hr', label: 'HR System' },
+  ]
+
+  return (
+    <>
+      <div style={{ borderBottom: '1px solid var(--border-light)', position: 'sticky', top: 'var(--nav-h)', background: 'rgba(255,255,255,0.92)', backdropFilter: 'saturate(1.8) blur(20px)', zIndex: 50 }}>
+        <div className="container" style={{ display: 'flex', gap: 0 }}>
+          {labels.map((t) => (
+            <button
+              key={t.key}
+              onClick={() => setTab(t.key)}
+              style={{ padding: '14px 20px', background: 'none', border: 'none', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', color: tab === t.key ? 'var(--dark)' : 'var(--light)', cursor: 'pointer', borderBottom: `2px solid ${tab === t.key ? 'var(--dark)' : 'transparent'}`, marginBottom: -1, transition: 'color 0.15s' }}
+            >{t.label}</button>
+          ))}
+        </div>
+      </div>
+
+      {tab === 'build' && (
+        <section className="section">
+          <div className="container">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 16 }}>
+              {(builds || []).map((p, i) => {
+                const dark = p.badge === 'Most Popular'
+                return (
+                  <div key={p.name} className={`reveal pricing-card ${dark ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
+                    {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: dark ? 'var(--accent)' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: dark ? 'white' : 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: dark ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
+                    <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: dark ? 'white' : 'var(--dark)', marginBottom: 6 }}>£{Number(p.price || 0).toLocaleString()}</div>
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: dark ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 16, letterSpacing: '0.04em' }}>ONE-OFF</p>
+                    <div style={{ display: 'flex', gap: 16, marginBottom: 20, paddingBottom: 20, borderBottom: `1px solid ${dark ? 'rgba(255,255,255,0.1)' : 'var(--border-light)'}` }}>
+                      <div style={{ fontSize: 12, color: dark ? 'rgba(255,255,255,0.5)' : 'var(--mid)' }}>Delivery: <strong style={{ color: dark ? 'white' : 'var(--dark)' }}>{p.delivery}</strong></div>
+                    </div>
+                    {(p.features || []).map((f) => (
+                      <div key={f} style={{ display: 'flex', gap: 8, marginBottom: 8, fontSize: 13.5, color: dark ? 'rgba(255,255,255,0.65)' : 'var(--dark2)', alignItems: 'baseline' }}>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, marginTop: 2 }}><path d="M1.5 6.5L4 9L10.5 2.5" stroke={dark ? 'rgba(255,255,255,0.5)' : 'var(--accent)'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        {f}
+                      </div>
+                    ))}
+                    <div style={{ marginTop: 20 }}><PricingCta dark={dark} to="/contact">{ctaLabel || 'Get started'}</PricingCta></div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {tab === 'hosting' && (
+        <section className="section">
+          <div className="container" style={{ maxWidth: 860 }}>
+            <div className="reveal" style={{ marginBottom: 40 }}><p className="body-md">{hostingIntro}</p></div>
+            <div className="pricing-grid-three" style={{ gap: 16 }}>
+              {(hosting || []).map((p, i) => (
+                <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
+                  {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: 'var(--accent)', fontSize: 11, fontWeight: 600, color: 'white', letterSpacing: '0.04em' }}>{p.badge}</div>}
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
+                  <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>£{p.price}</div>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 20, letterSpacing: '0.04em' }}>PER MONTH</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.6)' : 'var(--mid)', marginBottom: 24 }}>{p.desc}</p>
+                  <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {tab === 'hr' && (
+        <section className="section">
+          <div className="container" style={{ maxWidth: 860 }}>
+            <div className="reveal" style={{ marginBottom: 40 }}><p className="body-md" style={{ maxWidth: 520 }}>{hrIntro}</p></div>
+            <div className="pricing-grid-two" style={{ gap: 16 }}>
+              {(hrPlans || []).map((p, i) => (
+                <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
+                  {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: p.badge === 'Best Value' ? 'white' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
+                  <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>{p.price}</div>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 20, letterSpacing: '0.04em' }}>{p.type}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.68)' : 'var(--mid)', marginBottom: 24 }}>{p.desc}</p>
+                  <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
+                </div>
+              ))}
+            </div>
+            <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginTop: 32 }}>
+              <Link to={hrPrimaryHref} className="btn-primary">{hrPrimaryLabel}</Link>
+              <a href={hrSecondaryHref} target="_blank" rel="noreferrer" className="btn-secondary">{hrSecondaryLabel}</a>
+            </div>
+          </div>
+        </section>
+      )}
+    </>
+  )
+}
+
+/* ── FAQ accordion ──────────────────────────────────────────────────────── */
+
+export function FaqAccordionBlock({ eyebrow, heading, items, footerNote, ctaLabel, ctaHref }) {
+  const [open, setOpen] = useState(null)
+  return (
+    <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border-light)' }}>
+      <div className="container section-narrow">
+        <div className="reveal" style={{ marginBottom: 48 }}>
+          <p className="eyebrow" style={{ marginBottom: 14 }}>{eyebrow}</p>
+          <h2 className="headline-md">{heading}</h2>
+        </div>
+        {(items || []).map((f, i) => (
+          <div key={i} className="reveal" style={{ borderTop: '1px solid var(--border-light)' }}>
+            <button onClick={() => setOpen(open === i ? null : i)} style={{ width: '100%', padding: '20px 0', background: 'none', border: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, cursor: 'pointer', textAlign: 'left' }}>
+              <span style={{ fontSize: 16, fontWeight: 500, letterSpacing: '-0.01em', color: 'var(--dark)' }}>{f.q}</span>
+              <span style={{ fontSize: 20, color: 'var(--mid)', transition: 'transform 0.2s', display: 'block', flexShrink: 0, transform: open === i ? 'rotate(45deg)' : 'none' }}>+</span>
+            </button>
+            {open === i && <p className="body-sm" style={{ paddingBottom: 20, animation: 'slideUp 0.25s ease both', maxWidth: 560 }}>{f.a}</p>}
+          </div>
+        ))}
+        <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: 40, marginTop: 8, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+          <p className="body-sm">{footerNote}</p>
+          <Link to={ctaHref} className="btn-primary">{ctaLabel}</Link>
         </div>
       </div>
     </section>

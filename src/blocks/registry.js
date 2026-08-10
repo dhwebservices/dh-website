@@ -37,6 +37,8 @@ import {
   ProjectSnapshotBlock,
   DeliverablesBlock,
   DomainFeatureBlock,
+  PricingTabsBlock,
+  FaqAccordionBlock,
 } from './types/pageBlocks'
 
 import {
@@ -295,7 +297,8 @@ export const BLOCKS = {
       { key: 'heading', type: 'textarea', label: 'Heading', hint: 'A new line becomes a line break.' },
       { key: 'body', type: 'textarea', label: 'Intro' },
       { key: 'maxWidth', type: 'number', label: 'Column width (px)' },
-      { key: 'bodyMaxWidth', type: 'number', label: 'Intro width (px)' },
+      { key: 'bodyMaxWidth', type: 'number', label: 'Intro width (px)', hint: 'Blank = full width.' },
+      { key: 'paddingBottom', type: 'text', label: 'Bottom padding override' },
     ],
     defaults: { eyebrow: '', heading: 'New page', body: '', maxWidth: 720, bodyMaxWidth: 480 },
   },
@@ -432,6 +435,73 @@ export const BLOCKS = {
       { key: 'ctaHref', type: 'link', label: 'Button link' },
     ],
     defaults: { eyebrow: 'Featured domain', heading: '', body: '', ctaHref: '/contact' },
+  },
+
+  'pricing-tabs': {
+    label: 'Pricing tabs',
+    group: 'Sections',
+    component: PricingTabsBlock,
+    hint: 'Which tab is open is behaviour, not content, so there is nothing to set for it.',
+    fields: [
+      { key: 'ctaLabel', type: 'text', label: 'Card button text' },
+      {
+        key: 'builds', type: 'list', label: 'Website build packages',
+        itemFields: [
+          { key: 'name', type: 'text', label: 'Name' },
+          { key: 'price', type: 'number', label: 'Price (£)' },
+          { key: 'badge', type: 'text', label: 'Badge', hint: '"Most Popular" makes the card dark.' },
+          { key: 'delivery', type: 'text', label: 'Delivery' },
+          { key: 'features', type: 'list', label: 'Features', itemType: 'text' },
+        ],
+      },
+      { key: 'hostingIntro', type: 'textarea', label: 'Hosting tab intro' },
+      {
+        key: 'hosting', type: 'list', label: 'Hosting plans',
+        itemFields: [
+          { key: 'name', type: 'text', label: 'Name' },
+          { key: 'price', type: 'number', label: 'Price per month (£)' },
+          { key: 'badge', type: 'text', label: 'Badge' },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+        ],
+      },
+      { key: 'hrIntro', type: 'textarea', label: 'HR tab intro' },
+      {
+        key: 'hrPlans', type: 'list', label: 'HR plans',
+        itemFields: [
+          { key: 'name', type: 'text', label: 'Name' },
+          { key: 'price', type: 'text', label: 'Price' },
+          { key: 'type', type: 'text', label: 'Type' },
+          { key: 'badge', type: 'text', label: 'Badge' },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+        ],
+      },
+      { key: 'hrPrimaryLabel', type: 'text', label: 'HR primary button' },
+      { key: 'hrPrimaryHref', type: 'link', label: 'HR primary link' },
+      { key: 'hrSecondaryLabel', type: 'text', label: 'HR secondary button' },
+      { key: 'hrSecondaryHref', type: 'link', label: 'HR secondary link' },
+    ],
+    defaults: { ctaLabel: 'Get started', builds: [], hosting: [], hrPlans: [], hrPrimaryHref: '/contact' },
+  },
+
+  'faq-accordion': {
+    label: 'FAQ (accordion)',
+    group: 'Sections',
+    component: FaqAccordionBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Heading' },
+      {
+        key: 'items', type: 'list', label: 'Questions',
+        itemFields: [
+          { key: 'q', type: 'text', label: 'Question' },
+          { key: 'a', type: 'textarea', label: 'Answer' },
+        ],
+      },
+      { key: 'footerNote', type: 'text', label: 'Footer note' },
+      { key: 'ctaLabel', type: 'text', label: 'Footer button' },
+      { key: 'ctaHref', type: 'link', label: 'Footer link' },
+    ],
+    defaults: { eyebrow: 'FAQ', heading: 'Common questions', items: [], ctaHref: '/contact' },
   },
 
   'rich-text': {
