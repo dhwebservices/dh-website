@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T12:11:07.602Z",
+  "generatedAt": "2026-08-10T12:23:22.384Z",
   "blocks": [
     {
       "type": "hero",
@@ -14,9 +14,11 @@
           "label": "Headline (first line)"
         },
         {
-          "key": "headlineRotating",
-          "type": "text",
-          "label": "Headline (second line)"
+          "key": "typewriterLines",
+          "type": "list",
+          "label": "Rotating lines",
+          "itemType": "text",
+          "hint": "Typed out one after another under the headline."
         },
         {
           "key": "body",
@@ -68,7 +70,7 @@
       ],
       "defaults": {
         "headlineLead": "Your website,",
-        "headlineRotating": "built properly.",
+        "typewriterLines": [],
         "body": "",
         "primaryLabel": "Get started",
         "primaryHref": "/contact",
@@ -271,6 +273,324 @@
         "eyebrow": "",
         "heading": "",
         "items": []
+      }
+    },
+    {
+      "type": "card-row",
+      "label": "Card row",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro"
+        },
+        {
+          "key": "background",
+          "type": "colour",
+          "label": "Background"
+        },
+        {
+          "key": "cards",
+          "type": "list",
+          "label": "Cards",
+          "itemFields": [
+            {
+              "key": "title",
+              "type": "text",
+              "label": "Title"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "cards": []
+      }
+    },
+    {
+      "type": "pricing-preview",
+      "label": "Pricing preview",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "note",
+          "type": "textarea",
+          "label": "Note (right side)"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Link text"
+        },
+        {
+          "key": "linkHref",
+          "type": "link",
+          "label": "Link target"
+        },
+        {
+          "key": "packages",
+          "type": "list",
+          "label": "Packages",
+          "itemFields": [
+            {
+              "key": "name",
+              "type": "text",
+              "label": "Name"
+            },
+            {
+              "key": "price",
+              "type": "text",
+              "label": "Price"
+            },
+            {
+              "key": "tagline",
+              "type": "text",
+              "label": "Tagline"
+            },
+            {
+              "key": "who",
+              "type": "textarea",
+              "label": "Who it is for"
+            },
+            {
+              "key": "features",
+              "type": "text",
+              "label": "Features",
+              "hint": "Separate with \" · \""
+            },
+            {
+              "key": "popular",
+              "type": "boolean",
+              "label": "Mark as popular"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Pricing",
+        "heading": "",
+        "note": "",
+        "linkLabel": "See full pricing",
+        "linkHref": "/pricing",
+        "packages": []
+      }
+    },
+    {
+      "type": "testimonials",
+      "label": "Testimonials",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "testimonials",
+          "type": "list",
+          "label": "Quotes",
+          "itemFields": [
+            {
+              "key": "quote",
+              "type": "textarea",
+              "label": "Quote"
+            },
+            {
+              "key": "name",
+              "type": "text",
+              "label": "Name"
+            },
+            {
+              "key": "business",
+              "type": "text",
+              "label": "Business"
+            }
+          ]
+        },
+        {
+          "key": "stats",
+          "type": "list",
+          "label": "Stats bar",
+          "itemFields": [
+            {
+              "key": "value",
+              "type": "text",
+              "label": "Value"
+            },
+            {
+              "key": "label",
+              "type": "text",
+              "label": "Caption"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "testimonials": [],
+        "stats": []
+      }
+    },
+    {
+      "type": "faq",
+      "label": "FAQ",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Questions",
+          "itemFields": [
+            {
+              "key": "q",
+              "type": "text",
+              "label": "Question"
+            },
+            {
+              "key": "a",
+              "type": "textarea",
+              "label": "Answer"
+            }
+          ]
+        },
+        {
+          "key": "footerNote",
+          "type": "text",
+          "label": "Footer note"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Footer link text"
+        },
+        {
+          "key": "linkHref",
+          "type": "link",
+          "label": "Footer link target"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "",
+        "heading": "",
+        "items": [],
+        "linkHref": "/contact"
+      }
+    },
+    {
+      "type": "closing-cta",
+      "label": "Closing CTA (dark)",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        },
+        {
+          "key": "primaryLabel",
+          "type": "text",
+          "label": "Primary button"
+        },
+        {
+          "key": "primaryHref",
+          "type": "link",
+          "label": "Primary link"
+        },
+        {
+          "key": "secondaryLabel",
+          "type": "text",
+          "label": "Secondary button"
+        },
+        {
+          "key": "secondaryHref",
+          "type": "link",
+          "label": "Secondary link"
+        },
+        {
+          "key": "assurances",
+          "type": "list",
+          "label": "Reassurance points",
+          "itemType": "text"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Ready to start?",
+        "heading": "",
+        "body": "",
+        "primaryLabel": "Start a project →",
+        "primaryHref": "/contact",
+        "secondaryLabel": "View pricing",
+        "secondaryHref": "/pricing",
+        "assurances": []
       }
     },
     {
