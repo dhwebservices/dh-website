@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T19:17:57.928Z",
+  "generatedAt": "2026-08-10T19:23:10.749Z",
   "blocks": [
     {
       "type": "hero",
@@ -1621,6 +1621,66 @@
       }
     },
     {
+      "type": "app.contact",
+      "label": "Contact page",
+      "group": "Apps",
+      "hint": "Carries the enquiry form, booking widget and calculator hand-off. Field labels and the emails it sends stay in code - they are wired together.",
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "textarea",
+          "label": "Heading"
+        },
+        {
+          "key": "intro",
+          "type": "textarea",
+          "label": "Intro"
+        },
+        {
+          "key": "emailEyebrow",
+          "type": "text",
+          "label": "Form eyebrow"
+        },
+        {
+          "key": "emailHeading",
+          "type": "text",
+          "label": "Form heading"
+        },
+        {
+          "key": "successHeading",
+          "type": "text",
+          "label": "Success heading",
+          "hint": "Use {firstName} for their first name."
+        },
+        {
+          "key": "successBody",
+          "type": "textarea",
+          "label": "Success message"
+        },
+        {
+          "key": "geoEyebrow",
+          "type": "text",
+          "label": "Locations eyebrow"
+        },
+        {
+          "key": "geoBody",
+          "type": "textarea",
+          "label": "Locations body"
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Contact",
+        "heading": "",
+        "intro": ""
+      }
+    },
+    {
       "type": "rich-text",
       "label": "Text",
       "group": "Basics",
@@ -2047,6 +2107,26 @@
             "loadingLabel": "Loading careers...",
             "emptyHeading": "No live roles right now",
             "emptyBody": "We do not have an open vacancy in this filter at the moment. Please check back soon."
+          }
+        }
+      ]
+    },
+    "contact": {
+      "version": 1,
+      "blocks": [
+        {
+          "id": "contact-main",
+          "type": "app.contact",
+          "props": {
+            "eyebrow": "Contact",
+            "heading": "Start with a call\nor a brief.",
+            "intro": "Book a free consultation, or send your project brief if you would rather skip the call first. Either way, you get a direct response and a clear next step.",
+            "emailEyebrow": "Prefer email?",
+            "emailHeading": "Send your brief.",
+            "successHeading": "Thanks, {firstName}!",
+            "successBody": "We've received your enquiry and will respond within 24 hours with a clear next step.",
+            "geoEyebrow": "Areas we work with",
+            "geoBody": "Looking for a city-specific page first? Use the links below."
           }
         }
       ]

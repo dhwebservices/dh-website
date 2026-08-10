@@ -47,6 +47,8 @@ import {
   CareersBlock,
 } from './types/pageBlocks'
 
+import { ContactBlock } from './types/contactBlock'
+
 import {
   RichTextBlock,
   ImageBlock,
@@ -642,6 +644,25 @@ export const BLOCKS = {
       listingHeading: 'Open positions', allLabel: 'All departments',
       loadingLabel: 'Loading careers...', emptyHeading: 'No live roles right now', emptyBody: '',
     },
+  },
+
+  'app.contact': {
+    label: 'Contact page',
+    group: 'Apps',
+    component: ContactBlock,
+    hint: 'Carries the enquiry form, booking widget and calculator hand-off. Field labels and the emails it sends stay in code - they are wired together.',
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'intro', type: 'textarea', label: 'Intro' },
+      { key: 'emailEyebrow', type: 'text', label: 'Form eyebrow' },
+      { key: 'emailHeading', type: 'text', label: 'Form heading' },
+      { key: 'successHeading', type: 'text', label: 'Success heading', hint: 'Use {firstName} for their first name.' },
+      { key: 'successBody', type: 'textarea', label: 'Success message' },
+      { key: 'geoEyebrow', type: 'text', label: 'Locations eyebrow' },
+      { key: 'geoBody', type: 'textarea', label: 'Locations body' },
+    ],
+    defaults: { eyebrow: 'Contact', heading: '', intro: '' },
   },
 
   'rich-text': {
