@@ -334,7 +334,7 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, host
               {(builds || []).map((p, i) => {
                 const dark = p.badge === 'Most Popular'
                 return (
-                  <div key={p.name} className={`reveal pricing-card ${dark ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
+                  <div key={p.name} className={`reveal pricing-card ${dark ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s`, display: 'flex', flexDirection: 'column' }}>
                     {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: dark ? 'var(--accent)' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: dark ? 'white' : 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
                     <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: dark ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
                     <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: dark ? 'white' : 'var(--dark)', marginBottom: 6 }}>£{Number(p.price || 0).toLocaleString()}</div>
@@ -342,12 +342,17 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, host
                     <div style={{ display: 'flex', gap: 16, marginBottom: 20, paddingBottom: 20, borderBottom: `1px solid ${dark ? 'rgba(255,255,255,0.1)' : 'var(--border-light)'}` }}>
                       <div style={{ fontSize: 12, color: dark ? 'rgba(255,255,255,0.5)' : 'var(--mid)' }}>Delivery: <strong style={{ color: dark ? 'white' : 'var(--dark)' }}>{p.delivery}</strong></div>
                     </div>
-                    {(p.features || []).map((f) => (
-                      <div key={f} style={{ display: 'flex', gap: 8, marginBottom: 8, fontSize: 13.5, color: dark ? 'rgba(255,255,255,0.65)' : 'var(--dark2)', alignItems: 'baseline' }}>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, marginTop: 2 }}><path d="M1.5 6.5L4 9L10.5 2.5" stroke={dark ? 'rgba(255,255,255,0.5)' : 'var(--accent)'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                        {f}
-                      </div>
-                    ))}
+                    {/* flex:1 so the CTA sits on a common baseline across the row.
+                        The tiers carry 6 or 7 features, which previously pushed
+                        the buttons 25px out of line with each other. */}
+                    <div style={{ flex: 1 }}>
+                      {(p.features || []).map((f) => (
+                        <div key={f} style={{ display: 'flex', gap: 8, marginBottom: 8, fontSize: 13.5, color: dark ? 'rgba(255,255,255,0.65)' : 'var(--dark2)', alignItems: 'baseline' }}>
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, marginTop: 2 }}><path d="M1.5 6.5L4 9L10.5 2.5" stroke={dark ? 'rgba(255,255,255,0.5)' : 'var(--accent)'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                          {f}
+                        </div>
+                      ))}
+                    </div>
                     <div style={{ marginTop: 20 }}><PricingCta dark={dark} to="/contact">{ctaLabel || 'Get started'}</PricingCta></div>
                   </div>
                 )
@@ -363,12 +368,12 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, host
             <div className="reveal" style={{ marginBottom: 40 }}><p className="body-md">{hostingIntro}</p></div>
             <div className="pricing-grid-three" style={{ gap: 16 }}>
               {(hosting || []).map((p, i) => (
-                <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
+                <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s`, display: 'flex', flexDirection: 'column' }}>
                   {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: 'var(--accent)', fontSize: 11, fontWeight: 600, color: 'white', letterSpacing: '0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
                   <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>£{p.price}</div>
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 20, letterSpacing: '0.04em' }}>PER MONTH</p>
-                  <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.6)' : 'var(--mid)', marginBottom: 24 }}>{p.desc}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.6)' : 'var(--mid)', marginBottom: 24, flex: 1 }}>{p.desc}</p>
                   <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
                 </div>
               ))}
