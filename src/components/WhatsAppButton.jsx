@@ -53,7 +53,9 @@ export default function WhatsAppButton() {
             minHeight: 56,
             padding: '0 18px 0 16px',
             borderRadius: 999,
-            background: '#25D366',
+            /* #25D366 gave white text 1.98:1, well under the 4.5:1 minimum.
+               #075E54 is WhatsApp's own dark brand green and reaches 7.67:1. */
+            background: '#075E54',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
