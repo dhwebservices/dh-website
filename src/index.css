@@ -421,12 +421,15 @@ img { max-width: 100%; display: block; }
      whole page. Because .site-header is fixed and out of flow, the banner
      was the first in-flow element, so it stuck immediately and then sat on
      top of everything -- it covered a logo row, two service headings and
-     the pricing tab bar. Absolute keeps it in exactly the same place at the
-     top of the page but lets it scroll away, so it can never cover content. */
-  position: absolute;
+     the pricing tab bar.
+
+     Relative, not absolute: sticky still reserved its space in the flow, so
+     the hero sat below it. Taking the bar out of flow slid the hero up and
+     put the banner over the H1 by 40px. Relative keeps the reserved space and
+     the top offset, so the position is unchanged, but the bar now scrolls
+     away with the page instead of pinning and can never cover content. */
+  position: relative;
   top: var(--nav-h);
-  left: 0;
-  right: 0;
   z-index: 450;
   padding: 2px 16px 0;
   margin-top: 0;
