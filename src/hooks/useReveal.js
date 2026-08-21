@@ -1,16 +1,25 @@
 import { useEffect } from 'react'
 
+const SELECTORS = '.reveal, .reveal-scale'
+
+/**
+ * Scroll reveal.
+ *
+ * Elements are visible until this hook arms them, so anything it never reaches
+ * stays readable. The previous version hid .reveal from the stylesheet and ran
+ * a single pass on mount, which left blocks that mounted later -- lazy routes,
+ * CMS content arriving after its fetch -- stuck at opacity 0 forever.
+ */
 export function useReveal() {
   useEffect(() => {
-    const selectors = '.reveal, .reveal-scale'
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const isMobile = window.matchMedia('(max-width: 768px), (hover: none)').matches
 
-    if (isMobile) {
-      document.querySelectorAll(selectors).forEach((el) => el.classList.add('visible'))
-      return undefined
-    }
+    // Nothing to animate: leave every element in its default visible state.
+    if (reduced || isMobile) return undefined
 
     const seen = new WeakSet()
+
     const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) {
@@ -25,25 +34,35 @@ export function useReveal() {
       if (seen.has(el) || el.classList.contains('visible')) return
       seen.add(el)
 
-      const rect = el.getBoundingClientRect()
       const viewportH = window.innerHeight || document.documentElement.clientHeight
-      const alreadyVisible = rect.top < viewportH - 40 && rect.bottom > 0
+      const rect = el.getBoundingClientRect()
 
-      if (alreadyVisible) {
+      // Already on screen: show it without arming, so it never flashes out.
+      if (rect.top < viewportH - 40 && rect.bottom > 0) {
         el.classList.add('visible')
         return
       }
 
+      el.classList.add('is-armed')
       obs.observe(el)
     }
 
-    const observeAll = () => {
-      document.querySelectorAll(selectors).forEach(observeEl)
+    const observeAll = (root) => {
+      if (!(root instanceof Element)) return
+      if (root.matches?.(SELECTORS)) observeEl(root)
+      root.querySelectorAll?.(SELECTORS).forEach(observeEl)
     }
 
-    observeAll()
+    observeAll(document.body)
+
+    // Pick up blocks that mount after this first pass.
+    const mo = new MutationObserver((records) => {
+      records.forEach((r) => r.addedNodes.forEach(observeAll))
+    })
+    mo.observe(document.body, { childList: true, subtree: true })
 
     return () => {
+      mo.disconnect()
       obs.disconnect()
     }
   }, [])

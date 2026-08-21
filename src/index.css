@@ -417,8 +417,16 @@ img { max-width: 100%; display: block; }
 }
 
 .site-banner {
-  position: sticky;
+  /* Was position:sticky, which pinned the bar under the fixed nav for the
+     whole page. Because .site-header is fixed and out of flow, the banner
+     was the first in-flow element, so it stuck immediately and then sat on
+     top of everything -- it covered a logo row, two service headings and
+     the pricing tab bar. Absolute keeps it in exactly the same place at the
+     top of the page but lets it scroll away, so it can never cover content. */
+  position: absolute;
   top: var(--nav-h);
+  left: 0;
+  right: 0;
   z-index: 450;
   padding: 2px 16px 0;
   margin-top: 0;
@@ -531,22 +539,31 @@ img { max-width: 100%; display: block; }
 @keyframes drawLine { from{stroke-dashoffset:1000} to{stroke-dashoffset:0} }
 
 /* ── Scroll reveal ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
-  will-change: opacity, transform;
+/* Content is visible by default and is only hidden once JS has armed it with
+   .is-armed. Previously .reveal was opacity:0 from the stylesheet, so any
+   element the observer never reached -- blocks mounted after the one-shot
+   pass in useReveal, or any JS failure -- stayed permanently invisible.
+   Failing this way round costs a bit of polish instead of the content. */
+.reveal, .reveal-scale {
+  transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1), transform 0.45s cubic-bezier(0.16,1,0.3,1);
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-scale {
-  opacity: 0; transform: scale(0.97);
-  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+.reveal.is-armed:not(.visible)       { opacity: 0; transform: translateY(12px); }
+.reveal-scale.is-armed:not(.visible) { opacity: 0; transform: scale(0.985); }
+
+/* Shorter travel and tighter steps: at 20px over 0.7s with delays up to 0.21s
+   the four pricing cards spent nearly a second visibly out of line with each
+   other, which reads as broken on the highest-scrutiny content on the site. */
+.stagger-1 { transition-delay: 0.04s !important; }
+.stagger-2 { transition-delay: 0.08s !important; }
+.stagger-3 { transition-delay: 0.12s !important; }
+.stagger-4 { transition-delay: 0.16s !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* transition:none also neutralises the inline transitionDelay set on cards. */
+  .reveal, .reveal-scale { transition: none !important; }
+  .reveal.is-armed:not(.visible),
+  .reveal-scale.is-armed:not(.visible) { opacity: 1; transform: none; }
 }
-.reveal-scale.visible { opacity: 1; transform: scale(1); }
-.stagger-1 { transition-delay: 0.05s !important; }
-.stagger-2 { transition-delay: 0.1s !important; }
-.stagger-3 { transition-delay: 0.15s !important; }
-.stagger-4 { transition-delay: 0.2s !important; }
 
 /* ── Typography ── */
 .headline-xl {

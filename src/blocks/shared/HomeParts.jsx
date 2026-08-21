@@ -7,7 +7,6 @@
  * and "close enough" versions of them would be visible.
  */
 
-import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 export const DEFAULT_TYPEWRITER_LINES = [
@@ -18,31 +17,22 @@ export const DEFAULT_TYPEWRITER_LINES = [
   'yours. Not a rental.',
 ]
 
+/**
+ * The second half of the homepage H1.
+ *
+ * This used to type and delete `lines` on an infinite loop, so the headline
+ * was never complete: it began empty on every load (a screenshot at 390px
+ * caught it reading "Your website, rea|"), it kept moving while people tried
+ * to read it, and the H1 in the initial markup carried only its first half.
+ *
+ * It now renders the first line as static text, present and complete in the
+ * first paint. The remaining lines stay in the CMS and in the block schema,
+ * unused here, so nothing is lost if they are wanted elsewhere.
+ */
 export function Typewriter({ lines }) {
   const list = Array.isArray(lines) && lines.length ? lines : DEFAULT_TYPEWRITER_LINES
-  const [idx, setIdx] = useState(0)
-  const [text, setText] = useState('')
-  const [del, setDel] = useState(false)
-  const t = useRef()
 
-  useEffect(() => {
-    const line = list[idx % list.length]
-    if (!del) {
-      if (text.length < line.length) t.current = setTimeout(() => setText(line.slice(0, text.length + 1)), 44)
-      else t.current = setTimeout(() => setDel(true), 2800)
-    } else {
-      if (text.length > 0) t.current = setTimeout(() => setText((value) => value.slice(0, -1)), 18)
-      else { setIdx((i) => (i + 1) % list.length); setDel(false) }
-    }
-    return () => clearTimeout(t.current)
-  }, [text, del, idx, list])
-
-  return (
-    <span style={{ color: 'var(--accent)' }}>
-      {text}
-      <span style={{ display: 'inline-block', width: 2, height: '0.85em', background: 'var(--accent)', marginLeft: 2, verticalAlign: 'middle', animation: 'blink 1s step-end infinite' }} />
-    </span>
-  )
+  return <span style={{ color: 'var(--accent)' }}>{list[0]}</span>
 }
 
 export function HeroBg() {
