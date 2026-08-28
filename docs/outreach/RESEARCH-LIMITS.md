@@ -38,9 +38,58 @@ Our own website is blocked too. Web search works only because it is routed
 through the Anthropic API rather than through egress.
 
 **This is an environment setting, chosen when the environment was created, and
-it can be changed.** Widening the network policy would allow the directory and
-Facebook pages to be read directly, which removes the bottleneck entirely.
-See https://code.claude.com/docs/en/claude-code-on-the-web
+it can be changed.** Widening it lets the directory pages be read directly,
+which removes the bottleneck.
+
+### How to widen it
+
+Not available in the Claude mobile app — the app runs and steers sessions but
+has no environment configuration. Environments are created and edited only from
+the environment selector at **claude.ai/code**, and per the docs there is no
+settings page or direct URL for it.
+
+1. Open **claude.ai/code** in a browser.
+2. In the row **above the message box**, select the **cloud icon** showing the
+   current environment name (likely `Default`).
+3. Hover the environment, select the **settings gear** on the right.
+4. Change **Network access**. Four levels exist:
+
+   | Level | Outbound connections |
+   |---|---|
+   | None | Nothing |
+   | Trusted | *(current)* package registries, GitHub, cloud SDKs |
+   | Full | Any domain |
+   | Custom | Your own allowlist |
+
+5. Choose **Custom** and list one domain per line:
+
+   ```
+   *.yell.com
+   *.cylex-uk.co.uk
+   *.thomsonlocal.com
+   *.fresha.com
+   *.192.com
+   *.facebook.com
+   *.dhwebsiteservices.co.uk
+   ```
+
+   Tick **"Also include default list of common package managers"**, or npm
+   breaks. **Full** works too, but it permits every domain on the internet,
+   including any a fetched page points at — Custom is the tighter choice and
+   costs nothing here.
+
+6. **Start a new session.** A running session keeps the policy it was
+   provisioned with and will not pick up the change.
+
+Docs: https://code.claude.com/docs/en/cloud-environments#access-levels
+
+### What this will and will not fix
+
+- **Will fix:** Yell, Cylex, Thomson Local, Fresha and 192.com become readable.
+  That is where the contact data actually is, and it is enough to build the list.
+- **Will probably not fix:** Facebook. It serves a login wall to anything that
+  is not a signed-in browser, so "About" tabs generally come back empty whatever
+  the network policy says. Do not widen the policy expecting Facebook to open up.
 
 ## The three ways forward
 
