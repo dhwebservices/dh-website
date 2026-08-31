@@ -48,7 +48,7 @@ export default function MaintenanceMode({ settings }) {
       style={{
         minHeight: '100vh',
         background: `
-          radial-gradient(circle at top left, rgba(0,113,227,0.08), transparent 30%),
+          radial-gradient(circle at top left, rgba(200,16,46,0.08), transparent 30%),
           radial-gradient(circle at bottom right, rgba(29,29,31,0.08), transparent 28%),
           linear-gradient(180deg, #f3f4f7 0%, #ffffff 56%, #f8f8fa 100%)
         `,
@@ -61,8 +61,8 @@ export default function MaintenanceMode({ settings }) {
     >
       <style>{`
         @keyframes maintenancePulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 20px 50px rgba(0,113,227,0.18); }
-          50% { transform: scale(1.015); box-shadow: 0 24px 60px rgba(0,113,227,0.28); }
+          0%, 100% { transform: scale(1); box-shadow: 0 20px 50px rgba(200,16,46,0.18); }
+          50% { transform: scale(1.015); box-shadow: 0 24px 60px rgba(200,16,46,0.28); }
         }
         @keyframes maintenanceNumberReveal {
           from { opacity: 0; transform: translateY(8px); letter-spacing: 0.18em; }
@@ -98,7 +98,7 @@ export default function MaintenanceMode({ settings }) {
               position: 'absolute',
               inset: 0,
               background: `
-                radial-gradient(circle at top right, rgba(0,113,227,0.22), transparent 28%),
+                radial-gradient(circle at top right, rgba(200,16,46,0.22), transparent 28%),
                 radial-gradient(circle at bottom left, rgba(255,255,255,0.06), transparent 30%)
               `,
               pointerEvents: 'none',
@@ -195,7 +195,7 @@ export default function MaintenanceMode({ settings }) {
           >
             {[
               ['Contact', 'mgmt@dhwebsiteservices.co.uk'],
-              ['Response', 'Direct callback from our team'],
+              ['Response', 'David calls you back'],
               ['Status', 'Public site temporarily unavailable'],
             ].map(([label, value]) => (
               <div
@@ -273,9 +273,9 @@ export default function MaintenanceMode({ settings }) {
                 gap: 10,
                 padding: '22px 22px 20px',
                 borderRadius: 24,
-                background: 'linear-gradient(135deg, rgba(0,113,227,0.08), rgba(0,113,227,0.14))',
-                border: '1px solid rgba(0,113,227,0.16)',
-                boxShadow: '0 20px 50px rgba(0,113,227,0.18)',
+                background: 'linear-gradient(135deg, rgba(200,16,46,0.08), rgba(200,16,46,0.14))',
+                border: '1px solid rgba(200,16,46,0.16)',
+                boxShadow: '0 20px 50px rgba(200,16,46,0.18)',
                 animation: 'maintenancePulse 2.6s ease-in-out infinite',
               }}
             >
@@ -383,7 +383,7 @@ export default function MaintenanceMode({ settings }) {
                   height: 52,
                   borderRadius: 999,
                   border: 'none',
-                  background: canSubmit ? 'var(--accent)' : 'rgba(0,113,227,0.18)',
+                  background: canSubmit ? 'var(--accent)' : 'rgba(200,16,46,0.18)',
                   color: '#fff',
                   fontSize: 15,
                   fontWeight: 600,
@@ -415,7 +415,7 @@ export default function MaintenanceMode({ settings }) {
               {[
                 'You leave your contact details',
                 'Our management team receives the request immediately',
-                'We call you back once we are available',
+                'I call you back once I am free',
               ].map((step, index) => (
                 <div key={step} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'start' }}>
                   <div

@@ -251,7 +251,7 @@ export default function Footer() {
                   onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
                   onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
                 >
-                  Website Builder {item.label}
+                  Web design {item.label}
                 </Link>
               ))}
             </div>

@@ -38,8 +38,8 @@ export function Typewriter({ lines }) {
 export function HeroBg() {
   return (
     <div aria-hidden style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
-      <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '70%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(0,113,227,0.05) 0%, transparent 70%)', animation: 'float 18s ease-in-out infinite' }} />
-      <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '50%', height: '50%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(0,113,227,0.03) 0%, transparent 70%)', animation: 'float 24s ease-in-out infinite reverse' }} />
+      <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '70%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(200,16,46,0.05) 0%, transparent 70%)', animation: 'float 18s ease-in-out infinite' }} />
+      <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '50%', height: '50%', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(200,16,46,0.03) 0%, transparent 70%)', animation: 'float 24s ease-in-out infinite reverse' }} />
       <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px)', backgroundSize: '32px 32px', opacity: 0.5 }} />
     </div>
   )

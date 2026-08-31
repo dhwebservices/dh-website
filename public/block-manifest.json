@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T19:45:51.821Z",
+  "generatedAt": "2026-08-31T19:30:03.771Z",
   "blocks": [
     {
       "type": "hero",
@@ -2141,13 +2141,13 @@
           "id": "about-hero",
           "type": "about-hero",
           "props": {
-            "eyebrow": "About us",
-            "heading": "Small team.\nSerious work.",
-            "lead": "DH Website Services is a Cardiff-based web agency built around one principle — your website should work as hard as you do.",
-            "body": "We build production-ready websites, booking systems, and lead-generation experiences for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
+            "eyebrow": "About",
+            "heading": "One person.\nSerious work.",
+            "lead": "DH Website Services is one person in Cardiff. That is the whole pitch: you deal with the person who builds it.",
+            "body": "I build production-ready websites, booking systems, and lead-generation pages for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
             "primaryLabel": "Start a project →",
             "primaryHref": "/contact",
-            "secondaryLabel": "See our work",
+            "secondaryLabel": "See the work",
             "secondaryHref": "/portfolio",
             "initials": "DH",
             "name": "David Hooper",
@@ -2179,7 +2179,7 @@
           "id": "about-values",
           "type": "values-grid",
           "props": {
-            "eyebrow": "How we work",
+            "eyebrow": "How I work",
             "heading": "What you can expect.",
             "items": [
               {
@@ -2396,7 +2396,7 @@
                 "id": "custom",
                 "label": "Custom brand design",
                 "cost": 300,
-                "desc": "Bespoke design matching your brand guidelines"
+                "desc": "Designed to your brand rather than a theme"
               },
               {
                 "id": "rebrand",
@@ -2440,7 +2440,7 @@
               {
                 "upTo": 999,
                 "name": "Growth",
-                "colour": "#0071E3"
+                "colour": "var(--accent)"
               },
               {
                 "upTo": 1499,
@@ -2476,7 +2476,7 @@
               },
               {
                 "title": "Fast review",
-                "desc": "Our hiring team reviews applications directly and contacts shortlisted candidates by email or phone."
+                "desc": "I read every application myself and reply by email or phone either way."
               },
               {
                 "title": "Built for clarity",
@@ -2484,7 +2484,7 @@
               },
               {
                 "title": "Human process",
-                "desc": "We keep the process practical and avoid long, unclear hiring loops."
+                "desc": "A conversation and a practical task. No four-stage panel for a small business job."
               }
             ],
             "essentialsLabel": "Application essentials",
@@ -2499,7 +2499,7 @@
             "allLabel": "All departments",
             "loadingLabel": "Loading careers...",
             "emptyHeading": "No live roles right now",
-            "emptyBody": "We do not have an open vacancy in this filter at the moment. Please check back soon."
+            "emptyBody": "Nothing open in this filter right now."
           }
         }
       ]
@@ -2518,7 +2518,7 @@
             "emailHeading": "Send your brief.",
             "successHeading": "Thanks, {firstName}!",
             "successBody": "We've received your enquiry and will respond within 24 hours with a clear next step.",
-            "geoEyebrow": "Areas we work with",
+            "geoEyebrow": "Areas I work with",
             "geoBody": "Looking for a city-specific page first? Use the links below."
           }
         }
@@ -2531,15 +2531,15 @@
           "id": "home-hero",
           "type": "hero",
           "props": {
-            "headlineLead": "Your website,",
+            "headlineLead": "Built in Cardiff:",
             "typewriterLines": [
-              "ready before your next meeting.",
-              "faster than any template.",
-              "built to rank on Google.",
-              "designed to win customers.",
-              "yours. Not a rental."
+              "your website.",
+              "your app, on both stores.",
+              "your staff portal.",
+              "your game.",
+              "and the code is yours."
             ],
-            "body": "Production-ready websites for businesses that need speed, clarity, and something stronger than a template. Fixed pricing, direct communication, and a build you actually own.",
+            "body": "I build websites, apps and games from Cardiff. You get a fixed price before I start, and you own everything at the end.",
             "primaryLabel": "Get started",
             "primaryHref": "/contact",
             "secondaryLabel": "See pricing",
@@ -2559,7 +2559,7 @@
                 "label": "Real pricing"
               },
               {
-                "value": "7-10 days",
+                "value": "7 days",
                 "label": "Typical delivery"
               }
             ]
@@ -2571,9 +2571,9 @@
           "props": {
             "items": [
               {
-                "icon": "✓",
-                "label": "Real client work",
-                "sub": "Glow With Lucy"
+                "icon": "🎮",
+                "label": "On Google Play",
+                "sub": "Fish Tank"
               },
               {
                 "icon": "🔒",
@@ -2587,8 +2587,8 @@
               },
               {
                 "icon": "⚡",
-                "label": "7-10 day delivery",
-                "sub": "Fixed timeline"
+                "label": "7 day delivery",
+                "sub": "Websites"
               }
             ]
           }
@@ -2599,7 +2599,7 @@
           "props": {
             "eyebrow": "Microsoft approved partner",
             "heading": "Better suited to businesses already built around Microsoft.",
-            "body": "We now hold Microsoft approved partner status. If your business already runs on Microsoft tools, we can scope websites and operational workflows with that ecosystem in mind from the start.",
+            "body": "I now hold Microsoft approved partner status. If your business already runs on Microsoft tools, I can scope websites and operational workflows with Microsoft 365, Teams and Outlook in mind from the start.",
             "primaryLabel": "Explore partnerships",
             "primaryHref": "/partners",
             "secondaryLabel": "Talk to us",
@@ -2615,31 +2615,31 @@
           "id": "home-services",
           "type": "services-grid",
           "props": {
-            "eyebrow": "What we build",
-            "heading": "Everything\nyou need.",
-            "body": "From your first website to a full enterprise stack with HR integration — we cover every layer.",
+            "eyebrow": "What I build",
+            "heading": "Websites, apps\nand games.",
+            "body": "Same person builds all of it. Fixed price agreed before anything starts.",
             "linkLabel": "See all services",
             "linkHref": "/services",
             "services": [
               {
                 "icon": "💻",
-                "title": "Custom Web Development",
-                "desc": "Tailored solutions built from the ground up for your unique business needs. Production-ready code, not templates."
+                "title": "Websites",
+                "desc": "Written in React, not assembled in a page builder. You get the source code and the domain stays in your name."
               },
               {
-                "icon": "🎨",
-                "title": "User-Centric Design",
-                "desc": "Beautiful interfaces that engage visitors and drive conversions. Every pixel intentional, every interaction purposeful."
+                "icon": "📱",
+                "title": "iOS and Android apps",
+                "desc": "One build, both stores. I handle Apple review and Google Play submission, which is the part that catches most people out."
               },
               {
-                "icon": "🛠",
-                "title": "Full Support & Maintenance",
-                "desc": "Ongoing maintenance to keep your site running at peak performance. We're here long after launch."
+                "icon": "🎮",
+                "title": "Games",
+                "desc": "Native iOS and Android. Fish Tank is on Google Play now — download it and see what the work looks like."
               },
               {
                 "icon": "👥",
-                "title": "HR System Integration",
-                "desc": "Full HR portal built into your website — onboarding, leave, payslips, timesheets and more."
+                "title": "Staff portals",
+                "desc": "Rotas, timesheets, leave, payslips, onboarding, push notifications. I run one of these to manage my own staff."
               }
             ]
           }
@@ -2648,8 +2648,8 @@
           "id": "home-why",
           "type": "why-grid",
           "props": {
-            "eyebrow": "Why choose us",
-            "heading": "Built different.\nDelivered properly.",
+            "eyebrow": "How I work",
+            "heading": "What you get.",
             "items": [
               {
                 "title": "You work with me",
@@ -2682,21 +2682,21 @@
           "id": "home-credibility",
           "type": "card-row",
           "props": {
-            "eyebrow": "Before you hire us",
-            "heading": "Judge the process.",
-            "body": "If we are early-stage, the right way to earn trust is through how we think, how we communicate, and how we build.",
+            "eyebrow": "Things I have built",
+            "heading": "Go and look at them.",
+            "body": "Anyone can describe how they work. These are shipped and you can check them yourself.",
             "cards": [
               {
-                "title": "How we work",
-                "desc": "Every project starts with scope clarity, priorities, and a defined outcome before we build."
+                "title": "Fish Tank",
+                "desc": "A multiplayer game on Google Play. Cross-platform play, friends, leaderboards, push notifications, running on my own servers."
               },
               {
-                "title": "How we communicate",
-                "desc": "Short feedback loops, direct updates, and one accountable point of contact."
+                "title": "A staff portal",
+                "desc": "Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips. It runs my business day to day."
               },
               {
-                "title": "How we price",
-                "desc": "We scope tightly enough to give fixed pricing instead of vague ranges and surprise costs."
+                "title": "This website",
+                "desc": "The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you."
               }
             ]
           }
@@ -2715,7 +2715,7 @@
                 "name": "Starter",
                 "price": "£449",
                 "tagline": "Fixed-price website package.",
-                "who": "Typical delivery: 2–3 weeks",
+                "who": "Delivered in 7 days",
                 "features": "5-page professional website · Mobile responsive design · Basic SEO setup · Contact form",
                 "popular": false
               },
@@ -2723,7 +2723,7 @@
                 "name": "Growth",
                 "price": "£999",
                 "tagline": "Most Popular",
-                "who": "Typical delivery: 3–4 weeks",
+                "who": "Delivered in 7 days",
                 "features": "10-page website · Blog section · Full SEO setup · Branding integration",
                 "popular": true
               },
@@ -2731,7 +2731,7 @@
                 "name": "Pro",
                 "price": "£1,499",
                 "tagline": "Fixed-price website package.",
-                "who": "Typical delivery: 4–6 weeks",
+                "who": "Delivered in 7 days",
                 "features": "15 pages · E-commerce ready · Custom integrations · Advanced SEO",
                 "popular": false
               },
@@ -2739,7 +2739,7 @@
                 "name": "Enterprise + HR",
                 "price": "£2,499",
                 "tagline": "Most Complete",
-                "who": "Typical delivery: 6–8 weeks",
+                "who": "Timeline agreed at scoping",
                 "features": "Full enterprise website · Integrated HR system · Staff onboarding portal · Leave & timesheet management",
                 "popular": false
               }
@@ -2750,31 +2750,25 @@
           "id": "home-social-proof",
           "type": "testimonials",
           "props": {
-            "eyebrow": "Client results",
-            "heading": "Real businesses.\nReal outcomes.",
-            "testimonials": [
-              {
-                "quote": "DH Website Services delivered our new site in 7 days. The quality is exceptional — it genuinely looks better than agencies we were quoted 10x more from.",
-                "name": "Lucy Deane",
-                "business": "Glow With Lucy"
-              }
-            ],
+            "eyebrow": "The numbers",
+            "heading": "What you can\nhold me to.",
+            "testimonials": [],
             "stats": [
               {
-                "value": "100%",
-                "label": "Client satisfaction"
+                "value": "7 days",
+                "label": "Website delivery"
               },
               {
                 "value": "< 24h",
-                "label": "Response time"
-              },
-              {
-                "value": "3 weeks",
-                "label": "Avg. delivery"
+                "label": "Reply to enquiries"
               },
               {
                 "value": "£449",
                 "label": "Starting from"
+              },
+              {
+                "value": "£0",
+                "label": "Cost to get a quote"
               }
             ]
           }
@@ -2785,27 +2779,27 @@
           "props": {
             "eyebrow": "Common questions",
             "heading": "Everything you need to know",
-            "body": "Quick answers to questions we hear most often about our website development process.",
+            "body": "The things people ask before they get in touch.",
             "items": [
               {
                 "q": "How long does a website project take?",
-                "a": "Standard websites are delivered in 7 days. HR portals and complex integrations take 10 days. Timeline is confirmed during scoping, and we stick to it."
+                "a": "Websites are delivered in 7 days. HR portals and complex integrations vary too much to put a number on here, so I agree a date with you at scoping and stick to it."
               },
               {
                 "q": "What's included in your fixed pricing?",
-                "a": "Our fixed-price packages include custom design, development, mobile optimization, technical SEO setup, analytics integration, contact forms, and launch support. Ongoing hosting and support are billed separately so you can see exactly what's one-off versus recurring."
+                "a": "Design, build, mobile layout, SEO setup, analytics, contact forms and getting it live. Hosting is billed separately from £35 a month so you can see what you pay once and what you pay monthly."
               },
               {
                 "q": "Do you offer website hosting and maintenance?",
-                "a": "Yes. We provide managed hosting on Cloudflare Pages with 99.9%+ uptime, global CDN, automatic SSL, and regular security updates. Hosting plans start from £29/month and include ongoing technical support, updates, and monitoring."
+                "a": "Yes. Hosting is on Cloudflare from £35 a month and covers SSL, backups, updates and monitoring. It is billed separately from the build so you can see what you pay once and what you pay every month."
               },
               {
                 "q": "Can you integrate with our existing systems?",
-                "a": "Absolutely. We specialize in integrations with Microsoft 365, Supabase databases, payment processors (Stripe), booking systems, email platforms (Resend), and HR management tools. As a Microsoft Partner, we're particularly strong with Microsoft ecosystem integrations."
+                "a": "Usually, yes. I have built against Microsoft 365, Stripe, Supabase, Resend and Apple and Google push notifications. Tell me what you run and I will say plainly whether it is straightforward or whether it will add cost."
               },
               {
                 "q": "What makes you different from other web agencies?",
-                "a": "Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. We build production-quality code from day one, not MVP filler that needs rebuilding later."
+                "a": "Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. I build production-quality code from day one, not MVP filler that needs rebuilding later."
               },
               {
                 "q": "Do I own the website after launch?",
@@ -2823,7 +2817,7 @@
           "props": {
             "eyebrow": "Ready to start?",
             "heading": "Let's build something that works.",
-            "body": "Tell us about your project. We'll reply within 24 hours with a clear plan and a fixed price.",
+            "body": "Tell me about your project. We'll reply within 24 hours with a clear plan and a fixed price.",
             "primaryLabel": "Start a project →",
             "primaryHref": "/contact",
             "secondaryLabel": "View pricing",
@@ -2846,7 +2840,7 @@
           "props": {
             "eyebrow": "Microsoft approved partner",
             "heading": "Websites that fit the Microsoft stack your business already runs on.",
-            "body": "DH Website Services is a Microsoft approved partner. For clients already working inside Microsoft tools, that means we can build with those operational realities in mind instead of forcing a disconnected website on top.",
+            "body": "DH Website Services is a Microsoft approved partner. For clients already working inside Microsoft tools, that means I can build with those operational realities in mind instead of forcing a disconnected website on top.",
             "primaryLabel": "Discuss your project",
             "primaryHref": "/contact",
             "secondaryLabel": "View services",
@@ -2864,12 +2858,12 @@
           "props": {
             "eyebrow": "What this means",
             "heading": "A better fit for businesses already running on Microsoft.",
-            "body": "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership gives that a clear home on our website because it is now part of how we position and deliver work.",
+            "body": "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership means I can plan a site around those tools rather than working against them.",
             "cardEyebrow": "Partner benefit",
             "cards": [
               {
                 "title": "Microsoft-aware builds",
-                "body": "We can shape websites and business tools around the Microsoft products many UK teams already use every day."
+                "body": "I can shape websites and business tools around the Microsoft products many UK teams already use every day."
               },
               {
                 "title": "Practical integration planning",
@@ -2881,7 +2875,7 @@
               }
             ],
             "appleEyebrow": "Device supply",
-            "appleHeading": "We also supply Apple hardware through our authorised seller channel.",
+            "appleHeading": "I can also supply Apple hardware as an authorised seller.",
             "appleBody": "Alongside websites and business systems, DH Website Services can support Apple device procurement for teams that need iPads, iPhones, and related hardware as part of a wider project rollout."
           }
         },
@@ -2891,10 +2885,10 @@
           "props": {
             "eyebrow": "Typical fit",
             "heading": "Best suited to businesses that want a joined-up website, not another isolated tool.",
-            "body": "If your team already lives in Microsoft products, the website should respect that. We can scope around operational realities from the start rather than fixing them after launch.",
+            "body": "If your team already lives in Microsoft products, the website should respect that. I can scope around operational realities from the start rather than fixing them after launch.",
             "areas": [
               "Microsoft 365-aligned client workflows",
-              "Outlook and calendar-based booking journeys",
+              "Outlook and calendar-based booking",
               "Teams-ready internal handover processes",
               "Azure-friendly hosting and deployment planning",
               "Operational websites for service businesses and growing teams",
@@ -2908,7 +2902,7 @@
           "props": {
             "eyebrow": "Start with the right stack",
             "heading": "Need a website that works cleanly with your Microsoft-led workflow?",
-            "body": "Tell us how your team operates today and we can scope the site around that from day one.",
+            "body": "Tell me how your team operates today and I can scope the site around that from day one.",
             "primaryLabel": "Book a free call",
             "primaryHref": "/contact",
             "secondaryLabel": "Get a quote",
@@ -2929,16 +2923,39 @@
           "id": "portfolio-hero",
           "type": "case-study-hero",
           "props": {
-            "eyebrow": "Featured project",
-            "heading": "Glow With Lucy",
-            "body": "A cleaner, softer web presence for a candle business that needed to feel more polished, giftable, and commercially credible.",
-            "primaryLabel": "Visit site",
-            "primaryHref": "https://glowwithlucy.co.uk",
-            "secondaryLabel": "Book a project call",
+            "eyebrow": "On Google Play",
+            "heading": "Fish Tank",
+            "body": "A multiplayer game for iOS and Android. Cross-platform play against friends, leaderboards and push notifications, running on servers I built and maintain.",
+            "primaryLabel": "Get it on Google Play",
+            "primaryHref": "https://play.google.com/store/search?q=fish%20tank%20dh&c=apps",
+            "secondaryLabel": "Talk about your project",
             "secondaryHref": "/contact",
-            "note": "The goal was to give the brand a better-quality home online without overcomplicating it, so the business feels more established from the first click.",
-            "image": "/glow-with-lucy-logo.png",
-            "imageAlt": "Glow With Lucy logo"
+            "note": "Worth two minutes before you decide whether to hire me. It is quicker than reading about the work.",
+            "image": "/fish-tank-home-aquarium.png",
+            "imageAlt": "Fish Tank gameplay: a goldfish in a home aquarium surrounded by smaller fish"
+          }
+        },
+        {
+          "id": "portfolio-shipped",
+          "type": "card-row",
+          "props": {
+            "eyebrow": "Also shipped",
+            "heading": "Other things you can check.",
+            "body": "Not mockups. These are live and doing a job.",
+            "cards": [
+              {
+                "title": "A staff portal",
+                "desc": "Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone. It runs my own business day to day."
+              },
+              {
+                "title": "This website",
+                "desc": "The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you."
+              },
+              {
+                "title": "Glow With Lucy",
+                "desc": "An online shop for a candle business, built in seven days. The case study is below."
+              }
+            ]
           }
         },
         {
@@ -2949,7 +2966,7 @@
             "body": "Glow With Lucy needed a site that felt more like a considered brand than a starter storefront. The aim was to support trust, gifting appeal, and future growth without losing the softness of the product.",
             "rows": [
               {
-                "label": "Client",
+                "label": "Project",
                 "value": "Glow With Lucy"
               },
               {
@@ -2957,8 +2974,8 @@
                 "value": "Candle business / lifestyle retail"
               },
               {
-                "label": "Domain",
-                "value": "GlowWithLucy.co.uk"
+                "label": "Built in",
+                "value": "7 days"
               },
               {
                 "label": "Scope",
@@ -2978,7 +2995,7 @@
           "type": "deliverables",
           "props": {
             "eyebrow": "What changed",
-            "heading": "A neater brand experience with room to grow.",
+            "heading": "A tidier shopfront with room to grow.",
             "body": "The build direction focuses on visual calm, product credibility, and a structure that can later expand into richer catalogue and campaign work without having to start over.",
             "items": [
               {
@@ -2989,7 +3006,7 @@
               {
                 "icon": "device",
                 "title": "Clean mobile browsing",
-                "description": "The experience is designed to stay tidy and readable on smaller screens, where social traffic and gift-led browsing often start."
+                "description": "Designed to stay tidy and readable on smaller screens, where social traffic and gift-led browsing often start."
               },
               {
                 "icon": "domain",
@@ -3003,12 +3020,12 @@
           "id": "portfolio-domain",
           "type": "domain-feature",
           "props": {
-            "eyebrow": "Featured domain",
-            "heading": "GlowWithLucy.co.uk",
-            "body": "The live site gives the business a cleaner home for its brand story and product direction, with a stronger base for direct traffic than relying on social alone.",
-            "linkLabel": "Open live website",
-            "linkHref": "https://glowwithlucy.co.uk",
-            "linkCaption": "glowwithlucy.co.uk",
+            "eyebrow": "Also built",
+            "heading": "Glow With Lucy",
+            "body": "An online shop for a candle business, built in seven days. Product pages, checkout and a brand that reads as established rather than improvised.",
+            "linkLabel": "",
+            "linkHref": "",
+            "linkCaption": "Built in 7 days",
             "ctaLabel": "Want something like this?",
             "ctaHref": "/contact"
           }
@@ -3039,7 +3056,7 @@
               {
                 "name": "Starter",
                 "price": 449,
-                "delivery": "2–3 weeks",
+                "delivery": "7 days",
                 "revisions": "1 round",
                 "badge": "",
                 "features": [
@@ -3054,7 +3071,7 @@
               {
                 "name": "Growth",
                 "price": 999,
-                "delivery": "3–4 weeks",
+                "delivery": "7 days",
                 "revisions": "2 rounds",
                 "badge": "Most Popular",
                 "features": [
@@ -3070,7 +3087,7 @@
               {
                 "name": "Pro",
                 "price": 1499,
-                "delivery": "4–6 weeks",
+                "delivery": "7 days",
                 "revisions": "3 rounds",
                 "badge": "",
                 "features": [
@@ -3086,9 +3103,9 @@
               {
                 "name": "Enterprise + HR",
                 "price": 2499,
-                "delivery": "6–8 weeks",
+                "delivery": "Agreed at scoping",
                 "revisions": "3 rounds",
-                "badge": "Most Complete",
+                "badge": "Everything",
                 "features": [
                   "Full enterprise website",
                   "Integrated HR system",
@@ -3165,6 +3182,38 @@
                 "desc": "Ongoing HR support, staff changes, updates."
               }
             ],
+            "appIntro": "Most businesses round here do not need an app, and I will say so rather than sell you one. If you just want to be found, the £449 website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
+            "appNote": "Prices start low deliberately. A first app should be cheap enough to try, not a decision you have to sleep on.",
+            "appPlans": [
+              {
+                "name": "Simple app",
+                "price": "£349",
+                "type": "one-off",
+                "desc": "Your website as a real app on the App Store and Google Play, with push notifications so you can message customers directly. Both store submissions handled."
+              },
+              {
+                "name": "Booking or ordering app",
+                "price": "£699",
+                "type": "one-off",
+                "desc": "Customers book a slot or place an order from their phone, pay by card, and get a reminder. You run the lot from one screen.",
+                "badge": "Most Popular"
+              },
+              {
+                "name": "Business app or game",
+                "price": "from £1,499",
+                "monthly": "or from £135/mo over 12 months",
+                "type": "one-off",
+                "desc": "A proper build: your own system, your own rules, or a full game on both stores. Quoted once I know what it has to do."
+              },
+              {
+                "name": "App care",
+                "price": "£29/mo",
+                "type": "monthly",
+                "desc": "Apple and Google change the rules a few times a year and apps stop working if nobody keeps up. This covers that, plus the store fees."
+              }
+            ],
+            "appPrimaryLabel": "Talk about an app →",
+            "appPrimaryHref": "/contact",
             "hrPrimaryLabel": "Discuss HR integration →",
             "hrPrimaryHref": "/contact",
             "hrSecondaryLabel": "Get your HR and CMS portal today",
@@ -3180,7 +3229,7 @@
             "items": [
               {
                 "q": "Do you offer payment plans?",
-                "a": "Yes — we can arrange staged payments for larger projects. Get in touch to discuss what works for you."
+                "a": "Yes — I can arrange staged payments for larger projects. Get in touch to discuss what works for you."
               },
               {
                 "q": "What happens after the project is delivered?",
@@ -3196,7 +3245,7 @@
               },
               {
                 "q": "Do you work with clients outside Wales / the UK?",
-                "a": "Yes, we work with clients across the UK and internationally. Everything is done remotely."
+                "a": "Yes, I work with clients across the UK and internationally. Everything is done remotely."
               }
             ],
             "footerNote": "Still have questions?",
@@ -3215,7 +3264,7 @@
           "props": {
             "eyebrow": "Services",
             "heading": "Everything\nyou need.",
-            "body": "From your first website to a full enterprise stack. We cover every layer of what makes a great web presence.",
+            "body": "From your first website to a full enterprise stack. I cover every layer of what makes a great web presence.",
             "maxWidth": 720,
             "bodyMaxWidth": 480
           }
@@ -3246,7 +3295,7 @@
                   "Mobile-first responsive",
                   "Accessibility built-in",
                   "Conversion-focused",
-                  "Clear user journeys"
+                  "A clear route to the enquiry form"
                 ]
               },
               {
@@ -3305,7 +3354,7 @@
           "type": "process-steps",
           "props": {
             "eyebrow": "How it works",
-            "heading": "Our process.",
+            "heading": "How it goes.",
             "steps": [
               {
                 "n": "01",
@@ -3325,7 +3374,7 @@
               {
                 "n": "04",
                 "title": "Build",
-                "desc": "7-10 days. I will send progress updates so you know where it is at."
+                "desc": "7 days. I will send progress updates so you know where it is at."
               },
               {
                 "n": "05",
@@ -3343,9 +3392,9 @@
           "id": "services-geo",
           "type": "app.geo-links",
           "props": {
-            "eyebrow": "Areas we cover",
+            "eyebrow": "Areas I cover",
             "heading": "Location-focused website builder pages.",
-            "body": "We serve businesses across the UK. These pages are tailored to common search intent for local website builder and web design queries."
+            "body": "I work with businesses across the UK. These pages are written for common search intent for local website builder and web design queries."
           }
         }
       ]

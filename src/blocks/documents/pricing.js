@@ -31,7 +31,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Starter",
             price: 449,
-            delivery: "2–3 weeks",
+            delivery: "7 days",
             revisions: "1 round",
             badge: "",
             features: [
@@ -46,7 +46,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Growth",
             price: 999,
-            delivery: "3–4 weeks",
+            delivery: "7 days",
             revisions: "2 rounds",
             badge: "Most Popular",
             features: [
@@ -62,7 +62,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Pro",
             price: 1499,
-            delivery: "4–6 weeks",
+            delivery: "7 days",
             revisions: "3 rounds",
             badge: "",
             features: [
@@ -78,9 +78,9 @@ export const PRICING_DOCUMENT = {
           {
             name: "Enterprise + HR",
             price: 2499,
-            delivery: "6–8 weeks",
+            delivery: "Agreed at scoping",
             revisions: "3 rounds",
-            badge: "Most Complete",
+            badge: "Everything",
             features: [
               "Full enterprise website",
               "Integrated HR system",
@@ -157,6 +157,42 @@ export const PRICING_DOCUMENT = {
             desc: "Ongoing HR support, staff changes, updates."
           }
         ],
+        // App and game pricing, set low to win the first projects without
+        // reading as a hobby. Market rate for a wrapped app is £3-5k and for a
+        // business app £8-15k; these undercut that heavily while still sitting
+        // above the website ladder, so the two price lists make sense together.
+        appIntro: "Most businesses round here do not need an app, and I will say so rather than sell you one. If you just want to be found, the £449 website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
+        appNote: "Prices start low deliberately. A first app should be cheap enough to try, not a decision you have to sleep on.",
+        appPlans: [
+          {
+            name: "Simple app",
+            price: "£349",
+            type: "one-off",
+            desc: "Your website as a real app on the App Store and Google Play, with push notifications so you can message customers directly. Both store submissions handled."
+          },
+          {
+            name: "Booking or ordering app",
+            price: "£699",
+            type: "one-off",
+            desc: "Customers book a slot or place an order from their phone, pay by card, and get a reminder. You run the lot from one screen.",
+            badge: "Most Popular"
+          },
+          {
+            name: "Business app or game",
+            price: "from £1,499",
+            monthly: "or from £135/mo over 12 months",
+            type: "one-off",
+            desc: "A proper build: your own system, your own rules, or a full game on both stores. Quoted once I know what it has to do."
+          },
+          {
+            name: "App care",
+            price: "£29/mo",
+            type: "monthly",
+            desc: "Apple and Google change the rules a few times a year and apps stop working if nobody keeps up. This covers that, plus the store fees."
+          }
+        ],
+        appPrimaryLabel: "Talk about an app →",
+        appPrimaryHref: "/contact",
         hrPrimaryLabel: "Discuss HR integration →",
         hrPrimaryHref: "/contact",
         hrSecondaryLabel: "Get your HR and CMS portal today",
@@ -172,7 +208,7 @@ export const PRICING_DOCUMENT = {
         items: [
           {
             q: "Do you offer payment plans?",
-            a: "Yes — we can arrange staged payments for larger projects. Get in touch to discuss what works for you."
+            a: "Yes — I can arrange staged payments for larger projects. Get in touch to discuss what works for you."
           },
           {
             q: "What happens after the project is delivered?",
@@ -188,7 +224,7 @@ export const PRICING_DOCUMENT = {
           },
           {
             q: "Do you work with clients outside Wales / the UK?",
-            a: "Yes, we work with clients across the UK and internationally. Everything is done remotely."
+            a: "Yes, I work with clients across the UK and internationally. Everything is done remotely."
           }
         ],
         footerNote: "Still have questions?",

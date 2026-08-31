@@ -34,7 +34,7 @@ export function PageHeroBlock({ eyebrow, heading, body, maxWidth, bodyMaxWidth, 
       <div className="container" style={{ maxWidth: maxWidth || 720 }}>
         <div className="reveal">
           {eyebrow ? <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p> : null}
-          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(40px,6vw,80px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 20 }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(40px,6vw,80px)', fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.0, marginBottom: 20 }}>
             <Lines text={heading} />
           </h1>
           {/* No width set means unconstrained: Services caps its intro at 480px,
@@ -305,10 +305,11 @@ function PricingCta({ dark, to, external, children }) {
  * The three pricing tabs. Tab state lives inside the block - it is behaviour,
  * not content, so there is nothing for an editor to set.
  */
-export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, hostingIntro, hrPrimaryLabel, hrPrimaryHref, hrSecondaryLabel, hrSecondaryHref, ctaLabel }) {
+export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appIntro, appNote, appPlans, appPrimaryLabel, appPrimaryHref, hostingIntro, hrPrimaryLabel, hrPrimaryHref, hrSecondaryLabel, hrSecondaryHref, ctaLabel }) {
   const [tab, setTab] = useState('build')
   const labels = tabs || [
     { key: 'build', label: 'Website Builds' },
+    { key: 'apps', label: 'Apps & Games' },
     { key: 'hosting', label: 'Hosting' },
     { key: 'hr', label: 'HR System' },
   ]
@@ -377,6 +378,39 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, host
                   <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {tab === 'apps' && (
+        <section className="section">
+          <div className="container" style={{ maxWidth: 860 }}>
+            <div className="reveal" style={{ marginBottom: 32 }}>
+              <p className="body-md" style={{ maxWidth: 560 }}>{appIntro}</p>
+              {appNote && (
+                <p style={{ marginTop: 14, paddingLeft: 16, borderLeft: '2px solid var(--accent)', fontSize: 14, lineHeight: 1.6, color: 'var(--mid)', maxWidth: 560 }}>{appNote}</p>
+              )}
+            </div>
+            <div className="pricing-grid-two" style={{ gap: 16 }}>
+              {(appPlans || []).map((p, i) => (
+                <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
+                  {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: p.badge === 'Best Value' ? 'white' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
+                  <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>{p.price}</div>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: p.monthly ? 6 : 20, letterSpacing: '0.04em' }}>{p.type}</p>
+                  {/* The lump sum is the barrier for a small local business, so
+                      the instalment has to be readable without clicking. */}
+                  {p.monthly && (
+                    <p style={{ fontSize: 13, fontWeight: 600, color: p.badge ? 'rgba(255,255,255,0.8)' : 'var(--accent)', marginBottom: 20 }}>{p.monthly}</p>
+                  )}
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.68)' : 'var(--mid)', marginBottom: 24 }}>{p.desc}</p>
+                  <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
+                </div>
+              ))}
+            </div>
+            <div className="reveal" style={{ display: 'flex', justifyContent: 'center', marginTop: 32 }}>
+              <Link to={appPrimaryHref || '/contact'} className="btn-primary">{appPrimaryLabel || 'Talk about an app'}</Link>
             </div>
           </div>
         </section>
@@ -479,7 +513,7 @@ export function AboutHeroBlock({ eyebrow, heading, lead, body, primaryLabel, pri
 
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
             <div className="glass-card" style={{ padding: 'clamp(28px,4vw,40px)' }}>
-              <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'linear-gradient(135deg, var(--accent) 0%, #30A46C 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 700, color: '#fff', marginBottom: 20, letterSpacing: '-0.02em' }}>
+              <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 700, color: '#fff', marginBottom: 20, letterSpacing: '-0.02em' }}>
                 {initials}
               </div>
               <div style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 4 }}>{name}</div>
@@ -531,7 +565,7 @@ export function PartnerHeroBlock({ eyebrow, heading, body, primaryLabel, primary
     <section
       style={{
         padding: 'calc(var(--nav-h) + clamp(44px,7vw,92px)) clamp(20px,5vw,60px) clamp(60px,8vw,90px)',
-        background: 'linear-gradient(180deg, rgba(245,245,247,0.8) 0%, rgba(255,255,255,1) 42%, rgba(255,255,255,1) 100%)',
+        background: 'linear-gradient(180deg, rgba(244,245,243,0.8) 0%, rgba(255,255,255,1) 42%, rgba(255,255,255,1) 100%)',
         borderBottom: '1px solid var(--border-light)',
       }}
     >
@@ -548,7 +582,7 @@ export function PartnerHeroBlock({ eyebrow, heading, body, primaryLabel, primary
           </div>
         </div>
 
-        <div className="reveal" style={{ padding: 'clamp(24px,3vw,34px)', borderRadius: 28, border: '1px solid var(--border-light)', background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,245,247,0.95) 100%)', boxShadow: '0 18px 40px rgba(29,29,31,0.06)' }}>
+        <div className="reveal" style={{ padding: 'clamp(24px,3vw,34px)', borderRadius: 28, border: '1px solid var(--border-light)', background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(244,245,243,0.95) 100%)', boxShadow: '0 18px 40px rgba(29,29,31,0.06)' }}>
           <MicrosoftPartnerBadge width={320} />
           <div style={{ marginTop: 24, display: 'grid', gap: 14, paddingTop: 22, borderTop: '1px solid var(--border-light)' }}>
             {(points || []).map((item) => (
@@ -584,7 +618,7 @@ export function PartnerBenefitsBlock({ eyebrow, heading, body, cardEyebrow, card
           ))}
         </div>
 
-        <div className="reveal" style={{ marginTop: 28, borderRadius: 28, border: '1px solid var(--border-light)', background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,245,247,0.96) 100%)', boxShadow: '0 18px 40px rgba(29,29,31,0.05)', padding: 'clamp(22px,3vw,30px)', display: 'grid', gridTemplateColumns: 'minmax(0, 280px) minmax(0, 1fr)', gap: 24, alignItems: 'center' }}>
+        <div className="reveal" style={{ marginTop: 28, borderRadius: 28, border: '1px solid var(--border-light)', background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(244,245,243,0.96) 100%)', boxShadow: '0 18px 40px rgba(29,29,31,0.05)', padding: 'clamp(22px,3vw,30px)', display: 'grid', gridTemplateColumns: 'minmax(0, 280px) minmax(0, 1fr)', gap: 24, alignItems: 'center' }}>
           <img src={appleAuthorisedSellerBadge} alt="Apple Authorised Seller" style={{ width: '100%', maxWidth: 320, display: 'block' }} />
           <div>
             <p className="eyebrow" style={{ marginBottom: 10 }}>{appleEyebrow}</p>
@@ -612,7 +646,7 @@ export function TypicalFitBlock({ eyebrow, heading, body, areas }) {
               <div key={item} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                 <span
                   aria-hidden
-                  style={{ width: 18, height: 18, borderRadius: 999, background: 'var(--accent-soft)', border: '1px solid rgba(0,113,227,0.14)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontSize: 11, fontWeight: 700, flexShrink: 0, marginTop: 2 }}
+                  style={{ width: 18, height: 18, borderRadius: 999, background: 'var(--accent-soft)', border: '1px solid rgba(200,16,46,0.14)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontSize: 11, fontWeight: 700, flexShrink: 0, marginTop: 2 }}
                 >
                   +
                 </span>

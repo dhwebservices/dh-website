@@ -23,7 +23,7 @@ export default function ShopProductCard({ product }) {
       onMouseOver={(event) => {
         event.currentTarget.style.transform = 'translateY(-2px)'
         event.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.07)'
-        event.currentTarget.style.borderColor = 'rgba(0, 113, 227, 0.18)'
+        event.currentTarget.style.borderColor = 'rgba(200,16,46, 0.18)'
       }}
       onMouseOut={(event) => {
         event.currentTarget.style.transform = 'translateY(0)'

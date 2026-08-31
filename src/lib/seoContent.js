@@ -19,37 +19,37 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
     title: 'DH Website Services | Production-Ready Websites for Growth',
-    description: 'Production-ready websites, booking systems, and business platforms built for speed, SEO, and conversion. Fixed pricing, founder-led delivery across the UK.',
-    heading: 'Production-ready websites for businesses that need speed, clarity, and real commercial value.',
-    intro: 'DH Website Services builds custom websites, landing pages, booking systems, and business platforms for companies that need more than a template.',
+    description: 'Websites, iOS and Android apps and games, built in Cardiff by David Hooper. Fixed price from £449, usually 7 days. You own the code.',
+    heading: 'Websites, apps and games, built in Cardiff.',
+    intro: 'I am David Hooper. I build websites in React, apps for the App Store and Google Play, and the systems behind them. You get a fixed price before I start and the source code when I finish.',
     sections: [
       {
-        title: 'What we build',
-        body: 'Custom brochure sites, service websites, e-commerce builds, lead generation pages, booking journeys, and practical integrations with your existing operations.',
+        title: 'What I build',
+        body: 'Websites from £449. Apps from £349. Staff portals with rotas, timesheets, leave and payslips. Games, including one on Google Play now.',
       },
       {
-        title: 'How we work',
-        body: 'Founder-led delivery, fixed pricing, direct communication, and a build process designed around launch quality rather than filler.',
+        title: 'How I work',
+        body: 'One person builds it and that person is me. The price is agreed before anything starts and does not move. My mobile number is on the contact page and I answer it.',
       },
     ],
     ctaLabel: 'Start a project',
     ctaHref: '/contact',
-    schema: makeServiceSchema('/', 'Website design and development', 'Production-ready websites, booking systems, and business platforms built for speed, SEO, and conversion.'),
+    schema: makeServiceSchema('/', 'Website design and development', 'Websites, iOS and Android apps and games, built in Cardiff. Fixed price from £449.'),
   },
   {
     path: '/services',
     title: 'Services | DH Website Services',
-    description: 'Custom website development, conversion-led UX design, technical SEO, e-commerce platforms, managed hosting, and HR portal integrations for UK businesses.',
-    heading: 'Website services built around growth, conversion, and maintainable delivery.',
-    intro: 'We cover the full website build process from UX and front-end development through SEO foundations, integrations, and post-launch support.',
+    description: 'Websites, iOS and Android apps, games, staff portals and hosting. Fixed prices, published on the site. Cardiff based, working UK wide.',
+    heading: 'What I build, and what it costs.',
+    intro: 'Every price here is published rather than quoted on request. If a job does not fit one of them I will tell you what it costs before you commit to anything.',
     sections: [
       {
         title: 'Core services',
-        body: 'Custom web development, conversion-led design, technical SEO, managed hosting, e-commerce builds, and HR portal integrations.',
+        body: 'Websites written in React. Apps built once and submitted to both stores. Staff portals handling rotas, clock-in, timesheets and payslips. Hosting from £35 a month.',
       },
       {
         title: 'Delivery style',
-        body: 'Projects are scoped clearly, priced clearly, and built with practical business outcomes in mind.',
+        body: 'I scope the job, give you one number, and build it. If you want something added halfway through I will price that separately rather than quietly absorbing it.',
       },
     ],
     ctaLabel: 'Discuss your project',
@@ -61,15 +61,15 @@ const BASE_INDEXABLE_PAGES = [
     title: 'Pricing | DH Website Services',
     description: 'Clear website build, hosting, and HR system pricing with fixed packages from £449. Transparent pricing with no hidden fees or hourly ambiguity.',
     heading: 'Fixed website pricing without hourly ambiguity.',
-    intro: 'DH Website Services offers clear build packages, monthly hosting plans, and HR system pricing so businesses can budget properly before a project starts.',
+    intro: 'Four website packages from £449 to £2,499, apps from £349, hosting from £35 a month. The numbers are on the page so you can decide before you speak to me.',
     sections: [
       {
         title: 'Build packages',
-        body: 'Starter, Growth, Pro, and Enterprise options for businesses that need clarity on scope, delivery time, and included features.',
+        body: 'Starter at £449 for five pages. Growth at £999 for ten pages and a blog. Pro at £1,499 with e-commerce. Enterprise at £2,499 including a staff portal.',
       },
       {
         title: 'Ongoing costs',
-        body: 'Hosting and support plans are kept separate so clients can see what is one-off and what is recurring.',
+        body: 'Hosting is separate and starts at £35 a month, so you can see what you pay once and what you pay every month.',
       },
     ],
     ctaLabel: 'View contact options',
@@ -79,13 +79,13 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/portfolio',
     title: 'Portfolio | DH Website Services',
-    description: 'Recent website work and client projects from DH Website Services, including Glow With Lucy e-commerce platform delivered in 7 days.',
-    heading: 'Recent website work and delivery examples.',
-    intro: 'Portfolio content highlights the kind of commercial website work DH Website Services ships for real businesses.',
+    description: 'Work built by DH Website Services: Fish Tank on Google Play, a staff portal running rotas and payroll, and websites built in Cardiff.',
+    heading: 'Things I have built.',
+    intro: 'Shipped work rather than mockups. Fish Tank is on Google Play and you can download it now.',
     sections: [
       {
         title: 'What the portfolio shows',
-        body: 'A focus on practical launch quality, speed, search visibility, and design that supports conversion rather than vanity.',
+        body: 'Fish Tank, a multiplayer game on Google Play running on my own servers. A staff portal handling rotas, clock-in, timesheets, leave and payslips. Glow With Lucy, an online shop built in seven days.',
       },
     ],
     ctaLabel: 'Talk to us',
@@ -94,13 +94,13 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/about',
     title: 'About | DH Website Services',
-    description: 'Cardiff-based web development agency founded by David Hooper. Fixed pricing, founder-led delivery, production-quality websites for UK businesses. Microsoft Partner.',
-    heading: 'Founder-led website delivery based in Cardiff.',
-    intro: 'DH Website Services works with UK businesses that want direct accountability, fixed pricing, and a stronger technical standard than template-led web builds.',
+    description: 'DH Website Services is David Hooper, in Cardiff. Websites from £449 in 7 days, apps from £349. You get the code and the domain stays yours.',
+    heading: 'One person, in Cardiff.',
+    intro: 'DH Website Services is David Hooper. There is no team behind me, no account manager, and nobody your job gets passed down to.',
     sections: [
       {
         title: 'What clients get',
-        body: 'Direct communication, commercial decision-making, and a site that is built to be owned and improved over time.',
+        body: 'You get my mobile number. The code is yours at the end and the domain stays in your name, so you can take the whole thing elsewhere whenever you want.',
       },
     ],
     ctaLabel: 'Contact us',
@@ -109,9 +109,9 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/partners',
     title: 'Partners | DH Website Services',
-    description: 'DH Website Services is a Microsoft approved partner building websites and practical workflows for businesses already operating in the Microsoft ecosystem.',
+    description: 'DH Website Services is a Microsoft approved partner building websites and practical workflows for businesses already already running on Microsoft 365.',
     heading: 'Microsoft-aware website delivery for businesses already using Microsoft tools.',
-    intro: 'The partners page explains how DH Website Services can plan websites and connected workflows with the Microsoft ecosystem in mind.',
+    intro: 'The partners page explains how DH Website Services can plan websites and connected workflows with Microsoft 365 in mind.',
     sections: [
       {
         title: 'Who this is for',
@@ -301,161 +301,86 @@ const BASE_INDEXABLE_PAGES = [
     ctaLabel: 'Raise a concern',
     ctaHref: '/contact',
   },
-  {
-    path: '/website-builder',
-    title: 'Website Builder for UK Businesses | DH Website Services',
-    description: 'Website builder services for UK businesses that need custom sites, fixed pricing, technical SEO, and direct delivery.',
-    heading: 'Website builder services for businesses that need more than a template.',
-    intro: 'If you are looking for a website builder for a serious business website, the real requirement is not drag-and-drop software. It is a build partner who can plan, write, optimise, and launch a site that performs commercially.',
-    sections: [
-      {
-        title: 'What we mean by website builder',
-        body: 'Custom design, front-end and back-end delivery, technical SEO, analytics, lead capture, booking flows, and practical support after launch.',
-      },
-      {
-        title: 'Who this fits',
-        body: 'Professional services, local businesses, founders, and growing teams that need a site they actually own and can build on.',
-      },
-    ],
-    ctaLabel: 'Start a website brief',
-    ctaHref: '/contact?mode=brief#brief',
-    schema: makeServiceSchema('/website-builder', 'Website builder for UK businesses', 'Website builder services for UK businesses that need custom sites, fixed pricing, technical SEO, and direct delivery.'),
-  },
 ]
 
 const GEO_MARKETS = [
   {
     city: 'Cardiff',
-    needs: 'A fast brochure site, a better lead-generation journey, clearer service positioning, and technical SEO that gives Google usable page content from day one.',
-    localAngle: 'Local context helps with tone, targeting, operational understanding, and the practical realities of how service businesses in Cardiff actually sell.',
-    builderIntro: 'DH Website Services works with Cardiff businesses that need a website to generate enquiries, support sales conversations, and hold up technically after launch.',
-    designIntro: 'Cardiff businesses usually need web design that looks credible, explains the offer quickly, and moves visitors toward a clear enquiry or booking action.',
-    websiteDesignIntro: 'A Cardiff website design project should balance visuals, content structure, mobile clarity, and technical build quality rather than stopping at mockups.',
+    intro: 'I am based in Cardiff, so this is the one place I can be in your office the same week you call.',
+    travel: 'I live here. If you want to sit down and go through it in person before you commit to anything, that costs you nothing and I can usually do it within a couple of days.',
   },
   {
     city: 'Newport',
-    needs: 'Service websites, landing pages, booking journeys, and business sites that need better messaging and more usable conversion paths.',
-    localAngle: 'Clear scope, fixed pricing, and a website that helps sales instead of just existing online matters particularly for growing Newport businesses.',
-    builderIntro: 'For Newport businesses, we build websites that are commercially useful, technically strong, and easy to extend as the business grows.',
-    designIntro: 'Newport web design work needs to make a business easier to trust quickly, especially when the website is doing the first part of the sales conversation.',
-    websiteDesignIntro: 'Website design in Newport should support real business use: clearer offers, better local visibility, and a stronger journey from page view to enquiry.',
+    intro: 'Newport is twenty minutes up the M4 from me, which makes meeting in person straightforward rather than an event.',
+    travel: 'About twenty minutes from Cardiff. I am happy to come to you for the first conversation and again at handover, at no extra cost.',
   },
   {
     city: 'Swansea',
-    needs: 'Sharper service pages, better local search visibility, cleaner calls to action, and an easier route from first click to enquiry.',
-    localAngle: 'Projects stay founder-led and direct, with fixed pricing and a straightforward path from brief to launch.',
-    builderIntro: 'We help Swansea businesses move beyond basic template websites and into sites that are faster, clearer, and more credible in front of customers.',
-    designIntro: 'Swansea web design should improve both presentation and usability so the site is easier to scan, easier to trust, and easier to act on.',
-    websiteDesignIntro: 'A Swansea website design project should combine better structure, stronger messaging, and technical foundations that support long-term visibility.',
+    intro: 'Swansea is an hour down the M4. Close enough to visit, far enough that most of the work happens over email and calls.',
+    travel: 'Roughly an hour each way. I will come out for the first meeting if you would rather do it face to face; after that it is usually quicker for both of us to work over email.',
   },
   {
     city: 'Bristol',
-    needs: 'Custom business websites, campaign pages, lead funnels, and service pages written and structured to support conversion.',
-    localAngle: 'Technical quality, SEO foundations, good information architecture, and direct communication during delivery are what usually separate average sites from useful ones in Bristol.',
-    builderIntro: 'For Bristol businesses, the priority is usually not having a website at all. It is having one that is credible, fast, and easier for customers to act on.',
-    designIntro: 'Bristol web design needs to carry more weight in competitive markets, where clarity and credibility are often the difference between an enquiry and a bounce.',
-    websiteDesignIntro: 'Website design in Bristol should support sharper positioning, cleaner service presentation, and better conversion paths for competitive sectors.',
+    intro: 'Bristol is over the bridge, about fifty minutes from Cardiff, and I price the same either side of the Severn.',
+    travel: 'Around fifty minutes over the M4 bridge. Same price as a Cardiff project. I am not going to add a premium because you are in England.',
   },
   {
     city: 'London',
-    needs: 'Sharper messaging, better technical SEO, and a build that supports proposals, inbound leads, and higher-trust first impressions.',
-    localAngle: 'Remote-friendly, founder-led, and direct from scoping through launch.',
-    builderIntro: 'London businesses often need a website that stands up in a more competitive market, with better positioning, stronger page quality, and cleaner conversion paths.',
-    designIntro: 'London web design needs to be commercially sharp. The site has to communicate value quickly and support higher-intent visitors without wasting their time.',
-    websiteDesignIntro: 'A London website design project should prioritise positioning, hierarchy, copy structure, and technical execution together rather than treating design in isolation.',
+    intro: 'London is two hours from Cardiff Central. I work with London businesses remotely and price at Cardiff rates, not London ones.',
+    travel: 'Two hours on the train, so most of this runs over calls and email. Worth saying plainly: you are paying Cardiff prices for London work, and that is the main reason to use someone outside the city.',
   },
 ]
 
 export const GEO_CITY_LINKS = GEO_MARKETS.map((market) => ({
   city: market.city,
-  to: `/website-builder-${market.city.toLowerCase()}`,
+  to: `/web-design-${market.city.toLowerCase()}`,
 }))
 
-function makeGeoPage(market, kind) {
+/**
+ * One page per city.
+ *
+ * There used to be three -- website-builder, web-design and website-design --
+ * generated from one template with the synonym swapped. Fifteen pages of
+ * roughly 650 characters each, differing by a word. Google's spam policy names
+ * that pattern (doorway pages) and it was 44% of the site's indexed URLs. The
+ * other ten now 301 into these five.
+ *
+ * What makes each page genuinely different is the only thing that honestly
+ * differs by city: how far away it is and whether I can sit in a room with
+ * you. The price, the person and the work are identical wherever you are, and
+ * pretending otherwise is what produced sentences like "local context helps
+ * with tone, targeting, operational understanding".
+ */
+function makeGeoPage(market) {
   const cityLower = market.city.toLowerCase()
-
-  if (kind === 'website-builder') {
-    return {
-      path: `/website-builder-${cityLower}`,
-      city: market.city,
-      intent: 'website-builder',
-      intentLabel: 'Website builder',
-      title: `Website Builder ${market.city} | DH Website Services`,
-      description: `${market.city} website builder for businesses that need custom websites, technical SEO, fixed pricing, and direct delivery.`,
-      heading: `Website builder in ${market.city} for businesses that need something stronger than a template.`,
-      intro: market.builderIntro,
-      sections: [
-        {
-          title: `What ${market.city} businesses usually need`,
-          body: market.needs,
-        },
-        {
-          title: 'Why work this way',
-          body: market.localAngle,
-        },
-      ],
-      ctaLabel: `Discuss your ${market.city} website project`,
-      ctaHref: '/contact',
-      schema: makeServiceSchema(`/website-builder-${cityLower}`, `Website builder ${market.city}`, `${market.city} website builder for businesses that need custom websites, technical SEO, fixed pricing, and direct delivery.`),
-    }
-  }
-
-  if (kind === 'web-design') {
-    return {
-      path: `/web-design-${cityLower}`,
-      city: market.city,
-      intent: 'web-design',
-      intentLabel: 'Web design',
-      title: `Web Design ${market.city} | DH Website Services`,
-      description: `${market.city} web design for businesses that need clearer service pages, better conversion paths, and modern custom build quality.`,
-      heading: `Web design in ${market.city} for businesses that need sharper positioning and cleaner conversion.`,
-      intro: market.designIntro,
-      sections: [
-        {
-          title: 'What good web design should do',
-          body: 'It should help a visitor understand the offer, trust the business, and know what to do next without friction.',
-        },
-        {
-          title: `What that looks like in ${market.city}`,
-          body: market.needs,
-        },
-      ],
-      ctaLabel: `Talk about web design in ${market.city}`,
-      ctaHref: '/contact',
-      schema: makeServiceSchema(`/web-design-${cityLower}`, `Web design ${market.city}`, `${market.city} web design for businesses that need clearer service pages, better conversion paths, and modern custom build quality.`),
-    }
-  }
+  const path = `/web-design-${cityLower}`
 
   return {
-    path: `/website-design-${cityLower}`,
+    path,
     city: market.city,
-    intent: 'website-design',
-    intentLabel: 'Website design',
-    title: `Website Design ${market.city} | DH Website Services`,
-    description: `${market.city} website design services for businesses that need custom page structure, technical SEO, and a site that supports growth.`,
-    heading: `Website design in ${market.city} for businesses that need more than surface-level visuals.`,
-    intro: market.websiteDesignIntro,
+    intentLabel: 'Web design',
+    title: `Web Design ${market.city} | DH Website Services`,
+    description: `Websites, apps and games built for ${market.city} businesses. Fixed price from £449, usually 7 days.`,
+    heading: `Web design in ${market.city}.`,
+    intro: market.intro,
     sections: [
+      { title: 'Getting to you', body: market.travel },
       {
-        title: 'What website design actually includes',
-        body: 'Page structure, content hierarchy, calls to action, mobile layout, trust signals, and the technical foundations needed for the site to perform after launch.',
+        title: 'What it costs',
+        body: 'Websites start at £449, quoted in full before anything starts. Apps start at £349. No hourly rate and no change-order billing: the number I give you is the number you pay.',
       },
       {
-        title: `Why it matters in ${market.city}`,
-        body: market.localAngle,
+        title: 'Who does the work',
+        body: 'I do. There is no team to be handed down to and nobody else on the call. You get my mobile number and I answer it.',
       },
     ],
-    ctaLabel: `Start a ${market.city} website design brief`,
-    ctaHref: '/contact?mode=brief#brief',
-    schema: makeServiceSchema(`/website-design-${cityLower}`, `Website design ${market.city}`, `${market.city} website design services for businesses that need custom page structure, technical SEO, and a site that supports growth.`),
+    ctaLabel: `Get a price for your ${market.city} project`,
+    ctaHref: '/contact',
+    schema: makeServiceSchema(path, `Web design ${market.city}`, `Websites, apps and games built for ${market.city} businesses. Fixed price from £449.`),
   }
 }
 
-export const GEO_PAGES = GEO_MARKETS.flatMap((market) => ([
-  makeGeoPage(market, 'website-builder'),
-  makeGeoPage(market, 'web-design'),
-  makeGeoPage(market, 'website-design'),
-]))
+export const GEO_PAGES = GEO_MARKETS.map(makeGeoPage)
 
 export const INDEXABLE_PAGES = [...BASE_INDEXABLE_PAGES, ...GEO_PAGES]
 
@@ -471,28 +396,49 @@ export const INDEXABLE_PAGE_META = Object.fromEntries(
   ]),
 )
 
+/**
+ * Everything that used to be its own page now points at the one page for that
+ * city. 301 rather than 410 so whatever ranking the retired URLs earned is
+ * passed on instead of thrown away.
+ */
+/**
+ * Everything that used to be its own page now points at the one page for that
+ * city. 301 rather than 410 so whatever ranking the retired URLs earned is
+ * passed on instead of thrown away.
+ */
 export const GEO_REDIRECTS = [
-  ['/cardiff-website-builder', '/website-builder-cardiff'],
-  ['/website-builder-in-cardiff', '/website-builder-cardiff'],
+  ['/website-builder-cardiff', '/web-design-cardiff'],
+  ['/website-design-cardiff', '/web-design-cardiff'],
+  ['/cardiff-website-builder', '/web-design-cardiff'],
+  ['/website-builder-in-cardiff', '/web-design-cardiff'],
   ['/cardiff-web-design', '/web-design-cardiff'],
-  ['/website-design-in-cardiff', '/website-design-cardiff'],
-  ['/newport-website-builder', '/website-builder-newport'],
-  ['/website-builder-in-newport', '/website-builder-newport'],
+  ['/website-design-in-cardiff', '/web-design-cardiff'],
+  ['/website-builder-newport', '/web-design-newport'],
+  ['/website-design-newport', '/web-design-newport'],
+  ['/newport-website-builder', '/web-design-newport'],
+  ['/website-builder-in-newport', '/web-design-newport'],
   ['/newport-web-design', '/web-design-newport'],
-  ['/website-design-in-newport', '/website-design-newport'],
-  ['/swansea-website-builder', '/website-builder-swansea'],
-  ['/website-builder-in-swansea', '/website-builder-swansea'],
+  ['/website-design-in-newport', '/web-design-newport'],
+  ['/website-builder-swansea', '/web-design-swansea'],
+  ['/website-design-swansea', '/web-design-swansea'],
+  ['/swansea-website-builder', '/web-design-swansea'],
+  ['/website-builder-in-swansea', '/web-design-swansea'],
   ['/swansea-web-design', '/web-design-swansea'],
-  ['/website-design-in-swansea', '/website-design-swansea'],
-  ['/bristol-website-builder', '/website-builder-bristol'],
-  ['/website-builder-in-bristol', '/website-builder-bristol'],
+  ['/website-design-in-swansea', '/web-design-swansea'],
+  ['/website-builder-bristol', '/web-design-bristol'],
+  ['/website-design-bristol', '/web-design-bristol'],
+  ['/bristol-website-builder', '/web-design-bristol'],
+  ['/website-builder-in-bristol', '/web-design-bristol'],
   ['/bristol-web-design', '/web-design-bristol'],
-  ['/website-design-in-bristol', '/website-design-bristol'],
-  ['/london-website-builder', '/website-builder-london'],
-  ['/website-builder-in-london', '/website-builder-london'],
+  ['/website-design-in-bristol', '/web-design-bristol'],
+  ['/website-builder-london', '/web-design-london'],
+  ['/website-design-london', '/web-design-london'],
+  ['/london-website-builder', '/web-design-london'],
+  ['/website-builder-in-london', '/web-design-london'],
   ['/london-web-design', '/web-design-london'],
-  ['/website-design-in-london', '/website-design-london'],
-  ['/website-builder-uk', '/website-builder'],
+  ['/website-design-in-london', '/web-design-london'],
+  ['/website-builder-uk', '/services'],
+  ['/website-builder', '/services'],
   ['/web-design-services', '/services'],
   ['/website-design-services', '/services'],
 ]
@@ -504,6 +450,56 @@ export function withTrailingSlash(path) {
 
 export function toAbsolutePublicUrl(path) {
   return `${SEO_SITE_URL}${withTrailingSlash(path)}`
+}
+
+
+/**
+ * The questions people ask before they get in touch.
+ *
+ * Written out here rather than only in the React blocks so they reach the
+ * prerendered HTML: pages were shipping 300-600 characters for Google to judge
+ * them on, which is a thin thing to be ranked against for a business whose
+ * product is websites.
+ */
+export const SITE_FAQS = [
+  {
+    q: 'How much does a website cost?',
+    a: 'Four fixed packages: £449 for five pages, £999 for ten pages with a blog, £1,499 with e-commerce, and £2,499 including a staff portal. The price is agreed in full before anything starts and does not move.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Seven days for a website. Staff portals and larger integrations vary too much to put a number on, so I agree a date with you at scoping and stick to it.',
+  },
+  {
+    q: 'Do I own the website afterwards?',
+    a: 'Yes. You get the source code and the domain stays in your name, so you can take the whole thing to somebody else whenever you want. Nothing here is rented to you.',
+  },
+  {
+    q: 'Who actually does the work?',
+    a: 'I do. DH Website Services is David Hooper. There is no account manager, no sales team, and nobody your job gets passed down to. You get my mobile number.',
+  },
+  {
+    q: 'Do you build apps as well as websites?',
+    a: 'Yes, for the App Store and Google Play. £349 puts your website on both stores as a real app with push notifications. £699 adds booking or ordering. From £1,499 for a full build or a game. Fish Tank, a multiplayer game of mine, is on Google Play now.',
+  },
+  {
+    q: 'What does hosting cost?',
+    a: 'From £35 a month, kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates.',
+  },
+  {
+    q: 'Do you work outside Cardiff?',
+    a: 'Yes. I am in Cardiff and can meet in person around south Wales, but most work happens over email and calls, and I price the same wherever you are.',
+  },
+]
+
+export const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: SITE_FAQS.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
 }
 
 export function getIndexablePage(pathname) {

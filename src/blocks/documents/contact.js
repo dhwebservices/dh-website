@@ -19,7 +19,7 @@ export const CONTACT_DOCUMENT = {
         emailHeading: 'Send your brief.',
         successHeading: 'Thanks, {firstName}!',
         successBody: "We've received your enquiry and will respond within 24 hours with a clear next step.",
-        geoEyebrow: 'Areas we work with',
+        geoEyebrow: 'Areas I work with',
         geoBody: 'Looking for a city-specific page first? Use the links below.',
       },
     },

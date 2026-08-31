@@ -11,6 +11,7 @@
 import { Link } from 'react-router-dom'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
 import { HeroBg, Typewriter, PricingCard } from '../shared/HomeParts'
+import { Icon } from '../shared/Icon'
 
 /**
  * Several of these headings used a literal <br /> in the original markup.
@@ -80,7 +81,7 @@ export function TrustBarBlock({ items }) {
         <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 'clamp(24px,5vw,48px)', flexWrap: 'wrap' }}>
           {(items || []).map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div style={{ fontSize: 24, filter: 'grayscale(0.3)', opacity: 0.7 }}>{item.icon}</div>
+              <Icon name={item.icon} size={22} />
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--dark)', lineHeight: 1.3 }}>{item.label}</div>
                 <div style={{ fontSize: 11, color: 'var(--light)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>{item.sub}</div>
@@ -136,7 +137,7 @@ export function ServicesGridBlock({ eyebrow, heading, body, linkLabel, linkHref,
     <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border-light)' }}>
       <div className="container">
         <div className="services-intro-grid" style={{ gap: 'clamp(40px,6vw,80px)', alignItems: 'start' }}>
-          <div style={{ position: 'sticky', top: 80 }}>
+          <div className="services-intro-sticky">
             <div className="reveal">
               <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p>
               <h2 className="headline-lg" style={{ marginBottom: 20 }}><Lines text={heading} /></h2>
@@ -149,7 +150,7 @@ export function ServicesGridBlock({ eyebrow, heading, body, linkLabel, linkHref,
           <div className="feature-grid-two" style={{ gap: 1, background: 'var(--border-light)', border: '1px solid var(--border-light)', borderRadius: 20, overflow: 'hidden' }}>
             {(services || []).map((s, i) => (
               <div key={s.title} className="reveal glass-card" style={{ borderRadius: 0, border: 'none', padding: '28px 24px', transitionDelay: `${i * 0.04}s` }}>
-                <div style={{ fontSize: 22, marginBottom: 12, filter: 'grayscale(1) opacity(0.4)' }}>{s.icon}</div>
+                <div style={{ marginBottom: 14 }}><Icon name={s.icon} size={22} /></div>
                 <h3 style={{ fontSize: 15, fontWeight: 600, marginBottom: 8, letterSpacing: '-0.01em' }}>{s.title}</h3>
                 <p className="body-sm">{s.desc}</p>
               </div>
@@ -268,7 +269,7 @@ export function TestimonialsBlock({ eyebrow, heading, testimonials, stats }) {
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--accent-soft)', border: '1px solid rgba(0,113,227,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, color: 'var(--accent)', flexShrink: 0 }}>
+                <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--accent-soft)', border: '1px solid rgba(200,16,46,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, color: 'var(--accent)', flexShrink: 0 }}>
                   {String(t.name || '').split(' ').map((w) => w[0]).join('')}
                 </div>
                 <div>

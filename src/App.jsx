@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect, lazy, Suspense, useState } from 'react'
 import Analytics from './components/Analytics'
 import Nav from './components/Nav'
@@ -10,6 +10,7 @@ import SiteBanner from './components/SiteBanner'
 import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
+import { GEO_PAGES, GEO_REDIRECTS } from './lib/seoContent'
 import { SITE_URL } from './lib/siteConfig'
 import { INDEXABLE_PAGE_META, withTrailingSlash } from './lib/seoContent'
 const OG_IMAGE_URL = `${SITE_URL}/og-image.svg`
@@ -299,10 +300,24 @@ function Layout() {
           <Route path="/careers/:slug" element={<CareerRole />} />
           <Route path="/careers/:slug/apply" element={<CareerApply />} />
           <Route path="/careers/application-success" element={<ApplicationSuccess />} />
-          <Route path="/website-builder" element={<GeoPage />} />
-          <Route path="/website-builder-:location" element={<GeoPage />} />
-          <Route path="/web-design-:location" element={<GeoPage />} />
-          <Route path="/website-design-:location" element={<GeoPage />} />
+          {/* Explicit routes, generated from the same list the pages and the
+              sitemap come from.
+
+              These were patterns -- /web-design-:location -- which React
+              Router v6 does not match, because a dynamic segment has to be a
+              whole path segment and cannot be glued onto a prefix. Every city
+              page 404'd on any in-app navigation while working perfectly on a
+              direct load, which is why it survived a check that only used
+              curl. */}
+          {GEO_PAGES.map((page) => (
+            <Route key={page.path} path={page.path} element={<GeoPage />} />
+          ))}
+
+          {/* Retired variants, redirected rather than deleted so an old
+              bookmark or a stale search result still lands somewhere useful. */}
+          {GEO_REDIRECTS.map(([from, to]) => (
+            <Route key={from} path={from} element={<Navigate to={to} replace />} />
+          ))}
           <Route path="/privacy" element={<Legal page="privacy" />} />
           <Route path="/terms" element={<Legal page="terms" />} />
           <Route path="/services-terms" element={<Legal page="services-terms" />} />
