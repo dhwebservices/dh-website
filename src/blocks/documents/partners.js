@@ -29,7 +29,7 @@ export const PARTNERS_DOCUMENT = {
       props: {
         eyebrow: "What this means",
         heading: "A better fit for businesses already running on Microsoft.",
-        body: "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership gives that a clear home on our website because it is now part of how we position and deliver work.",
+        body: "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership means I can plan a site around those tools rather than working against them.",
         cardEyebrow: "Partner benefit",
         cards: [
           {
@@ -46,7 +46,7 @@ export const PARTNERS_DOCUMENT = {
           }
         ],
         appleEyebrow: "Device supply",
-        appleHeading: "We also supply Apple hardware through our authorised seller channel.",
+        appleHeading: "I can also supply Apple hardware as an authorised seller.",
         appleBody: "Alongside websites and business systems, DH Website Services can support Apple device procurement for teams that need iPads, iPhones, and related hardware as part of a wider project rollout."
       }
     },

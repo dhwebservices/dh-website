@@ -58,7 +58,7 @@ export function buildApplicationConfirmationEmail(application, job) {
     bodyBlocks: [
       `<div style="margin-top:20px;padding:16px 18px;border-radius:16px;background:#EEF4FF;border:1px solid #D6E4FF">
         <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5170A6;margin-bottom:8px">What happens next</div>
-        <div style="font-size:14px;line-height:1.7;color:#20304D">Our hiring team will review your application and contact you directly by email or phone if we would like to move you forward.</div>
+        <div style="font-size:14px;line-height:1.7;color:#20304D">I read every application myself and will come back to you by email or phone either way.</div>
       </div>`,
     ],
   })

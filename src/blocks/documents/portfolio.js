@@ -11,19 +11,26 @@ export const PORTFOLIO_DOCUMENT = {
   version: 1,
   blocks: [
     {
-      id: 'portfolio-hero',
-      type: 'case-study-hero',
+      id: 'portfolio-shipped',
+      type: 'card-row',
       props: {
-        eyebrow: 'On Google Play',
-        heading: 'Fish Tank',
-        body: 'A multiplayer game for iOS and Android. Cross-platform play, friends, leaderboards and push notifications, running on servers I built and maintain.',
-        primaryLabel: 'Download it on Google Play',
-        primaryHref: 'https://play.google.com/store/search?q=fish%20tank%20dh&c=apps',
-        secondaryLabel: 'Talk about your project',
-        secondaryHref: '/contact',
-        note: 'Worth downloading before you decide whether to hire me. It is the quickest way to see the standard of the work rather than read about it.',
-        image: '/dh-logo-icon.png',
-        imageAlt: 'Fish Tank',
+        eyebrow: 'Shipped',
+        heading: 'Things you can go and check.',
+        body: 'Not mockups. These are live, and two of the three you can open yourself right now.',
+        cards: [
+          {
+            title: 'Fish Tank — on Google Play',
+            desc: 'A multiplayer game for iOS and Android. Cross-platform play, friends, leaderboards and push notifications, running on servers I built and maintain. Download it before you decide whether to hire me.',
+          },
+          {
+            title: 'A staff portal',
+            desc: 'Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone. It runs my own business day to day.',
+          },
+          {
+            title: 'This website',
+            desc: 'The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you.',
+          },
+        ],
       },
     },
 

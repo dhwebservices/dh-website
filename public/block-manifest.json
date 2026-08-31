@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T18:52:41.994Z",
+  "generatedAt": "2026-08-31T19:05:15.687Z",
   "blocks": [
     {
       "type": "hero",
@@ -2147,7 +2147,7 @@
             "body": "I build production-ready websites, booking systems, and lead-generation pages for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
             "primaryLabel": "Start a project →",
             "primaryHref": "/contact",
-            "secondaryLabel": "See our work",
+            "secondaryLabel": "See the work",
             "secondaryHref": "/portfolio",
             "initials": "DH",
             "name": "David Hooper",
@@ -2476,7 +2476,7 @@
               },
               {
                 "title": "Fast review",
-                "desc": "Our hiring team reviews applications directly and contacts shortlisted candidates by email or phone."
+                "desc": "I read every application myself and reply by email or phone either way."
               },
               {
                 "title": "Built for clarity",
@@ -2484,7 +2484,7 @@
               },
               {
                 "title": "Human process",
-                "desc": "We keep the process practical and avoid long, unclear hiring loops."
+                "desc": "A conversation and a practical task. No four-stage panel for a small business job."
               }
             ],
             "essentialsLabel": "Application essentials",
@@ -2499,7 +2499,7 @@
             "allLabel": "All departments",
             "loadingLabel": "Loading careers...",
             "emptyHeading": "No live roles right now",
-            "emptyBody": "We do not have an open vacancy in this filter at the moment. Please check back soon."
+            "emptyBody": "Nothing open in this filter right now."
           }
         }
       ]
@@ -2779,7 +2779,7 @@
           "props": {
             "eyebrow": "Common questions",
             "heading": "Everything you need to know",
-            "body": "Quick answers to questions we hear most often about our website development process.",
+            "body": "The things people ask before they get in touch.",
             "items": [
               {
                 "q": "How long does a website project take?",
@@ -2787,11 +2787,11 @@
               },
               {
                 "q": "What's included in your fixed pricing?",
-                "a": "Our fixed-price packages include custom design, development, mobile optimization, technical SEO setup, analytics integration, contact forms, and launch support. Ongoing hosting and support are billed separately so you can see exactly what's one-off versus recurring."
+                "a": "Design, build, mobile layout, SEO setup, analytics, contact forms and getting it live. Hosting is billed separately from £35 a month so you can see what you pay once and what you pay monthly."
               },
               {
                 "q": "Do you offer website hosting and maintenance?",
-                "a": "Yes. We provide managed hosting on Cloudflare Pages with 99.9%+ uptime, global CDN, automatic SSL, and regular security updates. Hosting plans start from £29/month and include ongoing technical support, updates, and monitoring."
+                "a": "Yes. Hosting is on Cloudflare from £35 a month and covers SSL, backups, updates and monitoring. It is billed separately from the build so you can see what you pay once and what you pay every month."
               },
               {
                 "q": "Can you integrate with our existing systems?",
@@ -2858,7 +2858,7 @@
           "props": {
             "eyebrow": "What this means",
             "heading": "A better fit for businesses already running on Microsoft.",
-            "body": "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership gives that a clear home on our website because it is now part of how we position and deliver work.",
+            "body": "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership means I can plan a site around those tools rather than working against them.",
             "cardEyebrow": "Partner benefit",
             "cards": [
               {
@@ -2875,7 +2875,7 @@
               }
             ],
             "appleEyebrow": "Device supply",
-            "appleHeading": "We also supply Apple hardware through our authorised seller channel.",
+            "appleHeading": "I can also supply Apple hardware as an authorised seller.",
             "appleBody": "Alongside websites and business systems, DH Website Services can support Apple device procurement for teams that need iPads, iPhones, and related hardware as part of a wider project rollout."
           }
         },
@@ -2920,19 +2920,26 @@
       "version": 1,
       "blocks": [
         {
-          "id": "portfolio-hero",
-          "type": "case-study-hero",
+          "id": "portfolio-shipped",
+          "type": "card-row",
           "props": {
-            "eyebrow": "On Google Play",
-            "heading": "Fish Tank",
-            "body": "A multiplayer game for iOS and Android. Cross-platform play, friends, leaderboards and push notifications, running on servers I built and maintain.",
-            "primaryLabel": "Download it on Google Play",
-            "primaryHref": "https://play.google.com/store/search?q=fish%20tank%20dh&c=apps",
-            "secondaryLabel": "Talk about your project",
-            "secondaryHref": "/contact",
-            "note": "Worth downloading before you decide whether to hire me. It is the quickest way to see the standard of the work rather than read about it.",
-            "image": "/dh-logo-icon.png",
-            "imageAlt": "Fish Tank"
+            "eyebrow": "Shipped",
+            "heading": "Things you can go and check.",
+            "body": "Not mockups. These are live, and two of the three you can open yourself right now.",
+            "cards": [
+              {
+                "title": "Fish Tank — on Google Play",
+                "desc": "A multiplayer game for iOS and Android. Cross-platform play, friends, leaderboards and push notifications, running on servers I built and maintain. Download it before you decide whether to hire me."
+              },
+              {
+                "title": "A staff portal",
+                "desc": "Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone. It runs my own business day to day."
+              },
+              {
+                "title": "This website",
+                "desc": "The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you."
+              }
+            ]
           }
         },
         {
@@ -3082,7 +3089,7 @@
                 "price": 2499,
                 "delivery": "Agreed at scoping",
                 "revisions": "3 rounds",
-                "badge": "Most Complete",
+                "badge": "Everything",
                 "features": [
                   "Full enterprise website",
                   "Integrated HR system",
@@ -3331,7 +3338,7 @@
           "type": "process-steps",
           "props": {
             "eyebrow": "How it works",
-            "heading": "Our process.",
+            "heading": "How it goes.",
             "steps": [
               {
                 "n": "01",

@@ -105,7 +105,7 @@ export const SERVICES_DOCUMENT = {
       type: "process-steps",
       props: {
         eyebrow: "How it works",
-        heading: "Our process.",
+        heading: "How it goes.",
         steps: [
           {
             n: "01",

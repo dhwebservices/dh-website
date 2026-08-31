@@ -167,11 +167,11 @@ export const HOME_DOCUMENT = {
       props: {
         eyebrow: 'Common questions',
         heading: 'Everything you need to know',
-        body: 'Quick answers to questions we hear most often about our website development process.',
+        body: 'The things people ask before they get in touch.',
         items: [
           { q: 'How long does a website project take?', a: 'Websites are delivered in 7 days. HR portals and complex integrations vary too much to put a number on here, so I agree a date with you at scoping and stick to it.' },
-          { q: "What's included in your fixed pricing?", a: "Our fixed-price packages include custom design, development, mobile optimization, technical SEO setup, analytics integration, contact forms, and launch support. Ongoing hosting and support are billed separately so you can see exactly what's one-off versus recurring." },
-          { q: 'Do you offer website hosting and maintenance?', a: 'Yes. We provide managed hosting on Cloudflare Pages with 99.9%+ uptime, global CDN, automatic SSL, and regular security updates. Hosting plans start from £29/month and include ongoing technical support, updates, and monitoring.' },
+          { q: "What's included in your fixed pricing?", a: "Design, build, mobile layout, SEO setup, analytics, contact forms and getting it live. Hosting is billed separately from £35 a month so you can see what you pay once and what you pay monthly." },
+          { q: 'Do you offer website hosting and maintenance?', a: 'Yes. Hosting is on Cloudflare from £35 a month and covers SSL, backups, updates and monitoring. It is billed separately from the build so you can see what you pay once and what you pay every month.' },
           { q: 'Can you integrate with our existing systems?', a: "Usually, yes. I have built against Microsoft 365, Stripe, Supabase, Resend and Apple and Google push notifications. Tell me what you run and I will say plainly whether it is straightforward or whether it will add cost." },
           { q: 'What makes you different from other web agencies?', a: 'Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. I build production-quality code from day one, not MVP filler that needs rebuilding later.' },
           { q: 'Do I own the website after launch?', a: "Yes, completely. You own all design files, source code, content, and domain. There's no rental trap or proprietary platform lock-in. You can take the website to another developer or host if needed, though we provide ongoing support for clients who want it." },

@@ -155,8 +155,8 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
               <div style={{ marginTop:24 }}>
                 <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:14 }}>What to expect</p>
                 {[
-                  ['📞', 'We call you', 'From 029 2002 4218 or 07364 166285 at your chosen time'],
-                  ['💬', 'Discuss your project', 'Tell us what you need, we listen'],
+                  ['📞', 'I call you', 'From 029 2002 4218 or 07364 166285, at the time you pick'],
+                  ['💬', 'Talk it through', 'You tell me what you need and I ask the awkward questions'],
                   ['📋', 'Clear plan & price', 'Fixed quote, no surprises'],
                 ].map(([icon, title, desc]) => (
                   <div key={title} style={{ display:'flex', gap:12, marginBottom:14, alignItems:'flex-start' }}>

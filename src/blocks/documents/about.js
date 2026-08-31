@@ -18,7 +18,7 @@ export const ABOUT_DOCUMENT = {
         body: "I build production-ready websites, booking systems, and lead-generation pages for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
         primaryLabel: "Start a project →",
         primaryHref: "/contact",
-        secondaryLabel: "See our work",
+        secondaryLabel: "See the work",
         secondaryHref: "/portfolio",
         initials: "DH",
         name: "David Hooper",

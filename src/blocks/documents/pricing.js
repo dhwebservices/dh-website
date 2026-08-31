@@ -80,7 +80,7 @@ export const PRICING_DOCUMENT = {
             price: 2499,
             delivery: "Agreed at scoping",
             revisions: "3 rounds",
-            badge: "Most Complete",
+            badge: "Everything",
             features: [
               "Full enterprise website",
               "Integrated HR system",

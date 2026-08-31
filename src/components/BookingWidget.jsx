@@ -152,7 +152,7 @@ export function BookingWidget() {
             </div>
           ))}
           <div>
-            <label className="field-label">What should we prepare for?</label>
+            <label className="field-label">What should I read up on first?</label>
             <textarea className="field-inp" rows={4} value={form.notes} onChange={(event) => setForm((current) => ({ ...current, notes: event.target.value }))} placeholder="Optional notes about your project or what you want to cover on the call." style={{ resize: 'vertical', lineHeight: 1.6 }} />
           </div>
           <input type="text" value={form.website} onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} />
