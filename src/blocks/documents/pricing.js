@@ -31,7 +31,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Starter",
             price: 449,
-            delivery: "2–3 weeks",
+            delivery: "7 days",
             revisions: "1 round",
             badge: "",
             features: [
@@ -46,7 +46,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Growth",
             price: 999,
-            delivery: "3–4 weeks",
+            delivery: "7 days",
             revisions: "2 rounds",
             badge: "Most Popular",
             features: [
@@ -62,7 +62,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Pro",
             price: 1499,
-            delivery: "4–6 weeks",
+            delivery: "7 days",
             revisions: "3 rounds",
             badge: "",
             features: [
@@ -78,7 +78,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Enterprise + HR",
             price: 2499,
-            delivery: "6–8 weeks",
+            delivery: "Agreed at scoping",
             revisions: "3 rounds",
             badge: "Most Complete",
             features: [

@@ -125,7 +125,7 @@ export const SERVICES_DOCUMENT = {
           {
             n: "04",
             title: "Build",
-            desc: "7-10 days. I will send progress updates so you know where it is at."
+            desc: "7 days. I will send progress updates so you know where it is at."
           },
           {
             n: "05",

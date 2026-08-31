@@ -19,7 +19,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
     title: 'DH Website Services | Production-Ready Websites for Growth',
-    description: 'Websites, iOS and Android apps and games, built in Cardiff by David Hooper. Fixed price from £449, usually 7-10 days. You own the code.',
+    description: 'Websites, iOS and Android apps and games, built in Cardiff by David Hooper. Fixed price from £449, usually 7 days. You own the code.',
     heading: 'Websites, apps and games, built in Cardiff.',
     intro: 'I am David Hooper. I build websites in React, apps for the App Store and Google Play, and the systems behind them. You get a fixed price before I start and the source code when I finish.',
     sections: [
@@ -301,26 +301,6 @@ const BASE_INDEXABLE_PAGES = [
     ctaLabel: 'Raise a concern',
     ctaHref: '/contact',
   },
-  {
-    path: '/website-builder',
-    title: 'Website Builder for UK Businesses | DH Website Services',
-    description: 'Website builder services for UK businesses that need custom sites, fixed pricing, technical SEO, and direct delivery.',
-    heading: 'Website builder services for businesses that need more than a template.',
-    intro: 'A website builder gives you blocks to arrange yourself. This is a site written for your business by one person who then has to make it work. That is a different job and it costs more for a reason.',
-    sections: [
-      {
-        title: 'What we mean by website builder',
-        body: 'Custom design, front-end and back-end delivery, technical SEO, analytics, lead capture, booking flows, and practical support after launch.',
-      },
-      {
-        title: 'Who this fits',
-        body: 'Trades, shops, salons and small professional firms around south Wales. Mostly businesses turning over enough to want the website to earn its keep.',
-      },
-    ],
-    ctaLabel: 'Start a website brief',
-    ctaHref: '/contact?mode=brief#brief',
-    schema: makeServiceSchema('/website-builder', 'Website builder for UK businesses', 'Website builder services for UK businesses that need custom sites, fixed pricing, technical SEO, and direct delivery.'),
-  },
 ]
 
 const GEO_MARKETS = [
@@ -380,7 +360,7 @@ function makeGeoPage(market) {
     city: market.city,
     intentLabel: 'Web design',
     title: `Web Design ${market.city} | DH Website Services`,
-    description: `Websites, apps and games built for ${market.city} businesses. Fixed price from £449, usually 7-10 days.`,
+    description: `Websites, apps and games built for ${market.city} businesses. Fixed price from £449, usually 7 days.`,
     heading: `Web design in ${market.city}.`,
     intro: market.intro,
     sections: [

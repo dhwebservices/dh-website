@@ -35,7 +35,7 @@ export const HOME_DOCUMENT = {
           { value: 'David Hooper', label: 'Your only contact' },
           { value: 'Cardiff', label: 'Based in Wales' },
           { value: 'From £449', label: 'Real pricing' },
-          { value: '7-10 days', label: 'Typical delivery' },
+          { value: '7 days', label: 'Typical delivery' },
         ],
       },
     },
@@ -48,7 +48,7 @@ export const HOME_DOCUMENT = {
           { icon: '🎮', label: 'On Google Play', sub: 'Fish Tank' },
           { icon: '🔒', label: 'GDPR compliant', sub: 'Data protection' },
           { icon: '🏆', label: 'Microsoft Partner', sub: 'Verified' },
-          { icon: '⚡', label: '7-10 day delivery', sub: 'Fixed timeline' },
+          { icon: '⚡', label: '7 day delivery', sub: 'Websites' },
         ],
       },
     },
@@ -137,10 +137,10 @@ export const HOME_DOCUMENT = {
         // Same again: the live cards come from useCMS('pricing') defaults run
         // through a transform, not the fallback array in Home.jsx.
         packages: [
-          { name: 'Starter', price: '£449', tagline: 'Fixed-price website package.', who: 'Typical delivery: 2–3 weeks', features: '5-page professional website · Mobile responsive design · Basic SEO setup · Contact form', popular: false },
-          { name: 'Growth', price: '£999', tagline: 'Most Popular', who: 'Typical delivery: 3–4 weeks', features: '10-page website · Blog section · Full SEO setup · Branding integration', popular: true },
-          { name: 'Pro', price: '£1,499', tagline: 'Fixed-price website package.', who: 'Typical delivery: 4–6 weeks', features: '15 pages · E-commerce ready · Custom integrations · Advanced SEO', popular: false },
-          { name: 'Enterprise + HR', price: '£2,499', tagline: 'Most Complete', who: 'Typical delivery: 6–8 weeks', features: 'Full enterprise website · Integrated HR system · Staff onboarding portal · Leave & timesheet management', popular: false },
+          { name: 'Starter', price: '£449', tagline: 'Fixed-price website package.', who: 'Delivered in 7 days', features: '5-page professional website · Mobile responsive design · Basic SEO setup · Contact form', popular: false },
+          { name: 'Growth', price: '£999', tagline: 'Most Popular', who: 'Delivered in 7 days', features: '10-page website · Blog section · Full SEO setup · Branding integration', popular: true },
+          { name: 'Pro', price: '£1,499', tagline: 'Fixed-price website package.', who: 'Delivered in 7 days', features: '15 pages · E-commerce ready · Custom integrations · Advanced SEO', popular: false },
+          { name: 'Enterprise + HR', price: '£2,499', tagline: 'Most Complete', who: 'Timeline agreed at scoping', features: 'Full enterprise website · Integrated HR system · Staff onboarding portal · Leave & timesheet management', popular: false },
         ],
       },
     },
@@ -149,20 +149,14 @@ export const HOME_DOCUMENT = {
       id: 'home-social-proof',
       type: 'testimonials',
       props: {
-        eyebrow: 'Client results',
-        heading: 'Real businesses.\nReal outcomes.',
-        testimonials: [
-          {
-            quote: 'DH Website Services delivered our new site in 7 days. The quality is exceptional — it genuinely looks better than agencies we were quoted 10x more from.',
-            name: 'Lucy Deane',
-            business: 'Glow With Lucy',
-          },
-        ],
+        eyebrow: 'The numbers',
+        heading: 'What you can\nhold me to.',
+        testimonials: [],
         stats: [
-          { value: '100%', label: 'Client satisfaction' },
-          { value: '< 24h', label: 'Response time' },
-          { value: '3 weeks', label: 'Avg. delivery' },
+          { value: '7 days', label: 'Website delivery' },
+          { value: '< 24h', label: 'Reply to enquiries' },
           { value: '£449', label: 'Starting from' },
+          { value: '£0', label: 'Cost to get a quote' },
         ],
       },
     },
@@ -175,7 +169,7 @@ export const HOME_DOCUMENT = {
         heading: 'Everything you need to know',
         body: 'Quick answers to questions we hear most often about our website development process.',
         items: [
-          { q: 'How long does a website project take?', a: 'Standard websites are delivered in 7 days. HR portals and complex integrations take 10 days. Timeline is confirmed during scoping, and we stick to it.' },
+          { q: 'How long does a website project take?', a: 'Websites are delivered in 7 days. HR portals and complex integrations vary too much to put a number on here, so I agree a date with you at scoping and stick to it.' },
           { q: "What's included in your fixed pricing?", a: "Our fixed-price packages include custom design, development, mobile optimization, technical SEO setup, analytics integration, contact forms, and launch support. Ongoing hosting and support are billed separately so you can see exactly what's one-off versus recurring." },
           { q: 'Do you offer website hosting and maintenance?', a: 'Yes. We provide managed hosting on Cloudflare Pages with 99.9%+ uptime, global CDN, automatic SSL, and regular security updates. Hosting plans start from £29/month and include ongoing technical support, updates, and monitoring.' },
           { q: 'Can you integrate with our existing systems?', a: "Usually, yes. I have built against Microsoft 365, Stripe, Supabase, Resend and Apple and Google push notifications. Tell me what you run and I will say plainly whether it is straightforward or whether it will add cost." },

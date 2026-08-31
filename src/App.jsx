@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect, lazy, Suspense, useState } from 'react'
 import Analytics from './components/Analytics'
 import Nav from './components/Nav'
@@ -299,10 +299,13 @@ function Layout() {
           <Route path="/careers/:slug" element={<CareerRole />} />
           <Route path="/careers/:slug/apply" element={<CareerApply />} />
           <Route path="/careers/application-success" element={<ApplicationSuccess />} />
-          <Route path="/website-builder" element={<GeoPage />} />
-          <Route path="/website-builder-:location" element={<GeoPage />} />
           <Route path="/web-design-:location" element={<GeoPage />} />
-          <Route path="/website-design-:location" element={<GeoPage />} />
+          {/* Retired variants. Kept as redirects rather than deleted so an old
+              bookmark, an inbound link or a stale search result still lands
+              somewhere useful instead of on a 404. */}
+          <Route path="/website-builder-:location" element={<RetiredGeoRoute />} />
+          <Route path="/website-design-:location" element={<RetiredGeoRoute />} />
+          <Route path="/website-builder" element={<Navigate to="/services" replace />} />
           <Route path="/privacy" element={<Legal page="privacy" />} />
           <Route path="/terms" element={<Legal page="terms" />} />
           <Route path="/services-terms" element={<Legal page="services-terms" />} />
@@ -325,7 +328,19 @@ function Layout() {
   )
 }
 
-export default function App() {
+export default /**
+ * Sends a retired geo path to the surviving page for that city.
+ *
+ * `replace` rather than a push, so the back button does not bounce the
+ * visitor between the old URL and the new one.
+ */
+function RetiredGeoRoute() {
+  const { pathname } = useLocation()
+  const city = pathname.split('-').pop().replace(/\/$/, '')
+  return <Navigate to={`/web-design-${city}`} replace />
+}
+
+function App() {
   return (
     <BrowserRouter>
       <Layout />

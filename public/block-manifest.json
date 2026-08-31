@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T18:19:29.966Z",
+  "generatedAt": "2026-08-31T18:25:35.872Z",
   "blocks": [
     {
       "type": "hero",
@@ -2559,7 +2559,7 @@
                 "label": "Real pricing"
               },
               {
-                "value": "7-10 days",
+                "value": "7 days",
                 "label": "Typical delivery"
               }
             ]
@@ -2587,8 +2587,8 @@
               },
               {
                 "icon": "⚡",
-                "label": "7-10 day delivery",
-                "sub": "Fixed timeline"
+                "label": "7 day delivery",
+                "sub": "Websites"
               }
             ]
           }
@@ -2715,7 +2715,7 @@
                 "name": "Starter",
                 "price": "£449",
                 "tagline": "Fixed-price website package.",
-                "who": "Typical delivery: 2–3 weeks",
+                "who": "Delivered in 7 days",
                 "features": "5-page professional website · Mobile responsive design · Basic SEO setup · Contact form",
                 "popular": false
               },
@@ -2723,7 +2723,7 @@
                 "name": "Growth",
                 "price": "£999",
                 "tagline": "Most Popular",
-                "who": "Typical delivery: 3–4 weeks",
+                "who": "Delivered in 7 days",
                 "features": "10-page website · Blog section · Full SEO setup · Branding integration",
                 "popular": true
               },
@@ -2731,7 +2731,7 @@
                 "name": "Pro",
                 "price": "£1,499",
                 "tagline": "Fixed-price website package.",
-                "who": "Typical delivery: 4–6 weeks",
+                "who": "Delivered in 7 days",
                 "features": "15 pages · E-commerce ready · Custom integrations · Advanced SEO",
                 "popular": false
               },
@@ -2739,7 +2739,7 @@
                 "name": "Enterprise + HR",
                 "price": "£2,499",
                 "tagline": "Most Complete",
-                "who": "Typical delivery: 6–8 weeks",
+                "who": "Timeline agreed at scoping",
                 "features": "Full enterprise website · Integrated HR system · Staff onboarding portal · Leave & timesheet management",
                 "popular": false
               }
@@ -2750,31 +2750,25 @@
           "id": "home-social-proof",
           "type": "testimonials",
           "props": {
-            "eyebrow": "Client results",
-            "heading": "Real businesses.\nReal outcomes.",
-            "testimonials": [
-              {
-                "quote": "DH Website Services delivered our new site in 7 days. The quality is exceptional — it genuinely looks better than agencies we were quoted 10x more from.",
-                "name": "Lucy Deane",
-                "business": "Glow With Lucy"
-              }
-            ],
+            "eyebrow": "The numbers",
+            "heading": "What you can\nhold me to.",
+            "testimonials": [],
             "stats": [
               {
-                "value": "100%",
-                "label": "Client satisfaction"
+                "value": "7 days",
+                "label": "Website delivery"
               },
               {
                 "value": "< 24h",
-                "label": "Response time"
-              },
-              {
-                "value": "3 weeks",
-                "label": "Avg. delivery"
+                "label": "Reply to enquiries"
               },
               {
                 "value": "£449",
                 "label": "Starting from"
+              },
+              {
+                "value": "£0",
+                "label": "Cost to get a quote"
               }
             ]
           }
@@ -2789,7 +2783,7 @@
             "items": [
               {
                 "q": "How long does a website project take?",
-                "a": "Standard websites are delivered in 7 days. HR portals and complex integrations take 10 days. Timeline is confirmed during scoping, and we stick to it."
+                "a": "Websites are delivered in 7 days. HR portals and complex integrations vary too much to put a number on here, so I agree a date with you at scoping and stick to it."
               },
               {
                 "q": "What's included in your fixed pricing?",
@@ -3039,7 +3033,7 @@
               {
                 "name": "Starter",
                 "price": 449,
-                "delivery": "2–3 weeks",
+                "delivery": "7 days",
                 "revisions": "1 round",
                 "badge": "",
                 "features": [
@@ -3054,7 +3048,7 @@
               {
                 "name": "Growth",
                 "price": 999,
-                "delivery": "3–4 weeks",
+                "delivery": "7 days",
                 "revisions": "2 rounds",
                 "badge": "Most Popular",
                 "features": [
@@ -3070,7 +3064,7 @@
               {
                 "name": "Pro",
                 "price": 1499,
-                "delivery": "4–6 weeks",
+                "delivery": "7 days",
                 "revisions": "3 rounds",
                 "badge": "",
                 "features": [
@@ -3086,7 +3080,7 @@
               {
                 "name": "Enterprise + HR",
                 "price": 2499,
-                "delivery": "6–8 weeks",
+                "delivery": "Agreed at scoping",
                 "revisions": "3 rounds",
                 "badge": "Most Complete",
                 "features": [
@@ -3355,7 +3349,7 @@
               {
                 "n": "04",
                 "title": "Build",
-                "desc": "7-10 days. I will send progress updates so you know where it is at."
+                "desc": "7 days. I will send progress updates so you know where it is at."
               },
               {
                 "n": "05",
