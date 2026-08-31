@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T18:25:35.872Z",
+  "generatedAt": "2026-08-31T18:37:49.623Z",
   "blocks": [
     {
       "type": "hero",
@@ -3159,32 +3159,34 @@
                 "desc": "Ongoing HR support, staff changes, updates."
               }
             ],
-            "appIntro": "iOS and Android apps, built once and submitted to both stores. Fish Tank is on Google Play now if you want to see the standard before you commit.",
+            "appIntro": "Most businesses round here do not need an app, and I will say so rather than sell you one. If you just want to be found, the £449 website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
+            "appNote": "Prices start low deliberately. A first app should be cheap enough to try, not a decision you have to sleep on.",
             "appPlans": [
               {
-                "name": "App version of your site",
-                "price": "£1,499",
+                "name": "Simple app",
+                "price": "£349",
                 "type": "one-off",
-                "desc": "Your existing site as a real app on both stores, with push notifications. Store submission handled."
+                "desc": "Your website as a real app on the App Store and Google Play, with push notifications so you can message customers directly. Both store submissions handled."
               },
               {
-                "name": "Business app",
-                "price": "£4,999",
+                "name": "Booking or ordering app",
+                "price": "£699",
                 "type": "one-off",
-                "desc": "Logins, live data, push notifications and an admin panel. The staff portal shape, built for your business.",
-                "badge": "Most Complete"
+                "desc": "Customers book a slot or place an order from their phone, pay by card, and get a reminder. You run the lot from one screen.",
+                "badge": "Most Popular"
               },
               {
-                "name": "Custom app or game",
-                "price": "from £8,000",
+                "name": "Business app or game",
+                "price": "from £1,499",
+                "monthly": "or from £135/mo over 12 months",
                 "type": "one-off",
-                "desc": "Built from nothing, native on both stores. Quoted per project after we have talked through what it does."
+                "desc": "A proper build: your own system, your own rules, or a full game on both stores. Quoted once I know what it has to do."
               },
               {
                 "name": "App care",
-                "price": "£99/mo",
+                "price": "£29/mo",
                 "type": "monthly",
-                "desc": "Store fees, OS updates, certificate renewals and resubmissions when Apple or Google change the rules."
+                "desc": "Apple and Google change the rules a few times a year and apps stop working if nobody keeps up. This covers that, plus the store fees."
               }
             ],
             "appPrimaryLabel": "Talk about an app →",

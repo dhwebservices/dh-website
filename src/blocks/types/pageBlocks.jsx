@@ -305,7 +305,7 @@ function PricingCta({ dark, to, external, children }) {
  * The three pricing tabs. Tab state lives inside the block - it is behaviour,
  * not content, so there is nothing for an editor to set.
  */
-export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appIntro, appPlans, appPrimaryLabel, appPrimaryHref, hostingIntro, hrPrimaryLabel, hrPrimaryHref, hrSecondaryLabel, hrSecondaryHref, ctaLabel }) {
+export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appIntro, appNote, appPlans, appPrimaryLabel, appPrimaryHref, hostingIntro, hrPrimaryLabel, hrPrimaryHref, hrSecondaryLabel, hrSecondaryHref, ctaLabel }) {
   const [tab, setTab] = useState('build')
   const labels = tabs || [
     { key: 'build', label: 'Website Builds' },
@@ -386,14 +386,24 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
       {tab === 'apps' && (
         <section className="section">
           <div className="container" style={{ maxWidth: 860 }}>
-            <div className="reveal" style={{ marginBottom: 40 }}><p className="body-md" style={{ maxWidth: 520 }}>{appIntro}</p></div>
+            <div className="reveal" style={{ marginBottom: 32 }}>
+              <p className="body-md" style={{ maxWidth: 560 }}>{appIntro}</p>
+              {appNote && (
+                <p style={{ marginTop: 14, paddingLeft: 16, borderLeft: '2px solid var(--accent)', fontSize: 14, lineHeight: 1.6, color: 'var(--mid)', maxWidth: 560 }}>{appNote}</p>
+              )}
+            </div>
             <div className="pricing-grid-two" style={{ gap: 16 }}>
               {(appPlans || []).map((p, i) => (
                 <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
                   {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: p.badge === 'Best Value' ? 'white' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
                   <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>{p.price}</div>
-                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 20, letterSpacing: '0.04em' }}>{p.type}</p>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: p.monthly ? 6 : 20, letterSpacing: '0.04em' }}>{p.type}</p>
+                  {/* The lump sum is the barrier for a small local business, so
+                      the instalment has to be readable without clicking. */}
+                  {p.monthly && (
+                    <p style={{ fontSize: 13, fontWeight: 600, color: p.badge ? 'rgba(255,255,255,0.8)' : 'var(--accent)', marginBottom: 20 }}>{p.monthly}</p>
+                  )}
                   <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.68)' : 'var(--mid)', marginBottom: 24 }}>{p.desc}</p>
                   <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
                 </div>
@@ -503,7 +513,7 @@ export function AboutHeroBlock({ eyebrow, heading, lead, body, primaryLabel, pri
 
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
             <div className="glass-card" style={{ padding: 'clamp(28px,4vw,40px)' }}>
-              <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'linear-gradient(135deg, var(--accent) 0%, #30A46C 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 700, color: '#fff', marginBottom: 20, letterSpacing: '-0.02em' }}>
+              <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 700, color: '#fff', marginBottom: 20, letterSpacing: '-0.02em' }}>
                 {initials}
               </div>
               <div style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 4 }}>{name}</div>

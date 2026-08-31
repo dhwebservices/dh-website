@@ -25,7 +25,7 @@ const BASE_INDEXABLE_PAGES = [
     sections: [
       {
         title: 'What I build',
-        body: 'Websites from £449. Apps for both stores from £1,499. Staff portals with rotas, timesheets, leave and payslips. Games, including one on Google Play now.',
+        body: 'Websites from £449. Apps from £349. Staff portals with rotas, timesheets, leave and payslips. Games, including one on Google Play now.',
       },
       {
         title: 'How I work',
@@ -61,7 +61,7 @@ const BASE_INDEXABLE_PAGES = [
     title: 'Pricing | DH Website Services',
     description: 'Clear website build, hosting, and HR system pricing with fixed packages from £449. Transparent pricing with no hidden fees or hourly ambiguity.',
     heading: 'Fixed website pricing without hourly ambiguity.',
-    intro: 'Four website packages from £449 to £2,499, apps from £1,499, hosting from £35 a month. The numbers are on the page so you can decide before you speak to me.',
+    intro: 'Four website packages from £449 to £2,499, apps from £349, hosting from £35 a month. The numbers are on the page so you can decide before you speak to me.',
     sections: [
       {
         title: 'Build packages',
@@ -367,7 +367,7 @@ function makeGeoPage(market) {
       { title: 'Getting to you', body: market.travel },
       {
         title: 'What it costs',
-        body: 'Websites start at £449, quoted in full before anything starts. Apps for both stores start at £1,499. No hourly rate and no change-order billing: the number I give you is the number you pay.',
+        body: 'Websites start at £449, quoted in full before anything starts. Apps start at £349. No hourly rate and no change-order billing: the number I give you is the number you pay.',
       },
       {
         title: 'Who does the work',

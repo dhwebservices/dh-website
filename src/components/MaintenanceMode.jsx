@@ -195,7 +195,7 @@ export default function MaintenanceMode({ settings }) {
           >
             {[
               ['Contact', 'mgmt@dhwebsiteservices.co.uk'],
-              ['Response', 'Direct callback from our team'],
+              ['Response', 'David calls you back'],
               ['Status', 'Public site temporarily unavailable'],
             ].map(([label, value]) => (
               <div

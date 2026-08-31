@@ -619,9 +619,12 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--mid);
+  display: block;
+  padding-top: 14px;
+  border-top: 2px solid var(--accent);
 }
 .body-lg { font-size: 19px; line-height: 1.65; color: var(--mid); font-weight: 400; }
 .body-md { font-size: 17px; line-height: 1.65; color: var(--mid); font-weight: 400; }
@@ -630,18 +633,18 @@ img { max-width: 100%; display: block; }
 /* ── Buttons ── */
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 28px; border-radius: 100px;
+  padding: 15px 30px; border-radius: 3px;
   font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
   background: var(--accent); color: white; border: none;
   cursor: pointer; transition: background 0.2s, transform 0.15s;
   white-space: nowrap;
 }
-.btn-primary:hover { background: var(--accent-hover); transform: scale(1.01); }
-.btn-primary:active { transform: scale(0.99); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:active { background: var(--accent-hover); }
 
 .btn-secondary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 27px; border-radius: 100px;
+  padding: 14px 29px; border-radius: 3px;
   font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
   background: transparent; color: var(--accent);
   border: 1px solid var(--border); cursor: pointer;
@@ -661,27 +664,20 @@ img { max-width: 100%; display: block; }
 .btn-ghost:hover .arrow { transform: translateX(3px); }
 
 /* ── Cards ── */
+/* Frosted, floating, heavily rounded cards are the single most recognisable
+   generated-website tell, and this site had them on every block. What replaces
+   them is a flat panel held by a hairline rule -- the way a printed
+   specification sheet is held together. No blur, no glow, no drop shadow doing
+   the work that structure should do. */
 .glass-card {
-  background: rgba(255,255,255,0.78);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.9);
-  border-radius: 18px;
-  box-shadow:
-    0 2px 24px rgba(0,0,0,0.05),
-    0 1px 2px rgba(0,0,0,0.04),
-    inset 0 1px 0 rgba(255,255,255,1),
-    inset 0 -1px 0 rgba(0,0,0,0.02);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: none;
   transition: box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s;
 }
 .glass-card:hover {
-  box-shadow:
-    0 16px 56px rgba(0,0,0,0.1),
-    0 4px 16px rgba(0,0,0,0.06),
-    0 0 0 1px rgba(201,168,76,0.25),
-    inset 0 1px 0 rgba(255,255,255,1);
-  transform: translateY(-4px);
-  border-color: rgba(201,168,76,0.3);
+  border-color: var(--accent);
 }
 .glass-card-dark {
   background: rgba(22,22,24,0.95);
@@ -1093,4 +1089,28 @@ img { max-width: 100%; display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+
+/* ── Typographic corrections ─────────────────────────────────────────────
+   Headlines were sitting at their default tracking, which on a grotesque at
+   display sizes reads as loose. Tightened, and given a maximum measure so a
+   heading never runs the full width of a desktop container. */
+h1, h2, .display, .headline {
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+h1 { max-width: 16ch; }
+h2 { max-width: 20ch; }
+
+/* Data is set in the mono face and lined up on the decimal, so a column of
+   prices can be compared by eye. */
+.price, .stat-value, .pricing-card [class*="price"] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Rules instead of boxes for grouped rows. A list of facts is a list, not a
+   set of floating containers. */
+.ruled-list > * + * {
+  border-top: 1px solid var(--border-light);
 }

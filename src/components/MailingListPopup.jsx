@@ -13,9 +13,9 @@ export default function MailingListPopup({ settings }) {
 
   const s = settings || {}
   const headline    = s.headline    || 'Get a discount on your first project'
-  const subtext     = s.subtext     || 'Join our mailing list and a client services advisor will reach out with your exclusive discount code.'
+  const subtext     = s.subtext     || 'Leave your email and I will send you a discount code for your first project.'
   const buttonText  = s.button_text || 'Claim my discount'
-  const delay       = (s.delay_seconds ?? 5) * 1000
+  const delay       = (s.delay_seconds ?? 45) * 1000
   const enabled     = s.enabled !== false
 
   useEffect(() => {
@@ -109,15 +109,16 @@ export default function MailingListPopup({ settings }) {
         {/* Close */}
         <button onClick={dismiss} style={{ position:'absolute', top:16, right:16, width:32, height:32, borderRadius:'50%', background:'rgba(0,0,0,0.06)', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', fontSize:16, color:'#6E6E73', zIndex:1 }}>×</button>
 
-        {/* Top gradient band */}
-        <div style={{ height:6, background:'linear-gradient(90deg, var(--accent) 0%, #30A46C 50%, #8E4EC6 100%)' }}/>
+        {/* A single flat rule in the brand red. The three-colour gradient
+            this replaces was the most generated-looking thing on the site. */}
+        <div style={{ height:4, background:'var(--accent)' }}/>
 
         {done ? (
           <div style={{ padding:'48px 40px', textAlign:'center' }}>
             <div style={{ width:64, height:64, borderRadius:'50%', background:'#F0FDF4', border:'2px solid #BBF7D0', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 20px', fontSize:28 }}>🎉</div>
             <h2 style={{ fontFamily:'-apple-system, BlinkMacSystemFont, sans-serif', fontSize:24, fontWeight:700, color:'#1A1612', letterSpacing:'-0.02em', marginBottom:10 }}>You're on the list!</h2>
             <p style={{ fontSize:15, color:'#6E6E73', lineHeight:1.6, marginBottom:24 }}>
-              Check your inbox — we've sent you a confirmation. A client services advisor will be in touch with your exclusive discount code.
+              Check your inbox for the confirmation. I will follow up with your discount code.
             </p>
             <button onClick={dismiss} style={{ padding:'12px 28px', borderRadius:100, background:'#1A1612', color:'#fff', border:'none', cursor:'pointer', fontSize:14, fontWeight:600 }}>
               Continue browsing
@@ -173,12 +174,11 @@ function buildSubscriberEmail(firstName) {
 <body style="margin:0;padding:0;background:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
 <div style="max-width:600px;margin:40px auto;background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)">
 
-  <!-- Header gradient -->
-  <div style="height:5px;background:linear-gradient(90deg,var(--accent) 0%,#30A46C 50%,#8E4EC6 100%)"></div>
+  <div style="height:4px;background:#C8102E"></div>
 
   <!-- Hero -->
   <div style="padding:48px 48px 32px;text-align:center">
-    <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#30A46C);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;line-height:72px">🎉</div>
+    <div style="height:1px;background:#E5E7EB;margin:0 auto 24px"></div>
     <h1 style="font-size:28px;font-weight:700;color:#1A1612;letter-spacing:-0.02em;margin:0 0 12px">You're on the list, ${firstName}!</h1>
     <p style="font-size:16px;color:#6E6E73;line-height:1.65;margin:0">Thanks for joining the DH Website Services community. Your exclusive discount is just around the corner.</p>
   </div>
@@ -190,7 +190,7 @@ function buildSubscriberEmail(firstName) {
   <div style="padding:32px 48px">
     <h2 style="font-size:18px;font-weight:700;color:#1A1612;margin:0 0 20px">What happens next?</h2>
     <div style="display:flex;flex-direction:column;gap:16px">
-      ${['📞 A client services advisor will reach out to you personally with your exclusive discount code.','💰 Use your code on any of our build packages — Starter, Growth, Pro, or Enterprise.','🚀 Once you\'re ready, we\'ll get your project started within days.'].map((step, i) => `
+      ${['I will email you the discount code myself.','It works on any package: Starter, Growth, Pro or Enterprise.','When you are ready, most websites are built in 7 days.'].map((step, i) => `
       <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 20px;background:#F9FAFB;border-radius:12px;border:1px solid #E5E7EB">
         <div style="width:32px;height:32px;border-radius:50%;background:#1A1612;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;line-height:32px;text-align:center">${i+1}</div>
         <p style="font-size:14px;color:#3D3D3F;line-height:1.6;margin:0;padding-top:4px">${step}</p>

@@ -33,7 +33,7 @@ const DEFAULTS = {
   maintenance: {
     enabled: false,
     headline: 'We are currently carrying out scheduled maintenance.',
-    message: 'Leave your name and phone number and a member of our team will call you back as soon as possible.',
+    message: 'Leave your name and number and I will call you back, usually the same day.',
     form_enabled: true,
     button_text: 'Request a callback',
     email_to: 'mgmt@dhwebsiteservices.co.uk',

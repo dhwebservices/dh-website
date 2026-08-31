@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom'
 import { useEffect, lazy, Suspense, useState } from 'react'
 import Analytics from './components/Analytics'
 import Nav from './components/Nav'
@@ -328,19 +328,22 @@ function Layout() {
   )
 }
 
-export default /**
+/**
  * Sends a retired geo path to the surviving page for that city.
+ *
+ * Reads the city with `useParams` rather than `useLocation`: the route
+ * already captures it, and a param cannot be thrown off by a trailing slash
+ * or a query string the way splitting the pathname can.
  *
  * `replace` rather than a push, so the back button does not bounce the
  * visitor between the old URL and the new one.
  */
 function RetiredGeoRoute() {
-  const { pathname } = useLocation()
-  const city = pathname.split('-').pop().replace(/\/$/, '')
+  const { location: city } = useParams()
   return <Navigate to={`/web-design-${city}`} replace />
 }
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Layout />
