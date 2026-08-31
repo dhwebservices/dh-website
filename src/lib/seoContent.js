@@ -94,7 +94,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/about',
     title: 'About | DH Website Services',
-    description: 'Cardiff-based web development agency founded by David Hooper. Fixed pricing, founder-led delivery, production-quality websites for UK businesses. Microsoft Partner.',
+    description: 'DH Website Services is David Hooper, in Cardiff. Websites from £449 in 7 days, apps from £349. You get the code and the domain stays yours.',
     heading: 'One person, in Cardiff.',
     intro: 'DH Website Services is David Hooper. There is no team behind me, no account manager, and nobody your job gets passed down to.',
     sections: [
@@ -450,6 +450,56 @@ export function withTrailingSlash(path) {
 
 export function toAbsolutePublicUrl(path) {
   return `${SEO_SITE_URL}${withTrailingSlash(path)}`
+}
+
+
+/**
+ * The questions people ask before they get in touch.
+ *
+ * Written out here rather than only in the React blocks so they reach the
+ * prerendered HTML: pages were shipping 300-600 characters for Google to judge
+ * them on, which is a thin thing to be ranked against for a business whose
+ * product is websites.
+ */
+export const SITE_FAQS = [
+  {
+    q: 'How much does a website cost?',
+    a: 'Four fixed packages: £449 for five pages, £999 for ten pages with a blog, £1,499 with e-commerce, and £2,499 including a staff portal. The price is agreed in full before anything starts and does not move.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Seven days for a website. Staff portals and larger integrations vary too much to put a number on, so I agree a date with you at scoping and stick to it.',
+  },
+  {
+    q: 'Do I own the website afterwards?',
+    a: 'Yes. You get the source code and the domain stays in your name, so you can take the whole thing to somebody else whenever you want. Nothing here is rented to you.',
+  },
+  {
+    q: 'Who actually does the work?',
+    a: 'I do. DH Website Services is David Hooper. There is no account manager, no sales team, and nobody your job gets passed down to. You get my mobile number.',
+  },
+  {
+    q: 'Do you build apps as well as websites?',
+    a: 'Yes, for the App Store and Google Play. £349 puts your website on both stores as a real app with push notifications. £699 adds booking or ordering. From £1,499 for a full build or a game. Fish Tank, a multiplayer game of mine, is on Google Play now.',
+  },
+  {
+    q: 'What does hosting cost?',
+    a: 'From £35 a month, kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates.',
+  },
+  {
+    q: 'Do you work outside Cardiff?',
+    a: 'Yes. I am in Cardiff and can meet in person around south Wales, but most work happens over email and calls, and I price the same wherever you are.',
+  },
+]
+
+export const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: SITE_FAQS.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
 }
 
 export function getIndexablePage(pathname) {

@@ -415,7 +415,7 @@ export default function MaintenanceMode({ settings }) {
               {[
                 'You leave your contact details',
                 'Our management team receives the request immediately',
-                'We call you back once we are available',
+                'I call you back once I am free',
               ].map((step, index) => (
                 <div key={step} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'start' }}>
                   <div

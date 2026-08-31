@@ -1,7 +1,7 @@
 const CONTENT = {
   delivery: {
     title: 'Delivery',
-    body: 'Orders placed through the DH Website Services shop are reviewed by our team, procured from suppliers, and then dispatched through the agreed fulfilment route. Delivery timing depends on supplier confirmation and product availability.',
+    body: 'Orders are reviewed by me, ordered from the supplier, then dispatched. How long that takes depends on the supplier confirming stock.',
   },
   returns: {
     title: 'Returns',

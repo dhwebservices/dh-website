@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { INDEXABLE_PAGES, GEO_REDIRECTS, SEO_SITE_URL, withTrailingSlash } from '../src/lib/seoContent.js'
+import { INDEXABLE_PAGES, GEO_REDIRECTS, SITE_FAQS, FAQ_SCHEMA, SEO_SITE_URL, withTrailingSlash } from '../src/lib/seoContent.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -16,6 +16,32 @@ function escapeHtml(value) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;')
+}
+
+/**
+ * The questions, as readable content rather than only as markup.
+ *
+ * Pages were shipping a few hundred characters of prerendered text, which is
+ * thin for a business selling websites. These are on every page: they are
+ * genuinely what a buyer wants to know, and the answers carry the facts --
+ * prices, days, ownership -- that the rest of the page asserts.
+ */
+function faqHtml(page) {
+  if (['/privacy', '/terms', '/services-terms', '/refunds', '/cookies'].includes(page.path)) return ''
+  const items = SITE_FAQS.map((item) => `
+    <article style="padding:22px 0;border-top:1px solid var(--border-light)">
+      <h2 style="font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">${escapeHtml(item.q)}</h2>
+      <p class="body-sm" style="font-size:15px;line-height:1.75;margin:0">${escapeHtml(item.a)}</p>
+    </article>
+  `).join('')
+  return `
+    <section class="section" style="padding-top:0">
+      <div class="container" style="max-width:760px">
+        <p class="eyebrow" style="margin-bottom:18px">Common questions</p>
+        ${items}
+      </div>
+    </section>
+  `
 }
 
 function pageContent(page) {
@@ -53,13 +79,19 @@ function pageContent(page) {
           ${sections}
         </div>
       </section>
+      ${faqHtml(page)}
     </main>
   `
 }
 
 function buildHtml(page, assetTags) {
+  // FAQ schema only on the pages where the questions are actually answered,
+  // because marking up content that is not on the page is exactly what
+  // Google's structured-data guidelines forbid.
+  const wantsFaq = ['/', '/pricing', '/services'].includes(page.path)
   const schema = page.schema
     ? `<script type="application/ld+json">${JSON.stringify(page.schema)}</script>`
+      + (wantsFaq ? `<script type="application/ld+json">${JSON.stringify(FAQ_SCHEMA)}</script>` : '')
     : ''
 
   return `<!DOCTYPE html>

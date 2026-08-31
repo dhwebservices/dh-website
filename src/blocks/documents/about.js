@@ -12,9 +12,9 @@ export const ABOUT_DOCUMENT = {
       id: "about-hero",
       type: "about-hero",
       props: {
-        eyebrow: "About us",
-        heading: "Small team.\nSerious work.",
-        lead: "DH Website Services is a Cardiff-based web agency built around one principle — your website should work as hard as you do.",
+        eyebrow: "About",
+        heading: "One person.\nSerious work.",
+        lead: "DH Website Services is one person in Cardiff. That is the whole pitch: you deal with the person who builds it.",
         body: "I build production-ready websites, booking systems, and lead-generation pages for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
         primaryLabel: "Start a project →",
         primaryHref: "/contact",
