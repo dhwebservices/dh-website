@@ -11,17 +11,30 @@ export const PORTFOLIO_DOCUMENT = {
   version: 1,
   blocks: [
     {
+      id: 'portfolio-hero',
+      type: 'case-study-hero',
+      props: {
+        eyebrow: 'On Google Play',
+        heading: 'Fish Tank',
+        body: 'A multiplayer game for iOS and Android. Cross-platform play against friends, leaderboards and push notifications, running on servers I built and maintain.',
+        primaryLabel: 'Get it on Google Play',
+        primaryHref: 'https://play.google.com/store/search?q=fish%20tank%20dh&c=apps',
+        secondaryLabel: 'Talk about your project',
+        secondaryHref: '/contact',
+        note: 'Worth two minutes before you decide whether to hire me. It is quicker than reading about the work.',
+        image: '/fish-tank-home-aquarium.png',
+        imageAlt: 'Fish Tank gameplay: a goldfish in a home aquarium surrounded by smaller fish',
+      },
+    },
+
+    {
       id: 'portfolio-shipped',
       type: 'card-row',
       props: {
-        eyebrow: 'Shipped',
-        heading: 'Things you can go and check.',
-        body: 'Not mockups. These are live, and two of the three you can open yourself right now.',
+        eyebrow: 'Also shipped',
+        heading: 'Other things you can check.',
+        body: 'Not mockups. These are live and doing a job.',
         cards: [
-          {
-            title: 'Fish Tank — on Google Play',
-            desc: 'A multiplayer game for iOS and Android. Cross-platform play, friends, leaderboards and push notifications, running on servers I built and maintain. Download it before you decide whether to hire me.',
-          },
           {
             title: 'A staff portal',
             desc: 'Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone. It runs my own business day to day.',
@@ -29,6 +42,10 @@ export const PORTFOLIO_DOCUMENT = {
           {
             title: 'This website',
             desc: 'The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you.',
+          },
+          {
+            title: 'Glow With Lucy',
+            desc: 'An online shop for a candle business, built in seven days. The case study is below.',
           },
         ],
       },
