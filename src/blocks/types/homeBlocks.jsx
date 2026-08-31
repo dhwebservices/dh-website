@@ -137,7 +137,7 @@ export function ServicesGridBlock({ eyebrow, heading, body, linkLabel, linkHref,
     <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border-light)' }}>
       <div className="container">
         <div className="services-intro-grid" style={{ gap: 'clamp(40px,6vw,80px)', alignItems: 'start' }}>
-          <div style={{ position: 'sticky', top: 80 }}>
+          <div className="services-intro-sticky">
             <div className="reveal">
               <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p>
               <h2 className="headline-lg" style={{ marginBottom: 20 }}><Lines text={heading} /></h2>

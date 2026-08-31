@@ -1114,3 +1114,16 @@ h2 { max-width: 20ch; }
 .ruled-list > * + * {
   border-top: 1px solid var(--border-light);
 }
+
+
+/* The services intro column sticks beside the cards on a wide screen. Below
+   769px the grid is a single column, and a sticky element in a single-column
+   flow pins the heading in place while the cards scroll underneath it -- which
+   is what was overlapping the two on a phone. Sticky only where there is a
+   second column to sit beside. */
+@media (min-width: 769px) {
+  .services-intro-sticky {
+    position: sticky;
+    top: 80px;
+  }
+}
