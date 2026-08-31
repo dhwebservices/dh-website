@@ -172,7 +172,7 @@ export const CALCULATOR_DOCUMENT = {
             id: "custom",
             label: "Custom brand design",
             cost: 300,
-            desc: "Bespoke design matching your brand guidelines"
+            desc: "Designed to your brand rather than a theme"
           },
           {
             id: "rebrand",
