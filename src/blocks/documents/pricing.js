@@ -157,6 +157,39 @@ export const PRICING_DOCUMENT = {
             desc: "Ongoing HR support, staff changes, updates."
           }
         ],
+        // App and game pricing. NOT SIGNED OFF -- these numbers are a proposal
+        // and must be confirmed before the site goes to the live domain,
+        // because a published price is one you are held to.
+        appIntro: "iOS and Android apps, built once and submitted to both stores. Fish Tank is on Google Play now if you want to see the standard before you commit.",
+        appPlans: [
+          {
+            name: "App version of your site",
+            price: "£1,499",
+            type: "one-off",
+            desc: "Your existing site as a real app on both stores, with push notifications. Store submission handled."
+          },
+          {
+            name: "Business app",
+            price: "£4,999",
+            type: "one-off",
+            desc: "Logins, live data, push notifications and an admin panel. The staff portal shape, built for your business.",
+            badge: "Most Complete"
+          },
+          {
+            name: "Custom app or game",
+            price: "from £8,000",
+            type: "one-off",
+            desc: "Built from nothing, native on both stores. Quoted per project after we have talked through what it does."
+          },
+          {
+            name: "App care",
+            price: "£99/mo",
+            type: "monthly",
+            desc: "Store fees, OS updates, certificate renewals and resubmissions when Apple or Google change the rules."
+          }
+        ],
+        appPrimaryLabel: "Talk about an app →",
+        appPrimaryHref: "/contact",
         hrPrimaryLabel: "Discuss HR integration →",
         hrPrimaryHref: "/contact",
         hrSecondaryLabel: "Get your HR and CMS portal today",
@@ -172,7 +205,7 @@ export const PRICING_DOCUMENT = {
         items: [
           {
             q: "Do you offer payment plans?",
-            a: "Yes — we can arrange staged payments for larger projects. Get in touch to discuss what works for you."
+            a: "Yes — I can arrange staged payments for larger projects. Get in touch to discuss what works for you."
           },
           {
             q: "What happens after the project is delivered?",
@@ -188,7 +221,7 @@ export const PRICING_DOCUMENT = {
           },
           {
             q: "Do you work with clients outside Wales / the UK?",
-            a: "Yes, we work with clients across the UK and internationally. Everything is done remotely."
+            a: "Yes, I work with clients across the UK and internationally. Everything is done remotely."
           }
         ],
         footerNote: "Still have questions?",

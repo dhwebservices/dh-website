@@ -66,7 +66,7 @@ const BASE_PRICE_DEFAULT = 449 // Starter package base
 // Upper bound of each band. Anything above the last one falls into it.
 const TIERS_DEFAULT = [
   { upTo: 449, name: 'Starter', colour: '#30A46C' },
-  { upTo: 999, name: 'Growth', colour: '#0071E3' },
+  { upTo: 999, name: 'Growth', colour: 'var(--accent)' },
   { upTo: 1499, name: 'Pro', colour: '#8E4EC6' },
   { upTo: 999999, name: 'Enterprise + HR', colour: '#C2500D' },
 ]
@@ -201,7 +201,7 @@ export function CalculatorBlock({
                       const on = selected.has(f.id)
                       return (
                         <button key={f.id} onClick={() => toggle(f.id)}
-                          style={{ padding:'12px 14px', borderRadius:10, border:'2px solid', borderColor: on ? 'var(--accent)' : 'var(--border-light)', background: on ? 'rgba(0,113,227,0.06)' : 'var(--white)', cursor:'pointer', textAlign:'left', transition:'all 0.15s', display:'flex', gap:10, alignItems:'center' }}>
+                          style={{ padding:'12px 14px', borderRadius:10, border:'2px solid', borderColor: on ? 'var(--accent)' : 'var(--border-light)', background: on ? 'rgba(200,16,46,0.06)' : 'var(--white)', cursor:'pointer', textAlign:'left', transition:'all 0.15s', display:'flex', gap:10, alignItems:'center' }}>
                           <span style={{ fontSize:18, flexShrink:0 }}>{f.icon}</span>
                           <div style={{ flex:1, minWidth:0 }}>
                             <div style={{ fontSize:13, fontWeight:500, color:'var(--dark)', lineHeight:1.3 }}>{f.label}</div>

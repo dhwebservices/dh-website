@@ -119,7 +119,7 @@ export function BookingWidget() {
             Add to Outlook
           </a>
         </div>
-        <a href={'/appointment/' + done.cancelToken} style={{ fontSize: 13, color: '#0071E3', textDecoration: 'underline' }}>
+        <a href={'/appointment/' + done.cancelToken} style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'underline' }}>
           Reschedule or cancel
         </a>
       </div>

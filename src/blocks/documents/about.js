@@ -15,7 +15,7 @@ export const ABOUT_DOCUMENT = {
         eyebrow: "About us",
         heading: "Small team.\nSerious work.",
         lead: "DH Website Services is a Cardiff-based web agency built around one principle — your website should work as hard as you do.",
-        body: "We build production-ready websites, booking systems, and lead-generation experiences for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
+        body: "I build production-ready websites, booking systems, and lead-generation pages for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
         primaryLabel: "Start a project →",
         primaryHref: "/contact",
         secondaryLabel: "See our work",
@@ -50,7 +50,7 @@ export const ABOUT_DOCUMENT = {
       id: "about-values",
       type: "values-grid",
       props: {
-        eyebrow: "How we work",
+        eyebrow: "How I work",
         heading: "What you can expect.",
         items: [
           {

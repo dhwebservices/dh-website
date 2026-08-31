@@ -86,6 +86,10 @@ function readCmsCache() {
 }
 
 async function fetchCmsContentMap() {
+  // Same gate as usePageDocument: with bundled content on, the build never
+  // reads the shared database, so working on the redesign cannot alter the
+  // live site.
+  if ((import.meta.env?.VITE_USE_BUNDLED_CONTENT ?? 'false') === 'true') return {}
   if (cmsContentCache) return cmsContentCache
   if (!cmsContentPromise) {
     cmsContentPromise = fetch(

@@ -15,7 +15,7 @@ export const SERVICES_DOCUMENT = {
       props: {
         eyebrow: "Services",
         heading: "Everything\nyou need.",
-        body: "From your first website to a full enterprise stack. We cover every layer of what makes a great web presence.",
+        body: "From your first website to a full enterprise stack. I cover every layer of what makes a great web presence.",
         maxWidth: 720,
         bodyMaxWidth: 480
       }
@@ -46,7 +46,7 @@ export const SERVICES_DOCUMENT = {
               "Mobile-first responsive",
               "Accessibility built-in",
               "Conversion-focused",
-              "Clear user journeys"
+              "A clear route to the enquiry form"
             ]
           },
           {
@@ -143,9 +143,9 @@ export const SERVICES_DOCUMENT = {
       id: "services-geo",
       type: "app.geo-links",
       props: {
-        eyebrow: "Areas we cover",
+        eyebrow: "Areas I cover",
         heading: "Location-focused website builder pages.",
-        body: "We serve businesses across the UK. These pages are tailored to common search intent for local website builder and web design queries."
+        body: "I work with businesses across the UK. These pages are written for common search intent for local website builder and web design queries."
       }
     }
   ]

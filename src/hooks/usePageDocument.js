@@ -18,6 +18,21 @@ import { useEffect, useState } from 'react'
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from '../lib/siteConfig'
 import { useDraftDocument } from '../lib/editBridge'
 
+/**
+ * Renders the documents bundled with this build and never asks the database.
+ *
+ * The redesign and the live site read the same Supabase project, so editing
+ * published_content to fix the copy would rewrite the live site at the same
+ * time. With this on, the new build is a closed system: what is in
+ * src/blocks/documents is exactly what renders, and the live site is
+ * untouchable from here.
+ *
+ * Set VITE_USE_BUNDLED_CONTENT=false (or unset it) to go back to CMS-driven
+ * content once the new copy has been published.
+ */
+const USE_BUNDLED_CONTENT =
+  (import.meta.env?.VITE_USE_BUNDLED_CONTENT ?? 'false') === 'true'
+
 const cache = new Map()
 
 function isUsableDocument(doc) {
@@ -25,6 +40,7 @@ function isUsableDocument(doc) {
 }
 
 async function fetchPublished(slug) {
+  if (USE_BUNDLED_CONTENT) return null
   if (cache.has(slug)) return cache.get(slug)
 
   const request = fetch(

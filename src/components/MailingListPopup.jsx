@@ -110,7 +110,7 @@ export default function MailingListPopup({ settings }) {
         <button onClick={dismiss} style={{ position:'absolute', top:16, right:16, width:32, height:32, borderRadius:'50%', background:'rgba(0,0,0,0.06)', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', fontSize:16, color:'#6E6E73', zIndex:1 }}>×</button>
 
         {/* Top gradient band */}
-        <div style={{ height:6, background:'linear-gradient(90deg, #0071E3 0%, #30A46C 50%, #8E4EC6 100%)' }}/>
+        <div style={{ height:6, background:'linear-gradient(90deg, var(--accent) 0%, #30A46C 50%, #8E4EC6 100%)' }}/>
 
         {done ? (
           <div style={{ padding:'48px 40px', textAlign:'center' }}>
@@ -126,7 +126,7 @@ export default function MailingListPopup({ settings }) {
         ) : (
           <div style={{ padding:'40px 40px 44px' }}>
             <div style={{ marginBottom:24 }}>
-              <div style={{ fontSize:13, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', color:'#0071E3', marginBottom:10 }}>Exclusive offer</div>
+              <div style={{ fontSize:13, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--accent)', marginBottom:10 }}>Exclusive offer</div>
               <h2 id="mailing-list-heading" style={{ fontFamily:'-apple-system, BlinkMacSystemFont, sans-serif', fontSize:'clamp(22px,4vw,28px)', fontWeight:700, color:'#1A1612', letterSpacing:'-0.02em', lineHeight:1.2, marginBottom:12 }}>{headline}</h2>
               <p style={{ fontSize:15, color:'#6E6E73', lineHeight:1.65 }}>{subtext}</p>
             </div>
@@ -138,7 +138,7 @@ export default function MailingListPopup({ settings }) {
                 value={name}
                 onChange={e => setName(e.target.value)}
                 style={{ padding:'13px 16px', borderRadius:10, border:'1px solid #D2D2D7', fontSize:14, outline:'none', fontFamily:'inherit', color:'#1A1612', transition:'border-color 0.15s' }}
-                onFocus={e => e.target.style.borderColor = '#0071E3'}
+                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
                 onBlur={e => e.target.style.borderColor = '#D2D2D7'}
               />
               <input
@@ -148,7 +148,7 @@ export default function MailingListPopup({ settings }) {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 style={{ padding:'13px 16px', borderRadius:10, border:'1px solid #D2D2D7', fontSize:14, outline:'none', fontFamily:'inherit', color:'#1A1612', transition:'border-color 0.15s' }}
-                onFocus={e => e.target.style.borderColor = '#0071E3'}
+                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
                 onBlur={e => e.target.style.borderColor = '#D2D2D7'}
               />
               {error && <p style={{ fontSize:13, color:'#E54D2E', margin:0 }}>{error}</p>}
@@ -158,7 +158,7 @@ export default function MailingListPopup({ settings }) {
             </form>
 
             <p style={{ fontSize:11, color:'#A1A1A6', textAlign:'center', marginTop:14, lineHeight:1.5 }}>
-              No spam, ever. Unsubscribe anytime. By subscribing you agree to our <a href="/privacy" style={{ color:'#0071E3', textDecoration:'none' }}>privacy policy</a>.
+              No spam, ever. Unsubscribe anytime. By subscribing you agree to our <a href="/privacy" style={{ color:'var(--accent)', textDecoration:'none' }}>privacy policy</a>.
             </p>
           </div>
         )}
@@ -174,11 +174,11 @@ function buildSubscriberEmail(firstName) {
 <div style="max-width:600px;margin:40px auto;background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)">
 
   <!-- Header gradient -->
-  <div style="height:5px;background:linear-gradient(90deg,#0071E3 0%,#30A46C 50%,#8E4EC6 100%)"></div>
+  <div style="height:5px;background:linear-gradient(90deg,var(--accent) 0%,#30A46C 50%,#8E4EC6 100%)"></div>
 
   <!-- Hero -->
   <div style="padding:48px 48px 32px;text-align:center">
-    <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#0071E3,#30A46C);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;line-height:72px">🎉</div>
+    <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#30A46C);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;line-height:72px">🎉</div>
     <h1 style="font-size:28px;font-weight:700;color:#1A1612;letter-spacing:-0.02em;margin:0 0 12px">You're on the list, ${firstName}!</h1>
     <p style="font-size:16px;color:#6E6E73;line-height:1.65;margin:0">Thanks for joining the DH Website Services community. Your exclusive discount is just around the corner.</p>
   </div>
@@ -209,7 +209,7 @@ function buildSubscriberEmail(firstName) {
       ${[['Starter','From £449','5-page professional website'],['Growth','From £999','10-page + blog + full SEO'],['Pro','From £1,499','15 pages + e-commerce ready'],['Enterprise','From £2,499','Full enterprise + HR system']].map(([name,price,desc]) => `
       <div style="padding:16px;background:#F9FAFB;border-radius:12px;border:1px solid #E5E7EB">
         <div style="font-size:13px;font-weight:700;color:#1A1612;margin-bottom:4px">${name}</div>
-        <div style="font-size:16px;font-weight:700;color:#0071E3;margin-bottom:6px">${price}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:6px">${price}</div>
         <div style="font-size:12px;color:#6E6E73">${desc}</div>
       </div>`).join('')}
     </div>
@@ -218,7 +218,7 @@ function buildSubscriberEmail(firstName) {
   <!-- CTA -->
   <div style="padding:24px 48px 48px;text-align:center">
     <a href="https://dhwebsiteservices.co.uk/contact" style="display:inline-block;padding:14px 36px;background:#1A1612;color:#ffffff;text-decoration:none;border-radius:100px;font-size:14px;font-weight:700;letter-spacing:0.01em">Book a free call →</a>
-    <p style="font-size:13px;color:#A1A1A6;margin:20px 0 0">Questions? Call us on <a href="tel:02920024218" style="color:#0071E3;text-decoration:none">029 2002 4218</a> or <a href="tel:07364166285" style="color:#0071E3;text-decoration:none">07364 166285</a>, or email <a href="mailto:clients@dhwebsiteservices.co.uk" style="color:#0071E3;text-decoration:none">clients@dhwebsiteservices.co.uk</a></p>
+    <p style="font-size:13px;color:#A1A1A6;margin:20px 0 0">Questions? Call us on <a href="tel:02920024218" style="color:var(--accent);text-decoration:none">029 2002 4218</a> or <a href="tel:07364166285" style="color:var(--accent);text-decoration:none">07364 166285</a>, or email <a href="mailto:clients@dhwebsiteservices.co.uk" style="color:var(--accent);text-decoration:none">clients@dhwebsiteservices.co.uk</a></p>
   </div>
 
   <!-- Footer -->

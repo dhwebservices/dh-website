@@ -209,7 +209,7 @@ export const CALCULATOR_DOCUMENT = {
         ],
         tiers: [
         { upTo: 449, name: "Starter", colour: "#30A46C" },
-        { upTo: 999, name: "Growth", colour: "#0071E3" },
+        { upTo: 999, name: "Growth", colour: "var(--accent)" },
         { upTo: 1499, name: "Pro", colour: "#8E4EC6" },
         { upTo: 999999, name: "Enterprise + HR", colour: "#C2500D" }
       ],

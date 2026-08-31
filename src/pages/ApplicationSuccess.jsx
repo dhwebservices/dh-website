@@ -10,7 +10,7 @@ export default function ApplicationSuccess() {
       <section className="section">
         <div className="container" style={{ maxWidth: 760 }}>
           <div className="glass-card" style={{ padding: 'clamp(30px,5vw,48px)', textAlign: 'center' }}>
-            <div style={{ width: 72, height: 72, borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,113,227,0.08)', color: 'var(--accent)', fontSize: 30 }}>✓</div>
+            <div style={{ width: 72, height: 72, borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(200,16,46,0.08)', color: 'var(--accent)', fontSize: 30 }}>✓</div>
             <h1 className="headline-md" style={{ marginBottom: 14 }}>Application submitted</h1>
             <p className="body-md" style={{ maxWidth: 560, margin: '0 auto 18px' }}>Your application for {roleTitle} has been received successfully. We have emailed a confirmation to the address you provided, and our hiring team will review your application directly from here.</p>
             <div style={{ display: 'inline-flex', padding: '10px 16px', borderRadius: 999, border: '1px solid var(--border-light)', background: 'var(--off-white)', fontSize: 13.5, color: 'var(--dark2)', marginBottom: 24 }}>

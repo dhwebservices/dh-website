@@ -42,7 +42,7 @@ export default function CareerRole() {
                 </div>
               ))}
               {job.commission_only ? (
-                <div style={{ padding: '14px 16px', borderRadius: 14, background: 'rgba(0,113,227,0.08)', color: 'var(--accent)', fontSize: 13.5, lineHeight: 1.6 }}>
+                <div style={{ padding: '14px 16px', borderRadius: 14, background: 'rgba(200,16,46,0.08)', color: 'var(--accent)', fontSize: 13.5, lineHeight: 1.6 }}>
                   This role is commission only with no basic salary. The application form requires confirmation that you understand this before submission.
                 </div>
               ) : null}

@@ -209,7 +209,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                       <Link to="/portfolio" className="btn-ghost" style={{ fontSize:13 }}>View portfolio →</Link>
                       <Link to="/pricing" className="btn-ghost" style={{ fontSize:13 }}>See pricing →</Link>
                     </div>
-                    <div style={{ marginTop:20, padding:'12px 16px', background:'var(--accent-soft)', borderRadius:8, border:'1px solid rgba(0,113,227,0.15)' }}>
+                    <div style={{ marginTop:20, padding:'12px 16px', background:'var(--accent-soft)', borderRadius:8, border:'1px solid rgba(200,16,46,0.15)' }}>
                       <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:02920024218" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>029 2002 4218</a> or <a href="tel:07364166285" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>07364 166285</a></p>
                     </div>
                   </div>

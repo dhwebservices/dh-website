@@ -17,15 +17,15 @@ export const HOME_DOCUMENT = {
       id: 'home-hero',
       type: 'hero',
       props: {
-        headlineLead: 'Your website,',
+        headlineLead: 'Built in Cardiff:',
         typewriterLines: [
-          'ready before your next meeting.',
-          'faster than any template.',
-          'built to rank on Google.',
-          'designed to win customers.',
-          'yours. Not a rental.',
+          'your website.',
+          'your app, on both stores.',
+          'your staff portal.',
+          'your game.',
+          'and the code is yours.',
         ],
-        body: 'Production-ready websites for businesses that need speed, clarity, and something stronger than a template. Fixed pricing, direct communication, and a build you actually own.',
+        body: 'I build websites, apps and games from Cardiff. You get a fixed price before I start, and you own everything at the end.',
         primaryLabel: 'Get started',
         primaryHref: '/contact',
         secondaryLabel: 'See pricing',
@@ -45,7 +45,7 @@ export const HOME_DOCUMENT = {
       type: 'trust-bar',
       props: {
         items: [
-          { icon: '✓', label: 'Real client work', sub: 'Glow With Lucy' },
+          { icon: '🎮', label: 'On Google Play', sub: 'Fish Tank' },
           { icon: '🔒', label: 'GDPR compliant', sub: 'Data protection' },
           { icon: '🏆', label: 'Microsoft Partner', sub: 'Verified' },
           { icon: '⚡', label: '7-10 day delivery', sub: 'Fixed timeline' },
@@ -59,7 +59,7 @@ export const HOME_DOCUMENT = {
       props: {
         eyebrow: 'Microsoft approved partner',
         heading: 'Better suited to businesses already built around Microsoft.',
-        body: 'We now hold Microsoft approved partner status. If your business already runs on Microsoft tools, we can scope websites and operational workflows with that ecosystem in mind from the start.',
+        body: 'I now hold Microsoft approved partner status. If your business already runs on Microsoft tools, I can scope websites and operational workflows with Microsoft 365, Teams and Outlook in mind from the start.',
         primaryLabel: 'Explore partnerships',
         primaryHref: '/partners',
         secondaryLabel: 'Talk to us',
@@ -76,19 +76,19 @@ export const HOME_DOCUMENT = {
       id: 'home-services',
       type: 'services-grid',
       props: {
-        eyebrow: 'What we build',
-        heading: 'Everything\nyou need.',
-        body: 'From your first website to a full enterprise stack with HR integration — we cover every layer.',
+        eyebrow: 'What I build',
+        heading: 'Websites, apps\nand games.',
+        body: 'Same person builds all of it. Fixed price agreed before anything starts.',
         linkLabel: 'See all services',
         linkHref: '/services',
         // Transcribed from what the live page actually renders. Home.jsx also
         // held a six-item SERVICES array, but it was dead: useCMS('services')
         // returns its own defaults, so the site has been showing these four.
         services: [
-          { icon: '💻', title: 'Custom Web Development', desc: 'Tailored solutions built from the ground up for your unique business needs. Production-ready code, not templates.' },
-          { icon: '🎨', title: 'User-Centric Design', desc: 'Beautiful interfaces that engage visitors and drive conversions. Every pixel intentional, every interaction purposeful.' },
-          { icon: '🛠', title: 'Full Support & Maintenance', desc: "Ongoing maintenance to keep your site running at peak performance. We're here long after launch." },
-          { icon: '👥', title: 'HR System Integration', desc: 'Full HR portal built into your website — onboarding, leave, payslips, timesheets and more.' },
+          { icon: '💻', title: 'Websites', desc: 'Written in React, not assembled in a page builder. You get the source code and the domain stays in your name.' },
+          { icon: '📱', title: 'iOS and Android apps', desc: 'One build, both stores. I handle Apple review and Google Play submission, which is the part that catches most people out.' },
+          { icon: '🎮', title: 'Games', desc: 'Native iOS and Android. Fish Tank is on Google Play now — download it and see what the work looks like.' },
+          { icon: '👥', title: 'Staff portals', desc: 'Rotas, timesheets, leave, payslips, onboarding, push notifications. I run one of these to manage my own staff.' },
         ],
       },
     },
@@ -97,8 +97,8 @@ export const HOME_DOCUMENT = {
       id: 'home-why',
       type: 'why-grid',
       props: {
-        eyebrow: 'Why choose us',
-        heading: 'Built different.\nDelivered properly.',
+        eyebrow: 'How I work',
+        heading: 'What you get.',
         items: [
           { title: 'You work with me', desc: 'Not a sales team. Not juniors. Just David, from start to finish.' },
           { title: 'Fixed price', desc: 'Quote upfront, no surprises. That is the price.' },
@@ -114,13 +114,13 @@ export const HOME_DOCUMENT = {
       id: 'home-credibility',
       type: 'card-row',
       props: {
-        eyebrow: 'Before you hire us',
-        heading: 'Judge the process.',
-        body: 'If we are early-stage, the right way to earn trust is through how we think, how we communicate, and how we build.',
+        eyebrow: 'Things I have built',
+        heading: 'Go and look at them.',
+        body: 'Anyone can describe how they work. These are shipped and you can check them yourself.',
         cards: [
-          { title: 'How we work', desc: 'Every project starts with scope clarity, priorities, and a defined outcome before we build.' },
-          { title: 'How we communicate', desc: 'Short feedback loops, direct updates, and one accountable point of contact.' },
-          { title: 'How we price', desc: 'We scope tightly enough to give fixed pricing instead of vague ranges and surprise costs.' },
+          { title: 'Fish Tank', desc: 'A multiplayer game on Google Play. Cross-platform play, friends, leaderboards, push notifications, running on my own servers.' },
+          { title: 'A staff portal', desc: 'Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips. It runs my business day to day.' },
+          { title: 'This website', desc: 'The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you.' },
         ],
       },
     },
@@ -178,8 +178,8 @@ export const HOME_DOCUMENT = {
           { q: 'How long does a website project take?', a: 'Standard websites are delivered in 7 days. HR portals and complex integrations take 10 days. Timeline is confirmed during scoping, and we stick to it.' },
           { q: "What's included in your fixed pricing?", a: "Our fixed-price packages include custom design, development, mobile optimization, technical SEO setup, analytics integration, contact forms, and launch support. Ongoing hosting and support are billed separately so you can see exactly what's one-off versus recurring." },
           { q: 'Do you offer website hosting and maintenance?', a: 'Yes. We provide managed hosting on Cloudflare Pages with 99.9%+ uptime, global CDN, automatic SSL, and regular security updates. Hosting plans start from £29/month and include ongoing technical support, updates, and monitoring.' },
-          { q: 'Can you integrate with our existing systems?', a: "Absolutely. We specialize in integrations with Microsoft 365, Supabase databases, payment processors (Stripe), booking systems, email platforms (Resend), and HR management tools. As a Microsoft Partner, we're particularly strong with Microsoft ecosystem integrations." },
-          { q: 'What makes you different from other web agencies?', a: 'Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. We build production-quality code from day one, not MVP filler that needs rebuilding later.' },
+          { q: 'Can you integrate with our existing systems?', a: "Usually, yes. I have built against Microsoft 365, Stripe, Supabase, Resend and Apple and Google push notifications. Tell me what you run and I will say plainly whether it is straightforward or whether it will add cost." },
+          { q: 'What makes you different from other web agencies?', a: 'Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. I build production-quality code from day one, not MVP filler that needs rebuilding later.' },
           { q: 'Do I own the website after launch?', a: "Yes, completely. You own all design files, source code, content, and domain. There's no rental trap or proprietary platform lock-in. You can take the website to another developer or host if needed, though we provide ongoing support for clients who want it." },
         ],
         footerNote: 'Still have questions?',
@@ -194,7 +194,7 @@ export const HOME_DOCUMENT = {
       props: {
         eyebrow: 'Ready to start?',
         heading: "Let's build something that works.",
-        body: "Tell us about your project. We'll reply within 24 hours with a clear plan and a fixed price.",
+        body: "Tell me about your project. We'll reply within 24 hours with a clear plan and a fixed price.",
         primaryLabel: 'Start a project →',
         primaryHref: '/contact',
         secondaryLabel: 'View pricing',

@@ -13,7 +13,7 @@ export default function CareerJobCard({ job }) {
           </div>
         </div>
         {job.commission_only ? (
-          <span style={{ padding: '7px 10px', borderRadius: 999, background: 'rgba(0,113,227,0.08)', color: 'var(--accent)', fontSize: 12.5, fontWeight: 600 }}>Commission only</span>
+          <span style={{ padding: '7px 10px', borderRadius: 999, background: 'rgba(200,16,46,0.08)', color: 'var(--accent)', fontSize: 12.5, fontWeight: 600 }}>Commission only</span>
         ) : null}
       </div>
       <div className="body-sm" style={{ fontSize: 14, lineHeight: 1.7 }}>{job.summary || 'Open role at DH Website Services.'}</div>
