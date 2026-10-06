@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T12:36:34.512Z",
+  "generatedAt": "2026-10-06T12:41:38.009Z",
   "blocks": [
     {
       "type": "hero",
@@ -2361,7 +2361,7 @@
           "props": {
             "eyebrow": "About",
             "heading": "A small team.\nApps and websites.",
-            "lead": "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project.",
+            "lead": "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project.",
             "body": "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
             "primaryLabel": "Start a project →",
             "primaryHref": "/contact",
@@ -2408,7 +2408,7 @@
               },
               {
                 "name": "Jack Deane",
-                "role": "Operations",
+                "role": "Assistant Manager",
                 "initials": "JD",
                 "photo": "",
                 "phone": "07368 353011",
@@ -2449,7 +2449,7 @@
               },
               {
                 "title": "Based in Pontypridd",
-                "desc": "Based in Pontypridd. We meet clients across Cardiff and south Wales and work with businesses anywhere in the UK."
+                "desc": "Based in Pontypridd. We meet clients across Cardiff and Wales and work with businesses anywhere in the UK."
               }
             ]
           }
@@ -2780,7 +2780,7 @@
             "typewriterLines": [
               "and websites."
             ],
-            "body": "DH Website Services is a small team based in Pontypridd, serving Cardiff and south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.",
+            "body": "DH Website Services is a small team based in Pontypridd, serving Cardiff and Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.",
             "primaryLabel": "Talk to us about a project",
             "primaryHref": "/contact",
             "secondaryLabel": "See our work",
@@ -2944,7 +2944,7 @@
               },
               {
                 "name": "Jack Deane",
-                "role": "Operations",
+                "role": "Assistant Manager",
                 "initials": "JD",
                 "photo": "",
                 "phone": "07368 353011",
@@ -2984,7 +2984,7 @@
               },
               {
                 "title": "Based in Pontypridd",
-                "desc": "We meet clients in person across Cardiff and south Wales, and work with businesses anywhere in the UK."
+                "desc": "We meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK."
               }
             ]
           }
@@ -3729,7 +3729,7 @@
           "props": {
             "eyebrow": "Areas we cover",
             "heading": "Where we work.",
-            "body": "We are based in Pontypridd, meet clients in person across Cardiff and south Wales, and work with businesses anywhere in the UK."
+            "body": "We are based in Pontypridd, meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK."
           }
         }
       ]

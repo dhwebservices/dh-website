@@ -23,7 +23,7 @@ export const HOME_DOCUMENT = {
       props: {
         headlineLead: 'We build apps',
         typewriterLines: ['and websites.'],
-        body: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
+        body: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
         primaryLabel: 'Talk to us about a project',
         primaryHref: '/contact',
         secondaryLabel: 'See our work',
@@ -103,7 +103,7 @@ export const HOME_DOCUMENT = {
           { title: 'You try it first', desc: 'Test builds go onto your own phone through Apple TestFlight and Google Play testing. Nothing reaches the public stores until you have signed it off.' },
           { title: 'You own it', desc: 'Source code, design files, the domain and the store listings are yours. Take them anywhere.' },
           { title: 'Quick replies', desc: 'Email or call and we reply the same working day, usually within a few hours.' },
-          { title: 'Based in Pontypridd', desc: 'We meet clients in person across Cardiff and south Wales, and work with businesses anywhere in the UK.' },
+          { title: 'Based in Pontypridd', desc: 'We meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK.' },
         ],
       },
     },

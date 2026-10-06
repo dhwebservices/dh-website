@@ -26,9 +26,9 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
     title: 'App Development & Web Design in Wales | DH Website Services',
-    description: 'iPhone and Android apps and web design from a small team based in Pontypridd, serving Cardiff and south Wales. Apps from £349, websites from £449.',
+    description: 'iPhone and Android apps and web design from a small team based in Pontypridd, serving Cardiff and Wales. Apps from £349, websites from £449.',
     heading: 'We build apps and websites.',
-    intro: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
+    intro: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
     sections: [
       {
         title: 'What we build',
@@ -36,7 +36,7 @@ const BASE_INDEXABLE_PAGES = [
       },
       {
         title: 'How we work',
-        body: 'You deal with the people who build your project: David Hooper, who founded the company and does the development, and Jack Deane, who runs operations. The price is agreed before anything starts and does not move.',
+        body: 'You deal with the people who build your project: David Hooper, who founded the company and does the development, and Jack Deane, our assistant manager. The price is agreed before anything starts and does not move.',
       },
     ],
     ctaLabel: 'Start a project',
@@ -46,7 +46,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/services',
     title: 'App Development & Web Design Services | DH Website Services',
-    description: 'iPhone and Android app development, web design, staff portals, SEO and hosting. Fixed prices published on the site. Based in Pontypridd, serving Cardiff, south Wales and the UK.',
+    description: 'iPhone and Android app development, web design, staff portals, SEO and hosting. Fixed prices published on the site. Based in Pontypridd, serving Cardiff, Wales and the UK.',
     heading: 'Apps and websites, built properly.',
     intro: 'Every price here is published rather than quoted on request. If a job does not fit one of them, we tell you what it costs before you commit to anything.',
     sections: [
@@ -105,13 +105,13 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/about',
     title: 'About Us | DH Website Services',
-    description: 'A small app and web design team based in Pontypridd, serving Cardiff and south Wales: David Hooper, founder and developer, and Jack Deane, operations.',
+    description: 'A small app and web design team based in Pontypridd, serving Cardiff and Wales: David Hooper, founder and developer, and Jack Deane, assistant manager.',
     heading: 'A small team. Apps and websites.',
-    intro: 'DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project, with no account manager in between.',
+    intro: 'DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project, with no account manager in between.',
     sections: [
       {
         title: 'The team',
-        body: 'David Hooper founded the company and designs and builds the apps, websites and systems. Jack Deane runs operations: enquiries, bookings and keeping projects moving.',
+        body: 'David Hooper founded the company and designs and builds the apps, websites and systems. Jack Deane, our assistant manager, handles enquiries, bookings and keeping projects moving.',
       },
       {
         title: 'What clients get',
@@ -495,7 +495,7 @@ export const SITE_FAQS = [
   },
   {
     q: 'Who actually does the work?',
-    a: 'We do. David Hooper founded the company and does the development; Jack Deane runs operations. There is no account manager and nobody your job gets passed down to.',
+    a: 'We do. David Hooper founded the company and does the development; Jack Deane is our assistant manager. There is no account manager and nobody your job gets passed down to.',
   },
   {
     q: 'Do you deal with Apple and Google for us?',
@@ -507,7 +507,7 @@ export const SITE_FAQS = [
   },
   {
     q: 'Where are you based?',
-    a: 'Pontypridd. We meet clients in person across Cardiff and south Wales, but most work happens over email and calls, and we price the same wherever you are.',
+    a: 'Pontypridd. We meet clients in person across Cardiff and Wales, but most work happens over email and calls, and we price the same wherever you are.',
   },
 ]
 

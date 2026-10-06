@@ -17,7 +17,7 @@ export const ABOUT_DOCUMENT = {
       props: {
         eyebrow: "About",
         heading: "A small team.\nApps and websites.",
-        lead: "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project.",
+        lead: "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project.",
         body: "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
         primaryLabel: "Start a project →",
         primaryHref: "/contact",
@@ -84,7 +84,7 @@ export const ABOUT_DOCUMENT = {
           },
           {
             title: "Based in Pontypridd",
-            desc: "Based in Pontypridd. We meet clients across Cardiff and south Wales and work with businesses anywhere in the UK."
+            desc: "Based in Pontypridd. We meet clients across Cardiff and Wales and work with businesses anywhere in the UK."
           }
         ]
       }

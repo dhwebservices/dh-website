@@ -68,9 +68,6 @@ export const WORK_ITEMS = [
 /*
  * TODO(David): photos. Drop a square photo in public/team/ and set `photo` on
  * each person below; the initials are only a stand-in.
- * TODO(David): confirm Jack's job title. He is listed as "Operations"
- * because the team notes describe him as your assistant handling the
- * day-to-day, not as a developer.
  */
 export const TEAM_PEOPLE = [
   {
@@ -85,7 +82,7 @@ export const TEAM_PEOPLE = [
   },
   {
     name: 'Jack Deane',
-    role: 'Operations',
+    role: 'Assistant Manager',
     initials: 'JD',
     photo: '',
     phone: '07368 353011',

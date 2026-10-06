@@ -51,7 +51,7 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              iPhone and Android apps and web design, from a small team in Pontypridd, serving Cardiff and south Wales. Working with
+              iPhone and Android apps and web design, from a small team in Pontypridd, serving Cardiff and Wales. Working with
               clients across the UK.
             </p>
             <div style={{ marginBottom: 20 }}>
@@ -76,7 +76,7 @@ export default function Footer() {
               </a>
               <div style={{ fontSize: 13, color: 'var(--mid)', marginTop: 8 }}>
                 <div style={{ fontWeight: 500, marginBottom: 2 }}>Based in Pontypridd</div>
-                <div>Serving Cardiff and south Wales</div>
+                <div>Serving Cardiff and Wales</div>
               </div>
             </div>
             <div style={{ marginTop: 20, paddingTop: 20, borderTop: '1px solid var(--border-light)' }}>
