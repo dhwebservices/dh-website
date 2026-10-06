@@ -4,8 +4,8 @@ export default function MaintenanceMode({ settings }) {
   const [form, setForm] = useState({ name: '', phone: '' })
   const [submitting, setSubmitting] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
-  const primaryCallNumber = '02920024218'
-  const formattedPrimaryNumber = '02920 024218'
+  const primaryCallNumber = '+441443805303'
+  const formattedPrimaryNumber = '01443 805303'
   const secondaryCallNumber = '07364166285'
   const formattedSecondaryNumber = '07364 166285'
 
@@ -415,7 +415,7 @@ export default function MaintenanceMode({ settings }) {
               {[
                 'You leave your contact details',
                 'Our management team receives the request immediately',
-                'I call you back once I am free',
+                'We call you back as soon as we are free',
               ].map((step, index) => (
                 <div key={step} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'start' }}>
                   <div

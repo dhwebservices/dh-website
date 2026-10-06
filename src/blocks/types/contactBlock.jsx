@@ -64,7 +64,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
         to: form.email,
         subject: 'We received your enquiry - DH Website Services',
         from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
-        html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:560px"><h2 style="color:#1A1612;margin-bottom:10px">Thanks, ${form.name.split(' ')[0]}</h2><p style="font-size:14px;line-height:1.7;color:#3D3D3F">We have your enquiry and will reply within 24 hours with a clear next step. If your brief needs a call, we will say so. If it can be priced directly, we will do that too.</p><p style="font-size:14px;line-height:1.7;color:#3D3D3F;margin-top:16px">If you need anything in the meantime, reply to this email or call 029 2002 4218.</p></div>`,
+        html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:560px"><h2 style="color:#1A1612;margin-bottom:10px">Thanks, ${form.name.split(' ')[0]}</h2><p style="font-size:14px;line-height:1.7;color:#3D3D3F">We have your enquiry and will reply within 24 hours with a clear next step. If your brief needs a call, we will say so. If it can be priced directly, we will do that too.</p><p style="font-size:14px;line-height:1.7;color:#3D3D3F;margin-top:16px">If you need anything in the meantime, reply to this email or call 01443 805303.</p></div>`,
       })
 
       trackEvent('contact_enquiry_submitted', {
@@ -123,9 +123,9 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
               <div className="glass-card" style={{ borderRadius:16, overflow:'hidden', marginBottom:24 }}>
                 {[
                   { label:'Email',    val: cms?.email    || 'clients@dhwebsiteservices.co.uk', href:'mailto:clients@dhwebsiteservices.co.uk' },
-                  { label:'Main line',    val: cms?.phone    || '029 2002 4218', href:'tel:02920024218' },
+                  { label:'Main line',    val: cms?.phone    || '01443 805303', href:'tel:+441443805303' },
                   { label:'Mobile',    val: '07364 166285', href:'tel:07364166285' },
-                  { label:'Location', val: cms?.location || 'Cardiff, United Kingdom' },
+                  { label:'Location', val: cms?.location || 'Pontypridd, United Kingdom' },
                   { label:'Response', val: cms?.response_time || 'Within 24 hours' },
                 ].map((c,i,arr) => (
                   <div key={c.label} style={{ padding:'16px 20px', borderBottom:i<arr.length-1?'1px solid var(--border-light)':'none', display:'flex', justifyContent:'space-between', alignItems:'center', gap:16 }}>
@@ -155,12 +155,12 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
               <div style={{ marginTop:24 }}>
                 <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:14 }}>What to expect</p>
                 {[
-                  ['📞', 'I call you', 'From 029 2002 4218 or 07364 166285, at the time you pick'],
-                  ['💬', 'Talk it through', 'You tell me what you need and I ask the awkward questions'],
-                  ['📋', 'Clear plan & price', 'Fixed quote, no surprises'],
+                  ['1', 'We call you', 'From 01443 805303 or 07364 166285, at the time you pick'],
+                  ['2', 'Talk it through', 'You tell us what you need and we ask the awkward questions'],
+                  ['3', 'Clear plan & price', 'Fixed quote, no surprises'],
                 ].map(([icon, title, desc]) => (
                   <div key={title} style={{ display:'flex', gap:12, marginBottom:14, alignItems:'flex-start' }}>
-                    <div style={{ width:32, height:32, borderRadius:8, background:'var(--cream)', border:'1px solid var(--border-light)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:14, flexShrink:0 }}>{icon}</div>
+                    <div style={{ width:32, height:32, borderRadius:8, background:'var(--cream)', border:'1px solid var(--border-light)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:12, fontFamily:'var(--font-mono)', color:'var(--dark2)', flexShrink:0 }}>{icon}</div>
                     <div>
                       <div style={{ fontSize:13, fontWeight:600, color:'var(--dark)', marginBottom:2 }}>{title}</div>
                       <div style={{ fontSize:12, color:'var(--mid)' }}>{desc}</div>
@@ -210,7 +210,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                       <Link to="/pricing" className="btn-ghost" style={{ fontSize:13 }}>See pricing →</Link>
                     </div>
                     <div style={{ marginTop:20, padding:'12px 16px', background:'var(--accent-soft)', borderRadius:8, border:'1px solid rgba(200,16,46,0.15)' }}>
-                      <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:02920024218" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>029 2002 4218</a> or <a href="tel:07364166285" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>07364 166285</a></p>
+                      <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:+441443805303" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>01443 805303</a> or <a href="tel:07364166285" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>07364 166285</a></p>
                     </div>
                   </div>
                 </div>

@@ -33,7 +33,7 @@ const DEFAULTS = {
   maintenance: {
     enabled: false,
     headline: 'We are currently carrying out scheduled maintenance.',
-    message: 'Leave your name and number and I will call you back, usually the same day.',
+    message: 'Leave your name and number and we will call you back, usually the same day.',
     form_enabled: true,
     button_text: 'Request a callback',
     email_to: 'mgmt@dhwebsiteservices.co.uk',
@@ -66,8 +66,8 @@ const DEFAULTS = {
   ],
   contact: {
     email: 'clients@dhwebsiteservices.co.uk',
-    phone: '029 2002 4218',
-    location: 'Cardiff, United Kingdom',
+    phone: '01443 805303',
+    location: 'Pontypridd, United Kingdom',
     response_time: 'Within 24 hours',
     hours_weekday: '9:00 AM – 5:00 PM GMT',
     hours_weekend: 'Next business day',

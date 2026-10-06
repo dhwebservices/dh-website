@@ -11,7 +11,7 @@ export const PARTNERS_DOCUMENT = {
       props: {
         eyebrow: "Microsoft approved partner",
         heading: "Websites that fit the Microsoft stack your business already runs on.",
-        body: "DH Website Services is a Microsoft approved partner. For clients already working inside Microsoft tools, that means I can build with those operational realities in mind instead of forcing a disconnected website on top.",
+        body: "DH Website Services is a Microsoft approved partner. For clients already working inside Microsoft tools, that means we can build with those operational realities in mind instead of forcing a disconnected website on top.",
         primaryLabel: "Discuss your project",
         primaryHref: "/contact",
         secondaryLabel: "View services",
@@ -29,12 +29,12 @@ export const PARTNERS_DOCUMENT = {
       props: {
         eyebrow: "What this means",
         heading: "A better fit for businesses already running on Microsoft.",
-        body: "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership means I can plan a site around those tools rather than working against them.",
+        body: "A lot of small and mid-sized businesses already depend on Microsoft for email, calendars, files, team collaboration, and day-to-day operations. The partnership means we can plan a site around those tools rather than working against them.",
         cardEyebrow: "Partner benefit",
         cards: [
           {
             title: "Microsoft-aware builds",
-            body: "I can shape websites and business tools around the Microsoft products many UK teams already use every day."
+            body: "We can shape apps, websites and business tools around the Microsoft products many UK teams already use every day."
           },
           {
             title: "Practical integration planning",
@@ -46,7 +46,7 @@ export const PARTNERS_DOCUMENT = {
           }
         ],
         appleEyebrow: "Device supply",
-        appleHeading: "I can also supply Apple hardware as an authorised seller.",
+        appleHeading: "We can also supply Apple hardware as an authorised seller.",
         appleBody: "Alongside websites and business systems, DH Website Services can support Apple device procurement for teams that need iPads, iPhones, and related hardware as part of a wider project rollout."
       }
     },
@@ -56,7 +56,7 @@ export const PARTNERS_DOCUMENT = {
       props: {
         eyebrow: "Typical fit",
         heading: "Best suited to businesses that want a joined-up website, not another isolated tool.",
-        body: "If your team already lives in Microsoft products, the website should respect that. I can scope around operational realities from the start rather than fixing them after launch.",
+        body: "If your team already lives in Microsoft products, the website should respect that. We can scope around how you work from the start rather than fixing them after launch.",
         areas: [
           "Microsoft 365-aligned client workflows",
           "Outlook and calendar-based booking",
@@ -73,7 +73,7 @@ export const PARTNERS_DOCUMENT = {
       props: {
         eyebrow: "Start with the right stack",
         heading: "Need a website that works cleanly with your Microsoft-led workflow?",
-        body: "Tell me how your team operates today and I can scope the site around that from day one.",
+        body: "Tell us how your team works today and we will scope the project around that from day one.",
         primaryLabel: "Book a free call",
         primaryHref: "/contact",
         secondaryLabel: "Get a quote",

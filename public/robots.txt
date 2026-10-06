@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Client proposals are private and passcode-gated. The page also sets a noindex
+# meta tag, but that is set by JavaScript, so this covers crawlers that do not
+# execute it.
+Disallow: /proposal/
+
 Sitemap: https://www.dhwebsiteservices.co.uk/sitemap.xml

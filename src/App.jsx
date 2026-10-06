@@ -33,6 +33,7 @@ const CareerApply = lazy(() => import('./pages/CareerApply'))
 const ApplicationSuccess = lazy(() => import('./pages/ApplicationSuccess'))
 const Legal = lazy(() => import('./pages/Legal'))
 const Appointment = lazy(() => import('./pages/Appointment'))
+const Proposal = lazy(() => import('./pages/Proposal'))
 const Calculator = lazy(() => import('./pages/Calculator'))
 const About = lazy(() => import('./pages/About'))
 const Partners = lazy(() => import('./pages/Partners'))
@@ -328,6 +329,7 @@ function Layout() {
           <Route path="/security" element={<Legal page="security" />} />
           <Route path="/complaints" element={<Legal page="complaints" />} />
           <Route path="/appointment/:token" element={<Appointment />} />
+          <Route path="/proposal/:slug" element={<Proposal />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/about" element={<About />} />
           <Route path="/partners" element={<Partners />} />

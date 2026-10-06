@@ -6,11 +6,18 @@ const makeServiceSchema = (path, title, description) => ({
   name: 'DH Website Services',
   url: `${SEO_SITE_URL}${path}`,
   description,
-  areaServed: 'United Kingdom',
+  areaServed: [
+    { '@type': 'City', name: 'Pontypridd' },
+    { '@type': 'City', name: 'Cardiff' },
+    { '@type': 'AdministrativeArea', name: 'South Wales' },
+    { '@type': 'Country', name: 'United Kingdom' },
+  ],
+  telephone: '+44 1443 805303',
+  email: 'clients@dhwebsiteservices.co.uk',
   serviceType: title,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Cardiff',
+    addressLocality: 'Pontypridd',
     addressCountry: 'GB',
   },
 })
@@ -18,54 +25,54 @@ const makeServiceSchema = (path, title, description) => ({
 const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
-    title: 'DH Website Services | Production-Ready Websites for Growth',
-    description: 'Websites, iOS and Android apps and games, built in Cardiff by David Hooper. Fixed price from £449, usually 7 days. You own the code.',
-    heading: 'Websites, apps and games, built in Cardiff.',
-    intro: 'I am David Hooper. I build websites in React, apps for the App Store and Google Play, and the systems behind them. You get a fixed price before I start and the source code when I finish.',
+    title: 'App Development & Web Design in Wales | DH Website Services',
+    description: 'iPhone and Android apps and web design from a small team based in Pontypridd, serving Cardiff and south Wales. Apps from £349, websites from £449.',
+    heading: 'We build apps and websites.',
+    intro: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
     sections: [
       {
-        title: 'What I build',
-        body: 'Websites from £449. Apps from £349. Staff portals with rotas, timesheets, leave and payslips. Games, including one on Google Play now.',
+        title: 'What we build',
+        body: 'Apps for the App Store and Google Play from £349. Websites from £449. Staff portals with rotas, timesheets, leave and payslips. Our own game, Fish Tank, is live on both stores.',
       },
       {
-        title: 'How I work',
-        body: 'One person builds it and that person is me. The price is agreed before anything starts and does not move. My mobile number is on the contact page and I answer it.',
+        title: 'How we work',
+        body: 'You deal with the people who build your project: David Hooper, who founded the company and does the development, and Jack Deane, who runs operations. The price is agreed before anything starts and does not move.',
       },
     ],
     ctaLabel: 'Start a project',
     ctaHref: '/contact',
-    schema: makeServiceSchema('/', 'Website design and development', 'Websites, iOS and Android apps and games, built in Cardiff. Fixed price from £449.'),
+    schema: makeServiceSchema('/', 'App development and web design', 'iPhone and Android app development and web design for UK businesses. Apps from £349, websites from £449.'),
   },
   {
     path: '/services',
-    title: 'Services | DH Website Services',
-    description: 'Websites, iOS and Android apps, games, staff portals and hosting. Fixed prices, published on the site. Cardiff based, working UK wide.',
-    heading: 'What I build, and what it costs.',
-    intro: 'Every price here is published rather than quoted on request. If a job does not fit one of them I will tell you what it costs before you commit to anything.',
+    title: 'App Development & Web Design Services | DH Website Services',
+    description: 'iPhone and Android app development, web design, staff portals, SEO and hosting. Fixed prices published on the site. Based in Pontypridd, serving Cardiff, south Wales and the UK.',
+    heading: 'Apps and websites, built properly.',
+    intro: 'Every price here is published rather than quoted on request. If a job does not fit one of them, we tell you what it costs before you commit to anything.',
     sections: [
       {
         title: 'Core services',
-        body: 'Websites written in React. Apps built once and submitted to both stores. Staff portals handling rotas, clock-in, timesheets and payslips. Hosting from £35 a month.',
+        body: 'Apps for the App Store and Google Play, with store review handled for you. Websites designed for your business and written in React. Staff portals handling rotas, clock-in, timesheets and payslips. Hosting from £35 a month.',
       },
       {
-        title: 'Delivery style',
-        body: 'I scope the job, give you one number, and build it. If you want something added halfway through I will price that separately rather than quietly absorbing it.',
+        title: 'How a project runs',
+        body: 'We scope the job, give you one number and build it. You get test builds on your own phone before anything goes live. If you want something added halfway through, we price it separately rather than quietly absorbing it.',
       },
     ],
     ctaLabel: 'Discuss your project',
     ctaHref: '/contact',
-    schema: makeServiceSchema('/services', 'Web development services', 'Custom website development, UX design, SEO, e-commerce, hosting, and HR portal integrations.'),
+    schema: makeServiceSchema('/services', 'App development and web design', 'iPhone and Android app development, web design, staff portals, SEO, e-commerce and hosting.'),
   },
   {
     path: '/pricing',
     title: 'Pricing | DH Website Services',
-    description: 'Clear website build, hosting, and HR system pricing with fixed packages from £449. Transparent pricing with no hidden fees or hourly ambiguity.',
-    heading: 'Fixed website pricing without hourly ambiguity.',
-    intro: 'Four website packages from £449 to £2,499, apps from £349, hosting from £35 a month. The numbers are on the page so you can decide before you speak to me.',
+    description: 'Fixed prices for apps and websites: apps from £349, websites from £449, hosting from £35 a month. All prices exclude VAT. No hourly billing.',
+    heading: 'Fixed prices for apps and websites.',
+    intro: 'Apps from £349, four website packages from £449 to £2,499, and hosting from £35 a month, all excluding VAT. The numbers are on the page so you can decide before you speak to us.',
     sections: [
       {
         title: 'Build packages',
-        body: 'Starter at £449 for five pages. Growth at £999 for ten pages and a blog. Pro at £1,499 with e-commerce. Enterprise at £2,499 including a staff portal.',
+        body: 'Apps: £349 for your website as an app on both stores, £699 for booking or ordering, from £1,499 for a full build or game. Websites: Starter at £449 for five pages. Growth at £999 for ten pages and a blog. Pro at £1,499 with e-commerce. Enterprise at £2,499 including a staff portal.',
       },
       {
         title: 'Ongoing costs',
@@ -74,18 +81,22 @@ const BASE_INDEXABLE_PAGES = [
     ],
     ctaLabel: 'View contact options',
     ctaHref: '/contact',
-    schema: makeServiceSchema('/pricing', 'Website pricing', 'Clear website build, hosting, and HR system pricing with fixed packages and no hidden fees.'),
+    schema: makeServiceSchema('/pricing', 'App and website pricing', 'Fixed prices for apps from £349 and websites from £449, with hosting listed separately.'),
   },
   {
     path: '/portfolio',
-    title: 'Portfolio | DH Website Services',
-    description: 'Work built by DH Website Services: Fish Tank on Google Play, a staff portal running rotas and payroll, and websites built in Cardiff.',
-    heading: 'Things I have built.',
-    intro: 'Shipped work rather than mockups. Fish Tank is on Google Play and you can download it now.',
+    title: 'Our Work: Apps and Websites | DH Website Services',
+    description: 'Apps and websites we have built: Fish Tank on the App Store and Google Play, FindMyGang in beta, our staff portal and phone system, and web design work.',
+    heading: 'Apps and websites we have shipped.',
+    intro: 'Shipped work rather than mockups. Fish Tank is on the App Store and Google Play and you can download it now.',
     sections: [
       {
-        title: 'What the portfolio shows',
-        body: 'Fish Tank, a multiplayer game on Google Play running on my own servers. A staff portal handling rotas, clock-in, timesheets, leave and payslips. Glow With Lucy, an online shop built in seven days.',
+        title: 'Apps',
+        body: 'Fish Tank, a cross-platform multiplayer game on the App Store and Google Play, running on servers we run. FindMyGang, a privacy-first family location app for iPhone, in TestFlight beta. The DH Staff Portal, on the web and as an iOS app. DH Phone, the cloud phone system our calls come through.',
+      },
+      {
+        title: 'Web design',
+        body: 'Glow With Lucy, a website for a candle business, built in seven days.',
       },
     ],
     ctaLabel: 'Talk to us',
@@ -93,14 +104,18 @@ const BASE_INDEXABLE_PAGES = [
   },
   {
     path: '/about',
-    title: 'About | DH Website Services',
-    description: 'DH Website Services is David Hooper, in Cardiff. Websites from £449 in 7 days, apps from £349. You get the code and the domain stays yours.',
-    heading: 'One person, in Cardiff.',
-    intro: 'DH Website Services is David Hooper. There is no team behind me, no account manager, and nobody your job gets passed down to.',
+    title: 'About Us | DH Website Services',
+    description: 'A small app and web design team based in Pontypridd, serving Cardiff and south Wales: David Hooper, founder and developer, and Jack Deane, operations.',
+    heading: 'A small team. Apps and websites.',
+    intro: 'DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project, with no account manager in between.',
     sections: [
       {
+        title: 'The team',
+        body: 'David Hooper founded the company and designs and builds the apps, websites and systems. Jack Deane runs operations: enquiries, bookings and keeping projects moving.',
+      },
+      {
         title: 'What clients get',
-        body: 'You get my mobile number. The code is yours at the end and the domain stays in your name, so you can take the whole thing elsewhere whenever you want.',
+        body: 'Direct phone numbers and quick replies. The code is yours at the end and the domain stays in your name, so you can take the whole thing elsewhere whenever you want.',
       },
     ],
     ctaLabel: 'Contact us',
@@ -109,7 +124,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/partners',
     title: 'Partners | DH Website Services',
-    description: 'DH Website Services is a Microsoft approved partner building websites and practical workflows for businesses already already running on Microsoft 365.',
+    description: 'DH Website Services is a Microsoft approved partner building apps, websites and practical workflows for businesses already running on Microsoft 365.',
     heading: 'Microsoft-aware website delivery for businesses already using Microsoft tools.',
     intro: 'The partners page explains how DH Website Services can plan websites and connected workflows with Microsoft 365 in mind.',
     sections: [
@@ -306,28 +321,28 @@ const BASE_INDEXABLE_PAGES = [
 const GEO_MARKETS = [
   {
     city: 'Cardiff',
-    intro: 'I am based in Cardiff, so this is the one place I can be in your office the same week you call.',
-    travel: 'I live here. If you want to sit down and go through it in person before you commit to anything, that costs you nothing and I can usually do it within a couple of days.',
+    intro: 'Cardiff is a short drive down the A470 from us in Pontypridd, so we can be in your office the same week you call.',
+    travel: 'If you want to sit down and go through it in person before you commit to anything, that costs you nothing and we can usually do it within a couple of days.',
   },
   {
     city: 'Newport',
-    intro: 'Newport is twenty minutes up the M4 from me, which makes meeting in person straightforward rather than an event.',
-    travel: 'About twenty minutes from Cardiff. I am happy to come to you for the first conversation and again at handover, at no extra cost.',
+    intro: 'Newport is a short drive along the M4, which makes meeting in person straightforward rather than an event.',
+    travel: 'We are happy to come to you for the first conversation and again at handover, at no extra cost.',
   },
   {
     city: 'Swansea',
     intro: 'Swansea is an hour down the M4. Close enough to visit, far enough that most of the work happens over email and calls.',
-    travel: 'Roughly an hour each way. I will come out for the first meeting if you would rather do it face to face; after that it is usually quicker for both of us to work over email.',
+    travel: 'Roughly an hour each way. We will come out for the first meeting if you would rather do it face to face; after that it is usually quicker for both of us to work over email.',
   },
   {
     city: 'Bristol',
-    intro: 'Bristol is over the bridge, about fifty minutes from Cardiff, and I price the same either side of the Severn.',
-    travel: 'Around fifty minutes over the M4 bridge. Same price as a Cardiff project. I am not going to add a premium because you are in England.',
+    intro: 'Bristol is over the bridge, about an hour from Pontypridd, and we price the same either side of the Severn.',
+    travel: 'Around an hour over the M4 bridge. Same price as a Welsh project. We do not add a premium because you are in England.',
   },
   {
     city: 'London',
-    intro: 'London is two hours from Cardiff Central. I work with London businesses remotely and price at Cardiff rates, not London ones.',
-    travel: 'Two hours on the train, so most of this runs over calls and email. Worth saying plainly: you are paying Cardiff prices for London work, and that is the main reason to use someone outside the city.',
+    intro: 'London is a couple of hours away by train. We work with London businesses remotely and price at Welsh rates, not London ones.',
+    travel: 'Two hours on the train, so most of this runs over calls and email. Worth saying plainly: you are paying Welsh prices for London work, and that is the main reason to use someone outside the city.',
   },
 ]
 
@@ -359,24 +374,24 @@ function makeGeoPage(market) {
     path,
     city: market.city,
     intentLabel: 'Web design',
-    title: `Web Design ${market.city} | DH Website Services`,
-    description: `Websites, apps and games built for ${market.city} businesses. Fixed price from £449, usually 7 days.`,
-    heading: `Web design in ${market.city}.`,
+    title: `Web Design & App Development ${market.city} | DH Website Services`,
+    description: `Web design and iPhone and Android apps for ${market.city} businesses. Websites from £449, apps from £349, fixed price.`,
+    heading: `Web design and apps in ${market.city}.`,
     intro: market.intro,
     sections: [
       { title: 'Getting to you', body: market.travel },
       {
         title: 'What it costs',
-        body: 'Websites start at £449, quoted in full before anything starts. Apps start at £349. No hourly rate and no change-order billing: the number I give you is the number you pay.',
+        body: 'Websites start at £449 and apps at £349, quoted in full before anything starts. No hourly rate and no change-order billing: the number we give you is the number you pay.',
       },
       {
         title: 'Who does the work',
-        body: 'I do. There is no team to be handed down to and nobody else on the call. You get my mobile number and I answer it.',
+        body: 'We do: David Hooper builds it and Jack Deane keeps it moving. No account manager and no outsourcing. You get our direct numbers and we answer them.',
       },
     ],
     ctaLabel: `Get a price for your ${market.city} project`,
     ctaHref: '/contact',
-    schema: makeServiceSchema(path, `Web design ${market.city}`, `Websites, apps and games built for ${market.city} businesses. Fixed price from £449.`),
+    schema: makeServiceSchema(path, `Web design and app development ${market.city}`, `Web design and iPhone and Android apps for ${market.city} businesses. Fixed price.`),
   }
 }
 
@@ -463,32 +478,36 @@ export function toAbsolutePublicUrl(path) {
  */
 export const SITE_FAQS = [
   {
+    q: 'How much does an app cost?',
+    a: '£349 puts your website on the App Store and Google Play as a real app with push notifications. £699 adds booking or ordering. From £1,499 for a full build or a game. All prices exclude VAT and are agreed in full before anything starts.',
+  },
+  {
     q: 'How much does a website cost?',
     a: 'Four fixed packages: £449 for five pages, £999 for ten pages with a blog, £1,499 with e-commerce, and £2,499 including a staff portal. The price is agreed in full before anything starts and does not move.',
   },
   {
     q: 'How long does it take?',
-    a: 'Seven days for a website. Staff portals and larger integrations vary too much to put a number on, so I agree a date with you at scoping and stick to it.',
+    a: 'Seven days for a website. Apps, staff portals and larger integrations vary too much to put a number on, so we agree a date with you at scoping and stick to it.',
   },
   {
-    q: 'Do I own the website afterwards?',
+    q: 'Do I own the app or website afterwards?',
     a: 'Yes. You get the source code and the domain stays in your name, so you can take the whole thing to somebody else whenever you want. Nothing here is rented to you.',
   },
   {
     q: 'Who actually does the work?',
-    a: 'I do. DH Website Services is David Hooper. There is no account manager, no sales team, and nobody your job gets passed down to. You get my mobile number.',
+    a: 'We do. David Hooper founded the company and does the development; Jack Deane runs operations. There is no account manager and nobody your job gets passed down to.',
   },
   {
-    q: 'Do you build apps as well as websites?',
-    a: 'Yes, for the App Store and Google Play. £349 puts your website on both stores as a real app with push notifications. £699 adds booking or ordering. From £1,499 for a full build or a game. Fish Tank, a multiplayer game of mine, is on Google Play now.',
+    q: 'Do you deal with Apple and Google for us?',
+    a: 'Yes. We set up the store listings, write the privacy declarations, submit the builds and deal with the reviewers. Our own game, Fish Tank, is on the App Store and Google Play now.',
   },
   {
     q: 'What does hosting cost?',
     a: 'From £35 a month, kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates.',
   },
   {
-    q: 'Do you work outside Cardiff?',
-    a: 'Yes. I am in Cardiff and can meet in person around south Wales, but most work happens over email and calls, and I price the same wherever you are.',
+    q: 'Where are you based?',
+    a: 'Pontypridd. We meet clients in person across Cardiff and south Wales, but most work happens over email and calls, and we price the same wherever you are.',
   },
 ]
 

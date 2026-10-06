@@ -1,53 +1,35 @@
 /**
- * The Portfolio case study as a block document.
+ * The Portfolio page as a block document.
  *
- * Transcribed from what Portfolio.jsx renders, with one deliberate correction:
- * the live page shows literal backticks around `.co.uk`, markdown that never
- * became markup. Those are removed here, so this page is two characters
- * shorter than the live one by design.
+ * October 2026: leads with our own apps (shared with the homepage through
+ * work.js), then the Glow With Lucy website as the web design example.
  */
+
+import { WORK_ITEMS } from './work.js'
 
 export const PORTFOLIO_DOCUMENT = {
   version: 1,
   blocks: [
     {
       id: 'portfolio-hero',
-      type: 'case-study-hero',
+      type: 'page-hero',
       props: {
-        eyebrow: 'On Google Play',
-        heading: 'Fish Tank',
-        body: 'A multiplayer game for iOS and Android. Cross-platform play against friends, leaderboards and push notifications, running on servers I built and maintain.',
-        primaryLabel: 'Get it on Google Play',
-        primaryHref: 'https://play.google.com/store/search?q=fish%20tank%20dh&c=apps',
-        secondaryLabel: 'Talk about your project',
-        secondaryHref: '/contact',
-        note: 'Worth two minutes before you decide whether to hire me. It is quicker than reading about the work.',
-        image: '/fish-tank-home-aquarium.png',
-        imageAlt: 'Fish Tank gameplay: a goldfish in a home aquarium surrounded by smaller fish',
+        eyebrow: 'Our work',
+        heading: 'Apps and websites\nwe have shipped.',
+        body: 'Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and FindMyGang is in beta testing now.',
+        maxWidth: 760,
+        bodyMaxWidth: 560,
       },
     },
 
     {
-      id: 'portfolio-shipped',
-      type: 'card-row',
+      id: 'portfolio-work',
+      type: 'work-showcase',
       props: {
-        eyebrow: 'Also shipped',
-        heading: 'Other things you can check.',
-        body: 'Not mockups. These are live and doing a job.',
-        cards: [
-          {
-            title: 'A staff portal',
-            desc: 'Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone. It runs my own business day to day.',
-          },
-          {
-            title: 'This website',
-            desc: 'The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you.',
-          },
-          {
-            title: 'Glow With Lucy',
-            desc: 'An online shop for a candle business, built in seven days. The case study is below.',
-          },
-        ],
+        eyebrow: 'Apps',
+        heading: 'Built and run by us.',
+        body: 'We make our own products as well as client work. It is the quickest way to show what we can do, and it means we have dealt with app review, push notifications and live servers ourselves.',
+        items: WORK_ITEMS,
       },
     },
 
@@ -55,7 +37,7 @@ export const PORTFOLIO_DOCUMENT = {
       id: 'portfolio-snapshot',
       type: 'project-snapshot',
       props: {
-        heading: 'Project snapshot',
+        heading: 'Web design: Glow With Lucy',
         body: 'Glow With Lucy needed a site that felt more like a considered brand than a starter storefront. The aim was to support trust, gifting appeal, and future growth without losing the softness of the product.',
         rows: [
           { label: 'Project', value: 'Glow With Lucy' },

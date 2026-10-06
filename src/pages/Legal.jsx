@@ -7,7 +7,7 @@ const POLICIES = {
     updated: 'January 2026',
     content: `
 ## 1. Who We Are
-DH Website Services is operated by David Hooper Home Limited (Company No. 17018784), based in Cardiff, United Kingdom. We can be contacted at clients@dhwebsiteservices.co.uk or 029 2002 4218.
+DH Website Services is operated by David Hooper Home Limited (Company No. 17018784), based in Pontypridd, United Kingdom. We can be contacted at clients@dhwebsiteservices.co.uk or 01443 805303.
 
 ## 2. What Data We Collect
 We collect information you provide directly to us, including:
@@ -217,7 +217,7 @@ We are aware that some areas of the site may not yet meet full WCAG 2.1 AA compl
 ## Feedback
 If you experience accessibility barriers, please contact us:
 - Email: clients@dhwebsiteservices.co.uk
-- Phone: 029 2002 4218
+- Phone: 01443 805303
 
 We aim to respond to accessibility feedback within 5 business days.
 
@@ -264,8 +264,8 @@ We aim to provide excellent service. If something goes wrong, we want to hear ab
 
 ### Step 1 — Contact Us Directly
 Email: clients@dhwebsiteservices.co.uk
-Phone: 029 2002 4218
-Write: DH Website Services, Cardiff, United Kingdom
+Phone: 01443 805303
+Write: DH Website Services, Pontypridd, United Kingdom
 
 Please include:
 - Your name and contact details

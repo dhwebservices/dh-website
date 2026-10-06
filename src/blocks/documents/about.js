@@ -1,9 +1,12 @@
 /**
  * The About page as a block document.
  *
- * Transcribed from About.jsx. The closing CTA reuses the homepage block at a
- * smaller scale rather than duplicating it.
+ * October 2026: written as the team. The people are in work.js so the
+ * homepage and this page cannot disagree. The closing CTA reuses the
+ * homepage block at a smaller scale.
  */
+
+import { TEAM_PEOPLE } from './work.js'
 
 export const ABOUT_DOCUMENT = {
   version: 1,
@@ -13,19 +16,19 @@ export const ABOUT_DOCUMENT = {
       type: "about-hero",
       props: {
         eyebrow: "About",
-        heading: "One person.\nSerious work.",
-        lead: "DH Website Services is one person in Cardiff. That is the whole pitch: you deal with the person who builds it.",
-        body: "I build production-ready websites, booking systems, and lead-generation pages for SMEs across Wales and the UK. Fixed prices, direct communication, and no disappearing acts after launch.",
+        heading: "A small team.\nApps and websites.",
+        lead: "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project.",
+        body: "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
         primaryLabel: "Start a project →",
         primaryHref: "/contact",
         secondaryLabel: "See the work",
         secondaryHref: "/portfolio",
         initials: "DH",
-        name: "David Hooper",
-        role: "Founder & Director — Cardiff, Wales",
+        name: "DH Website Services",
+        role: "David Hooper Home Limited · Co. No. 17018784",
         cardParagraphs: [
-          "I started DH Website Services because I kept seeing small businesses in Wales paying agency prices for template work, then getting handed off to junior staff who did not understand their business.",
-          "When you work with us, you work with me. I scope the project, I build it, and I support it after launch. No layers, no surprises, and no blurred line between sales and delivery."
+          "David started DH Website Services after seeing small businesses in Wales pay agency prices for template work, then get handed to someone who did not understand their business.",
+          "So we keep it short: the people who scope your project are the people who build it and look after it afterwards. No layers between you and the work."
         ],
         contacts: [
           {
@@ -35,8 +38,8 @@ export const ABOUT_DOCUMENT = {
           },
           {
             kind: "phone",
-            href: "tel:02920024218",
-            label: "029 2002 4218"
+            href: "tel:+441443805303",
+            label: "01443 805303"
           },
           {
             kind: "phone",
@@ -47,35 +50,46 @@ export const ABOUT_DOCUMENT = {
       }
     },
     {
+      id: "about-team",
+      type: "team",
+      props: {
+        eyebrow: "The team",
+        heading: "Who you will\ndeal with.",
+        body: "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. You can ring either of them directly.",
+        people: TEAM_PEOPLE,
+        background: "var(--white)"
+      }
+    },
+    {
       id: "about-values",
       type: "values-grid",
       props: {
-        eyebrow: "How I work",
+        eyebrow: "How we work",
         heading: "What you can expect.",
         items: [
           {
             title: "Fixed price",
-            desc: "I quote before starting. That is what you pay. No extras."
+            desc: "We quote before starting. That is what you pay."
           },
           {
-            title: "Just me",
-            desc: "You email me. I reply. No team to go through."
+            title: "People you know",
+            desc: "You deal with David Hooper and Jack Deane by name, not a ticket queue."
           },
           {
             title: "You own it",
-            desc: "When it is done, you get all the files. Host it anywhere."
+            desc: "When it is done, you get the code, the files and the store listings. Take them anywhere."
           },
           {
             title: "Built to work",
-            desc: "Not trying to win design awards. Built to get you customers."
+            desc: "We are not chasing design awards. Apps and sites are built to be used."
           },
           {
             title: "Quick replies",
-            desc: "Usually same day. If it will take longer, I will tell you."
+            desc: "Usually the same day. If something will take longer, we tell you."
           },
           {
-            title: "Cardiff-based",
-            desc: "Working from Wales. Happy to work with clients anywhere in UK."
+            title: "Based in Pontypridd",
+            desc: "Based in Pontypridd. We meet clients across Cardiff and south Wales and work with businesses anywhere in the UK."
           }
         ]
       }
