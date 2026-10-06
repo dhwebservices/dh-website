@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're invited · Fam &amp; a Half</title>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="You're invited to a circle on Fam &amp; a Half">
+<meta property="og:description" content="Keep track of your loved ones on one live map. Free, private, no adverts.">
+<style>
+  :root { --ink:#10241c; --ink-soft:#4a6358; --green:#1a8f66; --paper:#fff; --ground:#f3f7f4; --line:#d9e6df; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#eef2f0; --ink-soft:#a3b3ac; --paper:#1b2320; --ground:#111614; --line:#2c3833; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding:24px 16px; }
+  .card { background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:30px 24px; max-width:420px; width:100%; text-align:center; }
+  .brand { font-weight:800; color:var(--green); font-size:15px; letter-spacing:.02em; }
+  h1 { font-size:26px; line-height:1.25; margin:10px 0 8px; }
+  p { color:var(--ink-soft); margin:0 0 18px; }
+  .code { font:700 30px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing:6px; background:rgba(26,143,102,.10);
+    border-radius:14px; padding:16px 10px; margin:6px 0 8px; user-select:all; }
+  .btn { display:block; text-decoration:none; font-weight:700; border-radius:14px; padding:15px; margin-top:10px; font-size:16px; border:0; width:100%; cursor:pointer; }
+  .primary { background:var(--green); color:#fff; }
+  .secondary { background:transparent; color:var(--green); border:1.5px solid var(--green); }
+  ol { text-align:left; color:var(--ink-soft); padding-left:20px; margin:20px 0 0; font-size:15px; }
+  footer { margin-top:22px; font-size:13px; color:var(--ink-soft); }
+  footer a { color:var(--ink-soft); }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="brand">Fam &amp; a Half</div>
+  <h1>You're invited to a circle</h1>
+  <p>Keep track of your loved ones on one live map. Free, private, with no adverts.</p>
+  <div id="codeBox" hidden>
+    <div class="code" id="code"></div>
+    <p style="font-size:14px;margin-bottom:6px">Your invite code</p>
+  </div>
+  <a class="btn primary" id="open" href="findmygang://join">Open in Fam &amp; a Half</a>
+  <a class="btn secondary" href="https://apps.apple.com/app/id6819339433">Get it on the App Store</a>
+  <button class="btn secondary" id="copy" hidden>Copy the code</button>
+  <ol>
+    <li>Install Fam &amp; a Half from the App Store and create your account.</li>
+    <li>Tap <strong>Join with a code</strong>, then paste or type the code above.</li>
+    <li>You'll appear on the map for everyone in the circle.</li>
+  </ol>
+  <footer>Made in Wales by <a href="https://dhwebsiteservices.co.uk">DH Website Services</a> ·
+    <a href="/findmygang/privacy/">Privacy</a> · <a href="/findmygang/support/">Help</a></footer>
+</main>
+<script>
+  const raw = new URLSearchParams(location.search).get('code') || '';
+  const code = raw.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+  if (code.length === 8) {
+    document.getElementById('code').textContent = code.slice(0, 4) + '-' + code.slice(4);
+    document.getElementById('codeBox').hidden = false;
+    document.getElementById('open').href = 'findmygang://join?code=' + code;
+    const copy = document.getElementById('copy');
+    copy.hidden = false;
+    copy.onclick = async () => {
+      try { await navigator.clipboard.writeText(code); copy.textContent = 'Copied'; } catch { copy.textContent = code; }
+    };
+  }
+</script>
+</body>
+</html>

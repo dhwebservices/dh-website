@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["DNZW7TMY34.com.dhwebsiteservices.findmygang"],
+        "components": [{ "/": "/findmygang/join/*", "comment": "Fam & a Half invite links" }]
+      }
+    ]
+  }
+}
