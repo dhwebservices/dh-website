@@ -4,7 +4,7 @@
  * October 2026: refocused on app development and web design, written as the
  * team rather than as one person. Every product named here is real and every
  * status is what is true today -- Fish Tank is live on both stores,
- * FindMyGang is in TestFlight and NOT on the App Store yet. Keep it that way:
+ * Fam & a Half (was FindMyGang) is in TestFlight and NOT on the App Store yet. Keep it that way:
  * no download counts, ratings, client logos or testimonials until there are
  * real ones to show.
  *

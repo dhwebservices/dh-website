@@ -86,13 +86,13 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/portfolio',
     title: 'Our Work: Apps and Websites | DH Website Services',
-    description: 'Apps and websites we have built: Fish Tank on the App Store and Google Play, FindMyGang in beta, our staff portal and phone system, and web design work.',
+    description: 'Apps and websites we have built: Fish Tank on the App Store and Google Play, Fam & a Half in beta, our staff portal and phone system, and web design work.',
     heading: 'Apps and websites we have shipped.',
     intro: 'Shipped work rather than mockups. Fish Tank is on the App Store and Google Play and you can download it now.',
     sections: [
       {
         title: 'Apps',
-        body: 'Fish Tank, a cross-platform multiplayer game on the App Store and Google Play, running on servers we run. FindMyGang, a privacy-first family location app for iPhone, in TestFlight beta. The DH Staff Portal, on the web and as an iOS app. DH Phone, the cloud phone system our calls come through.',
+        body: 'Fish Tank, a cross-platform multiplayer game on the App Store and Google Play, running on servers we run. Fam & a Half, a free and private family location app for iPhone, in TestFlight beta. The DH Staff Portal, on the web and as an iOS app. DH Phone, the cloud phone system our calls come through.',
       },
       {
         title: 'Web design',

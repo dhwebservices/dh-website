@@ -47,10 +47,17 @@ function splitPoints(points) {
   return String(points || '').split('·').map((p) => p.trim()).filter(Boolean)
 }
 
+const STATIC_PATHS = ['/famandahalf']
+
 function SmartLink({ href, children, className, style }) {
   if (!href) return null
   if (/^https?:/.test(href)) {
     return <a href={href} target="_blank" rel="noreferrer" className={className} style={style}>{children}</a>
+  }
+  // Static pages outside the React app (e.g. /famandahalf/) need a real page
+  // load: a router <Link> would look for a route that doesn't exist.
+  if (STATIC_PATHS.some((p) => href.startsWith(p))) {
+    return <a href={href} className={className} style={style}>{children}</a>
   }
   return <Link to={href} className={className} style={style}>{children}</Link>
 }
@@ -148,7 +155,9 @@ export function WorkShowcaseBlock({ eyebrow, heading, body, items }) {
           <div className="pricing-grid-three" style={{ gap: 16 }}>
             {rest.map((item, i) => (
               <article key={item.name || i} className="reveal glass-card" style={{ padding: 18, display: 'flex', flexDirection: 'column', transitionDelay: `${i * 0.06}s` }}>
-                <CardVisual item={item} />
+                {item.linkHref ? (
+                  <SmartLink href={item.linkHref} style={{ display: 'block' }}><CardVisual item={item} /></SmartLink>
+                ) : <CardVisual item={item} />}
                 <div style={{ padding: '0 6px 8px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <div style={{ marginBottom: 10 }}><StatusPill status={item.status} tone={item.tone} /></div>
                   <h3 style={{ fontSize: 19, fontWeight: 600, letterSpacing: '-0.015em', marginBottom: 4 }}>{item.name}</h3>
