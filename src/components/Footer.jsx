@@ -51,8 +51,8 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              Production-ready websites that work as hard as you do. Built in Wales, serving clients
-              across the UK.
+              iPhone and Android apps and web design, from a small team in south Wales. Working with
+              clients across the UK.
             </p>
             <div style={{ marginBottom: 20 }}>
               <MicrosoftPartnerBadge width={180} framed />
