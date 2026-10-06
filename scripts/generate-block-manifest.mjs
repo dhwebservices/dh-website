@@ -12,7 +12,7 @@
 
 import { writeFileSync, mkdirSync } from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(here, '..')
@@ -64,7 +64,7 @@ async function buildSchemaModule(sourcePath) {
 }
 
 async function collectDocuments() {
-  const { readdirSync, readFileSync } = await import('node:fs')
+  const { readdirSync } = await import('node:fs')
   const dir = path.join(repoRoot, 'src/blocks/documents')
 
   let files = []
@@ -76,10 +76,10 @@ async function collectDocuments() {
 
   const documents = {}
   for (const file of files) {
-    const source = readFileSync(path.join(dir, file), 'utf8')
-    const module = await import(
-      `data:text/javascript,${encodeURIComponent(source)}`
-    )
+    // Imported by file URL rather than as a data: URL so a document can share
+    // content with another through a relative import (home and portfolio both
+    // read work.js). A file with no `blocks` export, like work.js, is skipped.
+    const module = await import(pathToFileURL(path.join(dir, file)).href)
     const doc = module.default
       || Object.values(module).find((value) => value && Array.isArray(value.blocks))
     if (doc) documents[path.basename(file, '.js')] = doc

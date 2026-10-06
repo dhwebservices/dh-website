@@ -47,6 +47,7 @@ import {
   CareersBlock,
 } from './types/pageBlocks'
 
+import { WorkShowcaseBlock, TeamBlock } from './types/showcaseBlocks'
 import { ContactBlock } from './types/contactBlock'
 import { CalculatorBlock } from './types/calculatorBlock'
 
@@ -175,6 +176,69 @@ export const BLOCKS = {
       },
     ],
     defaults: { eyebrow: '', heading: '', items: [] },
+  },
+
+  'work-showcase': {
+    label: 'Work showcase',
+    group: 'Sections',
+    component: WorkShowcaseBlock,
+    hint: 'The first item is shown large with phone screenshots; the rest sit underneath as cards.',
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Intro' },
+      {
+        key: 'items',
+        type: 'list',
+        label: 'Products',
+        itemFields: [
+          { key: 'name', type: 'text', label: 'Name' },
+          { key: 'platforms', type: 'text', label: 'Platforms' },
+          { key: 'status', type: 'text', label: 'Status', hint: 'Only what is true today, e.g. "In TestFlight beta".' },
+          { key: 'tone', type: 'select', label: 'Status colour', options: ['live', 'beta', 'internal'] },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+          { key: 'points', type: 'textarea', label: 'Points (large item only)', hint: 'Separate with ·' },
+          { key: 'icon', type: 'image', label: 'App icon' },
+          { key: 'image', type: 'image', label: 'Screenshot (large item only)' },
+          { key: 'imageAlt', type: 'text', label: 'Screenshot alt text' },
+          { key: 'image2', type: 'image', label: 'Second screenshot (large item only)' },
+          { key: 'image2Alt', type: 'text', label: 'Second screenshot alt text' },
+          { key: 'flow', type: 'text', label: 'Flow diagram instead of an icon', hint: 'Steps separated with →' },
+          { key: 'panel', type: 'colour', label: 'Card panel colour' },
+          { key: 'linkLabel', type: 'text', label: 'Link label' },
+          { key: 'linkHref', type: 'link', label: 'Link' },
+          { key: 'link2Label', type: 'text', label: 'Second link label (large item only)' },
+          { key: 'link2Href', type: 'link', label: 'Second link' },
+        ],
+      },
+    ],
+    defaults: { eyebrow: 'Our work', heading: '', body: '', items: [] },
+  },
+
+  team: {
+    label: 'Team',
+    group: 'Sections',
+    component: TeamBlock,
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Intro' },
+      { key: 'note', type: 'textarea', label: 'Small print' },
+      { key: 'background', type: 'colour', label: 'Background' },
+      {
+        key: 'people',
+        type: 'list',
+        label: 'People',
+        itemFields: [
+          { key: 'name', type: 'text', label: 'Name' },
+          { key: 'role', type: 'text', label: 'Role' },
+          { key: 'initials', type: 'text', label: 'Initials (used when there is no photo)' },
+          { key: 'photo', type: 'image', label: 'Photo' },
+          { key: 'desc', type: 'textarea', label: 'What they do' },
+        ],
+      },
+    ],
+    defaults: { eyebrow: 'The team', heading: '', body: '', people: [] },
   },
 
   'card-row': {
