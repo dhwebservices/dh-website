@@ -1,7 +1,7 @@
 const CONTENT = {
   delivery: {
     title: 'Delivery',
-    body: 'Orders are reviewed by me, ordered from the supplier, then dispatched. How long that takes depends on the supplier confirming stock.',
+    body: 'Orders are reviewed by us, ordered from the supplier, then dispatched. How long that takes depends on the supplier confirming stock.',
   },
   returns: {
     title: 'Returns',

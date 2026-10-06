@@ -1,9 +1,7 @@
 /**
  * The Services page as a block document.
  *
- * Transcribed from what Services.jsx renders. The two lists are lifted from
- * its own SVCS and PROCESS arrays rather than retyped, so the wording cannot
- * drift during the conversion.
+ * October 2026: apps and web design lead; the other services follow.
  */
 
 export const SERVICES_DOCUMENT = {
@@ -14,10 +12,10 @@ export const SERVICES_DOCUMENT = {
       type: "page-hero",
       props: {
         eyebrow: "Services",
-        heading: "Everything\nyou need.",
-        body: "From your first website to a full enterprise stack. I cover every layer of what makes a great web presence.",
+        heading: "Apps and websites,\nbuilt properly.",
+        body: "We build iPhone and Android apps and design websites for businesses, then host and look after them. Everything else we do supports those two.",
         maxWidth: 720,
-        bodyMaxWidth: 480
+        bodyMaxWidth: 520
       }
     },
     {
@@ -27,74 +25,74 @@ export const SERVICES_DOCUMENT = {
         items: [
           {
             num: "01",
-            title: "Custom Web Development",
-            desc: "No templates. I build your site from scratch, specifically for what you need.",
+            title: "iPhone and Android Apps",
+            desc: "Apps for the App Store and Google Play, from your website as an app through to a full booking system or game. We take them through store review for you.",
             points: [
-              "React, Next.js or vanilla JS",
-              "Backend APIs and database integration",
-              "Authentication and user accounts",
-              "Third-party integrations",
-              "Fast and optimised from the start"
+              "Native iOS apps in Swift, Android builds for Google Play",
+              "Push notifications, sign-in and payments",
+              "Test builds on your phone through TestFlight and Play testing",
+              "App Store and Google Play listings, privacy forms and review",
+              "Ongoing app care when Apple and Google change the rules"
             ]
           },
           {
             num: "02",
-            title: "Design That Works",
-            desc: "Clean, fast, and easy to use. Looks professional on phones and desktops.",
+            title: "Web Design and Development",
+            desc: "Websites designed for your business and written in React. No page builder and no theme you share with a thousand others.",
             points: [
-              "Brand-aligned design",
-              "Mobile-first responsive",
-              "Accessibility built-in",
-              "Conversion-focused",
-              "A clear route to the enquiry form"
+              "Designed around your brand, mockups before code",
+              "Mobile-first and accessible",
+              "Booking, enquiry and quote forms",
+              "Backend APIs, accounts and database work",
+              "Fast from the start"
             ]
           },
           {
             num: "03",
-            title: "SEO & Performance",
-            desc: "Built to rank on Google. Fast loading, clean code, proper setup from the start.",
+            title: "Staff Portals and Business Systems",
+            desc: "Rotas, clock-in, timesheets, leave and payslips, on the web and in an app. We run our own staff on one.",
             points: [
-              "Technical SEO setup",
-              "Core Web Vitals optimisation",
-              "Structured data and schema markup",
-              "Google Analytics integration",
-              "Ongoing health monitoring"
+              "Microsoft sign-in",
+              "Rotas, clock-in and timesheets",
+              "Leave requests and approvals",
+              "Payslips and policy documents",
+              "Push notifications to staff phones"
             ]
           },
           {
             num: "04",
-            title: "Hosting & Maintenance",
-            desc: "Hosting on Cloudflare. I keep it updated, backed up, and running fast.",
+            title: "SEO and Performance",
+            desc: "Built to be found on Google: fast pages, clean code and a proper setup from day one.",
             points: [
-              "Managed Cloudflare hosting",
-              "Weekly backups",
-              "Security updates and patches",
-              "Content updates on request",
-              "Uptime monitoring and alerts"
+              "Technical SEO setup",
+              "Core Web Vitals work",
+              "Structured data and schema markup",
+              "Analytics setup",
+              "Ongoing health checks"
             ]
           },
           {
             num: "05",
             title: "E-commerce",
-            desc: "Sell online with a store built to convert. Simple products or full catalogues.",
+            desc: "Sell online, from a handful of products to a full catalogue.",
             points: [
-              "Product catalogue management",
-              "Secure payment processing",
-              "Inventory and order management",
-              "Discount codes and promotions",
-              "Mobile-optimised checkout"
+              "Product catalogue",
+              "Card payments",
+              "Orders and stock",
+              "Discount codes",
+              "A checkout that works on a phone"
             ]
           },
           {
             num: "06",
-            title: "HR System Integration",
-            desc: "Staff portal for onboarding, leave requests, timesheets, and payslips. Built into your site or standalone.",
+            title: "Hosting and Maintenance",
+            desc: "Hosting on Cloudflare. We keep sites and apps updated, backed up and running.",
             points: [
-              "Staff onboarding portal",
-              "Leave and timesheet management",
-              "Payslip delivery system",
-              "Policy document storage",
-              "Manager dashboard and approvals"
+              "Managed Cloudflare hosting",
+              "Weekly backups",
+              "Security updates",
+              "Content changes on request",
+              "Uptime monitoring"
             ]
           }
         ]
@@ -110,27 +108,27 @@ export const SERVICES_DOCUMENT = {
           {
             n: "01",
             title: "Brief",
-            desc: "Tell me what you need. I will ask questions until it is clear."
+            desc: "Tell us what you need. We will ask questions until it is clear."
           },
           {
             n: "02",
             title: "Quote",
-            desc: "Fixed price. You will know exactly what you are paying before I start."
+            desc: "One fixed price. You know exactly what you are paying before we start."
           },
           {
             n: "03",
             title: "Design",
-            desc: "Mockups first. You approve the look before I write any code."
+            desc: "Mockups first. You approve the look before we write any code."
           },
           {
             n: "04",
             title: "Build",
-            desc: "7 days. I will send progress updates so you know where it is at."
+            desc: "Seven days for a website; apps to the date we agree. You get progress updates and test builds as we go."
           },
           {
             n: "05",
             title: "Launch",
-            desc: "Test it, fix any issues, then it goes live. You get the login details."
+            desc: "You sign it off, it goes live or into the stores, and you get every login."
           }
         ],
         primaryLabel: "Start a project →",
@@ -143,9 +141,9 @@ export const SERVICES_DOCUMENT = {
       id: "services-geo",
       type: "app.geo-links",
       props: {
-        eyebrow: "Areas I cover",
-        heading: "Location-focused website builder pages.",
-        body: "I work with businesses across the UK. These pages are written for common search intent for local website builder and web design queries."
+        eyebrow: "Areas we cover",
+        heading: "Where we work.",
+        body: "We work with businesses across the UK and can meet in person around south Wales."
       }
     }
   ]

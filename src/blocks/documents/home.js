@@ -1,14 +1,18 @@
 /**
  * The homepage as a block document.
  *
- * This is a transcription of what Home.jsx already renders - same words, same
- * order, same links. It ships in the bundle as the fallback so the page still
- * works before anything is published from the portal, and so the editor opens
- * on the real homepage instead of an empty canvas.
+ * October 2026: refocused on app development and web design, written as the
+ * team rather than as one person. Every product named here is real and every
+ * status is what is true today -- Fish Tank is live on both stores,
+ * FindMyGang is in TestFlight and NOT on the App Store yet. Keep it that way:
+ * no download counts, ratings, client logos or testimonials until there are
+ * real ones to show.
  *
  * Once a published document exists in website_pages for slug "home", that wins
- * and this is only a safety net.
+ * and this is only a safety net. As of 6 Oct 2026 there is no such row.
  */
+
+import { WORK_ITEMS, TEAM_PEOPLE } from './work.js'
 
 export const HOME_DOCUMENT = {
   version: 1,
@@ -17,25 +21,19 @@ export const HOME_DOCUMENT = {
       id: 'home-hero',
       type: 'hero',
       props: {
-        headlineLead: 'Built in Cardiff:',
-        typewriterLines: [
-          'your website.',
-          'your app, on both stores.',
-          'your staff portal.',
-          'your game.',
-          'and the code is yours.',
-        ],
-        body: 'I build websites, apps and games from Cardiff. You get a fixed price before I start, and you own everything at the end.',
-        primaryLabel: 'Get started',
+        headlineLead: 'We build apps',
+        typewriterLines: ['and websites.'],
+        body: 'DH Website Services is a small team in south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
+        primaryLabel: 'Talk to us about a project',
         primaryHref: '/contact',
-        secondaryLabel: 'See pricing',
-        secondaryHref: '/pricing',
+        secondaryLabel: 'See our work',
+        secondaryHref: '/portfolio',
         showScrollHint: true,
         stats: [
-          { value: 'David Hooper', label: 'Your only contact' },
-          { value: 'Cardiff', label: 'Based in Wales' },
-          { value: 'From £449', label: 'Real pricing' },
-          { value: '7 days', label: 'Typical delivery' },
+          { value: 'iOS + Android', label: 'Apps on both stores' },
+          { value: 'From £349', label: 'Apps' },
+          { value: 'From £449', label: 'Websites' },
+          { value: 'Fixed price', label: 'Agreed before we start' },
         ],
       },
     },
@@ -45,30 +43,22 @@ export const HOME_DOCUMENT = {
       type: 'trust-bar',
       props: {
         items: [
-          { icon: '🎮', label: 'On Google Play', sub: 'Fish Tank' },
-          { icon: '🔒', label: 'GDPR compliant', sub: 'Data protection' },
-          { icon: '🏆', label: 'Microsoft Partner', sub: 'Verified' },
-          { icon: '⚡', label: '7 day delivery', sub: 'Websites' },
+          { icon: 'phone', label: 'On the App Store', sub: 'Fish Tank' },
+          { icon: 'game', label: 'On Google Play', sub: 'Fish Tank' },
+          { icon: 'award', label: 'Microsoft Partner', sub: 'Verified' },
+          { icon: 'lock', label: 'GDPR compliant', sub: 'Data protection' },
         ],
       },
     },
 
     {
-      id: 'home-partner',
-      type: 'partner-highlight',
+      id: 'home-work',
+      type: 'work-showcase',
       props: {
-        eyebrow: 'Microsoft approved partner',
-        heading: 'Better suited to businesses already built around Microsoft.',
-        body: 'I now hold Microsoft approved partner status. If your business already runs on Microsoft tools, I can scope websites and operational workflows with Microsoft 365, Teams and Outlook in mind from the start.',
-        primaryLabel: 'Explore partnerships',
-        primaryHref: '/partners',
-        secondaryLabel: 'Talk to us',
-        secondaryHref: '/contact',
-        points: [
-          'Microsoft-aware delivery for service businesses',
-          'Cleaner planning around Microsoft 365 workflows',
-          'Founder-led build process with fixed pricing',
-        ],
+        eyebrow: 'Our work',
+        heading: 'Apps we have built,\nand still run.',
+        body: 'These are our own products, not mockups. One is on both app stores, one is in beta testing, and two run our business every day.',
+        items: WORK_ITEMS,
       },
     },
 
@@ -76,20 +66,28 @@ export const HOME_DOCUMENT = {
       id: 'home-services',
       type: 'services-grid',
       props: {
-        eyebrow: 'What I build',
-        heading: 'Websites, apps\nand games.',
-        body: 'Same person builds all of it. Fixed price agreed before anything starts.',
+        eyebrow: 'What we build',
+        heading: 'Apps first.\nWebsites too.',
+        body: 'We design it, build it, get it through the app stores and keep it running. One fixed price, agreed before anything starts.',
         linkLabel: 'See all services',
         linkHref: '/services',
-        // Transcribed from what the live page actually renders. Home.jsx also
-        // held a six-item SERVICES array, but it was dead: useCMS('services')
-        // returns its own defaults, so the site has been showing these four.
         services: [
-          { icon: '💻', title: 'Websites', desc: 'Written in React, not assembled in a page builder. You get the source code and the domain stays in your name.' },
-          { icon: '📱', title: 'iOS and Android apps', desc: 'One build, both stores. I handle Apple review and Google Play submission, which is the part that catches most people out.' },
-          { icon: '🎮', title: 'Games', desc: 'Native iOS and Android. Fish Tank is on Google Play now — download it and see what the work looks like.' },
-          { icon: '👥', title: 'Staff portals', desc: 'Rotas, timesheets, leave, payslips, onboarding, push notifications. I run one of these to manage my own staff.' },
+          { icon: 'phone', title: 'iPhone and Android apps', desc: 'Native apps for the App Store and Google Play. We handle Apple review and the Play Console, which is where most first apps get stuck.' },
+          { icon: 'design', title: 'Web design', desc: 'Websites designed for your business and written in React, not assembled in a page builder. The domain stays in your name.' },
+          { icon: 'people', title: 'Staff portals and business systems', desc: 'Rotas, clock-in, timesheets, leave and payslips, on the web and on the phone. We run our own business on one.' },
+          { icon: 'game', title: 'Games', desc: 'Fish Tank is ours: a multiplayer game on the App Store and Google Play. If you have a game in mind, we have done the hard parts before.' },
         ],
+      },
+    },
+
+    {
+      id: 'home-team',
+      type: 'team',
+      props: {
+        eyebrow: 'Who you deal with',
+        heading: 'A small team,\nby name.',
+        body: 'There is no account manager between you and the work. You talk to the people building your app or site, and when you ring, you get one of us.',
+        people: TEAM_PEOPLE,
       },
     },
 
@@ -97,30 +95,15 @@ export const HOME_DOCUMENT = {
       id: 'home-why',
       type: 'why-grid',
       props: {
-        eyebrow: 'How I work',
+        eyebrow: 'How we work',
         heading: 'What you get.',
         items: [
-          { title: 'You work with me', desc: 'Not a sales team. Not juniors. Just David, from start to finish.' },
-          { title: 'Fixed price', desc: 'Quote upfront, no surprises. That is the price.' },
-          { title: 'Built properly', desc: 'Fast, ranks on Google, works on mobile. Not a rushed template.' },
-          { title: 'Your website', desc: 'You own the code, the design, the domain. Take it anywhere.' },
-          { title: 'Quick replies', desc: 'Email or call back same day. Usually within a few hours.' },
-          { title: 'Cardiff-based', desc: 'Working from Wales. Happy to work with clients across the UK.' },
-        ],
-      },
-    },
-
-    {
-      id: 'home-credibility',
-      type: 'card-row',
-      props: {
-        eyebrow: 'Things I have built',
-        heading: 'Go and look at them.',
-        body: 'Anyone can describe how they work. These are shipped and you can check them yourself.',
-        cards: [
-          { title: 'Fish Tank', desc: 'A multiplayer game on Google Play. Cross-platform play, friends, leaderboards, push notifications, running on my own servers.' },
-          { title: 'A staff portal', desc: 'Microsoft sign-in, rota publishing, clock-in, timesheets, leave approvals and payslips. It runs my business day to day.' },
-          { title: 'This website', desc: 'The booking system and the quote calculator on this site are mine. Try the calculator and see the price it gives you.' },
+          { title: 'Fixed price', desc: 'We quote before we start and that is the price. If you add something halfway through, we price it separately and tell you first.' },
+          { title: 'Both app stores handled', desc: 'Developer accounts, screenshots, privacy forms, Apple review and Google Play. You do not need to learn any of it.' },
+          { title: 'You try it first', desc: 'Test builds go onto your own phone through Apple TestFlight and Google Play testing. Nothing reaches the public stores until you have signed it off.' },
+          { title: 'You own it', desc: 'Source code, design files, the domain and the store listings are yours. Take them anywhere.' },
+          { title: 'Quick replies', desc: 'Email or call and we reply the same working day, usually within a few hours.' },
+          { title: 'Based in Wales', desc: 'We can meet in person around south Wales and work with clients anywhere in the UK.' },
         ],
       },
     },
@@ -130,17 +113,34 @@ export const HOME_DOCUMENT = {
       type: 'pricing-preview',
       props: {
         eyebrow: 'Pricing',
-        heading: 'Simple,\nfixed pricing.',
-        note: 'No hidden fees. No hourly billing. One price, everything included.',
-        linkLabel: 'See full pricing & hosting plans',
+        heading: 'Prices on the page,\nnot on request.',
+        note: 'All prices exclude VAT. Hosting and app care are monthly and listed separately.',
+        linkLabel: 'See full pricing, hosting and app care',
         linkHref: '/pricing',
-        // Same again: the live cards come from useCMS('pricing') defaults run
-        // through a transform, not the fallback array in Home.jsx.
         packages: [
-          { name: 'Starter', price: '£449', tagline: 'Fixed-price website package.', who: 'Delivered in 7 days', features: '5-page professional website · Mobile responsive design · Basic SEO setup · Contact form', popular: false },
-          { name: 'Growth', price: '£999', tagline: 'Most Popular', who: 'Delivered in 7 days', features: '10-page website · Blog section · Full SEO setup · Branding integration', popular: true },
-          { name: 'Pro', price: '£1,499', tagline: 'Fixed-price website package.', who: 'Delivered in 7 days', features: '15 pages · E-commerce ready · Custom integrations · Advanced SEO', popular: false },
-          { name: 'Enterprise + HR', price: '£2,499', tagline: 'Most Complete', who: 'Timeline agreed at scoping', features: 'Full enterprise website · Integrated HR system · Staff onboarding portal · Leave & timesheet management', popular: false },
+          { name: 'Simple app', price: '£349', tagline: 'Your website as a real app', who: 'On the App Store and Google Play', features: 'Both store submissions · Push notifications · Your own app icon and listing', popular: false },
+          { name: 'Booking or ordering app', price: '£699', tagline: 'Customers book or order from their phone', who: 'Card payments and reminders', features: 'Bookings or orders · Card payments · Reminder notifications · One screen to run it', popular: true },
+          { name: 'Starter website', price: '£449', tagline: 'A five-page website', who: 'Delivered in 7 days', features: '5 pages · Mobile layout · SEO setup · Contact form', popular: false },
+          { name: 'Growth website', price: '£999', tagline: 'Ten pages and a blog', who: 'Delivered in 7 days', features: '10 pages · Blog · Full SEO setup · Branding', popular: false },
+        ],
+      },
+    },
+
+    {
+      id: 'home-partner',
+      type: 'partner-highlight',
+      props: {
+        eyebrow: 'Microsoft approved partner',
+        heading: 'Already run on Microsoft? We build with that in mind.',
+        body: 'We hold Microsoft approved partner status. If your business runs on Microsoft 365, Teams and Outlook, we plan apps, websites and staff tools around them from the start. Our own staff portal signs in with Microsoft.',
+        primaryLabel: 'Explore partnerships',
+        primaryHref: '/partners',
+        secondaryLabel: 'Talk to us',
+        secondaryHref: '/contact',
+        points: [
+          'Microsoft sign-in for staff apps and portals',
+          'Rotas and leave synced to Outlook calendars',
+          'Fixed pricing, agreed before we start',
         ],
       },
     },
@@ -149,13 +149,13 @@ export const HOME_DOCUMENT = {
       id: 'home-social-proof',
       type: 'testimonials',
       props: {
-        eyebrow: 'The numbers',
-        heading: 'What you can\nhold me to.',
+        eyebrow: 'What you can hold us to',
+        heading: 'Promises, not\nstatistics.',
         testimonials: [],
         stats: [
           { value: '7 days', label: 'Website delivery' },
           { value: '< 24h', label: 'Reply to enquiries' },
-          { value: '£449', label: 'Starting from' },
+          { value: '£349', label: 'Apps from' },
           { value: '£0', label: 'Cost to get a quote' },
         ],
       },
@@ -166,18 +166,18 @@ export const HOME_DOCUMENT = {
       type: 'faq',
       props: {
         eyebrow: 'Common questions',
-        heading: 'Everything you need to know',
-        body: 'The things people ask before they get in touch.',
+        heading: 'Before you get in touch',
+        body: 'The things people usually ask first.',
         items: [
-          { q: 'How long does a website project take?', a: 'Websites are delivered in 7 days. HR portals and complex integrations vary too much to put a number on here, so I agree a date with you at scoping and stick to it.' },
-          { q: "What's included in your fixed pricing?", a: "Design, build, mobile layout, SEO setup, analytics, contact forms and getting it live. Hosting is billed separately from £35 a month so you can see what you pay once and what you pay monthly." },
-          { q: 'Do you offer website hosting and maintenance?', a: 'Yes. Hosting is on Cloudflare from £35 a month and covers SSL, backups, updates and monitoring. It is billed separately from the build so you can see what you pay once and what you pay every month.' },
-          { q: 'Can you integrate with our existing systems?', a: "Usually, yes. I have built against Microsoft 365, Stripe, Supabase, Resend and Apple and Google push notifications. Tell me what you run and I will say plainly whether it is straightforward or whether it will add cost." },
-          { q: 'What makes you different from other web agencies?', a: 'Founder-led delivery means you work directly with David Hooper throughout the project—no sales handoff or junior developer roulette. Fixed pricing eliminates scope creep surprises. I build production-quality code from day one, not MVP filler that needs rebuilding later.' },
-          { q: 'Do I own the website after launch?', a: "Yes, completely. You own all design files, source code, content, and domain. There's no rental trap or proprietary platform lock-in. You can take the website to another developer or host if needed, though we provide ongoing support for clients who want it." },
+          { q: 'Do I need an app, or just a website?', a: 'Most businesses need a website first, and we will say so rather than sell you an app. An app earns its keep when customers come back again and again: booking, ordering, loyalty, or staff who need something on their phone.' },
+          { q: 'Do you deal with Apple and Google for us?', a: 'Yes. We set up the store listings, write the privacy declarations, submit the builds and answer the reviewers. We have taken our own apps through Apple review and Google Play, so we know where they get held up.' },
+          { q: 'Can we try the app before it goes live?', a: 'Yes. You get test builds on your own phone through Apple TestFlight and Google Play testing, and nothing goes to the public stores until you have signed it off.' },
+          { q: 'How long does a website take?', a: 'Seven days for our website packages. Apps, staff portals and larger integrations vary too much to put a number on here, so we agree a date at scoping and stick to it.' },
+          { q: 'Can you connect it to what we already use?', a: 'Usually, yes. We have built against Microsoft 365, Stripe, Supabase, Twilio, Resend and Apple and Google push notifications. Tell us what you run and we will say plainly whether it is straightforward or will add cost.' },
+          { q: 'Do we own the app or website afterwards?', a: 'Yes. You get the source code and design files, the domain stays in your name, and the apps can sit under your own developer accounts. Nothing is rented to you.' },
         ],
-        footerNote: 'Still have questions?',
-        linkLabel: 'Get in touch',
+        footerNote: 'Something else?',
+        linkLabel: 'Ask us',
         linkHref: '/contact',
       },
     },
@@ -186,14 +186,14 @@ export const HOME_DOCUMENT = {
       id: 'home-cta',
       type: 'closing-cta',
       props: {
-        eyebrow: 'Ready to start?',
-        heading: "Let's build something that works.",
-        body: "Tell me about your project. We'll reply within 24 hours with a clear plan and a fixed price.",
+        eyebrow: 'Got an app or a site in mind?',
+        heading: 'Tell us what it needs to do.',
+        body: 'We will reply within a working day with questions, a plan and a fixed price.',
         primaryLabel: 'Start a project →',
         primaryHref: '/contact',
         secondaryLabel: 'View pricing',
         secondaryHref: '/pricing',
-        assurances: ['Fixed price — always', 'No contracts', 'Reply within 24 hrs'],
+        assurances: ['Fixed price', 'No contracts', 'Reply within 24 hours'],
       },
     },
   ],

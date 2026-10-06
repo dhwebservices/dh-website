@@ -155,12 +155,12 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
               <div style={{ marginTop:24 }}>
                 <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:14 }}>What to expect</p>
                 {[
-                  ['📞', 'I call you', 'From 029 2002 4218 or 07364 166285, at the time you pick'],
-                  ['💬', 'Talk it through', 'You tell me what you need and I ask the awkward questions'],
-                  ['📋', 'Clear plan & price', 'Fixed quote, no surprises'],
+                  ['1', 'We call you', 'From 029 2002 4218 or 07364 166285, at the time you pick'],
+                  ['2', 'Talk it through', 'You tell us what you need and we ask the awkward questions'],
+                  ['3', 'Clear plan & price', 'Fixed quote, no surprises'],
                 ].map(([icon, title, desc]) => (
                   <div key={title} style={{ display:'flex', gap:12, marginBottom:14, alignItems:'flex-start' }}>
-                    <div style={{ width:32, height:32, borderRadius:8, background:'var(--cream)', border:'1px solid var(--border-light)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:14, flexShrink:0 }}>{icon}</div>
+                    <div style={{ width:32, height:32, borderRadius:8, background:'var(--cream)', border:'1px solid var(--border-light)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:12, fontFamily:'var(--font-mono)', color:'var(--dark2)', flexShrink:0 }}>{icon}</div>
                     <div>
                       <div style={{ fontSize:13, fontWeight:600, color:'var(--dark)', marginBottom:2 }}>{title}</div>
                       <div style={{ fontSize:12, color:'var(--mid)' }}>{desc}</div>

@@ -16,7 +16,7 @@ export const PRICING_DOCUMENT = {
       props: {
         eyebrow: "Pricing",
         heading: "Simple,\nfixed pricing.",
-        body: "No hourly billing, no surprises. Clear packages built around what growing businesses actually need. All prices exclude VAT, which is charged at 20%.",
+        body: "Apps from £349 and websites from £449. No hourly billing and no surprises. All prices exclude VAT, which is charged at 20% (VAT No. GB 517 076 395).",
         maxWidth: 720,
         bodyMaxWidth: null,
         paddingBottom: "clamp(40px,5vw,64px)"
@@ -161,7 +161,7 @@ export const PRICING_DOCUMENT = {
         // reading as a hobby. Market rate for a wrapped app is £3-5k and for a
         // business app £8-15k; these undercut that heavily while still sitting
         // above the website ladder, so the two price lists make sense together.
-        appIntro: "Most businesses round here do not need an app, and I will say so rather than sell you one. If you just want to be found, the £449 website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
+        appIntro: "Plenty of businesses do not need an app, and we will say so rather than sell you one. If you just want to be found, the £449 website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
         appNote: "Prices start low deliberately. A first app should be cheap enough to try, not a decision you have to sleep on.",
         appPlans: [
           {
@@ -182,7 +182,7 @@ export const PRICING_DOCUMENT = {
             price: "from £1,499",
             monthly: "or from £135/mo over 12 months",
             type: "one-off",
-            desc: "A proper build: your own system, your own rules, or a full game on both stores. Quoted once I know what it has to do."
+            desc: "A proper build: your own system, your own rules, or a full game on both stores. Quoted once we know what it has to do."
           },
           {
             name: "App care",
@@ -208,7 +208,7 @@ export const PRICING_DOCUMENT = {
         items: [
           {
             q: "Do you offer payment plans?",
-            a: "Yes — I can arrange staged payments for larger projects. Get in touch to discuss what works for you."
+            a: "Yes. We can arrange staged payments for larger projects. Get in touch to talk through what works for you."
           },
           {
             q: "What happens after the project is delivered?",
@@ -216,7 +216,7 @@ export const PRICING_DOCUMENT = {
           },
           {
             q: "Can I upgrade my package later?",
-            a: "Absolutely. Many clients start on Starter and grow into Growth or Pro as their business scales."
+            a: "Yes. You can move from Starter to Growth or Pro later and only pay the difference in work."
           },
           {
             q: "Is hosting included in the build price?",
@@ -224,7 +224,7 @@ export const PRICING_DOCUMENT = {
           },
           {
             q: "Do you work with clients outside Wales / the UK?",
-            a: "Yes, I work with clients across the UK and internationally. Everything is done remotely."
+            a: "Yes. We work with clients across the UK and further afield, mostly over email and calls."
           }
         ],
         footerNote: "Still have questions?",

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const WHATSAPP_NUMBER = '447359587007'
-const MESSAGE = encodeURIComponent('Hi DH Website Services, I\'d like to find out more about getting a website built.')
+const MESSAGE = encodeURIComponent('Hi DH Website Services, I\'d like to find out more about getting an app or website built.')
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false)

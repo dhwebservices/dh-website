@@ -87,14 +87,13 @@ export default function GeoPage() {
       >
         <div className="container" style={{ maxWidth: 860 }}>
           <div className="reveal" style={{ marginBottom: 32 }}>
-            <p className="eyebrow" style={{ marginBottom: 12 }}>Why this page exists</p>
+            <p className="eyebrow" style={{ marginBottom: 12 }}>Same team, same prices</p>
             <h2 className="headline-md" style={{ marginBottom: 14 }}>
-              Search intent matched to a real service.
+              Apps and websites for {page.city} businesses.
             </h2>
             <p className="body-md" style={{ maxWidth: 700 }}>
-              These pages target businesses searching for {page.intentLabel.toLowerCase()} in a specific area,
-              but the offer is still the same: custom website delivery, technical SEO, fixed
-              pricing, and direct founder-led communication.
+              It is the same small team and the same published prices wherever you are:
+              apps from £349 and websites from £449, agreed in full before we start.
             </p>
           </div>
           <div className="reveal" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>

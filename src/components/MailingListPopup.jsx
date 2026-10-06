@@ -13,7 +13,7 @@ export default function MailingListPopup({ settings }) {
 
   const s = settings || {}
   const headline    = s.headline    || 'Get a discount on your first project'
-  const subtext     = s.subtext     || 'Leave your email and I will send you a discount code for your first project.'
+  const subtext     = s.subtext     || 'Leave your email and we will send you a discount code for your first project.'
   const buttonText  = s.button_text || 'Claim my discount'
   const delay       = (s.delay_seconds ?? 45) * 1000
   const enabled     = s.enabled !== false
@@ -118,7 +118,7 @@ export default function MailingListPopup({ settings }) {
             <div style={{ width:64, height:64, borderRadius:'50%', background:'#F0FDF4', border:'2px solid #BBF7D0', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 20px', fontSize:28 }}>🎉</div>
             <h2 style={{ fontFamily:'-apple-system, BlinkMacSystemFont, sans-serif', fontSize:24, fontWeight:700, color:'#1A1612', letterSpacing:'-0.02em', marginBottom:10 }}>You're on the list!</h2>
             <p style={{ fontSize:15, color:'#6E6E73', lineHeight:1.6, marginBottom:24 }}>
-              Check your inbox for the confirmation. I will follow up with your discount code.
+              Check your inbox for the confirmation. We will follow up with your discount code.
             </p>
             <button onClick={dismiss} style={{ padding:'12px 28px', borderRadius:100, background:'#1A1612', color:'#fff', border:'none', cursor:'pointer', fontSize:14, fontWeight:600 }}>
               Continue browsing
@@ -190,7 +190,7 @@ function buildSubscriberEmail(firstName) {
   <div style="padding:32px 48px">
     <h2 style="font-size:18px;font-weight:700;color:#1A1612;margin:0 0 20px">What happens next?</h2>
     <div style="display:flex;flex-direction:column;gap:16px">
-      ${['I will email you the discount code myself.','It works on any package: Starter, Growth, Pro or Enterprise.','When you are ready, most websites are built in 7 days.'].map((step, i) => `
+      ${['We will email you the discount code.','It works on any package: Starter, Growth, Pro or Enterprise.','When you are ready, most websites are built in 7 days.'].map((step, i) => `
       <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 20px;background:#F9FAFB;border-radius:12px;border:1px solid #E5E7EB">
         <div style="width:32px;height:32px;border-radius:50%;background:#1A1612;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;line-height:32px;text-align:center">${i+1}</div>
         <p style="font-size:14px;color:#3D3D3F;line-height:1.6;margin:0;padding-top:4px">${step}</p>
