@@ -143,7 +143,7 @@ export const SERVICES_DOCUMENT = {
       props: {
         eyebrow: "Areas we cover",
         heading: "Where we work.",
-        body: "We work with businesses across the UK and can meet in person around south Wales."
+        body: "We are based in Pontypridd, meet clients in person across Cardiff and south Wales, and work with businesses anywhere in the UK."
       }
     }
   ]

@@ -66,8 +66,8 @@ const DEFAULTS = {
   ],
   contact: {
     email: 'clients@dhwebsiteservices.co.uk',
-    phone: '029 2002 4218',
-    location: 'Cardiff, United Kingdom',
+    phone: '01443 805303',
+    location: 'Pontypridd, United Kingdom',
     response_time: 'Within 24 hours',
     hours_weekday: '9:00 AM – 5:00 PM GMT',
     hours_weekend: 'Next business day',

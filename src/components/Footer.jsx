@@ -51,7 +51,7 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              iPhone and Android apps and web design, from a small team in south Wales. Working with
+              iPhone and Android apps and web design, from a small team in Pontypridd, serving Cardiff and south Wales. Working with
               clients across the UK.
             </p>
             <div style={{ marginBottom: 20 }}>
@@ -67,12 +67,12 @@ export default function Footer() {
                 clients@dhwebsiteservices.co.uk
               </a>
               <a
-                href="tel:02920024218"
+                href="tel:+441443805303"
                 style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s' }}
                 onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
                 onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
               >
-                029 2002 4218
+                01443 805303
               </a>
               <a
                 href="tel:07364166285"
@@ -83,8 +83,8 @@ export default function Footer() {
                 07364 166285
               </a>
               <div style={{ fontSize: 13, color: 'var(--mid)', marginTop: 8 }}>
-                <div style={{ fontWeight: 500, marginBottom: 2 }}>Cardiff Office</div>
-                <div>Cardiff, Wales, UK</div>
+                <div style={{ fontWeight: 500, marginBottom: 2 }}>Based in Pontypridd</div>
+                <div>Serving Cardiff and south Wales</div>
               </div>
             </div>
             <div style={{ marginTop: 20, paddingTop: 20, borderTop: '1px solid var(--border-light)' }}>
@@ -350,7 +350,7 @@ export default function Footer() {
             <p style={{ fontSize: 12, color: 'var(--light)' }}>
               © 2026 DH Website Services (David Hooper Home Limited, Co. No. 17018784, VAT No. GB 517 076 395)
             </p>
-            <p style={{ fontSize: 12, color: 'var(--light)' }}>Cardiff, Wales</p>
+            <p style={{ fontSize: 12, color: 'var(--light)' }}>Pontypridd, Wales</p>
           </div>
         </div>
       </div>

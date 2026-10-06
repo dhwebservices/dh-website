@@ -200,6 +200,20 @@ export function TeamBlock({ eyebrow, heading, body, people, note, background }) 
                 <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 4 }}>{person.name}</h3>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)', marginBottom: 14 }}>{person.role}</p>
                 <p className="body-sm">{person.desc}</p>
+                {person.phone || person.email ? (
+                  <div style={{ display: 'grid', gap: 8, marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--border-light)' }}>
+                    {person.phone ? (
+                      <a href={person.phoneHref || `tel:${String(person.phone).replace(/\s+/g, '')}`} style={{ fontSize: 14, fontWeight: 500, color: 'var(--dark)' }}>
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)', marginRight: 10 }}>Call</span>{person.phone}
+                      </a>
+                    ) : null}
+                    {person.email ? (
+                      <a href={`mailto:${person.email}`} style={{ fontSize: 14, fontWeight: 500, color: 'var(--dark)', overflowWrap: 'anywhere' }}>
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)', marginRight: 10 }}>Email</span>{person.email}
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>

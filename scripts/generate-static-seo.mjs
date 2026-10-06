@@ -152,7 +152,7 @@ async function writeLlmFiles() {
   const llms = [
     '# DH Website Services',
     '',
-    'App development and web design for UK businesses, by a small team in south Wales.',
+    'App development and web design for UK businesses, by a small team based in Pontypridd, serving Cardiff and south Wales.',
     '',
     'Key public pages:',
     ...INDEXABLE_PAGES.map((page) => `- ${SEO_SITE_URL}${withTrailingSlash(page.path)} | ${page.title}`),

@@ -17,7 +17,7 @@ export const ABOUT_DOCUMENT = {
       props: {
         eyebrow: "About",
         heading: "A small team.\nApps and websites.",
-        lead: "DH Website Services is a small app and web studio in south Wales. You deal directly with the people who build your project.",
+        lead: "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project.",
         body: "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
         primaryLabel: "Start a project →",
         primaryHref: "/contact",
@@ -38,8 +38,8 @@ export const ABOUT_DOCUMENT = {
           },
           {
             kind: "phone",
-            href: "tel:02920024218",
-            label: "029 2002 4218"
+            href: "tel:+441443805303",
+            label: "01443 805303"
           },
           {
             kind: "phone",
@@ -55,7 +55,7 @@ export const ABOUT_DOCUMENT = {
       props: {
         eyebrow: "The team",
         heading: "Who you will\ndeal with.",
-        body: "Two names to remember. David builds, Jack keeps everything moving.",
+        body: "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. Their direct numbers are below.",
         people: TEAM_PEOPLE,
         background: "var(--white)"
       }
@@ -73,7 +73,7 @@ export const ABOUT_DOCUMENT = {
           },
           {
             title: "People you know",
-            desc: "You deal with David and Jack by name, not a ticket queue."
+            desc: "You deal with David Hooper and Jack Deane by name, not a ticket queue."
           },
           {
             title: "You own it",
@@ -88,8 +88,8 @@ export const ABOUT_DOCUMENT = {
             desc: "Usually the same day. If something will take longer, we tell you."
           },
           {
-            title: "Based in Wales",
-            desc: "We can meet around south Wales and work with clients anywhere in the UK."
+            title: "Based in Pontypridd",
+            desc: "Based in Pontypridd. We meet clients across Cardiff and south Wales and work with businesses anywhere in the UK."
           }
         ]
       }

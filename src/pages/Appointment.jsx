@@ -120,7 +120,7 @@ export default function Appointment() {
             </div>
 
             <div style={{ border: '1px solid var(--border-light)', borderRadius: 16, overflow: 'hidden', marginBottom: 28 }}>
-              {[['With', appt.staff_name?.split('(')[0].trim()], ['Name', appt.client_name], ['Business', appt.client_business || '-'], ['Email', appt.client_email], ['Call from', '029 2002 4218'], ['Notes', appt.notes || '-'], ['Status', appt.status]].map(([label, value], index, list) => (
+              {[['With', appt.staff_name?.split('(')[0].trim()], ['Name', appt.client_name], ['Business', appt.client_business || '-'], ['Email', appt.client_email], ['Call from', '01443 805303'], ['Notes', appt.notes || '-'], ['Status', appt.status]].map(([label, value], index, list) => (
                 <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 20px', borderBottom: index < list.length - 1 ? '1px solid var(--border-light)' : 'none' }}>
                   <span style={{ fontFamily: 'SF Mono, Monaco, monospace', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)' }}>{label}</span>
                   <span style={{ fontSize: 14, color: 'var(--dark)', fontWeight: label === 'Call from' ? 500 : 400 }}>{value}</span>

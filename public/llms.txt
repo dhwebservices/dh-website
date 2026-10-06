@@ -4,7 +4,7 @@
 
 ## About
 
-DH Website Services is a Cardiff-based web development agency founded by David Hooper. We build custom websites, booking systems, and business platforms for UK businesses that need more than templates. Founder-led delivery with fixed pricing and no hourly ambiguity.
+DH Website Services is an app development and web design team based in Pontypridd, serving Cardiff and south Wales, founded by David Hooper. We build iPhone and Android apps, websites and business platforms for UK businesses that need more than templates. Founder-led delivery with fixed pricing and no hourly ambiguity.
 
 ## Services
 
@@ -53,8 +53,8 @@ Serving businesses across the UK with particular focus on:
 
 - Website: https://www.dhwebsiteservices.co.uk
 - Email: clients@dhwebsiteservices.co.uk
-- Phone: 029 2002 4218
-- Location: Cardiff, Wales, United Kingdom
+- Phone: 01443 805303
+- Location: Pontypridd, Wales, United Kingdom (serving Cardiff and south Wales)
 - Hours: Monday-Friday 9am-5pm GMT
 
 ## Key Pages
@@ -78,7 +78,7 @@ Notable project: Glow With Lucy (glowwithlucy.co.uk) - Full e-commerce beauty bu
 - Fixed pricing: No scope creep or hourly billing surprises
 - Production quality: Built to launch standards, not MVP filler
 - Technical excellence: Modern stack, fast performance, proper SEO
-- UK-based: Cardiff office with nationwide service
+- Based in Pontypridd, serving Cardiff, south Wales and the UK
 - Post-launch support: We don't disappear after go-live
 
 ## Common Questions

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T12:11:22.347Z",
+  "generatedAt": "2026-10-06T12:24:44.242Z",
   "blocks": [
     {
       "type": "hero",
@@ -466,6 +466,22 @@
               "key": "desc",
               "type": "textarea",
               "label": "What they do"
+            },
+            {
+              "key": "phone",
+              "type": "text",
+              "label": "Phone (as shown)"
+            },
+            {
+              "key": "phoneHref",
+              "type": "text",
+              "label": "Phone link",
+              "hint": "tel:+44..."
+            },
+            {
+              "key": "email",
+              "type": "text",
+              "label": "Email"
             }
           ]
         }
@@ -2345,7 +2361,7 @@
           "props": {
             "eyebrow": "About",
             "heading": "A small team.\nApps and websites.",
-            "lead": "DH Website Services is a small app and web studio in south Wales. You deal directly with the people who build your project.",
+            "lead": "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project.",
             "body": "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
             "primaryLabel": "Start a project →",
             "primaryHref": "/contact",
@@ -2366,8 +2382,8 @@
               },
               {
                 "kind": "phone",
-                "href": "tel:02920024218",
-                "label": "029 2002 4218"
+                "href": "tel:+441443805303",
+                "label": "01443 805303"
               },
               {
                 "kind": "phone",
@@ -2383,20 +2399,26 @@
           "props": {
             "eyebrow": "The team",
             "heading": "Who you will\ndeal with.",
-            "body": "Two names to remember. David builds, Jack keeps everything moving.",
+            "body": "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. Their direct numbers are below.",
             "people": [
               {
                 "name": "David Hooper",
                 "role": "Founder · Development",
                 "initials": "DH",
                 "photo": "",
+                "phone": "07359 587007",
+                "phoneHref": "tel:+447359587007",
+                "email": "david@dhwebsiteservices.co.uk",
                 "desc": "Started the company. Designs and builds the apps, websites and the systems behind them, and takes them through Apple and Google review."
               },
               {
-                "name": "Jack",
+                "name": "Jack Deane",
                 "role": "Operations",
-                "initials": "J",
+                "initials": "JD",
                 "photo": "",
+                "phone": "07368 353011",
+                "phoneHref": "tel:+447368353011",
+                "email": "jack@dhwebsiteservices.co.uk",
                 "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out."
               }
             ],
@@ -2416,7 +2438,7 @@
               },
               {
                 "title": "People you know",
-                "desc": "You deal with David and Jack by name, not a ticket queue."
+                "desc": "You deal with David Hooper and Jack Deane by name, not a ticket queue."
               },
               {
                 "title": "You own it",
@@ -2431,8 +2453,8 @@
                 "desc": "Usually the same day. If something will take longer, we tell you."
               },
               {
-                "title": "Based in Wales",
-                "desc": "We can meet around south Wales and work with clients anywhere in the UK."
+                "title": "Based in Pontypridd",
+                "desc": "Based in Pontypridd. We meet clients across Cardiff and south Wales and work with businesses anywhere in the UK."
               }
             ]
           }
@@ -2763,7 +2785,7 @@
             "typewriterLines": [
               "and websites."
             ],
-            "body": "DH Website Services is a small team in south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.",
+            "body": "DH Website Services is a small team based in Pontypridd, serving Cardiff and south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.",
             "primaryLabel": "Talk to us about a project",
             "primaryHref": "/contact",
             "secondaryLabel": "See our work",
@@ -2920,13 +2942,19 @@
                 "role": "Founder · Development",
                 "initials": "DH",
                 "photo": "",
+                "phone": "07359 587007",
+                "phoneHref": "tel:+447359587007",
+                "email": "david@dhwebsiteservices.co.uk",
                 "desc": "Started the company. Designs and builds the apps, websites and the systems behind them, and takes them through Apple and Google review."
               },
               {
-                "name": "Jack",
+                "name": "Jack Deane",
                 "role": "Operations",
-                "initials": "J",
+                "initials": "JD",
                 "photo": "",
+                "phone": "07368 353011",
+                "phoneHref": "tel:+447368353011",
+                "email": "jack@dhwebsiteservices.co.uk",
                 "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out."
               }
             ]
@@ -2960,8 +2988,8 @@
                 "desc": "Email or call and we reply the same working day, usually within a few hours."
               },
               {
-                "title": "Based in Wales",
-                "desc": "We can meet in person around south Wales and work with clients anywhere in the UK."
+                "title": "Based in Pontypridd",
+                "desc": "We meet clients in person across Cardiff and south Wales, and work with businesses anywhere in the UK."
               }
             ]
           }
@@ -3706,7 +3734,7 @@
           "props": {
             "eyebrow": "Areas we cover",
             "heading": "Where we work.",
-            "body": "We work with businesses across the UK and can meet in person around south Wales."
+            "body": "We are based in Pontypridd, meet clients in person across Cardiff and south Wales, and work with businesses anywhere in the UK."
           }
         }
       ]

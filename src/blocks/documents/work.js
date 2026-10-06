@@ -10,7 +10,8 @@
  *   - Staff portal: web app plus native iOS app, used internally. It ships to
  *     our own staff through TestFlight, so do not call it "on the App Store".
  *   - DH Phone: our own Twilio + Cloudflare phone system; 01443 805303 runs on
- *     it. The 029 number has not been ported, so do not claim that it has.
+ *     it. The old Cardiff landline was not ported and is no longer shown
+ *     anywhere on the site.
  *
  * No file here exports `blocks`, so the manifest generator skips it.
  */
@@ -67,9 +68,9 @@ export const WORK_ITEMS = [
 /*
  * TODO(David): photos. Drop a square photo in public/team/ and set `photo` on
  * each person below; the initials are only a stand-in.
- * TODO(David): confirm Jack's job title and whether to show his surname. He
- * is listed as "Operations" because the team notes describe him as your
- * assistant handling the day-to-day, not as a developer.
+ * TODO(David): confirm Jack's job title. He is listed as "Operations"
+ * because the team notes describe him as your assistant handling the
+ * day-to-day, not as a developer.
  */
 export const TEAM_PEOPLE = [
   {
@@ -77,13 +78,19 @@ export const TEAM_PEOPLE = [
     role: 'Founder · Development',
     initials: 'DH',
     photo: '',
+    phone: '07359 587007',
+    phoneHref: 'tel:+447359587007',
+    email: 'david@dhwebsiteservices.co.uk',
     desc: 'Started the company. Designs and builds the apps, websites and the systems behind them, and takes them through Apple and Google review.',
   },
   {
-    name: 'Jack',
+    name: 'Jack Deane',
     role: 'Operations',
-    initials: 'J',
+    initials: 'JD',
     photo: '',
+    phone: '07368 353011',
+    phoneHref: 'tel:+447368353011',
+    email: 'jack@dhwebsiteservices.co.uk',
     desc: 'Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.',
   },
 ]

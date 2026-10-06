@@ -6,11 +6,18 @@ const makeServiceSchema = (path, title, description) => ({
   name: 'DH Website Services',
   url: `${SEO_SITE_URL}${path}`,
   description,
-  areaServed: 'United Kingdom',
+  areaServed: [
+    { '@type': 'City', name: 'Pontypridd' },
+    { '@type': 'City', name: 'Cardiff' },
+    { '@type': 'AdministrativeArea', name: 'South Wales' },
+    { '@type': 'Country', name: 'United Kingdom' },
+  ],
+  telephone: '+44 1443 805303',
+  email: 'clients@dhwebsiteservices.co.uk',
   serviceType: title,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Cardiff',
+    addressLocality: 'Pontypridd',
     addressCountry: 'GB',
   },
 })
@@ -19,9 +26,9 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
     title: 'App Development & Web Design in Wales | DH Website Services',
-    description: 'We build iPhone and Android apps and design websites for UK businesses. A small team in south Wales. Apps from £349, websites from £449, fixed price.',
+    description: 'iPhone and Android apps and web design from a small team based in Pontypridd, serving Cardiff and south Wales. Apps from £349, websites from £449.',
     heading: 'We build apps and websites.',
-    intro: 'DH Website Services is a small team in south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
+    intro: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and south Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
     sections: [
       {
         title: 'What we build',
@@ -29,7 +36,7 @@ const BASE_INDEXABLE_PAGES = [
       },
       {
         title: 'How we work',
-        body: 'You deal with the people who build your project: David Hooper, who founded the company and does the development, and Jack, who runs operations. The price is agreed before anything starts and does not move.',
+        body: 'You deal with the people who build your project: David Hooper, who founded the company and does the development, and Jack Deane, who runs operations. The price is agreed before anything starts and does not move.',
       },
     ],
     ctaLabel: 'Start a project',
@@ -39,7 +46,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/services',
     title: 'App Development & Web Design Services | DH Website Services',
-    description: 'iPhone and Android app development, web design, staff portals, SEO and hosting. Fixed prices published on the site. Based in south Wales, working UK wide.',
+    description: 'iPhone and Android app development, web design, staff portals, SEO and hosting. Fixed prices published on the site. Based in Pontypridd, serving Cardiff, south Wales and the UK.',
     heading: 'Apps and websites, built properly.',
     intro: 'Every price here is published rather than quoted on request. If a job does not fit one of them, we tell you what it costs before you commit to anything.',
     sections: [
@@ -98,13 +105,13 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/about',
     title: 'About Us | DH Website Services',
-    description: 'DH Website Services is a small app and web design team in south Wales: David Hooper, founder and developer, and Jack, operations. Fixed prices, code you own.',
+    description: 'A small app and web design team based in Pontypridd, serving Cardiff and south Wales: David Hooper, founder and developer, and Jack Deane, operations.',
     heading: 'A small team. Apps and websites.',
-    intro: 'DH Website Services is a small app and web studio in south Wales. You deal directly with the people who build your project, with no account manager in between.',
+    intro: 'DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and south Wales. You deal directly with the people who build your project, with no account manager in between.',
     sections: [
       {
         title: 'The team',
-        body: 'David Hooper founded the company and designs and builds the apps, websites and systems. Jack runs operations: enquiries, bookings and keeping projects moving.',
+        body: 'David Hooper founded the company and designs and builds the apps, websites and systems. Jack Deane runs operations: enquiries, bookings and keeping projects moving.',
       },
       {
         title: 'What clients get',
@@ -314,7 +321,7 @@ const BASE_INDEXABLE_PAGES = [
 const GEO_MARKETS = [
   {
     city: 'Cardiff',
-    intro: 'Cardiff is on our doorstep, so we can be in your office the same week you call.',
+    intro: 'Cardiff is a short drive down the A470 from us in Pontypridd, so we can be in your office the same week you call.',
     travel: 'If you want to sit down and go through it in person before you commit to anything, that costs you nothing and we can usually do it within a couple of days.',
   },
   {
@@ -329,12 +336,12 @@ const GEO_MARKETS = [
   },
   {
     city: 'Bristol',
-    intro: 'Bristol is over the bridge, about fifty minutes from Cardiff, and we price the same either side of the Severn.',
-    travel: 'Around fifty minutes over the M4 bridge. Same price as a Welsh project. We do not add a premium because you are in England.',
+    intro: 'Bristol is over the bridge, about an hour from Pontypridd, and we price the same either side of the Severn.',
+    travel: 'Around an hour over the M4 bridge. Same price as a Welsh project. We do not add a premium because you are in England.',
   },
   {
     city: 'London',
-    intro: 'London is two hours from Cardiff Central. We work with London businesses remotely and price at Welsh rates, not London ones.',
+    intro: 'London is a couple of hours away by train. We work with London businesses remotely and price at Welsh rates, not London ones.',
     travel: 'Two hours on the train, so most of this runs over calls and email. Worth saying plainly: you are paying Welsh prices for London work, and that is the main reason to use someone outside the city.',
   },
 ]
@@ -379,7 +386,7 @@ function makeGeoPage(market) {
       },
       {
         title: 'Who does the work',
-        body: 'We do: David Hooper builds it and Jack keeps it moving. No account manager and no outsourcing. You get our direct numbers and we answer them.',
+        body: 'We do: David Hooper builds it and Jack Deane keeps it moving. No account manager and no outsourcing. You get our direct numbers and we answer them.',
       },
     ],
     ctaLabel: `Get a price for your ${market.city} project`,
@@ -488,7 +495,7 @@ export const SITE_FAQS = [
   },
   {
     q: 'Who actually does the work?',
-    a: 'We do. David Hooper founded the company and does the development; Jack runs operations. There is no account manager and nobody your job gets passed down to.',
+    a: 'We do. David Hooper founded the company and does the development; Jack Deane runs operations. There is no account manager and nobody your job gets passed down to.',
   },
   {
     q: 'Do you deal with Apple and Google for us?',
@@ -499,8 +506,8 @@ export const SITE_FAQS = [
     a: 'From £35 a month, kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates.',
   },
   {
-    q: 'Do you work outside Cardiff?',
-    a: 'Yes. We can meet in person around south Wales, but most work happens over email and calls, and we price the same wherever you are.',
+    q: 'Where are you based?',
+    a: 'Pontypridd. We meet clients in person across Cardiff and south Wales, but most work happens over email and calls, and we price the same wherever you are.',
   },
 ]
 

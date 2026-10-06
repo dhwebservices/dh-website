@@ -109,7 +109,7 @@ export function BookingWidget() {
           A confirmation has been sent to <strong>{form.email}</strong>.
         </p>
         <div style={{ background: '#F5F5F7', borderRadius: 12, padding: '14px 18px', marginBottom: 20, border: '1px solid #E8E8ED', fontSize: 14 }}>
-          We will call you from <strong>029 2002 4218</strong>
+          We will call you from <strong>01443 805303</strong>
         </div>
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 18 }}>
           <a href={getGoogleCalendarUrl({ date: done.date, start_time: done.time, end_time: addMinutes(done.time, selectedDuration), staff_name: done.staffName, cancel_token: done.cancelToken, notes: done.notes })} target="_blank" rel="noreferrer" className="btn-secondary" style={{ textDecoration: 'none' }}>
