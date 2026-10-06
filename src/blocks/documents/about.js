@@ -55,7 +55,7 @@ export const ABOUT_DOCUMENT = {
       props: {
         eyebrow: "The team",
         heading: "Who you will\ndeal with.",
-        body: "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. Their direct numbers are below.",
+        body: "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. You can ring either of them directly.",
         people: TEAM_PEOPLE,
         background: "var(--white)"
       }
