@@ -74,14 +74,6 @@ export default function Footer() {
               >
                 01443 805303
               </a>
-              <a
-                href="tel:07364166285"
-                style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s' }}
-                onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
-                onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
-              >
-                07364 166285
-              </a>
               <div style={{ fontSize: 13, color: 'var(--mid)', marginTop: 8 }}>
                 <div style={{ fontWeight: 500, marginBottom: 2 }}>Based in Pontypridd</div>
                 <div>Serving Cardiff and south Wales</div>

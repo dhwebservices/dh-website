@@ -124,7 +124,6 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                 {[
                   { label:'Email',    val: cms?.email    || 'clients@dhwebsiteservices.co.uk', href:'mailto:clients@dhwebsiteservices.co.uk' },
                   { label:'Main line',    val: cms?.phone    || '01443 805303', href:'tel:+441443805303' },
-                  { label:'Mobile',    val: '07364 166285', href:'tel:07364166285' },
                   { label:'Location', val: cms?.location || 'Pontypridd, United Kingdom' },
                   { label:'Response', val: cms?.response_time || 'Within 24 hours' },
                 ].map((c,i,arr) => (
@@ -155,7 +154,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
               <div style={{ marginTop:24 }}>
                 <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:14 }}>What to expect</p>
                 {[
-                  ['1', 'We call you', 'From 01443 805303 or 07364 166285, at the time you pick'],
+                  ['1', 'We call you', 'From 01443 805303, at the time you pick'],
                   ['2', 'Talk it through', 'You tell us what you need and we ask the awkward questions'],
                   ['3', 'Clear plan & price', 'Fixed quote, no surprises'],
                 ].map(([icon, title, desc]) => (
@@ -210,7 +209,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                       <Link to="/pricing" className="btn-ghost" style={{ fontSize:13 }}>See pricing →</Link>
                     </div>
                     <div style={{ marginTop:20, padding:'12px 16px', background:'var(--accent-soft)', borderRadius:8, border:'1px solid rgba(200,16,46,0.15)' }}>
-                      <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:+441443805303" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>01443 805303</a> or <a href="tel:07364166285" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>07364 166285</a></p>
+                      <p style={{ fontSize:13, color:'var(--dark2)' }}>Need faster response? Call <a href="tel:+441443805303" style={{ color:'var(--accent)', fontWeight:600, textDecoration:'none' }}>01443 805303</a></p>
                     </div>
                   </div>
                 </div>

@@ -40,11 +40,6 @@ export const ABOUT_DOCUMENT = {
             kind: "phone",
             href: "tel:+441443805303",
             label: "01443 805303"
-          },
-          {
-            kind: "phone",
-            href: "tel:07364166285",
-            label: "07364 166285"
           }
         ]
       }

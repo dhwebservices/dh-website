@@ -6,8 +6,6 @@ export default function MaintenanceMode({ settings }) {
   const [status, setStatus] = useState({ type: '', message: '' })
   const primaryCallNumber = '+441443805303'
   const formattedPrimaryNumber = '01443 805303'
-  const secondaryCallNumber = '07364166285'
-  const formattedSecondaryNumber = '07364 166285'
 
   const canSubmit = form.name.trim() && form.phone.trim() && !submitting
 
@@ -299,25 +297,6 @@ export default function MaintenanceMode({ settings }) {
               </div>
             </a>
 
-            <a
-              href={`tel:${secondaryCallNumber}`}
-              style={{
-                display: 'grid',
-                gap: 8,
-                padding: '16px 22px',
-                borderRadius: 16,
-                background: 'rgba(48,164,108,0.08)',
-                border: '1px solid rgba(48,164,108,0.16)',
-                boxShadow: '0 8px 24px rgba(48,164,108,0.12)',
-              }}
-            >
-              <div style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mid)' }}>
-                Alternative
-              </div>
-              <div style={{ fontSize: 24, lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--dark)', fontWeight: 600 }}>
-                {formattedSecondaryNumber}
-              </div>
-            </a>
           </div>
 
           {settings?.form_enabled !== false ? (
