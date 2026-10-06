@@ -3,7 +3,10 @@
     "details": [
       {
         "appIDs": ["DNZW7TMY34.com.dhwebsiteservices.findmygang"],
-        "components": [{ "/": "/findmygang/join/*", "comment": "Fam & a Half invite links" }]
+        "components": [
+          { "/": "/famandahalf/join/*", "comment": "Fam & a Half invite links" },
+          { "/": "/findmygang/join/*", "comment": "Invite links from builds before the rename" }
+        ]
       }
     ]
   }
