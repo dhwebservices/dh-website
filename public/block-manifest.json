@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T19:33:23.365Z",
+  "generatedAt": "2026-09-03T12:49:51.049Z",
   "blocks": [
     {
       "type": "hero",
@@ -3041,7 +3041,7 @@
           "props": {
             "eyebrow": "Pricing",
             "heading": "Simple,\nfixed pricing.",
-            "body": "No hourly billing, no surprises. Clear packages built around what growing businesses actually need.",
+            "body": "No hourly billing, no surprises. Clear packages built around what growing businesses actually need. All prices exclude VAT, which is charged at 20%.",
             "maxWidth": 720,
             "bodyMaxWidth": null,
             "paddingBottom": "clamp(40px,5vw,64px)"
@@ -3116,7 +3116,7 @@
                 ]
               }
             ],
-            "hostingIntro": "Monthly hosting plans to keep your site fast, secure and up to date.",
+            "hostingIntro": "Monthly hosting plans to keep your site fast, secure and up to date. Prices exclude VAT.",
             "hosting": [
               {
                 "name": "Starter",

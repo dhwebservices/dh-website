@@ -348,7 +348,7 @@ export default function Footer() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
             <p style={{ fontSize: 12, color: 'var(--light)' }}>
-              © 2026 DH Website Services (David Hooper Home Limited, Co. No. 17018784)
+              © 2026 DH Website Services (David Hooper Home Limited, Co. No. 17018784, VAT No. GB 517 076 395)
             </p>
             <p style={{ fontSize: 12, color: 'var(--light)' }}>Cardiff, Wales</p>
           </div>

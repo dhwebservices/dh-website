@@ -61,7 +61,7 @@ const BASE_INDEXABLE_PAGES = [
     title: 'Pricing | DH Website Services',
     description: 'Clear website build, hosting, and HR system pricing with fixed packages from £449. Transparent pricing with no hidden fees or hourly ambiguity.',
     heading: 'Fixed website pricing without hourly ambiguity.',
-    intro: 'Four website packages from £449 to £2,499, apps from £349, hosting from £35 a month. The numbers are on the page so you can decide before you speak to me.',
+    intro: 'Four website packages from £449 to £2,499, apps from £349, hosting from £35 a month, all excluding VAT. The numbers are on the page so you can decide before you speak to me.',
     sections: [
       {
         title: 'Build packages',

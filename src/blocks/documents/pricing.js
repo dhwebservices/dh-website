@@ -16,7 +16,7 @@ export const PRICING_DOCUMENT = {
       props: {
         eyebrow: "Pricing",
         heading: "Simple,\nfixed pricing.",
-        body: "No hourly billing, no surprises. Clear packages built around what growing businesses actually need.",
+        body: "No hourly billing, no surprises. Clear packages built around what growing businesses actually need. All prices exclude VAT, which is charged at 20%.",
         maxWidth: 720,
         bodyMaxWidth: null,
         paddingBottom: "clamp(40px,5vw,64px)"
@@ -91,7 +91,7 @@ export const PRICING_DOCUMENT = {
             ]
           }
         ],
-        hostingIntro: "Monthly hosting plans to keep your site fast, secure and up to date.",
+        hostingIntro: "Monthly hosting plans to keep your site fast, secure and up to date. Prices exclude VAT.",
         hosting: [
           {
             name: "Starter",
