@@ -8,6 +8,7 @@ const SAME_AS = [
   'https://www.linkedin.com/company/dh-website-services/',
   'https://www.facebook.com/dhwebsiteservices',
   'https://x.com/dhwebservices',
+  'https://www.instagram.com/dhwebservices/',
   'https://find-and-update.company-information.service.gov.uk/company/17018784',
   'https://apps.apple.com/gb/app/the-fish-tank/id6801622379',
 ]
