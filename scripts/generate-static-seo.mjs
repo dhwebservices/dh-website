@@ -148,6 +148,17 @@ async function writeRoutePage(page, assetTags) {
   await fs.writeFile(targetPath, buildHtml(page, assetTags), 'utf8')
 }
 
+/**
+ * Hand-written pages in public/ that the React app does not build. They need
+ * listing here or they never reach the sitemap. The join page is left out on
+ * purpose: it is noindex.
+ */
+const STATIC_PAGES = [
+  { path: '/famandahalf/', title: 'Fam & a Half: free family and friends locator for iPhone' },
+  { path: '/famandahalf/support/', title: 'Fam & a Half help and support' },
+  { path: '/famandahalf/privacy/', title: 'Fam & a Half privacy policy' },
+]
+
 async function writeLlmFiles() {
   const llms = [
     '# DH Website Services',
@@ -156,6 +167,11 @@ async function writeLlmFiles() {
     '',
     'Key public pages:',
     ...INDEXABLE_PAGES.map((page) => `- ${SEO_SITE_URL}${withTrailingSlash(page.path)} | ${page.title}`),
+    ...STATIC_PAGES.map((page) => `- ${SEO_SITE_URL}${page.path} | ${page.title}`),
+    '',
+    'Our own products:',
+    '- Fam & a Half: a free family and friends location app for iPhone (live map, arrival alerts, SOS, crash detection, pick-up requests). In App Store review.',
+    '- Fish Tank: a real-time multiplayer game on the App Store and Google Play.',
     '',
     'Primary offer:',
     '- iPhone and Android apps for the App Store and Google Play.',
@@ -234,11 +250,13 @@ async function writeSitemap() {
     const loc = `${SEO_SITE_URL}${withTrailingSlash(page.path)}`
     const priority = page.path === '/' ? '1.0' : page.city ? '0.7' : '0.8'
     return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`
-  }).join('\n')
+  }).concat(STATIC_PAGES.map((page) =>
+    `  <url>\n    <loc>${SEO_SITE_URL}${page.path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${page.path === '/famandahalf/' ? '0.8' : '0.4'}</priority>\n  </url>`,
+  )).join('\n')
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
   await fs.writeFile(path.join(distDir, 'sitemap.xml'), xml, 'utf8')
-  return INDEXABLE_PAGES.length
+  return INDEXABLE_PAGES.length + STATIC_PAGES.length
 }
 
 /**
