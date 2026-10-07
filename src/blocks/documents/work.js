@@ -37,9 +37,9 @@ export const WORK_ITEMS = [
   {
     name: 'Fam & a Half',
     platforms: 'iPhone',
-    status: 'In TestFlight beta',
+    status: 'In App Store review',
     tone: 'beta',
-    desc: 'Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. In beta testing now and coming soon to the App Store.',
+    desc: 'Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. With Apple for review now and coming soon to the App Store.',
     icon: '/work/findmygang-icon.png',
     iconAlt: 'Fam & a Half app icon',
     panel: '#E7F1EC',

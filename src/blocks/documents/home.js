@@ -4,7 +4,7 @@
  * October 2026: refocused on app development and web design, written as the
  * team rather than as one person. Every product named here is real and every
  * status is what is true today -- Fish Tank is live on both stores,
- * Fam & a Half (was FindMyGang) is in TestFlight and NOT on the App Store yet. Keep it that way:
+ * Fam & a Half (was FindMyGang) is in App Store review and NOT on the App Store yet. Keep it that way:
  * no download counts, ratings, client logos or testimonials until there are
  * real ones to show.
  *
@@ -23,18 +23,29 @@ export const HOME_DOCUMENT = {
       props: {
         headlineLead: 'We build apps',
         typewriterLines: ['and websites.'],
-        body: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
-        primaryLabel: 'Talk to us about a project',
-        primaryHref: '/contact',
-        secondaryLabel: 'See our work',
-        secondaryHref: '/portfolio',
+        body: 'DH Website Services is a small software company in Pontypridd, Wales. We build and run our own apps: Fam & a Half, a free family location app, and Fish Tank, a multiplayer game on both app stores. We also build iPhone and Android apps and websites for businesses, at a fixed price agreed before we start.',
+        primaryLabel: 'See Fam & a Half',
+        primaryHref: '/famandahalf/',
+        secondaryLabel: 'Talk to us about a project',
+        secondaryHref: '/contact',
         showScrollHint: true,
         stats: [
-          { value: 'iOS + Android', label: 'Apps on both stores' },
-          { value: 'From £349', label: 'Apps' },
+          { value: '2 apps', label: 'Our own products' },
+          { value: 'From £349', label: 'Client apps' },
           { value: 'From £449', label: 'Websites' },
           { value: 'Fixed price', label: 'Agreed before we start' },
         ],
+      },
+    },
+
+    {
+      id: 'home-work',
+      type: 'work-showcase',
+      props: {
+        eyebrow: 'Our products',
+        heading: 'Apps we build\nfor ourselves.',
+        body: 'Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is with Apple for review, and two more run our business every day.',
+        items: WORK_ITEMS,
       },
     },
 
@@ -51,16 +62,6 @@ export const HOME_DOCUMENT = {
       },
     },
 
-    {
-      id: 'home-work',
-      type: 'work-showcase',
-      props: {
-        eyebrow: 'Our work',
-        heading: 'Apps we have built,\nand still run.',
-        body: 'These are our own products, not mockups. One is on both app stores, one is in beta testing, and two run our business every day.',
-        items: WORK_ITEMS,
-      },
-    },
 
     {
       id: 'home-services',

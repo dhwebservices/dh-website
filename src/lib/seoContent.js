@@ -26,10 +26,14 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
     title: 'App Development & Web Design in Wales | DH Website Services',
-    description: 'iPhone and Android apps and web design from a small team based in Pontypridd, serving Cardiff and Wales. Apps from £349, websites from £449.',
+    description: 'A small software company in Pontypridd, Wales. We build our own apps, Fam & a Half and Fish Tank, plus iPhone and Android apps and websites for businesses.',
     heading: 'We build apps and websites.',
-    intro: 'DH Website Services is a small team based in Pontypridd, serving Cardiff and Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.',
+    intro: 'DH Website Services is a small software company in Pontypridd, Wales. We build and run our own apps: Fam & a Half, a free family location app, and Fish Tank, a multiplayer game on both app stores. We also build iPhone and Android apps and websites for businesses, at a fixed price agreed before we start.',
     sections: [
+      {
+        title: 'Our products',
+        body: 'Fam & a Half is a free family and friends location app for iPhone: live map, arrival alerts, SOS and crash detection, pick-up requests and Walk Me Home. It is with Apple for review now (dhwebsiteservices.co.uk/famandahalf). Fish Tank is a real-time multiplayer game, live on the App Store and Google Play. We also run our own staff portal and phone system.',
+      },
       {
         title: 'What we build',
         body: 'Apps for the App Store and Google Play from £349. Websites from £449. Staff portals with rotas, timesheets, leave and payslips. Our own game, Fish Tank, is live on both stores.',
@@ -86,7 +90,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/portfolio',
     title: 'Our Work: Apps and Websites | DH Website Services',
-    description: 'Apps and websites we have built: Fish Tank on the App Store and Google Play, Fam & a Half in beta, our staff portal and phone system, and web design work.',
+    description: 'Apps and websites we have built: Fish Tank on the App Store and Google Play, Fam & a Half in App Store review, our staff portal and phone system, and web design work.',
     heading: 'Apps and websites we have shipped.',
     intro: 'Shipped work rather than mockups. Fish Tank is on the App Store and Google Play and you can download it now.',
     sections: [

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T20:23:27.423Z",
+  "generatedAt": "2026-10-07T00:31:21.314Z",
   "blocks": [
     {
       "type": "hero",
@@ -2780,20 +2780,20 @@
             "typewriterLines": [
               "and websites."
             ],
-            "body": "DH Website Services is a small team based in Pontypridd, serving Cardiff and Wales. We make iPhone and Android apps and design websites for businesses. You get a fixed price before we start, and the code is yours at the end.",
-            "primaryLabel": "Talk to us about a project",
-            "primaryHref": "/contact",
-            "secondaryLabel": "See our work",
-            "secondaryHref": "/portfolio",
+            "body": "DH Website Services is a small software company in Pontypridd, Wales. We build and run our own apps: Fam & a Half, a free family location app, and Fish Tank, a multiplayer game on both app stores. We also build iPhone and Android apps and websites for businesses, at a fixed price agreed before we start.",
+            "primaryLabel": "See Fam & a Half",
+            "primaryHref": "/famandahalf/",
+            "secondaryLabel": "Talk to us about a project",
+            "secondaryHref": "/contact",
             "showScrollHint": true,
             "stats": [
               {
-                "value": "iOS + Android",
-                "label": "Apps on both stores"
+                "value": "2 apps",
+                "label": "Our own products"
               },
               {
                 "value": "From £349",
-                "label": "Apps"
+                "label": "Client apps"
               },
               {
                 "value": "From £449",
@@ -2802,6 +2802,65 @@
               {
                 "value": "Fixed price",
                 "label": "Agreed before we start"
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-work",
+          "type": "work-showcase",
+          "props": {
+            "eyebrow": "Our products",
+            "heading": "Apps we build\nfor ourselves.",
+            "body": "Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is with Apple for review, and two more run our business every day.",
+            "items": [
+              {
+                "name": "Fish Tank",
+                "platforms": "iPhone, iPad and Android",
+                "status": "Live on the App Store and Google Play",
+                "tone": "live",
+                "desc": "A multiplayer fish game we designed, built and run. Players on iPhone and Android play against each other in real time, add friends, challenge them and climb a shared leaderboard.",
+                "points": "Native Swift app for iOS, separate Android build · Cross-platform multiplayer on servers we run · Friends, challenges, push notifications and a daily leaderboard · Taken through Apple review and Google Play ourselves",
+                "icon": "/work/fish-tank-icon.png",
+                "image": "/work/fish-tank-title.jpg",
+                "imageAlt": "Fish Tank on iPhone: the title screen with the tank, the Play button and the coin total",
+                "image2": "/work/fish-tank-home.jpg",
+                "image2Alt": "Fish Tank on iPhone: a home aquarium full of fish",
+                "linkLabel": "App Store",
+                "linkHref": "https://apps.apple.com/gb/app/the-fish-tank/id6801622379",
+                "link2Label": "Google Play",
+                "link2Href": "https://play.google.com/store/apps/details?id=com.dhwebsiteservices.fishtank"
+              },
+              {
+                "name": "Fam & a Half",
+                "platforms": "iPhone",
+                "status": "In App Store review",
+                "tone": "beta",
+                "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. With Apple for review now and coming soon to the App Store.",
+                "icon": "/work/findmygang-icon.png",
+                "iconAlt": "Fam & a Half app icon",
+                "panel": "#E7F1EC",
+                "linkLabel": "See the app",
+                "linkHref": "/famandahalf/"
+              },
+              {
+                "name": "DH Staff Portal",
+                "platforms": "Web and native iOS app",
+                "status": "In daily use",
+                "tone": "internal",
+                "desc": "The system we run our own staff on. Microsoft sign-in, rotas, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone and shifts synced to Outlook.",
+                "icon": "/work/staff-portal-icon.png",
+                "iconAlt": "DH Staff Portal app icon",
+                "panel": "#ECEEEC"
+              },
+              {
+                "name": "DH Phone",
+                "platforms": "Cloud phone system",
+                "status": "Takes our calls",
+                "tone": "internal",
+                "desc": "Our own phone system, built to replace a hosted one. The greeting, the call menu, the queue and who rings in what order all run on our code, with Twilio carrying the calls. Ring 01443 805303 and you are on it.",
+                "flow": "Incoming call → Greeting and menu → Queue → Rings the team",
+                "panel": "#F4F5F3"
               }
             ]
           }
@@ -2830,63 +2889,6 @@
                 "icon": "lock",
                 "label": "GDPR compliant",
                 "sub": "Data protection"
-              }
-            ]
-          }
-        },
-        {
-          "id": "home-work",
-          "type": "work-showcase",
-          "props": {
-            "eyebrow": "Our work",
-            "heading": "Apps we have built,\nand still run.",
-            "body": "These are our own products, not mockups. One is on both app stores, one is in beta testing, and two run our business every day.",
-            "items": [
-              {
-                "name": "Fish Tank",
-                "platforms": "iPhone, iPad and Android",
-                "status": "Live on the App Store and Google Play",
-                "tone": "live",
-                "desc": "A multiplayer fish game we designed, built and run. Players on iPhone and Android play against each other in real time, add friends, challenge them and climb a shared leaderboard.",
-                "points": "Native Swift app for iOS, separate Android build · Cross-platform multiplayer on servers we run · Friends, challenges, push notifications and a daily leaderboard · Taken through Apple review and Google Play ourselves",
-                "icon": "/work/fish-tank-icon.png",
-                "image": "/work/fish-tank-title.jpg",
-                "imageAlt": "Fish Tank on iPhone: the title screen with the tank, the Play button and the coin total",
-                "image2": "/work/fish-tank-home.jpg",
-                "image2Alt": "Fish Tank on iPhone: a home aquarium full of fish",
-                "linkLabel": "App Store",
-                "linkHref": "https://apps.apple.com/gb/app/the-fish-tank/id6801622379",
-                "link2Label": "Google Play",
-                "link2Href": "https://play.google.com/store/apps/details?id=com.dhwebsiteservices.fishtank"
-              },
-              {
-                "name": "FindMyGang",
-                "platforms": "iPhone",
-                "status": "In TestFlight beta",
-                "tone": "beta",
-                "desc": "Family location sharing, built as a free, privacy-first alternative to Life360. Live location, saved places with arrival alerts, and a notification when someone joins, leaves or turns location off. In beta testing now and not yet on the App Store.",
-                "icon": "/work/findmygang-icon.png",
-                "iconAlt": "FindMyGang app icon",
-                "panel": "#E7F1EC"
-              },
-              {
-                "name": "DH Staff Portal",
-                "platforms": "Web and native iOS app",
-                "status": "In daily use",
-                "tone": "internal",
-                "desc": "The system we run our own staff on. Microsoft sign-in, rotas, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone and shifts synced to Outlook.",
-                "icon": "/work/staff-portal-icon.png",
-                "iconAlt": "DH Staff Portal app icon",
-                "panel": "#ECEEEC"
-              },
-              {
-                "name": "DH Phone",
-                "platforms": "Cloud phone system",
-                "status": "Takes our calls",
-                "tone": "internal",
-                "desc": "Our own phone system, built to replace a hosted one. The greeting, the call menu, the queue and who rings in what order all run on our code, with Twilio carrying the calls. Ring 01443 805303 and you are on it.",
-                "flow": "Incoming call → Greeting and menu → Queue → Rings the team",
-                "panel": "#F4F5F3"
               }
             ]
           }
@@ -3231,7 +3233,7 @@
           "props": {
             "eyebrow": "Our work",
             "heading": "Apps and websites\nwe have shipped.",
-            "body": "Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and FindMyGang is in beta testing now.",
+            "body": "Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is with Apple for review now.",
             "maxWidth": 760,
             "bodyMaxWidth": 560
           }
@@ -3262,14 +3264,16 @@
                 "link2Href": "https://play.google.com/store/apps/details?id=com.dhwebsiteservices.fishtank"
               },
               {
-                "name": "FindMyGang",
+                "name": "Fam & a Half",
                 "platforms": "iPhone",
-                "status": "In TestFlight beta",
+                "status": "In App Store review",
                 "tone": "beta",
-                "desc": "Family location sharing, built as a free, privacy-first alternative to Life360. Live location, saved places with arrival alerts, and a notification when someone joins, leaves or turns location off. In beta testing now and not yet on the App Store.",
+                "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. With Apple for review now and coming soon to the App Store.",
                 "icon": "/work/findmygang-icon.png",
-                "iconAlt": "FindMyGang app icon",
-                "panel": "#E7F1EC"
+                "iconAlt": "Fam & a Half app icon",
+                "panel": "#E7F1EC",
+                "linkLabel": "See the app",
+                "linkHref": "/famandahalf/"
               },
               {
                 "name": "DH Staff Portal",

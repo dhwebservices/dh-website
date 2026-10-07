@@ -16,7 +16,7 @@ export const PORTFOLIO_DOCUMENT = {
       props: {
         eyebrow: 'Our work',
         heading: 'Apps and websites\nwe have shipped.',
-        body: 'Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is in beta testing now.',
+        body: 'Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is with Apple for review now.',
         maxWidth: 760,
         bodyMaxWidth: 560,
       },
