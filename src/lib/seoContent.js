@@ -28,7 +28,7 @@ export const ORGANIZATION_SCHEMA = {
   identifier: { '@type': 'PropertyValue', propertyID: 'Companies House', value: '17018784' },
   telephone: '+44 1443 805303',
   email: 'clients@dhwebsiteservices.co.uk',
-  address: { '@type': 'PostalAddress', addressLocality: 'Pontypridd', addressRegion: 'Rhondda Cynon Taf', addressCountry: 'GB' },
+  address: { '@type': 'PostalAddress', streetAddress: '36b Coedpenmaen Road, Trallwn', addressLocality: 'Pontypridd', addressRegion: 'Rhondda Cynon Taf', postalCode: 'CF37 4LP', addressCountry: 'GB' },
   sameAs: SAME_AS,
   owns: [
     { '@type': 'MobileApplication', name: 'Fish Tank', operatingSystem: 'iOS, Android', applicationCategory: 'GameApplication', url: 'https://apps.apple.com/gb/app/the-fish-tank/id6801622379' },
@@ -81,8 +81,10 @@ const makeServiceSchema = (path, title, description) => ({
   serviceType: title,
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '36b Coedpenmaen Road, Trallwn',
     addressLocality: 'Pontypridd',
     addressRegion: 'Rhondda Cynon Taf',
+    postalCode: 'CF37 4LP',
     addressCountry: 'GB',
   },
 })

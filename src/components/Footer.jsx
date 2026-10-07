@@ -342,7 +342,7 @@ export default function Footer() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
             <p style={{ fontSize: 12, color: 'var(--light)' }}>
-              © 2026 DH Website Services is a trading name of David Hooper Home Limited, registered in England and Wales, company number 17018784. VAT No. GB 517 076 395.
+              © 2026 DH Website Services is a trading name of David Hooper Home Limited, registered in England and Wales, company number 17018784. Registered office: 36b Coedpenmaen Road, Trallwn, Pontypridd CF37 4LP. VAT No. GB 517 076 395.
             </p>
             <p style={{ fontSize: 12, color: 'var(--light)' }}>Pontypridd, Wales</p>
           </div>

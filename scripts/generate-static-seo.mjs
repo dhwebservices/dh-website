@@ -113,7 +113,7 @@ function pageContent(page) {
           ${legalHtml(policy.content)}
           <h2>Other policies</h2>
           <ul>${Object.entries(POLICIES).filter(([path]) => path !== page.path).map(([path, other]) => `<li><a href="${path}/">${escapeHtml(other.title)}</a></li>`).join('')}</ul>
-          <p>Questions about any of these? Email <a href="mailto:clients@dhwebsiteservices.co.uk">clients@dhwebsiteservices.co.uk</a> or ring <a href="tel:+441443805303">01443 805303</a>. DH Website Services is a trading name of David Hooper Home Limited, registered in England and Wales, company number 17018784.</p>
+          <p>Questions about any of these? Email <a href="mailto:clients@dhwebsiteservices.co.uk">clients@dhwebsiteservices.co.uk</a> or ring <a href="tel:+441443805303">01443 805303</a>. DH Website Services is a trading name of David Hooper Home Limited, registered in England and Wales, company number 17018784. Registered office: 36b Coedpenmaen Road, Trallwn, Pontypridd CF37 4LP.</p>
         </article>
       </section>
     </main>
