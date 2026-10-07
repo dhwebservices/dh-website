@@ -13,7 +13,7 @@ import { useCMS } from './hooks/useCMS'
 import { GEO_PAGES, GEO_REDIRECTS } from './lib/seoContent'
 import { SITE_URL } from './lib/siteConfig'
 import { INDEXABLE_PAGE_META, withTrailingSlash } from './lib/seoContent'
-const OG_IMAGE_URL = `${SITE_URL}/og-image.svg`
+const OG_IMAGE_URL = `${SITE_URL}/og-image.png`
 
 const Services = lazy(() => import('./pages/Services'))
 const Pricing = lazy(() => import('./pages/Pricing'))

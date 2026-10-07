@@ -60,7 +60,7 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
               <a
                 href="mailto:clients@dhwebsiteservices.co.uk"
-                style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s' }}
+                style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s', display: 'inline-block', padding: '5px 0' }}
                 onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
                 onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
               >
@@ -68,7 +68,7 @@ export default function Footer() {
               </a>
               <a
                 href="tel:+441443805303"
-                style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s' }}
+                style={{ fontSize: 13, color: 'var(--mid)', transition: 'color 0.15s', display: 'inline-block', padding: '5px 0' }}
                 onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
                 onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
               >
@@ -330,7 +330,7 @@ export default function Footer() {
               <Link
                 key={item.to}
                 to={item.to}
-                style={{ fontSize: 12, color: 'var(--light)', transition: 'color 0.15s' }}
+                style={{ fontSize: 12, color: 'var(--light)', transition: 'color 0.15s', display: 'inline-block', padding: '6px 0' }}
                 onMouseOver={(e) => (e.currentTarget.style.color = 'var(--mid)')}
                 onMouseOut={(e) => (e.currentTarget.style.color = 'var(--light)')}
               >
@@ -340,7 +340,7 @@ export default function Footer() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
             <p style={{ fontSize: 12, color: 'var(--light)' }}>
-              © 2026 DH Website Services (David Hooper Home Limited, Co. No. 17018784, VAT No. GB 517 076 395)
+              © 2026 DH Website Services is a trading name of David Hooper Home Limited, registered in England and Wales, company number 17018784. VAT No. GB 517 076 395.
             </p>
             <p style={{ fontSize: 12, color: 'var(--light)' }}>Pontypridd, Wales</p>
           </div>

@@ -337,7 +337,7 @@ export function ClosingCtaBlock({ eyebrow, heading, body, primaryLabel, primaryH
           the homepage's own values as the defaults. */}
       <div className="container" style={{ textAlign: 'center', maxWidth: maxWidth || 680 }}>
         <div className="reveal">
-          <p className="eyebrow" style={{ color: 'rgba(255,255,255,0.35)', marginBottom: 20 }}>{eyebrow}</p>
+          <p className="eyebrow" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 20 }}>{eyebrow}</p>
           <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: headingSize || 'clamp(36px,5vw,64px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.05, color: 'white', marginBottom: 20 }}>
             {heading}
           </h2>
@@ -360,7 +360,7 @@ export function ClosingCtaBlock({ eyebrow, heading, body, primaryLabel, primaryH
           {(assurances || []).length > 0 && (
           <div style={{ display: 'flex', gap: 20, justifyContent: 'center', marginTop: 20, flexWrap: 'wrap' }}>
             {(assurances || []).map((t) => (
-              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
+              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.75)' }}>
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L3.5 7L8.5 2" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 {t}
               </div>

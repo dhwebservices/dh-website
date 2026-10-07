@@ -1,13 +1,23 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { INDEXABLE_PAGES, GEO_REDIRECTS, SITE_FAQS, FAQ_SCHEMA, SEO_SITE_URL, withTrailingSlash } from '../src/lib/seoContent.js'
+import { INDEXABLE_PAGES, GEO_REDIRECTS, SITE_FAQS, FAQ_SCHEMA, SEO_SITE_URL, withTrailingSlash, ORGANIZATION_SCHEMA, WEBSITE_SCHEMA, breadcrumbSchema } from '../src/lib/seoContent.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
 const distDir = path.join(rootDir, 'dist')
-const ogImageUrl = `${SEO_SITE_URL}/og-image.svg`
+const ogImageUrl = `${SEO_SITE_URL}/og-image.png`
+const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap'
+// Fonts load without blocking the first paint; the system font shows for a
+// moment instead of a blank page.
+const HEAD_LINKS = `<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://xtunnfdwltfesscmpove.supabase.co" crossorigin />
+    <link rel="preload" as="style" href="${FONTS_URL}" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="${FONTS_URL}" /></noscript>
+    <link rel="icon" href="/dh-logo-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />`
 
 function escapeHtml(value) {
   return String(value)
@@ -89,13 +99,15 @@ function buildHtml(page, assetTags) {
   // because marking up content that is not on the page is exactly what
   // Google's structured-data guidelines forbid.
   const wantsFaq = ['/', '/pricing', '/services'].includes(page.path)
+  const ld = (value) => `<script type="application/ld+json">${JSON.stringify(value)}</script>`
   const schema = page.schema
-    ? `<script type="application/ld+json">${JSON.stringify(page.schema)}</script>`
-      + (wantsFaq ? `<script type="application/ld+json">${JSON.stringify(FAQ_SCHEMA)}</script>` : '')
+    ? ld(page.schema)
+      + (wantsFaq ? ld(FAQ_SCHEMA) : '')
+      + (page.path === '/' ? ld(ORGANIZATION_SCHEMA) + ld(WEBSITE_SCHEMA) : ld(breadcrumbSchema(page)))
     : ''
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -108,13 +120,16 @@ function buildHtml(page, assetTags) {
     <meta property="og:description" content="${escapeHtml(page.description)}" />
     <meta property="og:url" content="${SEO_SITE_URL}${withTrailingSlash(page.path)}" />
     <meta property="og:image" content="${ogImageUrl}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:image:alt" content="${escapeHtml(page.title)} - DH Website Services" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="${escapeHtml(page.description)}" />
     <meta name="twitter:image" content="${ogImageUrl}" />
     <meta name="theme-color" content="#FFFFFF" />
-    <link rel="icon" href="/dh-logo-icon.png" />
+    ${HEAD_LINKS}
     <link rel="canonical" href="${SEO_SITE_URL}${withTrailingSlash(page.path)}" />
     ${assetTags.styles}
     ${schema}
@@ -129,7 +144,7 @@ function buildHtml(page, assetTags) {
 async function extractAssetTags() {
   const builtIndexPath = path.join(distDir, 'index.html')
   const builtIndex = await fs.readFile(builtIndexPath, 'utf8')
-  const styles = [...builtIndex.matchAll(/<link rel="stylesheet"[^>]*href="[^"]+"[^>]*>/g)]
+  const styles = [...builtIndex.matchAll(/<link rel="stylesheet"[^>]*href="\/assets\/[^"]+"[^>]*>/g)]
     .map((match) => match[0])
     .join('\n    ')
   const scripts = [...builtIndex.matchAll(/<script type="module"[^>]*src="[^"]+"[^>]*><\/script>/g)]
@@ -200,12 +215,13 @@ async function writeLlmFiles() {
 
 async function write404Page(assetTags) {
   const html = `<!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page not found | DH Website Services</title>
     <meta name="robots" content="noindex,nofollow" />
+    ${HEAD_LINKS}
     ${assetTags.styles}
   </head>
   <body>

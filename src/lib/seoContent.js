@@ -1,8 +1,68 @@
 export const SEO_SITE_URL = 'https://www.dhwebsiteservices.co.uk'
 
+const ORG_ID = `${SEO_SITE_URL}/#organization`
+const SAME_AS = [
+  'https://www.linkedin.com/company/dh-website-services/',
+  'https://www.facebook.com/dhwebsiteservices',
+  'https://x.com/dhwebservices',
+  'https://find-and-update.company-information.service.gov.uk/company/17018784',
+  'https://apps.apple.com/gb/app/the-fish-tank/id6801622379',
+]
+
+export const ORGANIZATION_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': ORG_ID,
+  name: 'DH Website Services',
+  legalName: 'David Hooper Home Limited',
+  url: `${SEO_SITE_URL}/`,
+  logo: `${SEO_SITE_URL}/dh-logo.png`,
+  image: `${SEO_SITE_URL}/og-image.png`,
+  foundingDate: '2026-02-07',
+  founder: { '@type': 'Person', name: 'David Hooper' },
+  vatID: 'GB517076395',
+  identifier: { '@type': 'PropertyValue', propertyID: 'Companies House', value: '17018784' },
+  telephone: '+44 1443 805303',
+  email: 'clients@dhwebsiteservices.co.uk',
+  address: { '@type': 'PostalAddress', addressLocality: 'Pontypridd', addressRegion: 'Rhondda Cynon Taf', addressCountry: 'GB' },
+  sameAs: SAME_AS,
+  owns: [
+    { '@type': 'MobileApplication', name: 'Fish Tank', operatingSystem: 'iOS, Android', applicationCategory: 'GameApplication', url: 'https://apps.apple.com/gb/app/the-fish-tank/id6801622379' },
+    { '@type': 'MobileApplication', name: 'Fam & a Half', operatingSystem: 'iOS', applicationCategory: 'LifestyleApplication', url: `${SEO_SITE_URL}/famandahalf/` },
+  ],
+}
+
+export const WEBSITE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SEO_SITE_URL}/#website`,
+  name: 'DH Website Services',
+  url: `${SEO_SITE_URL}/`,
+  inLanguage: 'en-GB',
+  publisher: { '@id': ORG_ID },
+}
+
+export function breadcrumbSchema(page) {
+  const name = page.city ? `Web design ${page.city}` : page.heading || page.title.split(' | ')[0]
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SEO_SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name, item: `${SEO_SITE_URL}${page.path}${page.path.endsWith('/') ? '' : '/'}` },
+    ],
+  }
+}
+
 const makeServiceSchema = (path, title, description) => ({
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': `${SEO_SITE_URL}/#business`,
+  parentOrganization: { '@id': ORG_ID },
+  logo: `${SEO_SITE_URL}/dh-logo.png`,
+  image: `${SEO_SITE_URL}/og-image.png`,
+  priceRange: '£349–£2,499',
+  sameAs: SAME_AS,
   name: 'DH Website Services',
   url: `${SEO_SITE_URL}${path}`,
   description,
@@ -18,6 +78,7 @@ const makeServiceSchema = (path, title, description) => ({
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Pontypridd',
+    addressRegion: 'Rhondda Cynon Taf',
     addressCountry: 'GB',
   },
 })
@@ -327,6 +388,16 @@ const GEO_MARKETS = [
     city: 'Pontypridd',
     intro: 'We are a web design and app development company based in Pontypridd. If your business is in Ponty, Treforest, Porth, the Rhondda or anywhere else in Rhondda Cynon Taf, we are minutes away.',
     travel: 'We are local, so we can meet you at your business, in town or on a video call, whichever suits. The first conversation is free and there is no obligation to go ahead.',
+    extra: [
+      {
+        title: 'Areas we cover nearby',
+        body: 'Pontypridd town centre, Treforest, Trallwn, Graig, Cilfynydd, Hopkinstown, Porth, Tonypandy, Treorchy and the rest of the Rhondda, Abercynon, Mountain Ash, Aberdare, Church Village, Llantwit Fardre, Beddau, Tonyrefail, Llantrisant, Talbot Green, Caerphilly and Merthyr Tydfil.',
+      },
+      {
+        title: 'What we have built here',
+        body: 'Our own apps are made in Pontypridd: Fish Tank, a multiplayer game on the App Store and Google Play, and Fam & a Half, a free family location app. We also run our own staff portal and phone system, and we build websites and apps for local businesses.',
+      },
+    ],
   },
   {
     city: 'Cardiff',
@@ -397,6 +468,7 @@ function makeGeoPage(market) {
         title: 'Who does the work',
         body: 'We do: David Hooper builds it and Jack Deane keeps it moving. No account manager and no outsourcing. You get our direct numbers and we answer them.',
       },
+      ...(market.extra || []),
     ],
     ctaLabel: `Get a price for your ${market.city} project`,
     ctaHref: '/contact',

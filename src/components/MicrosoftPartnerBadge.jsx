@@ -16,6 +16,8 @@ export default function MicrosoftPartnerBadge({ width = 240, framed = false, sty
       <img
         src="/microsoft-partner.svg"
         alt="Microsoft Partner"
+        width={width}
+        height={Math.round(width * 0.3)}
         style={{
           display: 'block',
           width: '100%',
