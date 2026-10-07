@@ -25,8 +25,8 @@ const makeServiceSchema = (path, title, description) => ({
 const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
-    title: 'App Development & Web Design in Wales | DH Website Services',
-    description: 'A small software company in Pontypridd, Wales. We build our own apps, Fam & a Half and Fish Tank, plus iPhone and Android apps and websites for businesses.',
+    title: 'Web Design & App Development in Pontypridd, Wales | DH Website Services',
+    description: 'Web designer and app developer in Pontypridd. Websites from £449 and iPhone and Android apps from £349 for businesses in Rhondda Cynon Taf, Cardiff and Wales.',
     heading: 'We build apps and websites.',
     intro: 'DH Website Services is a small software company in Pontypridd, Wales. We build and run our own apps: Fam & a Half, a free family location app, and Fish Tank, a multiplayer game on both app stores. We also build iPhone and Android apps and websites for businesses, at a fixed price agreed before we start.',
     sections: [
@@ -323,6 +323,11 @@ const BASE_INDEXABLE_PAGES = [
 ]
 
 const GEO_MARKETS = [
+  {
+    city: 'Pontypridd',
+    intro: 'We are a web design and app development company based in Pontypridd. If your business is in Ponty, Treforest, Porth, the Rhondda or anywhere else in Rhondda Cynon Taf, we are minutes away.',
+    travel: 'We are local, so we can meet you at your business, in town or on a video call, whichever suits. The first conversation is free and there is no obligation to go ahead.',
+  },
   {
     city: 'Cardiff',
     intro: 'Cardiff is a short drive down the A470 from us in Pontypridd, so we can be in your office the same week you call.',
