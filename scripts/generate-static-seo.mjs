@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { POLICIES } from '../src/lib/legalContent.js'
 import { INDEXABLE_PAGES, GEO_REDIRECTS, SITE_FAQS, FAQ_SCHEMA, SEO_SITE_URL, withTrailingSlash, ORGANIZATION_SCHEMA, WEBSITE_SCHEMA, breadcrumbSchema } from '../src/lib/seoContent.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -54,7 +55,49 @@ function faqHtml(page) {
   `
 }
 
+/** The policy text as plain HTML, from the same markdown-ish source the React page uses. */
+function legalHtml(text) {
+  const inline = (value) => escapeHtml(value).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  const out = []
+  let list = null
+  const flush = () => { if (list) { out.push(`<${list.tag}>${list.items.join('')}</${list.tag}>`); list = null } }
+  for (const raw of text.split('\n')) {
+    const line = raw.trim()
+    if (!line) { flush(); continue }
+    if (line.startsWith('### ')) { flush(); out.push(`<h3>${inline(line.slice(4))}</h3>`); continue }
+    if (line.startsWith('## ')) { flush(); out.push(`<h2>${inline(line.slice(3))}</h2>`); continue }
+    const bullet = line.startsWith('- ') ? ['ul', line.slice(2)] : /^\d+\.\s/.test(line) ? ['ol', line.replace(/^\d+\.\s/, '')] : null
+    if (bullet) {
+      if (!list || list.tag !== bullet[0]) { flush(); list = { tag: bullet[0], items: [] } }
+      list.items.push(`<li>${inline(bullet[1])}</li>`)
+      continue
+    }
+    flush()
+    out.push(`<p>${inline(line)}</p>`)
+  }
+  flush()
+  return out.join('\n')
+}
+
 function pageContent(page) {
+  const policy = POLICIES[page.path]
+  if (policy) {
+    return `
+    <main style="padding-top:var(--nav-h)">
+      <section class="section">
+        <article class="container legal-prerender" style="max-width:760px">
+          <p class="eyebrow" style="margin-bottom:16px">Legal</p>
+          <h1 style="font-family:var(--font-sans);font-size:clamp(36px,5vw,56px);font-weight:600;letter-spacing:-0.03em;line-height:1.05;margin:0 0 12px">${escapeHtml(policy.title)}</h1>
+          <p class="body-sm" style="margin:0 0 28px">Last updated ${escapeHtml(policy.updated || '')}</p>
+          ${legalHtml(policy.content)}
+          <h2>Other policies</h2>
+          <ul>${Object.entries(POLICIES).filter(([path]) => path !== page.path).map(([path, other]) => `<li><a href="${path}/">${escapeHtml(other.title)}</a></li>`).join('')}</ul>
+          <p>Questions about any of these? Email <a href="mailto:clients@dhwebsiteservices.co.uk">clients@dhwebsiteservices.co.uk</a> or ring <a href="tel:+441443805303">01443 805303</a>. DH Website Services is a trading name of David Hooper Home Limited, registered in England and Wales, company number 17018784.</p>
+        </article>
+      </section>
+    </main>
+  `
+  }
   const eyebrow = page.city
     ? `${page.city} ${page.intentLabel.toLowerCase()}`
     : page.path === '/website-builder'
@@ -294,7 +337,13 @@ async function writeRedirects() {
     '# 301, add a Single Redirect rule on the zone in the Cloudflare dashboard.',
     '',
     '# Retired pages, pointing at whatever replaced them.',
-    ...GEO_REDIRECTS.map(([from, to]) => `${from} ${to} 301`),
+    // Both spellings: Google had crawled the trailing-slash versions, which
+    // matched no rule and fell through to a 404.
+    ...GEO_REDIRECTS.flatMap(([from, to]) => [`${from} ${to}/ 301`, `${from}/ ${to}/ 301`]),
+    '',
+    '# Old addresses Google still had on file.',
+    '/privacy-policy /privacy/ 301',
+    '/security-disclosure /security/ 301',
     '',
     '# FindMyGang was renamed Fam & a Half; old links and app builds still use these.',
     '/findmygang /famandahalf/ 301',
@@ -315,7 +364,7 @@ async function writeRedirects() {
     '',
   ]
   await fs.writeFile(path.join(distDir, '_redirects'), lines.join('\n'), 'utf8')
-  return GEO_REDIRECTS.length
+  return GEO_REDIRECTS.length * 2 + 2
 }
 
 const urlCount = await writeSitemap()
