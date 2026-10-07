@@ -10,7 +10,7 @@ import SiteBanner from './components/SiteBanner'
 import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
-import { GEO_PAGES, GEO_REDIRECTS } from './lib/seoContent'
+import { GEO_PAGES, GEO_REDIRECTS, ARTICLE_PAGES } from './lib/seoContent'
 import { SITE_URL } from './lib/siteConfig'
 import { INDEXABLE_PAGE_META, withTrailingSlash } from './lib/seoContent'
 const OG_IMAGE_URL = `${SITE_URL}/og-image.png`
@@ -39,6 +39,7 @@ const About = lazy(() => import('./pages/About'))
 const Partners = lazy(() => import('./pages/Partners'))
 const ManagedPage = lazy(() => import('./pages/ManagedPage'))
 const GeoPage = lazy(() => import('./pages/GeoPage'))
+const ArticlePage = lazy(() => import('./pages/ArticlePage'))
 const MailingListPopup = lazy(() => import('./components/MailingListPopup'))
 const WhatsAppButtonLazy = lazy(() => import('./components/WhatsAppButton'))
 const ExitIntentLazy = lazy(() => import('./components/ExitIntent'))
@@ -312,6 +313,9 @@ function Layout() {
               curl. */}
           {GEO_PAGES.map((page) => (
             <Route key={page.path} path={page.path} element={<GeoPage />} />
+          ))}
+          {ARTICLE_PAGES.map((page) => (
+            <Route key={page.path} path={page.path} element={<ArticlePage />} />
           ))}
 
           {/* Retired variants, redirected rather than deleted so an old

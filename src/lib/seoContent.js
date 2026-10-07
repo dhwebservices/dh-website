@@ -1,4 +1,7 @@
+import { ARTICLE_PAGES } from './articles.js'
+
 export const SEO_SITE_URL = 'https://www.dhwebsiteservices.co.uk'
+export { ARTICLE_PAGES }
 
 const ORG_ID = `${SEO_SITE_URL}/#organization`
 const SAME_AS = [
@@ -413,6 +416,16 @@ const GEO_MARKETS = [
     city: 'Swansea',
     intro: 'Swansea is an hour down the M4. Close enough to visit, far enough that most of the work happens over email and calls.',
     travel: 'Roughly an hour each way. We will come out for the first meeting if you would rather do it face to face; after that it is usually quicker for both of us to work over email.',
+    extra: [
+      {
+        title: 'Across Swansea and the west',
+        body: 'We work with businesses in Swansea city centre, the Marina, Mumbles, Sketty, Uplands, Morriston, Gorseinon, Pontarddulais, Neath, Port Talbot and Llanelli. The price is the same as it is in Pontypridd: we do not add anything for distance.',
+      },
+      {
+        title: 'Websites that rank in Swansea',
+        body: 'Every site we build is set up to be found locally: fast on a phone, a page for each service, your area named where it matters, and your Google Business Profile linked up. If you already have a site that does not show up when people search for what you do in Swansea, we can tell you why for free on a call.',
+      },
+    ],
   },
   {
     city: 'Bristol',
@@ -478,7 +491,7 @@ function makeGeoPage(market) {
 
 export const GEO_PAGES = GEO_MARKETS.map(makeGeoPage)
 
-export const INDEXABLE_PAGES = [...BASE_INDEXABLE_PAGES, ...GEO_PAGES]
+export const INDEXABLE_PAGES = [...BASE_INDEXABLE_PAGES, ...GEO_PAGES, ...ARTICLE_PAGES]
 
 export const INDEXABLE_PAGE_META = Object.fromEntries(
   INDEXABLE_PAGES.map((page) => [

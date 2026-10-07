@@ -57,7 +57,9 @@ function faqHtml(page) {
 
 /** The policy text as plain HTML, from the same markdown-ish source the React page uses. */
 function legalHtml(text) {
-  const inline = (value) => escapeHtml(value).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  const inline = (value) => escapeHtml(value)
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
   const out = []
   let list = null
   const flush = () => { if (list) { out.push(`<${list.tag}>${list.items.join('')}</${list.tag}>`); list = null } }
@@ -80,6 +82,25 @@ function legalHtml(text) {
 }
 
 function pageContent(page) {
+  if (page.article) {
+    const published = page.article.published
+      ? `<p class="body-sm" style="margin:0 0 28px">Published ${escapeHtml(new Date(page.article.published).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }))} · DH Website Services</p>`
+      : ''
+    return `
+    <main style="padding-top:var(--nav-h)">
+      <section class="section">
+        <article class="container" style="max-width:760px">
+          <p class="eyebrow" style="margin-bottom:16px">${escapeHtml(page.article.kind)}</p>
+          <h1 style="font-family:var(--font-sans);font-size:clamp(36px,5.5vw,64px);font-weight:600;letter-spacing:-0.03em;line-height:1.05;margin:0 0 20px">${escapeHtml(page.heading)}</h1>
+          <p class="body-lg" style="margin:0 0 12px">${escapeHtml(page.intro)}</p>
+          ${published}
+          ${legalHtml(page.article.body)}
+          <p><a href="${page.ctaHref}" class="btn-primary">${escapeHtml(page.ctaLabel)} →</a></p>
+        </article>
+      </section>
+    </main>
+  `
+  }
   const policy = POLICIES[page.path]
   if (policy) {
     return `
@@ -147,7 +168,7 @@ function buildHtml(page, assetTags) {
     ? ld(page.schema)
       + (wantsFaq ? ld(FAQ_SCHEMA) : '')
       + (page.path === '/' ? ld(ORGANIZATION_SCHEMA) + ld(WEBSITE_SCHEMA) : ld(breadcrumbSchema(page)))
-    : ''
+    : ld(breadcrumbSchema(page))
 
   return `<!DOCTYPE html>
 <html lang="en-GB">
@@ -307,7 +328,7 @@ async function writeSitemap() {
   const today = new Date().toISOString().slice(0, 10)
   const urls = INDEXABLE_PAGES.map((page) => {
     const loc = `${SEO_SITE_URL}${withTrailingSlash(page.path)}`
-    const priority = page.path === '/' ? '1.0' : page.city ? '0.7' : '0.8'
+    const priority = page.path === '/' ? '1.0' : page.article ? '0.6' : page.city ? '0.7' : '0.8'
     return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`
   }).concat(STATIC_PAGES.map((page) =>
     `  <url>\n    <loc>${SEO_SITE_URL}${page.path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${page.path === '/famandahalf/' ? '0.8' : '0.4'}</priority>\n  </url>`,

@@ -19,6 +19,8 @@ const COMPANY = [
   { l: 'About', to: '/about' },
   { l: 'Partners', to: '/partners' },
   { l: 'Portfolio', to: '/portfolio' },
+  { l: 'Case studies', to: '/case-studies' },
+  { l: 'Guides', to: '/guides' },
   { l: 'Contact', to: '/contact' },
 ]
 
