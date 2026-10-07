@@ -19,3 +19,8 @@
 
 /og-image.png
   Cache-Control: public, max-age=86400
+
+# Square brand logo for directory listings (Apple Business, Bing); readable cross-origin.
+/dh-logo-square.png
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=86400
