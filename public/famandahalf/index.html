@@ -57,11 +57,24 @@
   .compare td:nth-child(2) { color:var(--green); font-weight:700; }
   .story { background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:30px; display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center; }
   .story .half { font-size:64px; font-weight:800; color:var(--green); line-height:1; }
+  .beta { background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:30px; display:grid;
+    grid-template-columns:1fr 1fr; gap:30px; align-items:center; }
+  .beta form { display:grid; gap:12px; }
+  .beta label { font-size:14px; font-weight:700; display:grid; gap:6px; }
+  .beta input[type=text], .beta input[type=email] { font:inherit; padding:13px 14px; border-radius:12px; border:1px solid var(--line);
+    background:var(--ground); color:var(--ink); }
+  .beta button { font:inherit; font-weight:700; border:0; border-radius:14px; padding:14px 22px; background:var(--green); color:#fff; cursor:pointer; }
+  .beta button:disabled { opacity:.6; cursor:default; }
+  .beta .fine { font-size:13px; color:var(--ink-soft); margin:0; }
+  .beta .msg { font-weight:700; margin:0; }
+  .beta .msg.ok { color:var(--green); } .beta .msg.bad { color:#c0392b; }
+  .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  a.cta { cursor:pointer; }
   footer { padding:40px 0 60px; color:var(--ink-soft); font-size:14px; border-top:1px solid var(--line); margin-top:30px; }
   @media (max-width: 820px) {
     .hero { grid-template-columns:1fr; } .hero .phone { max-width:260px; transform:none; }
     .grid { grid-template-columns:1fr; } .shots { grid-template-columns:repeat(2, 1fr); }
-    .story { grid-template-columns:1fr; }
+    .story { grid-template-columns:1fr; } .beta { grid-template-columns:1fr; padding:22px; }
   }
 </style>
 </head>
@@ -76,7 +89,7 @@
     <div>
       <h1>Keep track of your loved ones.</h1>
       <p class="lead">Your family and friends on one live map, with arrival alerts, SOS and pick-up requests. Free, private, and no adverts, ever.</p>
-      <span class="cta">Coming soon to the App Store</span><span class="soon">iPhone</span>
+      <a class="cta" href="#beta">Join the beta</a><span class="soon">iPhone · coming soon to the App Store</span>
       <div class="badges">
         <span class="badge">Free</span><span class="badge">No adverts</span><span class="badge">Never sells your data</span><span class="badge">Made in Wales</span>
       </div>
@@ -84,6 +97,26 @@
     <div class="phone"><img src="/famandahalf/img/map.webp" alt="Fam &amp; a Half map showing a family's locations" width="520" height="1131"></div>
   </div>
 </div>
+
+<section id="beta">
+  <div class="wrap">
+    <div class="beta">
+      <div>
+        <h2>Try it before everyone else</h2>
+        <p class="sub" style="margin:0 0 10px">Fam &amp; a Half is in beta on iPhone. Sign up and we'll email you an invite to test it through Apple's TestFlight app, free.</p>
+        <p class="fine">You'll need an iPhone. Tell us what works and what doesn't, and you'll help shape the app before it launches.</p>
+      </div>
+      <form id="beta-form" novalidate>
+        <label>First name<input type="text" name="first_name" autocomplete="given-name" maxlength="60" required></label>
+        <label>Email<input type="email" name="email" autocomplete="email" maxlength="200" required></label>
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit">Join the beta</button>
+        <p class="msg" id="beta-msg" role="status" aria-live="polite"></p>
+        <p class="fine">We only use your email to send the beta invite and beta updates. No marketing, and we'll delete it when the beta ends. <a href="/famandahalf/privacy/">Privacy policy</a></p>
+      </form>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -147,5 +180,40 @@
     · <a href="/famandahalf/support/">Help and support</a> · <a href="/famandahalf/privacy/">Privacy policy</a>
   </footer>
 </div>
+<script>
+(() => {
+  const form = document.getElementById('beta-form');
+  const msg = document.getElementById('beta-msg');
+  const say = (text, ok) => { msg.textContent = text; msg.className = 'msg ' + (ok ? 'ok' : 'bad'); };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const first = String(data.get('first_name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    if (!first) return say('Please put your first name.', false);
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) return say("That email address doesn't look right.", false);
+    const button = form.querySelector('button');
+    button.disabled = true; say('', true);
+    try {
+      const res = await fetch('https://sarrvfzboorqzsfbuiws.supabase.co/rest/v1/rpc/beta_signup', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', apikey: 'sb_publishable_RaVfbqi56luD1jfO5-dIBw_CzO_Gd94' },
+        body: JSON.stringify({ p_first_name: first, p_email: email, p_website: String(data.get('website') || '') }),
+      });
+      const out = await res.json().catch(() => ({}));
+      if (res.ok && out.ok) {
+        form.reset();
+        say("Thanks " + first + "! You're on the list. Look out for an email from Apple's TestFlight with your invite.", true);
+      } else {
+        say(out.error || 'Something went wrong. Please try again in a minute.', false);
+        button.disabled = false;
+      }
+    } catch {
+      say("Couldn't send that. Check your connection and try again.", false);
+      button.disabled = false;
+    }
+  });
+})();
+</script>
 </body>
 </html>

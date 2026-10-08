@@ -36,7 +36,7 @@
   </header>
 
   <p class="lead">Fam &amp; a Half lets you share your location with people you choose. This page explains
-  what we collect, who sees it, how long we keep it, and how to delete it. Last updated 6 October 2026.</p>
+  what we collect, who sees it, how long we keep it, and how to delete it. Last updated 8 October 2026.</p>
 
   <div class="card">
     <strong>The short version.</strong>
@@ -63,12 +63,13 @@
     <tr><td>Journey trail (the line behind you on the map while you travel)</td><td>Shown to people who can see your precise location, only while you are travelling</td><td>Deleted 24 hours after the journey ends</td></tr>
     <tr><td>Journey summaries (distance, time, top speed, hard braking)</td><td>Arrival notifications. Driving summaries are only shown to your circles if you turn them on</td><td>Until you delete your account</td></tr>
     <tr><td>Places, check-ins, ETAs, SOS alerts and arrival checks</td><td>The safety features you use</td><td>Until the circle or your account is deleted</td></tr>
-    <tr><td>Device push token and phone status (location permission, Low Power Mode)</td><td>To send notifications, to send a silent request for a fresh location when someone opens the map, and to tell your circles if sharing has stopped working</td><td>Until you sign out, or 90 days unused</td></tr>
-    <tr><td>Upload diagnostics (when your phone last sent a location and what triggered it, with no coordinates)</td><td>To find and fix phones that stop updating</td><td>3 days</td></tr>
+    <tr><td>Device push tokens and phone status (location permission, Low Power Mode)</td><td>To send notifications, to ask your phone for a fresh location when someone opens the map or your phone has gone quiet, to remind you if your own sharing has stopped, and to tell your circles if sharing has stopped working</td><td>Until you sign out, or 90 days unused</td></tr>
+    <tr><td>Upload diagnostics (when your phone last sent a location, what triggered it, and its battery level, with no coordinates)</td><td>To find and fix phones that stop updating, and to measure the app's battery use</td><td>3 days</td></tr>
     <tr><td>Crash and freeze reports from iOS (where in the app it went wrong, your app and iOS version, with no location)</td><td>To find and fix bugs</td><td>90 days</td></tr>
     <tr><td>&ldquo;Who&rsquo;s checked on me&rdquo; (who opened your details, and when)</td><td>Shown only to you, so you can see who&rsquo;s been looking</td><td>30 days</td></tr>
     <tr><td>Pick-up requests (your note and where you were when you asked)</td><td>So your circle can come and get you</td><td>Until the circle or your account is deleted</td></tr>
     <tr><td>Reports you send us (a problem, or about a person in your circle)</td><td>To help you and to keep people safe</td><td>12 months after it&rsquo;s resolved</td></tr>
+    <tr><td>Beta sign-ups from this website (first name and email)</td><td>Only to send you a TestFlight invite and beta updates. Never used for marketing</td><td>Deleted when the beta ends</td></tr>
     <tr><td>Security and audit logs</td><td>To keep accounts secure and investigate abuse</td><td>Up to 12 months</td></tr>
   </table>
   <p>Our lawful bases under UK GDPR are performing our contract with you (running the service you signed up for),
@@ -77,7 +78,9 @@
 
   <h3>Location in the background</h3>
   <p>If you allow "Always" location, Fam &amp; a Half collects your location while the app is closed so your circles see
-  where you are. It stops whenever you pause sharing or set a circle to "Off". Crash detection uses your phone's
+  where you are. If your phone has gone quiet, our server can also ask iOS for one location from your phone even
+  when the app isn't running (Apple's "location push"); this only happens while you are sharing, and never while
+  you have paused. It stops whenever you pause sharing or set a circle to "Off". Crash detection uses your phone's
   motion sensors on the phone itself while you're driving; sensor data is not uploaded.</p>
 
   <h2>Who can see your data</h2>
