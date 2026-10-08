@@ -103,7 +103,7 @@
     <div class="beta">
       <div>
         <h2>Try it before everyone else</h2>
-        <p class="sub" style="margin:0 0 10px">Fam &amp; a Half is in beta on iPhone. Sign up and we'll email you an invite to test it through Apple's TestFlight app, free.</p>
+        <p class="sub" style="margin:0 0 10px">Fam &amp; a Half is in beta on iPhone. Sign up and we'll email you a link to install it through Apple's TestFlight app, free.</p>
         <p class="fine">You'll need an iPhone. Tell us what works and what doesn't, and you'll help shape the app before it launches.</p>
       </div>
       <form id="beta-form" novalidate>
@@ -203,7 +203,7 @@
       const out = await res.json().catch(() => ({}));
       if (res.ok && out.ok) {
         form.reset();
-        say("Thanks " + first + "! You're on the list. Look out for an email from Apple's TestFlight with your invite.", true);
+        say("Thanks " + first + "! We'll email you a link to join from famandahalf@dhwebsiteservices.co.uk. Open it on your iPhone. Check your spam folder if you can't see it.", true);
       } else {
         say(out.error || 'Something went wrong. Please try again in a minute.', false);
         button.disabled = false;
