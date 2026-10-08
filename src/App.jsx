@@ -337,6 +337,11 @@ function Layout() {
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/about" element={<About />} />
           <Route path="/partners" element={<Partners />} />
+          {/* Fam & a Half is static HTML in public/, not part of this app. An
+              in-app link there would otherwise land on NotFound, so any link
+              to it, from any block or article, becomes a real page load. */}
+          <Route path="/famandahalf/*" element={<StaticPage />} />
+          <Route path="/famandahalf" element={<StaticPage />} />
           <Route path="/:slug" element={<ManagedPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -344,6 +349,27 @@ function Layout() {
       <Footer />
     </>
   )
+}
+
+/** Leaves the React app for a page that lives as plain HTML. */
+function StaticPage() {
+  const { pathname, search, hash } = useLocation()
+  const path = pathname.endsWith('/') || pathname.includes('.') ? pathname : `${pathname}/`
+  // If the server handed us this app straight back for that path, there is
+  // no static page there, and reloading would loop forever. A note of the
+  // attempt, good for a few seconds, tells the second visit to stop.
+  const [missing] = useState(() => {
+    try {
+      const tried = JSON.parse(sessionStorage.getItem('static-page-tried') || 'null')
+      return tried?.path === path && Date.now() - tried.at < 5000
+    } catch { return false }
+  })
+  useEffect(() => {
+    if (missing) return
+    try { sessionStorage.setItem('static-page-tried', JSON.stringify({ path, at: Date.now() })) } catch { /* fine */ }
+    window.location.replace(path + search + hash)
+  }, [missing, path, search, hash])
+  return missing ? <NotFound /> : <RouteFallback />
 }
 
 export default function App() {
