@@ -68,6 +68,12 @@
   .beta .fine { font-size:13px; color:var(--ink-soft); margin:0; }
   .beta .msg { font-weight:700; margin:0; }
   .beta .msg.ok { color:var(--green); } .beta .msg.bad { color:#c0392b; }
+  .beta .got { display:none; background:#eef7f2; border:1px solid var(--line); border-radius:16px; padding:18px; gap:10px; }
+  .beta .got.show { display:grid; }
+  .beta form[hidden] { display:none; }
+  .beta .got h3 { margin:0; font-size:18px; }
+  .beta .got p { margin:0; }
+  .beta .got a.join { text-align:center; font-weight:700; border-radius:14px; padding:14px 22px; background:var(--green); color:#fff; text-decoration:none; }
   .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
   a.cta { cursor:pointer; }
   footer { padding:40px 0 60px; color:var(--ink-soft); font-size:14px; border-top:1px solid var(--line); margin-top:30px; }
@@ -103,9 +109,10 @@
     <div class="beta">
       <div>
         <h2>Try it before everyone else</h2>
-        <p class="sub" style="margin:0 0 10px">Fam &amp; a Half is in beta on iPhone. Sign up and we'll email you a link to install it through Apple's TestFlight app, free.</p>
+        <p class="sub" style="margin:0 0 10px">Fam &amp; a Half is in beta on iPhone. Sign up and you'll get the link to install it straight away, through Apple's free TestFlight app. We'll email it to you as well.</p>
         <p class="fine">You'll need an iPhone. Tell us what works and what doesn't, and you'll help shape the app before it launches.</p>
       </div>
+      <div>
       <form id="beta-form" novalidate>
         <label>First name<input type="text" name="first_name" autocomplete="given-name" maxlength="60" required></label>
         <label>Email<input type="email" name="email" autocomplete="email" maxlength="200" required></label>
@@ -114,6 +121,13 @@
         <p class="msg" id="beta-msg" role="status" aria-live="polite"></p>
         <p class="fine">We only use your email to send the beta invite and beta updates. No marketing, and we'll delete it when the beta ends. <a href="/famandahalf/privacy/">Privacy policy</a></p>
       </form>
+      <div class="got" id="beta-got" role="status" aria-live="polite">
+        <h3 id="beta-got-title">You're in!</h3>
+        <p>Open this on your iPhone. It installs Apple's free TestFlight app, then Fam &amp; a Half.</p>
+        <a class="join" id="beta-link" href="#" target="_blank" rel="noopener">Join the beta</a>
+        <p class="fine">We've emailed you the link too, from famandahalf@dhwebsiteservices.co.uk, so you can open it on your iPhone later. Check your spam folder if you can't see it.</p>
+      </div>
+      </div>
     </div>
   </div>
 </section>
@@ -201,7 +215,12 @@
         body: JSON.stringify({ p_first_name: first, p_email: email, p_website: String(data.get('website') || '') }),
       });
       const out = await res.json().catch(() => ({}));
-      if (res.ok && out.ok) {
+      if (res.ok && out.ok && out.link) {
+        document.getElementById('beta-link').href = out.link;
+        document.getElementById('beta-got-title').textContent = "You're in, " + first + "!";
+        form.hidden = true;
+        document.getElementById('beta-got').classList.add('show');
+      } else if (res.ok && out.ok) {
         form.reset();
         say("Thanks " + first + "! We'll email you a link to join from famandahalf@dhwebsiteservices.co.uk. Open it on your iPhone. Check your spam folder if you can't see it.", true);
       } else {
