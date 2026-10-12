@@ -177,7 +177,7 @@ function buildHtml(page, assetTags) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(page.title)}</title>
     <meta name="description" content="${escapeHtml(page.description)}" />
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="robots" content="${page.noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}" />
     <meta property="og:type" content="${page.path === '/' ? 'website' : 'article'}" />
     <meta property="og:site_name" content="DH Website Services" />
     <meta property="og:title" content="${escapeHtml(page.title)}" />
@@ -326,7 +326,7 @@ main().catch((error) => {
  */
 async function writeSitemap() {
   const today = new Date().toISOString().slice(0, 10)
-  const urls = INDEXABLE_PAGES.map((page) => {
+  const urls = INDEXABLE_PAGES.filter((page) => !page.noindex).map((page) => {
     const loc = `${SEO_SITE_URL}${withTrailingSlash(page.path)}`
     const priority = page.path === '/' ? '1.0' : page.article ? '0.6' : page.city ? '0.7' : '0.8'
     return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`

@@ -314,6 +314,9 @@ const BASE_INDEXABLE_PAGES = [
   },
   {
     path: '/cookies',
+    // Built and linked, but kept out of Google: a short legal page that Google
+    // reported as a soft 404. Nobody searches for our cookie policy.
+    noindex: true,
     title: 'Cookie Policy | DH Website Services',
     description: 'Cookie policy for DH Website Services.',
     heading: 'Cookie policy and tracking information.',
@@ -502,7 +505,7 @@ export const INDEXABLE_PAGE_META = Object.fromEntries(
     {
       title: page.title,
       description: page.description,
-      robots: 'index,follow',
+      robots: page.noindex ? 'noindex,follow' : 'index,follow',
       schema: page.schema,
     },
   ]),
