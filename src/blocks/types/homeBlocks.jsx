@@ -94,6 +94,26 @@ export function TrustBarBlock({ items }) {
   )
 }
 
+/* ── Award banner ───────────────────────────────────────────────────────── */
+
+export function AwardBannerBlock({ image, imageAlt, eyebrow, heading, body }) {
+  return (
+    <section style={{ background: 'var(--cream)', borderBottom: '1px solid var(--border-light)', padding: 'clamp(28px,4vw,44px) 0' }}>
+      <div className="container reveal" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px,4vw,40px)', flexWrap: 'wrap' }}>
+        {image && (
+          <img src={image} alt={imageAlt || ''} width="150" height="140" loading="lazy"
+            style={{ width: 150, height: 'auto', flex: 'none', background: 'var(--white)', borderRadius: 16, padding: 10, border: '1px solid var(--border-light)' }} />
+        )}
+        <div style={{ flex: '1 1 300px' }}>
+          {eyebrow && <p className="eyebrow" style={{ marginBottom: 8 }}>{eyebrow}</p>}
+          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 8 }}>{heading}</h2>
+          {body && <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--mid)', maxWidth: 680, margin: 0 }}>{body}</p>}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ── Partner highlight ──────────────────────────────────────────────────── */
 
 export function PartnerHighlightBlock({ eyebrow, heading, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref, points }) {

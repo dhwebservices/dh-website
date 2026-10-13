@@ -18,6 +18,7 @@
 import {
   HeroBlock,
   TrustBarBlock,
+  AwardBannerBlock,
   PartnerHighlightBlock,
   ServicesGridBlock,
   WhyGridBlock,
@@ -115,6 +116,20 @@ export const BLOCKS = {
       },
     ],
     defaults: { items: [] },
+  },
+
+  'award-banner': {
+    label: 'Award banner',
+    group: 'Sections',
+    component: AwardBannerBlock,
+    fields: [
+      { key: 'image', type: 'image', label: 'Award logo' },
+      { key: 'imageAlt', type: 'text', label: 'Logo description' },
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'text', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Body' },
+    ],
+    defaults: { image: '', imageAlt: '', eyebrow: '', heading: '', body: '' },
   },
 
   'partner-highlight': {

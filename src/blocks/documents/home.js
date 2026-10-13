@@ -39,6 +39,18 @@ export const HOME_DOCUMENT = {
     },
 
     {
+      id: 'home-award',
+      type: 'award-banner',
+      props: {
+        image: '/wales-prestige-awards-2027-28-winner.jpg',
+        imageAlt: 'Wales Prestige Awards 2027/28 winner',
+        eyebrow: 'Wales Prestige Awards 2027/28',
+        heading: 'Web Design Service of the Year – Wales',
+        body: 'Judged on our client feedback, case studies and the work itself. Thank you to every business that has trusted us with their website.',
+      },
+    },
+
+    {
       id: 'home-work',
       type: 'work-showcase',
       props: {
@@ -56,6 +68,7 @@ export const HOME_DOCUMENT = {
         items: [
           { icon: 'phone', label: 'On the App Store', sub: 'Fish Tank' },
           { icon: 'game', label: 'On Google Play', sub: 'Fish Tank' },
+          { icon: 'award', label: 'Web Design Service of the Year', sub: 'Wales Prestige Awards 2027/28' },
           { icon: 'award', label: 'Microsoft Partner', sub: 'Verified' },
           { icon: 'lock', label: 'GDPR compliant', sub: 'Data protection' },
         ],

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T11:40:54.961Z",
+  "generatedAt": "2026-10-13T11:38:34.637Z",
   "blocks": [
     {
       "type": "hero",
@@ -112,6 +112,47 @@
       ],
       "defaults": {
         "items": []
+      }
+    },
+    {
+      "type": "award-banner",
+      "label": "Award banner",
+      "group": "Sections",
+      "hint": null,
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "image",
+          "type": "image",
+          "label": "Award logo"
+        },
+        {
+          "key": "imageAlt",
+          "type": "text",
+          "label": "Logo description"
+        },
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Body"
+        }
+      ],
+      "defaults": {
+        "image": "",
+        "imageAlt": "",
+        "eyebrow": "",
+        "heading": "",
+        "body": ""
       }
     },
     {
@@ -2807,6 +2848,17 @@
           }
         },
         {
+          "id": "home-award",
+          "type": "award-banner",
+          "props": {
+            "image": "/wales-prestige-awards-2027-28-winner.jpg",
+            "imageAlt": "Wales Prestige Awards 2027/28 winner",
+            "eyebrow": "Wales Prestige Awards 2027/28",
+            "heading": "Web Design Service of the Year – Wales",
+            "body": "Judged on our client feedback, case studies and the work itself. Thank you to every business that has trusted us with their website."
+          }
+        },
+        {
           "id": "home-work",
           "type": "work-showcase",
           "props": {
@@ -2879,6 +2931,11 @@
                 "icon": "game",
                 "label": "On Google Play",
                 "sub": "Fish Tank"
+              },
+              {
+                "icon": "award",
+                "label": "Web Design Service of the Year",
+                "sub": "Wales Prestige Awards 2027/28"
               },
               {
                 "icon": "award",
