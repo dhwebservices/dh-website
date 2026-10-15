@@ -4,7 +4,7 @@
  * October 2026: refocused on app development and web design, written as the
  * team rather than as one person. Every product named here is real and every
  * status is what is true today -- Fish Tank is live on both stores,
- * Fam & a Half (was FindMyGang) is in App Store review and NOT on the App Store yet. Keep it that way:
+ * Fam & a Half (was FindMyGang) is live on the App Store (iPhone only, since 15 Oct 2026). Keep it that way:
  * no download counts, ratings, client logos or testimonials until there are
  * real ones to show.
  *
@@ -56,7 +56,7 @@ export const HOME_DOCUMENT = {
       props: {
         eyebrow: 'Our products',
         heading: 'Apps we build\nfor ourselves.',
-        body: 'Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is with Apple for review, and two more run our business every day.',
+        body: 'Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is on the App Store, and two more run our business every day.',
         items: WORK_ITEMS,
       },
     },
@@ -66,7 +66,7 @@ export const HOME_DOCUMENT = {
       type: 'trust-bar',
       props: {
         items: [
-          { icon: 'phone', label: 'On the App Store', sub: 'Fish Tank' },
+          { icon: 'phone', label: 'On the App Store', sub: 'Fish Tank · Fam & a Half' },
           { icon: 'game', label: 'On Google Play', sub: 'Fish Tank' },
           { icon: 'award', label: 'Web Design Service of the Year', sub: 'Wales Prestige Awards 2027/28' },
           { icon: 'award', label: 'Microsoft Partner', sub: 'Verified' },

@@ -249,7 +249,7 @@ async function writeLlmFiles() {
     ...STATIC_PAGES.map((page) => `- ${SEO_SITE_URL}${page.path} | ${page.title}`),
     '',
     'Our own products:',
-    '- Fam & a Half: a free family and friends location app for iPhone (live map, arrival alerts, SOS, crash detection, pick-up requests). In App Store review.',
+    '- Fam & a Half: a free family and friends location app for iPhone (live map, arrival alerts, SOS, crash detection, pick-up requests). Live on the App Store.',
     '- Fish Tank: a real-time multiplayer game on the App Store and Google Play.',
     '',
     'Primary offer:',

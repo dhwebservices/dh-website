@@ -5,8 +5,8 @@
  * Status lines must stay literally true. Checked 6 Oct 2026:
  *   - Fish Tank: live on the App Store (id6801622379) and Google Play
  *     (com.dhwebsiteservices.fishtank), cross-platform multiplayer.
- *   - Fam & a Half (was FindMyGang): iOS, in TestFlight. NOT on the App Store. Change the status
- *     line here the day it is approved, and not before.
+ *   - Fam & a Half (was FindMyGang): live on the App Store (id6819339433) since
+ *     15 Oct 2026, iPhone only. Not on Google Play yet.
  *   - Staff portal: web app plus native iOS app, used internally. It ships to
  *     our own staff through TestFlight, so do not call it "on the App Store".
  *   - DH Phone: our own Twilio + Cloudflare phone system; 01443 805303 runs on
@@ -37,9 +37,9 @@ export const WORK_ITEMS = [
   {
     name: 'Fam & a Half',
     platforms: 'iPhone',
-    status: 'In App Store review',
-    tone: 'beta',
-    desc: 'Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. With Apple for review now and coming soon to the App Store.',
+    status: 'Live on the App Store',
+    tone: 'live',
+    desc: 'Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. Free on the App Store.',
     icon: '/work/findmygang-icon.png',
     iconAlt: 'Fam & a Half app icon',
     panel: '#E7F1EC',

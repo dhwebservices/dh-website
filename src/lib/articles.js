@@ -214,7 +214,7 @@ Families should not have to pay a monthly subscription for safety features. We w
 - **A staff admin console** in our own staff portal for support, announcements and keeping the service healthy
 
 ## Where it is now
-Fam & a Half is with Apple for review. [Find out more about the app](/famandahalf/).
+Fam & a Half is now on the App Store. [Find out more about the app](/famandahalf/).
 
 ## What it shows
 Location, real-time updates, notifications, privacy and a proper backend are the hard parts of most serious apps. If your idea needs any of them, [talk to us](/contact).
