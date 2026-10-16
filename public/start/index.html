@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>New tab</title>
+<link rel="icon" href="/dh-logo-icon.png">
+<style>
+  :root { --text:#f2f2f4; --soft:#a4a7ad; --blue:#3fa3e3; --field:rgba(255,255,255,.07); --line:rgba(255,255,255,.12); }
+  * { box-sizing:border-box; }
+  html, body { height:100%; margin:0; }
+  body { background:#17181b url('/wallpaper/dhws-wallpaper.jpg') center / cover no-repeat fixed; color:var(--text);
+    font-family:-apple-system, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  main { position:absolute; left:8vw; top:50%; transform:translateY(-55%); width:min(560px, 84vw); }
+  .time { font-size:clamp(64px, 8vw, 104px); font-weight:300; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums; }
+  .date { margin-top:10px; font-size:19px; color:var(--soft); }
+  form { margin-top:38px; display:flex; align-items:center; gap:12px; height:54px; padding:0 18px; border-radius:14px;
+    background:var(--field); border:1px solid var(--line); backdrop-filter:blur(12px); }
+  form:focus-within { border-color:var(--blue); }
+  form svg { flex:none; opacity:.7; }
+  input { flex:1; height:100%; border:0; background:none; color:var(--text); font:inherit; font-size:17px; outline:none; }
+  input::placeholder { color:var(--soft); }
+  nav { margin-top:22px; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; }
+  nav a { display:block; padding:14px 16px; border-radius:12px; background:var(--field); border:1px solid var(--line);
+    color:var(--text); text-decoration:none; font-size:15px; font-weight:500; }
+  nav a span { display:block; margin-top:2px; font-size:12.5px; font-weight:400; color:var(--soft); }
+  nav a:hover { border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.1); }
+  @media (max-width:700px) { main { left:6vw; } nav { grid-template-columns:repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <div class="time" id="time">&nbsp;</div>
+  <div class="date" id="date">&nbsp;</div>
+
+  <form action="https://www.google.com/search" method="get" role="search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input name="q" placeholder="Search Google or type a web address" autocomplete="off" autofocus aria-label="Search">
+  </form>
+
+  <nav>
+    <a href="https://outlook.office.com/mail/">Outlook<span>Email and calendar</span></a>
+    <a href="https://teams.microsoft.com/">Teams<span>Chat and calls</span></a>
+    <a href="https://staff.dhwebsiteservices.co.uk/">Staff portal<span>Rota and payslips</span></a>
+    <a href="https://www.office.com/">Microsoft 365<span>Word, Excel, OneDrive</span></a>
+    <a href="https://dhwebsiteservices.co.uk/">Our website<span>dhwebsiteservices.co.uk</span></a>
+    <a href="https://myaccount.microsoft.com/">My account<span>Password and sign-in</span></a>
+  </nav>
+</main>
+<script>
+  const q = document.querySelector('input[name=q]');
+  document.querySelector('form').addEventListener('submit', (e) => {
+    const v = q.value.trim();
+    if (/^(https?:\/\/)?[\w-]+(\.[\w-]+)+(\/\S*)?$/i.test(v) && !/\s/.test(v)) {
+      e.preventDefault(); location.href = /^https?:/i.test(v) ? v : 'https://' + v;
+    }
+  });
+  const tick = () => {
+    const d = new Date();
+    document.getElementById('time').textContent = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('date').textContent = d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+  };
+  tick(); setInterval(tick, 10000);
+</script>
+</body>
+</html>
