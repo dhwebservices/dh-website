@@ -24,3 +24,7 @@
 /dh-logo-square.png
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=86400
+
+/jack/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

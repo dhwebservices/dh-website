@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/dh-logo-icon.png">
+<title>Jack's Badge Week</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  /* One working column: rules and copy-paste details first, then a single list of tickable tasks */
+  :root {
+    --bg:#F6F6F3; --card:#FFFFFF; --ink:#1E2124; --muted:#5B6168; --line:#E3E4E1;
+    --blue:#1B6FAE; --blue-soft:#E4F0F9; --done:#2E7D4F; --done-soft:#E3F2E8; --warn:#8A5A00; --warn-soft:#FBF0D9;
+    --sans:"Public Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg:#15171A; --card:#1E2124; --ink:#ECEDEA; --muted:#A3A8AE; --line:#30343A;
+    --blue:#6FB6EA; --blue-soft:#1B2C3A; --done:#6CC48E; --done-soft:#17291F; --warn:#E5B65C; --warn-soft:#2E2514; color-scheme:dark; } }
+  :root[data-theme="dark"] {
+    --bg:#15171A; --card:#1E2124; --ink:#ECEDEA; --muted:#A3A8AE; --line:#30343A;
+    --blue:#6FB6EA; --blue-soft:#1B2C3A; --done:#6CC48E; --done-soft:#17291F; --warn:#E5B65C; --warn-soft:#2E2514; color-scheme:dark; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.5; padding:0 16px; }
+  .wrap { max-width:760px; margin:0 auto; padding-block:40px 64px; display:flex; flex-direction:column; gap:36px; }
+  header { display:flex; flex-direction:column; gap:10px; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0; }
+  h1 { font-size:clamp(30px,6vw,42px); line-height:1.1; font-weight:800; letter-spacing:-.5px; margin:0; text-wrap:balance; }
+  .lede { color:var(--muted); margin:0; max-width:62ch; }
+  .progress { display:flex; align-items:center; gap:14px; margin-top:6px; }
+  .bar { flex:1; height:10px; border-radius:99px; background:var(--line); overflow:hidden; }
+  .bar i { display:block; height:100%; width:0; background:var(--done); transition:width .3s; }
+  .count { font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .sync { font-size:13px; color:var(--muted); margin:0; }
+  section { display:flex; flex-direction:column; gap:14px; }
+  h2 { font-size:22px; margin:0; letter-spacing:-.2px; text-wrap:balance; }
+  h2 small { font-size:14px; font-weight:500; color:var(--muted); margin-left:8px; letter-spacing:0; }
+  .rules { background:var(--warn-soft); border-radius:12px; padding:18px 20px; }
+  .rules ul { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px; }
+  .details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:12px; }
+  .details pre { font-family:var(--mono); font-size:14px; line-height:1.7; margin:0; white-space:pre-wrap; word-break:break-word; }
+  .details p { margin:0; font-size:14px; color:var(--muted); }
+  button { font:inherit; cursor:pointer; }
+  .copy { align-self:flex-start; background:var(--ink); color:var(--bg); border:0; border-radius:8px; padding:8px 14px; font-weight:600; font-size:14px; }
+  .copy:focus-visible, .task input:focus-visible + .box { outline:3px solid var(--blue); outline-offset:2px; }
+  .tasks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .task { background:var(--card); border:1px solid var(--line); border-radius:12px; }
+  .task label { display:grid; grid-template-columns:28px minmax(0,1fr); gap:14px; padding:16px 18px; cursor:pointer; }
+  .task input { position:absolute; opacity:0; width:1px; height:1px; }
+  .box { width:24px; height:24px; border:2px solid var(--muted); border-radius:6px; margin-top:2px; display:grid; place-items:center; }
+  .box svg { width:16px; height:16px; opacity:0; }
+  .task.done { background:var(--done-soft); border-color:transparent; }
+  .task.done .box { background:var(--done); border-color:var(--done); }
+  .task.done .box svg { opacity:1; }
+  .task.done .t { text-decoration:line-through; color:var(--muted); }
+  .body { min-width:0; display:flex; flex-direction:column; gap:6px; }
+  .t { font-weight:700; font-size:17px; }
+  .d { color:var(--muted); margin:0; font-size:15px; }
+  .meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:13px; }
+  .chip { padding:2px 9px; border-radius:99px; font-weight:600; background:var(--blue-soft); color:var(--blue); }
+  .chip.david { background:var(--warn-soft); color:var(--warn); }
+  .meta a { color:var(--blue); font-weight:600; word-break:break-all; }
+  footer { font-size:14px; color:var(--muted); border-top:1px solid var(--line); padding-top:18px; }
+  @media (prefers-reduced-motion: reduce) { .bar i { transition:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">DH Website Services · for Jack</p>
+    <h1>Jack's Badge Week</h1>
+    <p class="lede">Badges, listings and certificates we can show on the website. Tick each task when it's done. David sees the same ticks.</p>
+    <div class="progress"><div class="bar"><i id="bar"></i></div><span class="count" id="count">0 of 0</span></div>
+    <p class="sync" id="sync">Loading ticks…</p>
+  </header>
+
+  <section class="rules">
+    <h2>Before you start</h2>
+    <ul>
+      <li>Register on every site with <strong>your own email</strong>.</li>
+      <li>David will be sitting next to you.</li>
+      <li>Download every badge and certificate you get and save it in the <strong>Badges</strong> folder on the DH-DEV drive.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Use these details everywhere</h2>
+    <div class="details">
+      <pre id="nap">DH Website Services
+Phone: 01443 805303
+Email: clients@dhwebsiteservices.co.uk
+Website: https://dhwebsiteservices.co.uk
+Area: Pontypridd, Wales
+Company: David Hooper Home Limited, company number 17018784
+About: We design and build websites and apps for businesses in Pontypridd and across South Wales.</pre>
+      <p>Copy the address exactly as it is on our Google Business profile, spelling and all. Google trusts us more when every listing matches word for word.</p>
+      <button class="copy" id="copyBtn" type="button">Copy details</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>The list<small>Press and publicity first, then work down</small></h2>
+    <ul class="tasks" id="tasks"></ul>
+  </section>
+
+  <footer>Made for Jack by Claude for David, 18 October 2026.</footer>
+</div>
+
+<script>
+var TASKS = [
+  { id:"press", t:"Award story to local press", d:"Pontypridd Observer and WalesOnline. Claude drafts the story about the Wales Prestige Award, David approves it, then you send it.", david:true },
+  { id:"case-studies", t:"Case studies: Glow with Lucy and Ponty Eats", d:"Ask each one for a two or three line quote and permission to use their name. Claude writes the case study. David approves the request first.", david:true },
+  { id:"review-list", t:"Google reviews: list past clients", d:"Write down a contact for Glow with Lucy, Ponty Eats, TaffGo and National Pet Watch. Claude drafts the review request and David approves it before you send.", david:true },
+  { id:"free-awards", t:"Find awards to enter", d:"Start with the FSB Celebrating Small Business Awards. Make a list with deadlines.", url:"https://www.fsb.org.uk" },
+  { id:"gbp-post", t:"Google Business: first weekly post and services list", d:"Fill in every service on the profile and add one post, for example the award or Fam & a Half. Do one post every week after this.", url:"https://business.google.com" },
+  { id:"usw", t:"University of South Wales placement enquiry", d:"Ask the careers or placements team how to offer a student placement in web design or app development. Show David the email first.", url:"https://www.southwales.ac.uk", david:true },
+  { id:"cynnig", t:"Cynnig Cymraeg (only if we can work in Welsh)", d:"Recognition from the Welsh Language Commissioner. Ask David first whether we can honestly offer a Welsh-language service.", url:"https://www.welshlanguagecommissioner.wales", david:true },
+  { id:"disability-confident", t:"Disability Confident: sign up as \"Committed\" (level 1)", d:"Government scheme, about 20 minutes. We're planning to hire a part-time assistant, so this fits. You agree to things like offering an interview to disabled applicants who meet the essentials. Download the badge at the end and save it in DH-DEV › Badges.", url:"https://www.gov.uk/government/collections/disability-confident-campaign" },
+  { id:"green-web", t:"Green Web check and badge", d:"Enter dhwebsiteservices.co.uk. It should come back green because we're on Cloudflare. Download the badge and save it in DH-DEV › Badges.", url:"https://www.thegreenwebfoundation.org/green-web-check/" },
+  { id:"companies-house", t:"Check Companies House dates", d:"Open David Hooper Home Limited and note the dates for the next confirmation statement and accounts. Tell David if either is due within 2 months. Don't file anything.", url:"https://find-and-update.company-information.service.gov.uk/company/17018784" },
+  { id:"apple-business", t:"Apple Business Connect (Apple Maps)", d:"Claim or create the place card. Add the logo and photos from the 'Google Business photos' folder. Verifying may need David's phone.", url:"https://businessconnect.apple.com" },
+  { id:"bing-places", t:"Bing Places", d:"Choose 'Import from Google Business Profile', so the details copy over in a couple of clicks.", url:"https://www.bingplaces.com" },
+  { id:"yell", t:"Yell listing", d:"Create the business listing.", url:"https://www.yell.com" },
+  { id:"freeindex", t:"FreeIndex", d:"Create the profile. Add the services: web design, app development, SEO, hosting.", url:"https://www.freeindex.co.uk" },
+  { id:"thomson", t:"Thomson Local", d:"Create the business listing.", url:"https://www.thomsonlocal.com" },
+  { id:"cylex", t:"Cylex", d:"Create the business listing.", url:"https://www.cylex-uk.co.uk" },
+  { id:"hotfrog", t:"Hotfrog", d:"Create the business listing.", url:"https://www.hotfrog.co.uk" },
+  { id:"scoot", t:"Scoot", d:"Create the business listing.", url:"https://www.scoot.co.uk" },
+  { id:"clutch", t:"Clutch agency profile", d:"Create the agency profile. Clients can leave verified reviews here later.", url:"https://clutch.co" },
+  { id:"goodfirms", t:"GoodFirms agency profile", d:"Create the agency profile.", url:"https://www.goodfirms.co" },
+  { id:"designrush", t:"DesignRush agency profile", d:"Create the agency profile.", url:"https://www.designrush.com" },
+  { id:"trustpilot", t:"Trustpilot business account", d:"Claim the page. Save the review widget code in DH-DEV › Badges.", url:"https://business.trustpilot.com" },
+  { id:"hubspot-seo", t:"HubSpot Academy: SEO certification", d:"Online course with an exam at the end. Download the certificate and save it in DH-DEV › Badges.", url:"https://academy.hubspot.com" },
+  { id:"hubspot-inbound", t:"HubSpot Academy: Inbound Marketing certification", d:"Good background for selling to clients.", url:"https://academy.hubspot.com" },
+  { id:"google-analytics", t:"Google Skillshop: Google Analytics certification", d:"This is an individual certificate. Don't call us a 'Google Partner' because of it, since that needs ad spend.", url:"https://skillshop.withgoogle.com" },
+  { id:"shopify-partner", t:"Shopify Partner programme", d:"Join the programme. We get the official partner badge for pitching online shops. Save it in DH-DEV › Badges.", url:"https://www.shopify.com/partners" },
+  { id:"wcrc", t:"Cyber Resilience Centre for Wales", d:"Check what membership includes and whether members get a logo to display.", url:"https://www.wcrc.wales" },
+  { id:"ce-ready", t:"Cyber Essentials readiness tool", d:"Practice run for the Cyber Essentials certificate. Note any questions you can't answer for Claude to fill in.", url:"https://getreadyforcyberessentials.iasme.co.uk" }
+];
+
+var done = {};
+var tick = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function render() {
+  var ul = document.getElementById("tasks");
+  ul.textContent = "";
+  var total = 0, n = 0;
+  TASKS.forEach(function (task) {
+    total++; if (done[task.id]) n++;
+    var li = el("li", "task" + (done[task.id] ? " done" : ""));
+    var label = el("label");
+    var input = el("input"); input.type = "checkbox"; input.id = "t-" + task.id; input.checked = !!done[task.id];
+    input.addEventListener("change", function () { setDone(task.id, input.checked); });
+    var box = el("span", "box"); box.innerHTML = tick;
+    var body = el("span", "body");
+    body.appendChild(el("span", "t", task.t));
+    body.appendChild(el("span", "d", task.d));
+    var meta = el("span", "meta");
+    if (task.david) meta.appendChild(el("span", "chip david", "David approves"));
+    if (task.url) {
+      var a = el("a", null, task.url.replace(/^https:\/\/(www\.)?/, "").replace(/\/$/, ""));
+      a.href = task.url; a.target = "_blank"; a.rel = "noopener";
+      a.addEventListener("click", function (e) { e.stopPropagation(); });
+      meta.appendChild(a);
+    }
+    body.appendChild(meta);
+    label.appendChild(input); label.appendChild(box); label.appendChild(body);
+    li.appendChild(label); ul.appendChild(li);
+  });
+  document.getElementById("count").textContent = n + " of " + total + " done";
+  document.getElementById("bar").style.width = (total ? Math.round(n / total * 100) : 0) + "%";
+}
+
+function setSync(t) { document.getElementById("sync").textContent = t; }
+
+function setDone(id, value) {
+  if (value) done[id] = true; else delete done[id];
+  render();
+  fetch("/api/badge-week", { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ task:id, done:value }) })
+    .then(function (r) { if (!r.ok) throw 0; setSync("Saved. David sees your ticks."); })
+    .catch(function () { setSync("Couldn't save that tick. Check your connection and tick it again."); });
+}
+
+function load() {
+  fetch("/api/badge-week", { cache:"no-store" })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (data) {
+      var next = {};
+      (data.ticks || []).forEach(function (t) { next[t.task_id] = true; });
+      done = next; render();
+      setSync("Ticks are shared and update every few seconds.");
+    })
+    .catch(function () { setSync("Can't reach the tick list right now. Reload the page."); });
+}
+
+document.getElementById("copyBtn").addEventListener("click", function () {
+  var text = document.getElementById("nap").textContent, btn = this;
+  function selectIt() { var r = document.createRange(); r.selectNodeContents(document.getElementById("nap")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press Copy"; }
+  try {
+    navigator.clipboard.writeText(text).then(function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy details"; }, 1800); }, selectIt);
+  } catch (e) { selectIt(); }
+});
+
+render();
+load();
+setInterval(function () { if (!document.hidden) load(); }, 5000);
+document.addEventListener("visibilitychange", function () { if (!document.hidden) load(); });
+</script>
+
+</body>
+</html>
