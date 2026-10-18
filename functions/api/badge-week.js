@@ -7,6 +7,7 @@ const TASKS = new Set([
   'apple-business', 'bing-places', 'yell', 'freeindex', 'thomson', 'cylex', 'hotfrog', 'scoot',
   'clutch', 'goodfirms', 'designrush', 'trustpilot',
   'hubspot-seo', 'hubspot-inbound', 'google-analytics', 'shopify-partner', 'wcrc', 'ce-ready',
+  'product-hunt', 'green-growth', 'sme-climate', 'armed-forces', 'behance-dribbble', 'crunchbase',
 ])
 
 const DEFAULT_SUPABASE_URL = 'https://xtunnfdwltfesscmpove.supabase.co'
