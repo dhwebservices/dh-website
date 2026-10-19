@@ -112,6 +112,7 @@ export const BLOCKS = {
           { key: 'icon', type: 'text', label: 'Icon (emoji)' },
           { key: 'label', type: 'text', label: 'Label' },
           { key: 'sub', type: 'text', label: 'Sub-label' },
+          { key: 'href', type: 'text', label: 'Link (optional)' },
         ],
       },
     ],
@@ -128,8 +129,10 @@ export const BLOCKS = {
       { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
       { key: 'heading', type: 'text', label: 'Heading' },
       { key: 'body', type: 'textarea', label: 'Body' },
+      { key: 'linkLabel', type: 'text', label: 'Link text' },
+      { key: 'linkHref', type: 'text', label: 'Link URL' },
     ],
-    defaults: { image: '', imageAlt: '', eyebrow: '', heading: '', body: '' },
+    defaults: { image: '', imageAlt: '', eyebrow: '', heading: '', body: '', linkLabel: '', linkHref: '' },
   },
 
   'partner-highlight': {

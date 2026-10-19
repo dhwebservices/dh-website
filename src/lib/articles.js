@@ -155,6 +155,37 @@ You never pay twice for the same thing: the app can reuse your website's content
   },
 ]
 
+export const NEWS = [
+  {
+    slug: 'web-design-service-of-the-year-wales',
+    title: 'We Won Web Design Service of the Year – Wales | DH Website Services',
+    description: 'DH Website Services in Pontypridd has been named Web Design Service of the Year – Wales at the Wales Prestige Awards 2027/28.',
+    heading: 'We won Web Design Service of the Year – Wales',
+    intro: 'DH Website Services has been named Web Design Service of the Year – Wales at the Wales Prestige Awards 2027/28.',
+    published: '2026-10-19',
+    image: '/wales-prestige-awards-2027-28-winner.jpg',
+    imageAlt: 'Wales Prestige Awards 2027/28 winner',
+    body: `
+## The award
+The Wales Prestige Awards recognise small businesses across Wales. Our award, **Web Design Service of the Year – Wales**, was judged on client feedback, case studies and the work itself.
+
+## Who we are
+DH Website Services is a small software company in Pontypridd, set up by David Hooper in February 2026. David and Jack Deane design and build websites and apps for businesses in Pontypridd and across South Wales, at a fixed price agreed before any work starts.
+
+We also make our own apps:
+- **Fam & a Half**, a free location-sharing app for families and friends, on the App Store. [Read the case study](/case-studies/fam-and-a-half/)
+- **Fish Tank**, a multiplayer game on the App Store and Google Play. [Read the case study](/case-studies/fish-tank/)
+- Our own [staff portal](/case-studies/staff-portal/) and [phone system](/case-studies/phone-system/), which we use to run the business every day
+
+## Thank you
+Thank you to every business that has trusted us with their website.
+
+## Press
+For press enquiries, call **01443 805303** or [contact us](/contact). DH Website Services is the trading name of David Hooper Home Limited, company number 17018784.
+`,
+  },
+]
+
 export const CASE_STUDIES = [
   {
     slug: 'fish-tank',
@@ -302,7 +333,7 @@ function toPage(item, base, kind, type) {
     sections: [],
     ctaLabel: 'Talk to us about your project',
     ctaHref: '/contact',
-    article: { kind, body: item.body, published: item.published },
+    article: { kind, body: item.body, published: item.published, image: item.image, imageAlt: item.imageAlt },
     schema: articleSchema(item, path, type),
   }
 }
@@ -336,4 +367,16 @@ export const ARTICLE_PAGES = [
     article: { kind: 'Case studies', body: listBody(CASE_STUDIES, 'case-studies') },
   },
   ...CASE_STUDIES.map((item) => toPage(item, 'case-studies', 'Case study', 'Article')),
+  {
+    path: '/news',
+    title: 'News | DH Website Services',
+    description: 'News from DH Website Services in Pontypridd, including our Web Design Service of the Year – Wales award.',
+    heading: 'News.',
+    intro: 'What is happening at DH Website Services.',
+    sections: [],
+    ctaLabel: 'Talk to us about your project',
+    ctaHref: '/contact',
+    article: { kind: 'News', body: listBody(NEWS, 'news') },
+  },
+  ...NEWS.map((item) => toPage(item, 'news', 'News', 'NewsArticle')),
 ]

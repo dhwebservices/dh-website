@@ -47,6 +47,8 @@ export const HOME_DOCUMENT = {
         eyebrow: 'Wales Prestige Awards 2027/28',
         heading: 'Web Design Service of the Year – Wales',
         body: 'Judged on our client feedback, case studies and the work itself. Thank you to every business that has trusted us with their website.',
+        linkLabel: 'Read about the award',
+        linkHref: '/news/web-design-service-of-the-year-wales',
       },
     },
 
@@ -68,7 +70,7 @@ export const HOME_DOCUMENT = {
         items: [
           { icon: 'phone', label: 'On the App Store', sub: 'Fish Tank · Fam & a Half' },
           { icon: 'game', label: 'On Google Play', sub: 'Fish Tank' },
-          { icon: 'award', label: 'Web Design Service of the Year', sub: 'Wales Prestige Awards 2027/28' },
+          { icon: 'award', label: 'Web Design Service of the Year', sub: 'Wales Prestige Awards 2027/28', href: '/news/web-design-service-of-the-year-wales' },
           { icon: 'award', label: 'Microsoft Partner', sub: 'Verified' },
           { icon: 'lock', label: 'GDPR compliant', sub: 'Data protection' },
         ],

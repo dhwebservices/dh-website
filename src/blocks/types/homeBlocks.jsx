@@ -74,19 +74,33 @@ export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, p
 
 /* ── Trust bar ──────────────────────────────────────────────────────────── */
 
+function TrustBarItemBody({ item }) {
+  return (
+    <>
+      <Icon name={item.icon} size={22} />
+      <div>
+        <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--dark)', lineHeight: 1.3 }}>{item.label}</div>
+        <div style={{ fontSize: 11, color: 'var(--light)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>{item.sub}</div>
+      </div>
+    </>
+  )
+}
+
 export function TrustBarBlock({ items }) {
   return (
     <section style={{ background: 'var(--white)', borderBottom: '1px solid var(--border-light)', padding: 'clamp(20px,3vw,28px) clamp(20px,5vw,60px)' }}>
       <div className="container">
         <div className="reveal trust-bar">
           {(items || []).map((item, i) => (
-            <div key={i} className="trust-bar-item">
-              <Icon name={item.icon} size={22} />
-              <div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--dark)', lineHeight: 1.3 }}>{item.label}</div>
-                <div style={{ fontSize: 11, color: 'var(--light)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>{item.sub}</div>
+            item.href ? (
+              <Link key={i} to={item.href} className="trust-bar-item trust-bar-link">
+                <TrustBarItemBody item={item} />
+              </Link>
+            ) : (
+              <div key={i} className="trust-bar-item">
+                <TrustBarItemBody item={item} />
               </div>
-            </div>
+            )
           ))}
         </div>
       </div>
@@ -96,7 +110,7 @@ export function TrustBarBlock({ items }) {
 
 /* ── Award banner ───────────────────────────────────────────────────────── */
 
-export function AwardBannerBlock({ image, imageAlt, eyebrow, heading, body }) {
+export function AwardBannerBlock({ image, imageAlt, eyebrow, heading, body, linkLabel, linkHref }) {
   return (
     <section style={{ background: 'var(--cream)', borderBottom: '1px solid var(--border-light)', padding: 'clamp(28px,4vw,44px) clamp(20px,5vw,60px)' }}>
       <div className="container reveal award-banner">
@@ -108,6 +122,11 @@ export function AwardBannerBlock({ image, imageAlt, eyebrow, heading, body }) {
           {eyebrow && <p className="eyebrow" style={{ marginBottom: 8 }}>{eyebrow}</p>}
           <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 8 }}>{heading}</h2>
           {body && <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--mid)', maxWidth: 680, margin: 0 }}>{body}</p>}
+          {linkHref && (
+            <Link to={linkHref} style={{ display: 'inline-block', marginTop: 12, fontSize: 15, fontWeight: 600, color: 'var(--accent)' }}>
+              {linkLabel || 'Read more'} →
+            </Link>
+          )}
         </div>
       </div>
     </section>

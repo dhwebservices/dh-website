@@ -94,6 +94,7 @@ function pageContent(page) {
           <h1 style="font-family:var(--font-sans);font-size:clamp(36px,5.5vw,64px);font-weight:600;letter-spacing:-0.03em;line-height:1.05;margin:0 0 20px">${escapeHtml(page.heading)}</h1>
           <p class="body-lg" style="margin:0 0 12px">${escapeHtml(page.intro)}</p>
           ${published}
+          ${page.article.image ? `<img src="${page.article.image}" alt="${escapeHtml(page.article.imageAlt || '')}" width="200" style="display:block;margin:0 0 32px;border-radius:16px" />` : ''}
           ${legalHtml(page.article.body)}
           <p><a href="${page.ctaHref}" class="btn-primary">${escapeHtml(page.ctaLabel)} →</a></p>
         </article>

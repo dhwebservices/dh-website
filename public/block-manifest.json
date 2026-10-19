@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T11:38:34.637Z",
+  "generatedAt": "2026-10-19T11:13:02.291Z",
   "blocks": [
     {
       "type": "hero",
@@ -106,6 +106,11 @@
               "key": "sub",
               "type": "text",
               "label": "Sub-label"
+            },
+            {
+              "key": "href",
+              "type": "text",
+              "label": "Link (optional)"
             }
           ]
         }
@@ -145,6 +150,16 @@
           "key": "body",
           "type": "textarea",
           "label": "Body"
+        },
+        {
+          "key": "linkLabel",
+          "type": "text",
+          "label": "Link text"
+        },
+        {
+          "key": "linkHref",
+          "type": "text",
+          "label": "Link URL"
         }
       ],
       "defaults": {
@@ -152,7 +167,9 @@
         "imageAlt": "",
         "eyebrow": "",
         "heading": "",
-        "body": ""
+        "body": "",
+        "linkLabel": "",
+        "linkHref": ""
       }
     },
     {
@@ -2855,7 +2872,9 @@
             "imageAlt": "Wales Prestige Awards 2027/28 winner",
             "eyebrow": "Wales Prestige Awards 2027/28",
             "heading": "Web Design Service of the Year – Wales",
-            "body": "Judged on our client feedback, case studies and the work itself. Thank you to every business that has trusted us with their website."
+            "body": "Judged on our client feedback, case studies and the work itself. Thank you to every business that has trusted us with their website.",
+            "linkLabel": "Read about the award",
+            "linkHref": "/news/web-design-service-of-the-year-wales"
           }
         },
         {
@@ -2864,7 +2883,7 @@
           "props": {
             "eyebrow": "Our products",
             "heading": "Apps we build\nfor ourselves.",
-            "body": "Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is with Apple for review, and two more run our business every day.",
+            "body": "Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is on the App Store, and two more run our business every day.",
             "items": [
               {
                 "name": "Fish Tank",
@@ -2886,9 +2905,9 @@
               {
                 "name": "Fam & a Half",
                 "platforms": "iPhone",
-                "status": "In App Store review",
-                "tone": "beta",
-                "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. With Apple for review now and coming soon to the App Store.",
+                "status": "Live on the App Store",
+                "tone": "live",
+                "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. Free on the App Store.",
                 "icon": "/work/findmygang-icon.png",
                 "iconAlt": "Fam & a Half app icon",
                 "panel": "#E7F1EC",
@@ -2925,7 +2944,7 @@
               {
                 "icon": "phone",
                 "label": "On the App Store",
-                "sub": "Fish Tank"
+                "sub": "Fish Tank · Fam & a Half"
               },
               {
                 "icon": "game",
@@ -2935,7 +2954,8 @@
               {
                 "icon": "award",
                 "label": "Web Design Service of the Year",
-                "sub": "Wales Prestige Awards 2027/28"
+                "sub": "Wales Prestige Awards 2027/28",
+                "href": "/news/web-design-service-of-the-year-wales"
               },
               {
                 "icon": "award",
@@ -3290,7 +3310,7 @@
           "props": {
             "eyebrow": "Our work",
             "heading": "Apps and websites\nwe have shipped.",
-            "body": "Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is with Apple for review now.",
+            "body": "Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is on the App Store.",
             "maxWidth": 760,
             "bodyMaxWidth": 560
           }
@@ -3323,9 +3343,9 @@
               {
                 "name": "Fam & a Half",
                 "platforms": "iPhone",
-                "status": "In App Store review",
-                "tone": "beta",
-                "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. With Apple for review now and coming soon to the App Store.",
+                "status": "Live on the App Store",
+                "tone": "live",
+                "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. Free on the App Store.",
                 "icon": "/work/findmygang-icon.png",
                 "iconAlt": "Fam & a Half app icon",
                 "panel": "#E7F1EC",

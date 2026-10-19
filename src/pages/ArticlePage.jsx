@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { getIndexablePage } from '../lib/seoContent'
 import NotFound from './NotFound'
 
-// Guides and case studies. The body is the same markdown subset the static
+// Guides, case studies and news. The body is the same markdown subset the static
 // prerender reads, so a crawler and a visitor see the same words.
 
 function inline(text, keyBase) {
@@ -79,7 +79,9 @@ export default function ArticlePage() {
 
   const { kind, published } = page.article
   const isIndex = !published
-  const parent = pathname.startsWith('/case-studies') ? { to: '/case-studies', label: 'Case studies' } : { to: '/guides', label: 'Guides' }
+  const parent = pathname.startsWith('/case-studies') ? { to: '/case-studies', label: 'Case studies' }
+    : pathname.startsWith('/news') ? { to: '/news', label: 'News' }
+    : { to: '/guides', label: 'Guides' }
 
   return (
     <main style={{ paddingTop: 'var(--nav-h)' }}>
@@ -96,6 +98,10 @@ export default function ArticlePage() {
             <p className="body-sm" style={{ marginBottom: 32 }}>
               {new Date(published).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} · DH Website Services
             </p>
+          )}
+          {page.article.image && (
+            <img src={page.article.image} alt={page.article.imageAlt || ''} width="240" height="224"
+              style={{ width: 200, height: 'auto', display: 'block', margin: '0 0 32px', background: 'var(--white)', borderRadius: 16, padding: 12, border: '1px solid var(--border-light)' }} />
           )}
           {renderBody(page.article.body)}
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 40 }}>
