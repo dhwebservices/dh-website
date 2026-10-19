@@ -57,8 +57,22 @@ export default function Footer() {
               iPhone and Android apps and web design, from a small team in Pontypridd, serving Cardiff and Wales. Working with
               clients across the UK.
             </p>
-            <div style={{ marginBottom: 20 }}>
+            <div style={{ marginBottom: 20, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12 }}>
               <MicrosoftPartnerBadge width={180} framed />
+              <a
+                href="https://www.thegreenwebfoundation.org/green-web-check/?url=dhwebsiteservices.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'inline-block', lineHeight: 0 }}
+              >
+                <img
+                  src="https://app.greenweb.org/api/v3/greencheckimage/dhwebsiteservices.co.uk?nocache=true"
+                  alt="This website runs on green hosting - verified by thegreenwebfoundation.org"
+                  width="160"
+                  height="76"
+                  loading="lazy"
+                />
+              </a>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
               <a
