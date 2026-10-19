@@ -67,7 +67,7 @@
   <header>
     <p class="eyebrow">DH Website Services · for Jack</p>
     <h1>Jack's Day 2</h1>
-    <p class="lede">Day 1 is done: 31 of 34 ticked. Today is follow-ups, photos, Google and finding new customers. The three Day 1 tasks still open are at the bottom. Tick each task when it's done. David sees the same ticks.</p>
+    <p class="lede">Day 1 is done: 31 of 34 ticked. Today is more badges, awards and certificates. The three Day 1 tasks still open are at the bottom. Tick each task when it's done. David sees the same ticks.</p>
     <div class="progress"><div class="bar"><i id="bar"></i></div><span class="count" id="count">0 of 0</span></div>
     <p class="sync" id="sync">Loading ticks…</p>
   </header>
@@ -106,17 +106,15 @@ About: We design and build websites and apps for businesses in Pontypridd and ac
 
 <script>
 var TASKS = [
-  { id:"d2-press-chase", t:"Chase the press story", d:"If WalesOnline hasn't replied in 3 working days, send a short follow-up: \"Just checking you got this.\" Then send the same story to Business News Wales. Show David first.", url:"https://businessnewswales.com", david:true },
-  { id:"d2-award-assets", t:"Get the official winner pack", d:"Log in to the Wales Prestige Awards site or check the winner email for the certificate, logo files and any winner write-up. Save everything in DH-DEV › Badges.", url:"https://prestigeawards.co.uk" },
-  { id:"d2-photos", t:"Team photos", d:"Take a clear head-and-shoulders photo of David and of you, in good light against a plain wall. Then one of you both together. The website team section only shows initials right now. Save them in DH-DEV › Badges › Photos." },
-  { id:"d2-verify", t:"Chase listing verifications", d:"Go back through every listing from Day 1. Click any verification emails, and note any that are waiting on a postcard or phone call. Write down which are live and which aren't." },
-  { id:"d2-listing-sheet", t:"List every profile link", d:"Make a list of the public link to every listing and profile we now have, one per line. Send it to Claude, who will add them to the website so Google connects them all to us." },
-  { id:"d2-gbp-services", t:"Google Business: services, prices and hours", d:"Add each service with its starting price from the pricing page. Check the opening hours are right and add the website booking link.", url:"https://business.google.com" },
-  { id:"d2-gbp-award", t:"Google Business: award post", d:"Add a post about the award with the award logo and a link to the news page on our website.", url:"https://business.google.com" },
-  { id:"d2-competitors", t:"Look at the competition", d:"Search Google Maps for \"web design Pontypridd\". For the top 3 (Website Sorted, The Digital Chimps, Ashley Bale), write down how many reviews they have, what photos they use, and anything on their profile we don't have." },
-  { id:"d2-client-logos", t:"Client logo permission", d:"Ask Glow with Lucy, Ponty Eats, TaffGo and National Pet Watch if we can show their logo on our website. Ask for a good copy of the logo if they say yes. Show David the message first.", david:true },
-  { id:"d2-leads", t:"Find 20 local businesses without a good website", d:"Search Google Maps around Pontypridd (cafes, salons, trades, takeaways). Open every website and look at it properly on a phone. List the ones with no site, or a broken or very old one, with their name, phone number and what's wrong. Don't contact anyone yet." },
-  { id:"d2-disability-badge", t:"Disability Confident badge on the website", d:"The badge is already in DH-DEV › Badges. Tell Claude it's there and it will add it to the website footer." },
+  { id:"d2-dc-level2", t:"Disability Confident Level 2 (Employer)", d:"The next level up from the one we did. It's a self-assessment against the scheme's commitments. Go through it with David and only submit if we can honestly say yes to each part. Save the new badge in DH-DEV › Badges.", url:"https://www.gov.uk/government/collections/disability-confident-campaign", david:true },
+  { id:"d2-ers-bronze", t:"Armed Forces: Employer Recognition Scheme Bronze", d:"Now we've signed the Armed Forces Covenant, apply for the Bronze award. Save the award logo in DH-DEV › Badges.", url:"https://www.gov.uk/government/publications/defence-employer-recognition-scheme" },
+  { id:"d2-mindful", t:"Mindful Employer charter", d:"Sign the charter for supporting staff mental health at work. Save the charter logo in DH-DEV › Badges.", url:"https://www.mindfulemployer.net" },
+  { id:"d2-ico-check", t:"ICO data protection self-assessment", d:"Work through the ICO's checklist for small businesses with David. Save or screenshot the result in DH-DEV › Badges. It's proof we've checked our data protection.", url:"https://ico.org.uk/for-organisations/advice-for-small-organisations/", david:true },
+  { id:"d2-cisco-cyber", t:"Cisco: Introduction to Cybersecurity", d:"Online course with a digital badge at the end. Download the badge and certificate.", url:"https://www.netacad.com/courses/introduction-to-cybersecurity" },
+  { id:"d2-ms-learn", t:"Microsoft Learn: Microsoft 365 training", d:"Do the Microsoft 365 learning path. It fits our Microsoft Partner badge. Screenshot the trophies and achievements on your Microsoft Learn profile.", url:"https://learn.microsoft.com/en-gb/training/" },
+  { id:"d2-google-ads", t:"Google Skillshop: Google Ads Search certification", d:"Same site as the Google Analytics certificate. Download the certificate when you pass.", url:"https://skillshop.withgoogle.com" },
+  { id:"d2-hubspot-content", t:"HubSpot Academy: Content Marketing certification", d:"Download the certificate when you pass.", url:"https://academy.hubspot.com/courses/content-marketing" },
+  { id:"d2-meta-blueprint", t:"Meta Blueprint: Facebook and Instagram for business", d:"Do the free business courses on Meta Blueprint. Save any badge or completion screenshot.", url:"https://www.facebook.com/business/learn" },
   { id:"hubspot-inbound", t:"HubSpot Academy: Inbound Marketing certification", d:"Good background for selling to clients.", url:"https://academy.hubspot.com" },
   { id:"google-analytics", t:"Google Skillshop: Google Analytics certification", d:"This is an individual certificate. Don't call us a 'Google Partner' because of it, since that needs ad spend.", url:"https://skillshop.withgoogle.com" },
   { id:"ce-ready", t:"Cyber Essentials readiness tool", d:"Practice run for the Cyber Essentials certificate. Note any questions you can't answer for Claude to fill in.", url:"https://getreadyforcyberessentials.iasme.co.uk" }
