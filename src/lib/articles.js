@@ -177,9 +177,6 @@ We also make our own apps:
 - **Fish Tank**, a multiplayer game on the App Store and Google Play. [Read the case study](/case-studies/fish-tank/)
 - Our own [staff portal](/case-studies/staff-portal/) and [phone system](/case-studies/phone-system/), which we use to run the business every day
 
-## Thank you
-Thank you to every business that has trusted us with their website.
-
 ## Press
 For press enquiries, call **01443 805303** or [contact us](/contact). DH Website Services is the trading name of David Hooper Home Limited, company number 17018784.
 `,
