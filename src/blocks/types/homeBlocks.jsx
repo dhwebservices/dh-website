@@ -76,11 +76,11 @@ export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, p
 
 export function TrustBarBlock({ items }) {
   return (
-    <section style={{ background: 'var(--white)', borderBottom: '1px solid var(--border-light)', padding: 'clamp(20px,3vw,28px) 0' }}>
+    <section style={{ background: 'var(--white)', borderBottom: '1px solid var(--border-light)', padding: 'clamp(20px,3vw,28px) clamp(20px,5vw,60px)' }}>
       <div className="container">
-        <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 'clamp(24px,5vw,48px)', flexWrap: 'wrap' }}>
+        <div className="reveal trust-bar">
           {(items || []).map((item, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div key={i} className="trust-bar-item">
               <Icon name={item.icon} size={22} />
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--dark)', lineHeight: 1.3 }}>{item.label}</div>
@@ -98,13 +98,13 @@ export function TrustBarBlock({ items }) {
 
 export function AwardBannerBlock({ image, imageAlt, eyebrow, heading, body }) {
   return (
-    <section style={{ background: 'var(--cream)', borderBottom: '1px solid var(--border-light)', padding: 'clamp(28px,4vw,44px) 0' }}>
-      <div className="container reveal" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px,4vw,40px)', flexWrap: 'wrap' }}>
+    <section style={{ background: 'var(--cream)', borderBottom: '1px solid var(--border-light)', padding: 'clamp(28px,4vw,44px) clamp(20px,5vw,60px)' }}>
+      <div className="container reveal award-banner">
         {image && (
           <img src={image} alt={imageAlt || ''} width="150" height="140" loading="lazy"
-            style={{ width: 150, height: 'auto', flex: 'none', background: 'var(--white)', borderRadius: 16, padding: 10, border: '1px solid var(--border-light)' }} />
+            className="award-banner-logo" />
         )}
-        <div style={{ flex: '1 1 300px' }}>
+        <div className="award-banner-text">
           {eyebrow && <p className="eyebrow" style={{ marginBottom: 8 }}>{eyebrow}</p>}
           <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 8 }}>{heading}</h2>
           {body && <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--mid)', maxWidth: 680, margin: 0 }}>{body}</p>}
