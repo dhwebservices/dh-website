@@ -8,6 +8,7 @@ const TASKS = new Set([
   'clutch', 'goodfirms', 'designrush', 'trustpilot',
   'hubspot-seo', 'hubspot-inbound', 'google-analytics', 'shopify-partner', 'wcrc', 'ce-ready',
   'product-hunt', 'green-growth', 'sme-climate', 'armed-forces', 'behance-dribbble', 'crunchbase',
+  'd2-press-chase', 'd2-award-assets', 'd2-photos', 'd2-verify', 'd2-listing-sheet', 'd2-gbp-services', 'd2-gbp-award', 'd2-competitors', 'd2-client-logos', 'd2-leads', 'd2-disability-badge',
 ])
 
 const DEFAULT_SUPABASE_URL = 'https://xtunnfdwltfesscmpove.supabase.co'
