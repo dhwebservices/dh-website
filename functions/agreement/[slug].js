@@ -206,8 +206,35 @@ async function sendEmail(env, to, subject, html) {
   }).catch(() => {})
 }
 
-export async function onRequestGet({ params }) {
-  return passcodeForm(params.slug)
+// Every open, passcode attempt and signing is logged. A plain page load can be
+// an email link scanner rather than a person, so only a correct passcode counts
+// as "opened" for the notification email.
+async function logEvent(context, slug, event) {
+  const { request, env } = context
+  await db(env, 'client_agreement_events', {
+    method: 'POST',
+    body: JSON.stringify({
+      slug,
+      event,
+      ip: request.headers.get('CF-Connecting-IP') || '',
+      user_agent: (request.headers.get('User-Agent') || '').slice(0, 400),
+    }),
+  }).catch(() => {})
+}
+
+async function notifyFirstOpen(context, row) {
+  const res = await db(context.env, `client_agreement_events?slug=eq.${encodeURIComponent(row.slug)}&event=eq.passcode_ok&select=id&limit=2`)
+  if (!res.ok) return
+  if ((await res.json()).length !== 1) return
+  const link = `https://dhwebsiteservices.co.uk/agreement/${encodeURIComponent(row.slug)}`
+  await sendEmail(context.env, NOTIFY_EMAIL, `Opened: ${row.title} (${row.client_name})`,
+    `<p>${esc(row.client_name)} entered the passcode and opened the ${esc(row.title)} at ${esc(ukDateTime(new Date().toISOString()))}.</p><p><a href="${link}">${link}</a></p>`)
+}
+
+export async function onRequestGet(context) {
+  const slug = String(context.params.slug || '')
+  context.waitUntil(logEvent(context, slug, 'page_open'))
+  return passcodeForm(slug)
 }
 
 export async function onRequestPost(context) {
@@ -219,7 +246,12 @@ export async function onRequestPost(context) {
   const form = await request.formData()
   const passcode = String(form.get('passcode') || '').trim()
   if (!row || (await sha256(passcode.toUpperCase())) !== row.passcode_sha256) {
+    context.waitUntil(logEvent(context, slug, 'passcode_wrong'))
     return passcodeForm(slug, 'That passcode is not right. Check it and try again.')
+  }
+
+  if (form.get('action') !== 'sign') {
+    context.waitUntil(logEvent(context, slug, 'passcode_ok').then(() => notifyFirstOpen(context, row)))
   }
 
   if (form.get('action') !== 'sign' || row.signed_at) return agreementPage(row, passcode)
@@ -252,6 +284,7 @@ export async function onRequestPost(context) {
   const saved = (await update.json())[0]
   if (!saved) return agreementPage(await loadRow(env, slug), passcode)
 
+  context.waitUntil(logEvent(context, slug, 'signed'))
   const link = `https://dhwebsiteservices.co.uk/agreement/${encodeURIComponent(slug)}`
   const when = ukDateTime(saved.signed_at)
   context.waitUntil(Promise.all([
