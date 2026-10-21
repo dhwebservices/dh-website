@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#15171A">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/dh-logo-icon.png">
-<title>Jack's Day 2</title>
+<title>Jack's Day 3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 <style>
@@ -66,8 +66,8 @@
 <div class="wrap">
   <header>
     <p class="eyebrow">DH Website Services · for Jack</p>
-    <h1>Jack's Day 2</h1>
-    <p class="lede">Day 1 is done: 31 of 34 ticked. Today is more badges, awards and certificates. The three Day 1 tasks still open are at the bottom. Tick each task when it's done. David sees the same ticks.</p>
+    <h1>Jack's Day 3</h1>
+    <p class="lede">Today is new software: the company password manager, getting ready for the Maltsters Arms, and a few tools. Day 2 tasks still open are at the bottom. Tick each task when it's done. David sees the same ticks.</p>
     <div class="progress"><div class="bar"><i id="bar"></i></div><span class="count" id="count">0 of 0</span></div>
     <p class="sync" id="sync">Loading ticks…</p>
   </header>
@@ -106,11 +106,19 @@ About: We design and build websites and apps for businesses in Pontypridd and ac
 
 <script>
 var TASKS = [
-  { id:"d2-dc-level2", t:"Disability Confident Level 2 (Employer)", d:"The next level up from the one we did. It's a self-assessment against the scheme's commitments. Go through it with David and only submit if we can honestly say yes to each part. Save the new badge in DH-DEV › Badges.", url:"https://www.gov.uk/government/collections/disability-confident-campaign", david:true },
-  { id:"d2-ers-bronze", t:"Armed Forces: Employer Recognition Scheme Bronze", d:"Now we've signed the Armed Forces Covenant, apply for the Bronze award. Save the award logo in DH-DEV › Badges.", url:"https://www.gov.uk/government/publications/defence-employer-recognition-scheme" },
-  { id:"d2-mindful", t:"Mindful Employer charter", d:"Sign the charter for supporting staff mental health at work. Save the charter logo in DH-DEV › Badges.", url:"https://www.mindfulemployer.net" },
-  { id:"d2-ico-check", t:"ICO data protection self-assessment", d:"Work through the ICO's checklist for small businesses with David. Save or screenshot the result in DH-DEV › Badges. It's proof we've checked our data protection.", url:"https://ico.org.uk/for-organisations/advice-for-small-organisations/", david:true },
-  { id:"d2-cisco-cyber", t:"Cisco: Introduction to Cybersecurity", d:"Online course with a digital badge at the end. Download the badge and certificate.", url:"https://www.netacad.com/courses/introduction-to-cybersecurity" },
+  { id:"d3-pm-choose", t:"Password manager: set up Bitwarden Teams", d:"David creates the company account as owner, then invites you and Sophie. Use Bitwarden Teams unless David picks 1Password Business.", url:"https://bitwarden.com/products/business/", david:true },
+  { id:"d3-pm-collections", t:"Password manager: make the collections", d:"Create three: Everyone (social media, Canva, Google Business), Admin (Cloudflare, Stripe, Apple, Google Play, IONOS, Microsoft admin; David decides who sees it) and Clients, with a Maltsters Arms collection inside." },
+  { id:"d3-pm-move", t:"Password manager: move every login in", d:"Go through every login the business uses and save it in Bitwarden. Turn on two-step sign-in for each one as you go. Then delete passwords kept in notes, texts and browsers." },
+  { id:"d3-pm-install", t:"Password manager: install it everywhere", d:"Add the Bitwarden Chrome extension and phone app on every work device. Tell Claude when the account exists, so it can be pushed to the company PCs through Intune." },
+  { id:"d3-malt-board", t:"Maltsters: project board", d:"Make a Trello board with a card for each stage: Contract signed, Paid, Content received, Design, Build, Shaun reviews, Live.", url:"https://trello.com" },
+  { id:"d3-malt-folder", t:"Maltsters: client folder", d:"Make a Maltsters Arms folder for the contract, invoices, photos, logo and notes." },
+  { id:"d3-malt-checklist", t:"Maltsters: what we need from Shaun", d:"Draft an email listing everything we need: logo, photos of the pub, menu, opening times, regular events, and who needs an admin login. David checks and sends it.", david:true },
+  { id:"d3-malt-google", t:"Maltsters: Google Business", d:"Search for the Maltsters Arms on Google Maps. Check whether it has a Business Profile, who manages it, and what's wrong or out of date. Get the manager request ready to send once the contract is signed.", url:"https://business.google.com" },
+  { id:"d3-malt-meta", t:"Maltsters: Facebook and Instagram", d:"Find the pub's Facebook page and Instagram account. Get the partner access request ready in Meta Business Suite, to send once the contract is signed.", url:"https://business.facebook.com" },
+  { id:"d3-malt-photos", t:"Maltsters: plan the photo visit", d:"Write a shot list (bar, food, garden, the sign, an event night) and suggest a busy evening to visit. David agrees the date with Shaun.", david:true },
+  { id:"d3-uptime", t:"Uptime monitoring", d:"Make a free UptimeRobot account and add dhwebsiteservices.co.uk. The Maltsters site gets added on launch day.", url:"https://uptimerobot.com" },
+  { id:"d3-crm", t:"HubSpot free CRM", d:"Make the free CRM account and add every current lead and enquiry, with the stage each one is at.", url:"https://www.hubspot.com/products/crm" },
+  { id:"d3-sentry", t:"Sentry crash alerts", d:"Make a free Sentry account for DH Website Services and invite David. Claude will connect it to the apps.", url:"https://sentry.io" },
   { id:"d2-ms-learn", t:"Microsoft Learn: Microsoft 365 training", d:"Do the Microsoft 365 learning path. It fits our Microsoft Partner badge. Screenshot the trophies and achievements on your Microsoft Learn profile.", url:"https://learn.microsoft.com/en-gb/training/" },
   { id:"d2-google-ads", t:"Google Skillshop: Google Ads Search certification", d:"Same site as the Google Analytics certificate. Download the certificate when you pass.", url:"https://skillshop.withgoogle.com" },
   { id:"d2-hubspot-content", t:"HubSpot Academy: Content Marketing certification", d:"Download the certificate when you pass.", url:"https://academy.hubspot.com/courses/content-marketing" },
