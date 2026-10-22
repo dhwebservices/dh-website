@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#15171A">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/dh-logo-icon.png">
-<title>Jack's Day 3</title>
+<title>Jack's Day 4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 <style>
@@ -39,6 +39,7 @@
   .details pre { font-family:var(--mono); font-size:14px; line-height:1.7; margin:0; white-space:pre-wrap; word-break:break-word; }
   .details p { margin:0; font-size:14px; color:var(--muted); }
   button { font:inherit; cursor:pointer; }
+  .start { font-family:var(--mono); font-size:14px; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:0; word-break:break-word; }
   .copy { align-self:flex-start; background:var(--ink); color:var(--bg); border:0; border-radius:8px; padding:8px 14px; font-weight:600; font-size:14px; }
   .copy:focus-visible, .task input:focus-visible + .box { outline:3px solid var(--blue); outline-offset:2px; }
   .tasks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
@@ -53,9 +54,10 @@
   .task.done .t { text-decoration:line-through; color:var(--muted); }
   .body { min-width:0; display:flex; flex-direction:column; gap:6px; }
   .t { font-weight:700; font-size:17px; }
-  .d { color:var(--muted); margin:0; font-size:15px; }
+  .d { color:var(--muted); margin:0; font-size:15px; white-space:pre-line; }
   .meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:13px; }
   .chip { padding:2px 9px; border-radius:99px; font-weight:600; background:var(--blue-soft); color:var(--blue); }
+  .chip.when { background:var(--card); color:var(--ink); border:1px solid var(--line); }
   .chip.david { background:var(--warn-soft); color:var(--warn); }
   .meta a { color:var(--blue); font-weight:600; word-break:break-all; }
   footer { font-size:14px; color:var(--muted); border-top:1px solid var(--line); padding-top:18px; }
@@ -66,8 +68,8 @@
 <div class="wrap">
   <header>
     <p class="eyebrow">DH Website Services · for Jack</p>
-    <h1>Jack's Day 3</h1>
-    <p class="lede">Today is new software: the company password manager, getting ready for the Maltsters Arms, and a few tools. Day 2 tasks still open are at the bottom. Tick each task when it's done. David sees the same ticks.</p>
+    <h1>Jack's Day 4</h1>
+    <p class="lede">Today is the Maltsters Arms website. Claude has built a preview. You check it with Shaun and help finish the page where he adds his own events. Tick each task when it's done. David sees the same ticks.</p>
     <div class="progress"><div class="bar"><i id="bar"></i></div><span class="count" id="count">0 of 0</span></div>
     <p class="sync" id="sync">Loading ticks…</p>
   </header>
@@ -75,24 +77,18 @@
   <section class="rules">
     <h2>Before you start</h2>
     <ul>
-      <li>Register on every site with <strong>your own email</strong>.</li>
-      <li>David will be sitting next to you.</li>
-      <li>Download every badge and certificate you get and save it in the <strong>Badges</strong> folder on the DH-DEV drive.</li>
+      <li>Work in Claude Code on David's account, in the Maltsters session. Start by typing the line below.</li>
+      <li>Never paste a password or code into the chat. If something needs a login, Claude tells you where to type it yourself.</li>
+      <li>Nothing goes to Shaun in writing (email, text or Messenger) until David has seen it. Phone calls and chatting in person are fine.</li>
+      <li>Pass any questions about prices or the contract to David.</li>
     </ul>
   </section>
 
   <section>
-    <h2>Use these details everywhere</h2>
+    <h2>Type this to start</h2>
     <div class="details">
-      <pre id="nap">DH Website Services
-Phone: 01443 805303
-Email: clients@dhwebsiteservices.co.uk
-Website: https://dhwebsiteservices.co.uk
-Area: Pontypridd, Wales
-Company: David Hooper Home Limited, company number 17018784
-About: We design and build websites and apps for businesses in Pontypridd and across South Wales.</pre>
-      <p>Copy the address exactly as it is on our Google Business profile, spelling and all. Google trusts us more when every listing matches word for word.</p>
-      <button class="copy" id="copyBtn" type="button">Copy details</button>
+      <pre id="nap">Hi Claude, it's Jack, starting the Maltsters plan</pre>
+      <button class="copy" id="copyBtn" type="button">Copy</button>
     </div>
   </section>
 
@@ -101,31 +97,20 @@ About: We design and build websites and apps for businesses in Pontypridd and ac
     <ul class="tasks" id="tasks"></ul>
   </section>
 
-  <footer>Made for Jack by Claude for David, 18 October 2026.</footer>
+  <footer>Made for Jack by Claude for David, 22 October 2026.</footer>
 </div>
 
 <script>
 var TASKS = [
-  { id:"d3-pm-choose", t:"Password manager: set up Bitwarden Teams", d:"David creates the company account as owner, then invites you and Sophie. Use Bitwarden Teams unless David picks 1Password Business.", url:"https://bitwarden.com/products/business/", david:true },
-  { id:"d3-pm-collections", t:"Password manager: make the collections", d:"Create three: Everyone (social media, Canva, Google Business), Admin (Cloudflare, Stripe, Apple, Google Play, IONOS, Microsoft admin; David decides who sees it) and Clients, with a Maltsters Arms collection inside." },
-  { id:"d3-pm-move", t:"Password manager: move every login in", d:"Go through every login the business uses and save it in Bitwarden. Turn on two-step sign-in for each one as you go. Then delete passwords kept in notes, texts and browsers." },
-  { id:"d3-pm-install", t:"Password manager: install it everywhere", d:"Add the Bitwarden Chrome extension and phone app on every work device. Tell Claude when the account exists, so it can be pushed to the company PCs through Intune." },
-  { id:"d3-malt-board", t:"Maltsters: project board", d:"Make a Trello board with a card for each stage: Contract signed, Paid, Content received, Design, Build, Shaun reviews, Live.", url:"https://trello.com" },
-  { id:"d3-malt-folder", t:"Maltsters: client folder", d:"Make a Maltsters Arms folder for the contract, invoices, photos, logo and notes." },
-  { id:"d3-malt-checklist", t:"Maltsters: what we need from Shaun", d:"Draft an email listing everything we need: logo, photos of the pub, menu, opening times, regular events, and who needs an admin login. David checks and sends it.", david:true },
-  { id:"d3-malt-google", t:"Maltsters: Google Business", d:"Search for the Maltsters Arms on Google Maps. Check whether it has a Business Profile, who manages it, and what's wrong or out of date. Get the manager request ready to send once the contract is signed.", url:"https://business.google.com" },
-  { id:"d3-malt-meta", t:"Maltsters: Facebook and Instagram", d:"Find the pub's Facebook page and Instagram account. Get the partner access request ready in Meta Business Suite, to send once the contract is signed.", url:"https://business.facebook.com" },
-  { id:"d3-malt-photos", t:"Maltsters: plan the photo visit", d:"Write a shot list (bar, food, garden, the sign, an event night) and suggest a busy evening to visit. David agrees the date with Shaun.", david:true },
-  { id:"d3-uptime", t:"Uptime monitoring", d:"Make a free UptimeRobot account and add dhwebsiteservices.co.uk. The Maltsters site gets added on launch day.", url:"https://uptimerobot.com" },
-  { id:"d3-crm", t:"HubSpot free CRM", d:"Make the free CRM account and add every current lead and enquiry, with the stage each one is at.", url:"https://www.hubspot.com/products/crm" },
-  { id:"d3-sentry", t:"Sentry crash alerts", d:"Make a free Sentry account for DH Website Services and invite David. Claude will connect it to the apps.", url:"https://sentry.io" },
-  { id:"d2-ms-learn", t:"Microsoft Learn: Microsoft 365 training", d:"Do the Microsoft 365 learning path. It fits our Microsoft Partner badge. Screenshot the trophies and achievements on your Microsoft Learn profile.", url:"https://learn.microsoft.com/en-gb/training/" },
-  { id:"d2-google-ads", t:"Google Skillshop: Google Ads Search certification", d:"Same site as the Google Analytics certificate. Download the certificate when you pass.", url:"https://skillshop.withgoogle.com" },
-  { id:"d2-hubspot-content", t:"HubSpot Academy: Content Marketing certification", d:"Download the certificate when you pass.", url:"https://academy.hubspot.com/courses/content-marketing" },
-  { id:"d2-meta-blueprint", t:"Meta Blueprint: Facebook and Instagram for business", d:"Do the free business courses on Meta Blueprint. Save any badge or completion screenshot.", url:"https://www.facebook.com/business/learn" },
-  { id:"hubspot-inbound", t:"HubSpot Academy: Inbound Marketing certification", d:"Good background for selling to clients.", url:"https://academy.hubspot.com" },
-  { id:"google-analytics", t:"Google Skillshop: Google Analytics certification", d:"This is an individual certificate. Don't call us a 'Google Partner' because of it, since that needs ad spend.", url:"https://skillshop.withgoogle.com" },
-  { id:"ce-ready", t:"Cyber Essentials readiness tool", d:"Practice run for the Cyber Essentials certificate. Note any questions you can't answer for Claude to fill in.", url:"https://getreadyforcyberessentials.iasme.co.uk" }
+  { id:"d4-preview", when:"Morning", t:"Look over the preview on your phone", d:"About 20 minutes. Go through all three pages. Tell Claude anything that looks wrong, odd or clumsy, and it'll fix it while you watch.", url:"https://maltsters-preview.pages.dev" },
+  { id:"d4-shaun", when:"Morning", t:"Ring Shaun or pop in and check the facts", d:"Write down exactly what he says:\n• Is there a Halloween night on Saturday 31 October? What time does it start, is entry free, is there a DJ or fancy dress?\n• Which number is right for the pub: 01443 403550 or 01443 485076?\n• What time do the DJs start on Fridays and Saturdays?\n• Which night is karaoke?\n• Is it still open 12 till 11, seven days a week?\n• Is the 10% off (Mon to Thu, 4 to 7pm) still running?\n• Is there outdoor seating?\n• What email address does he want to log in with to update his events?" },
+  { id:"d4-photos", when:"Morning", t:"Book a time to take photos in the pub", d:"Use yesterday's shot list. This week, ideally on a busy evening: the bar, the pool table, the pumps and the outside." },
+  { id:"d4-answers", when:"Midday", t:"Give Claude Shaun's answers", d:"Type them into the chat. Claude updates the site, then you check it again on your phone." },
+  { id:"d4-admin", when:"Midday", t:"Decide what Shaun fills in when he adds an event", d:"Claude builds the behind-the-scenes part (his login, where events are saved, photo uploads). Claude will suggest: name, date, start time, photo, a short description and free entry yes or no. You say what to add or drop, then try it on your phone and say anything that's confusing." },
+  { id:"d4-test", when:"Afternoon", t:"Pretend you're Shaun", d:"Add the real Halloween night through the admin page and check it shows on the What's On page. Then add a test event, delete it, and check it's gone." },
+  { id:"d4-guide", when:"Afternoon", t:"Test Shaun's how-to guide", d:"Claude drafts a one-page guide to adding an event. Follow it word for word on your phone. Anywhere you get stuck, tell Claude and the guide gets fixed." },
+  { id:"d4-gbp", when:"Afternoon", t:"Google Business: arrange the claim with Shaun", d:"Yesterday you checked the pub's Business Profile. Claiming it or getting manager access needs Shaun's phone or email, so agree a time with him to do it together.", url:"https://business.google.com" },
+  { id:"d4-summary", when:"End of day", t:"Send David a summary", d:"Type \"write David's summary\" in the chat. Claude writes up what's confirmed, what's still open and what's been built. You send it to David." }
 ];
 
 var done = {};
@@ -148,6 +133,7 @@ function render() {
     body.appendChild(el("span", "t", task.t));
     body.appendChild(el("span", "d", task.d));
     var meta = el("span", "meta");
+    if (task.when) meta.appendChild(el("span", "chip when", task.when));
     if (task.david) meta.appendChild(el("span", "chip david", "David approves"));
     if (task.url) {
       var a = el("a", null, task.url.replace(/^https:\/\/(www\.)?/, "").replace(/\/$/, ""));
@@ -189,7 +175,7 @@ document.getElementById("copyBtn").addEventListener("click", function () {
   var text = document.getElementById("nap").textContent, btn = this;
   function selectIt() { var r = document.createRange(); r.selectNodeContents(document.getElementById("nap")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press Copy"; }
   try {
-    navigator.clipboard.writeText(text).then(function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy details"; }, 1800); }, selectIt);
+    navigator.clipboard.writeText(text).then(function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1800); }, selectIt);
   } catch (e) { selectIt(); }
 });
 
