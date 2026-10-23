@@ -6,8 +6,8 @@ This is the **live** marketing site, https://www.dhwebsiteservices.co.uk. A push
 
 1. Branch off `main`. Never commit straight to it.
 2. Change it, then run `npm run build`. The build fails loudly if the prerender or the manifest breaks.
-3. Push the branch. Cloudflare builds a preview at `https://<branch>.dh-website.pages.dev`.
-4. Run `npm run smoke -- https://<branch>.dh-website.pages.dev`. It must report 0 failed.
+3. Push the branch. Cloudflare builds a preview at `https://<branch>.dh-website-djh.pages.dev`.
+4. Run `npm run smoke -- https://<branch>.dh-website-djh.pages.dev`. It must report 0 failed.
 5. Look at what you changed on the preview in a real browser, on a phone width too. A passing build doesn't prove a page looks right.
 6. Only merge to `main` once David says yes. Then run `npm run smoke` against production.
 

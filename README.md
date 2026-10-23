@@ -11,6 +11,6 @@ npm run build    # writes dist/: app, prerendered pages, sitemap, llms.txt
 npm run smoke    # checks production; add `-- <preview url>` to check a branch
 ```
 
-**Deploy:** pushing to `main` deploys to production. Every other branch gets a preview at `https://<branch>.dh-website.pages.dev`. Build command `npm run build`, output `dist`.
+**Deploy:** pushing to `main` deploys to production. Every other branch gets a preview at `https://<branch>.dh-website-djh.pages.dev`. Build command `npm run build`, output `dist`.
 
 Read [CLAUDE.md](CLAUDE.md) before changing anything. It covers where the content lives, the release loop, and the Cloudflare Pages traps this site has already hit.

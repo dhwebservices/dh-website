@@ -2,7 +2,7 @@
  * Checks a deployed copy of the site the way a visitor and Google see it.
  *
  *   npm run smoke                                   # production
- *   npm run smoke -- https://site-care.dh-website.pages.dev   # a branch preview
+ *   npm run smoke -- https://site-care.dh-website-djh.pages.dev   # a branch preview
  *
  * It exists because this site's worst bugs all passed a local dev server: the
  * Pages 404-over-SPA trap (every /appointment link dead), city routes that only
