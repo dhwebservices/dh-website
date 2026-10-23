@@ -217,22 +217,22 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                 <form onSubmit={submitEnquiry} style={{ display:'grid', gap:14 }}>
                   <div className="pricing-grid-two" style={{ gap:12 }}>
                     <div>
-                      <label className="field-label">Name *</label>
-                      <input className="field-inp" value={form.name} onChange={(e) => update('name', e.target.value)} />
+                      <label className="field-label" htmlFor="enq-name">Name *</label>
+                      <input id="enq-name" name="name" autoComplete="name" className="field-inp" value={form.name} onChange={(e) => update('name', e.target.value)} />
                     </div>
                     <div>
-                      <label className="field-label">Email *</label>
-                      <input className="field-inp" type="email" value={form.email} onChange={(e) => update('email', e.target.value)} />
+                      <label className="field-label" htmlFor="enq-email">Email *</label>
+                      <input id="enq-email" name="email" autoComplete="email" className="field-inp" type="email" value={form.email} onChange={(e) => update('email', e.target.value)} />
                     </div>
                   </div>
                   <div className="pricing-grid-two" style={{ gap:12 }}>
                     <div>
-                      <label className="field-label">Business</label>
-                      <input className="field-inp" value={form.business} onChange={(e) => update('business', e.target.value)} placeholder="Your company name" />
+                      <label className="field-label" htmlFor="enq-business">Business</label>
+                      <input id="enq-business" name="organization" autoComplete="organization" className="field-inp" value={form.business} onChange={(e) => update('business', e.target.value)} placeholder="Your company name" />
                     </div>
                     <div>
-                      <label className="field-label">Budget range</label>
-                      <select className="field-inp" value={form.budget} onChange={(e) => update('budget', e.target.value)} style={{ cursor:'pointer' }}>
+                      <label className="field-label" htmlFor="enq-budget">Budget range</label>
+                      <select id="enq-budget" name="budget" className="field-inp" value={form.budget} onChange={(e) => update('budget', e.target.value)} style={{ cursor:'pointer' }}>
                         <option value="">Select your budget</option>
                         <option value="£449-£999">£449-£999 — Starter websites</option>
                         <option value="£1,000-£2,500">£1,000-£2,500 — Growing businesses</option>
@@ -243,12 +243,14 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                     </div>
                   </div>
                   <div>
-                    <label className="field-label">Timeline</label>
-                    <input className="field-inp" value={form.timeline} onChange={(e) => update('timeline', e.target.value)} placeholder="e.g. Within 4 weeks, ASAP, Flexible" />
+                    <label className="field-label" htmlFor="enq-timeline">Timeline</label>
+                    <input id="enq-timeline" name="timeline" className="field-inp" value={form.timeline} onChange={(e) => update('timeline', e.target.value)} placeholder="e.g. Within 4 weeks, ASAP, Flexible" />
                   </div>
                   <div>
-                    <label className="field-label">Project brief <span style={{ color:'var(--accent)' }}>*</span></label>
+                    <label className="field-label" htmlFor="enq-message">Project brief <span style={{ color:'var(--accent)' }}>*</span></label>
                     <textarea
+                      id="enq-message"
+                      name="message"
                       className="field-inp"
                       rows={6}
                       value={form.message}

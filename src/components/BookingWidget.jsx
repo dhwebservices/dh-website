@@ -102,7 +102,7 @@ export function BookingWidget() {
     return (
       <div style={{ padding: '32px 24px', textAlign: 'center', maxWidth: 420 }}>
         <div style={{ width: 56, height: 56, borderRadius: '50%', background: '#dcfce7', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontSize: 24 }}>✓</div>
-        <h3 style={{ fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 22, fontWeight: 600, marginBottom: 8 }}>Call Confirmed</h3>
+        <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 22, fontWeight: 600, marginBottom: 8 }}>Call Confirmed</h2>
         <p style={{ color: '#6E6E73', fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
           Your call with <strong>{done.staffName?.split(' ')[0]}</strong> is booked for{' '}
           <strong>{new Date(done.date + 'T12:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })} at {done.time}</strong>.
@@ -132,10 +132,10 @@ export function BookingWidget() {
         {[1, 2, 3].map((n, index) => (
           <div key={n} style={{ display: 'flex', alignItems: 'center', flex: index < 2 ? 1 : 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-              <div style={{ width: 28, height: 28, borderRadius: '50%', background: step > n ? '#166534' : step === n ? '#1D1D1F' : '#E8E8ED', border: '2px solid ' + (step > n ? '#166534' : step === n ? '#1D1D1F' : '#D2D2D7'), color: step >= n ? '#fff' : '#A1A1A6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, transition: 'all 0.25s', flexShrink: 0 }}>
+              <div style={{ width: 28, height: 28, borderRadius: '50%', background: step > n ? '#166534' : step === n ? '#1D1D1F' : '#E8E8ED', border: '2px solid ' + (step > n ? '#166534' : step === n ? '#1D1D1F' : '#D2D2D7'), color: step >= n ? '#fff' : 'var(--light)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, transition: 'all 0.25s', flexShrink: 0 }}>
                 {step > n ? '✓' : n}
               </div>
-              <span style={{ fontSize: 12, color: step === n ? '#1D1D1F' : '#A1A1A6', fontWeight: step === n ? 600 : 400, whiteSpace: 'nowrap' }}>{['Your details', 'Pick a date', 'Choose a slot'][n - 1]}</span>
+              <span style={{ fontSize: 12, color: step === n ? '#1D1D1F' : 'var(--light)', fontWeight: step === n ? 600 : 400, whiteSpace: 'nowrap' }}>{['Your details', 'Pick a date', 'Choose a slot'][n - 1]}</span>
             </div>
             {index < 2 && <div style={{ flex: 1, height: 1.5, background: step > n ? '#166534' : '#D2D2D7', margin: '0 10px', transition: 'background 0.25s' }} />}
           </div>
@@ -144,18 +144,18 @@ export function BookingWidget() {
 
       {step === 1 && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <h3 style={{ fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Tell us about yourself</h3>
+          <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Tell us about yourself</h2>
           {[['name', 'Your name *', 'text'], ['business', 'Business name', 'text'], ['email', 'Email address *', 'email'], ['phone', 'Phone number *', 'tel']].map(([key, placeholder, type]) => (
             <div key={key}>
-              <label className="field-label">{placeholder}</label>
-              <input className="field-inp" type={type} value={form[key]} onChange={(event) => setForm((current) => ({ ...current, [key]: event.target.value }))} placeholder={placeholder.replace(' *', '')} />
+              <label className="field-label" htmlFor={`book-${key}`}>{placeholder}</label>
+              <input id={`book-${key}`} name={key} autoComplete={{ name: 'name', business: 'organization', email: 'email', phone: 'tel' }[key]} className="field-inp" type={type} value={form[key]} onChange={(event) => setForm((current) => ({ ...current, [key]: event.target.value }))} placeholder={placeholder.replace(' *', '')} />
             </div>
           ))}
           <div>
-            <label className="field-label">What should we read up on first?</label>
-            <textarea className="field-inp" rows={4} value={form.notes} onChange={(event) => setForm((current) => ({ ...current, notes: event.target.value }))} placeholder="Optional notes about your project or what you want to cover on the call." style={{ resize: 'vertical', lineHeight: 1.6 }} />
+            <label className="field-label" htmlFor="book-notes">What should we read up on first?</label>
+            <textarea id="book-notes" name="notes" className="field-inp" rows={4} value={form.notes} onChange={(event) => setForm((current) => ({ ...current, notes: event.target.value }))} placeholder="Optional notes about your project or what you want to cover on the call." style={{ resize: 'vertical', lineHeight: 1.6 }} />
           </div>
-          <input type="text" value={form.website} onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} />
+          <input type="text" aria-label="Leave this empty" value={form.website} onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} />
           <div>
             <label className="field-label">Call duration</label>
             <div style={{ display: 'flex', gap: 8 }}>
@@ -174,7 +174,7 @@ export function BookingWidget() {
 
       {step === 2 && (
         <div>
-          <h3 style={{ fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Pick a date</h3>
+          <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Pick a date</h2>
           <p style={{ color: '#6E6E73', fontSize: 13, marginBottom: 16 }}>Available dates shown in green. Up to 30 days ahead.</p>
           {loading ? (
             <div style={{ textAlign: 'center', padding: 32, color: '#6E6E73', fontSize: 13 }}>Loading availability...</div>
@@ -186,7 +186,7 @@ export function BookingWidget() {
                 <button onClick={() => { const month = new Date(calMonth); month.setMonth(month.getMonth() + 1); setCalMonth(month) }} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6E6E73', fontSize: 18 }}>→</button>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: 4, marginBottom: 16 }}>
-                {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, index) => <div key={index} style={{ textAlign: 'center', fontSize: 11, color: '#A1A1A6', fontWeight: 500, paddingBottom: 4 }}>{day}</div>)}
+                {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, index) => <div key={index} style={{ textAlign: 'center', fontSize: 11, color: 'var(--light)', fontWeight: 500, paddingBottom: 4 }}>{day}</div>)}
                 {calDays.map((date, index) => {
                   if (!date) return <div key={index} />
                   const dateStr = isoLocalDate(date)
@@ -211,7 +211,7 @@ export function BookingWidget() {
 
       {step === 3 && (
         <div>
-          <h3 style={{ fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Choose a time</h3>
+          <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Choose a time</h2>
           <p style={{ color: '#6E6E73', fontSize: 13, marginBottom: 16 }}>{new Date(selectedDate + 'T12:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</p>
           {(() => {
             const slots = getAvailableSlots(availability, selectedDate, selectedDuration)

@@ -15,38 +15,84 @@ import { SITE_URL } from './lib/siteConfig'
 import { INDEXABLE_PAGE_META, withTrailingSlash } from './lib/seoContent'
 const OG_IMAGE_URL = `${SITE_URL}/og-image.png`
 
-const Services = lazy(() => import('./pages/Services'))
-const Pricing = lazy(() => import('./pages/Pricing'))
-const Portfolio = lazy(() => import('./pages/Portfolio'))
-const ShopHome = lazy(() => import('./pages/ShopHome'))
-const ShopCategory = lazy(() => import('./pages/ShopCategory'))
-const ShopProduct = lazy(() => import('./pages/ShopProduct'))
-const ShopCart = lazy(() => import('./pages/ShopCart'))
-const ShopCheckout = lazy(() => import('./pages/ShopCheckout'))
-const ShopCheckoutSuccess = lazy(() => import('./pages/ShopCheckoutSuccess'))
-const ShopCheckoutCancel = lazy(() => import('./pages/ShopCheckoutCancel'))
-const ShopInfo = lazy(() => import('./pages/ShopInfo'))
-const Contact = lazy(() => import('./pages/Contact'))
-const Careers = lazy(() => import('./pages/Careers'))
-const CareerRole = lazy(() => import('./pages/CareerRole'))
-const CareerApply = lazy(() => import('./pages/CareerApply'))
-const ApplicationSuccess = lazy(() => import('./pages/ApplicationSuccess'))
-const Legal = lazy(() => import('./pages/Legal'))
-const Appointment = lazy(() => import('./pages/Appointment'))
-const Proposal = lazy(() => import('./pages/Proposal'))
-const Calculator = lazy(() => import('./pages/Calculator'))
-const About = lazy(() => import('./pages/About'))
-const Partners = lazy(() => import('./pages/Partners'))
-const ManagedPage = lazy(() => import('./pages/ManagedPage'))
-const GeoPage = lazy(() => import('./pages/GeoPage'))
-const ArticlePage = lazy(() => import('./pages/ArticlePage'))
+/**
+ * React.lazy, plus a way to fetch the code before the first render.
+ *
+ * With plain lazy(), a direct visit to /pricing threw away the prerendered
+ * page, showed "Loading…" with the footer straight under it, then pushed the
+ * footer down a screen when the code arrived. Lighthouse measured that as a
+ * layout shift of 0.77 on every lazy page. main.jsx now calls preloadRoute()
+ * first, and once the code is in, the page renders without suspending.
+ */
+function lazyPage(factory) {
+  let Loaded = null
+  const load = () => factory().then((module) => { Loaded = module.default; return module })
+  const Lazy = lazy(load)
+  function Page(props) {
+    return Loaded ? <Loaded {...props} /> : <Lazy {...props} />
+  }
+  Page.preload = load
+  return Page
+}
+
+const Services = lazyPage(() => import('./pages/Services'))
+const Pricing = lazyPage(() => import('./pages/Pricing'))
+const Portfolio = lazyPage(() => import('./pages/Portfolio'))
+const ShopHome = lazyPage(() => import('./pages/ShopHome'))
+const ShopCategory = lazyPage(() => import('./pages/ShopCategory'))
+const ShopProduct = lazyPage(() => import('./pages/ShopProduct'))
+const ShopCart = lazyPage(() => import('./pages/ShopCart'))
+const ShopCheckout = lazyPage(() => import('./pages/ShopCheckout'))
+const ShopCheckoutSuccess = lazyPage(() => import('./pages/ShopCheckoutSuccess'))
+const ShopCheckoutCancel = lazyPage(() => import('./pages/ShopCheckoutCancel'))
+const ShopInfo = lazyPage(() => import('./pages/ShopInfo'))
+const Contact = lazyPage(() => import('./pages/Contact'))
+const Careers = lazyPage(() => import('./pages/Careers'))
+const CareerRole = lazyPage(() => import('./pages/CareerRole'))
+const CareerApply = lazyPage(() => import('./pages/CareerApply'))
+const ApplicationSuccess = lazyPage(() => import('./pages/ApplicationSuccess'))
+const Legal = lazyPage(() => import('./pages/Legal'))
+const Appointment = lazyPage(() => import('./pages/Appointment'))
+const Proposal = lazyPage(() => import('./pages/Proposal'))
+const Calculator = lazyPage(() => import('./pages/Calculator'))
+const About = lazyPage(() => import('./pages/About'))
+const Partners = lazyPage(() => import('./pages/Partners'))
+const ManagedPage = lazyPage(() => import('./pages/ManagedPage'))
+const GeoPage = lazyPage(() => import('./pages/GeoPage'))
+const ArticlePage = lazyPage(() => import('./pages/ArticlePage'))
+const LEGAL_PATHS = new Set(['privacy', 'terms', 'services-terms', 'refunds', 'cookies', 'acceptable-use', 'accessibility', 'security', 'complaints'])
+const PAGES_BY_SEGMENT = {
+  services: Services, pricing: Pricing, portfolio: Portfolio, contact: Contact,
+  calculator: Calculator, about: About, partners: Partners,
+  appointment: Appointment, proposal: Proposal,
+}
+
+/**
+ * Loads the code for the page at `pathname`, so the first render does not
+ * suspend. It mirrors the <Routes> below only roughly: a path it does not
+ * recognise just isn't preloaded, and falls back to the normal lazy load.
+ */
+export function preloadRoute(pathname) {
+  const path = pathname.replace(/\/+$/, '') || '/'
+  if (path === '/') return Promise.resolve()
+  if (GEO_PAGES.some((page) => page.path === path)) return GeoPage.preload()
+  if (ARTICLE_PAGES.some((page) => page.path === path)) return ArticlePage.preload()
+  const [first, second] = path.split('/').slice(1)
+  if (LEGAL_PATHS.has(first)) return Legal.preload()
+  if (first === 'shop') return (second ? { category: ShopCategory, product: ShopProduct, cart: ShopCart, checkout: ShopCheckout }[second] : ShopHome)?.preload() ?? Promise.resolve()
+  if (first === 'careers') return (second ? CareerRole : Careers).preload()
+  return PAGES_BY_SEGMENT[first]?.preload() ?? Promise.resolve()
+}
+
 const MailingListPopup = lazy(() => import('./components/MailingListPopup'))
 const WhatsAppButtonLazy = lazy(() => import('./components/WhatsAppButton'))
 const ExitIntentLazy = lazy(() => import('./components/ExitIntent'))
 
 function RouteFallback() {
   return (
-    <main style={{ paddingTop: 'var(--nav-h)' }}>
+    // A full screen tall, so the footer stays below the fold until the page
+    // arrives instead of jumping down when it does.
+    <main style={{ paddingTop: 'var(--nav-h)', minHeight: '100vh' }}>
       <section className="section">
         <div className="container section-narrow">
           <p className="body-md">Loading…</p>

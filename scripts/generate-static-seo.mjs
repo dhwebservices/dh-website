@@ -258,8 +258,15 @@ async function writeLlmFiles() {
     '- Web design and development, staff portals, technical SEO and hosting.',
     '- Fixed prices: apps from £349, websites from £449, excluding VAT.',
     '',
-    'Primary contact:',
-    '- https://www.dhwebsiteservices.co.uk/contact',
+    'Common questions:',
+    ...SITE_FAQS.map((item) => `- ${item.q} ${item.a}`),
+    '',
+    'Contact:',
+    `- Book a call: ${SEO_SITE_URL}/contact/`,
+    `- Phone: ${ORGANIZATION_SCHEMA.telephone}`,
+    `- Email: ${ORGANIZATION_SCHEMA.email}`,
+    `- ${ORGANIZATION_SCHEMA.legalName}, company number ${ORGANIZATION_SCHEMA.identifier.value}, VAT ${ORGANIZATION_SCHEMA.vatID}`,
+    '',
   ].join('\n')
 
   const llmsFull = INDEXABLE_PAGES.map((page) => {

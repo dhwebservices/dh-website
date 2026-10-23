@@ -10,7 +10,7 @@
  * the one being deployed.
  */
 
-import { writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -40,11 +40,20 @@ async function main() {
   manifest.documents = await collectDocuments()
 
   const outDir = path.join(repoRoot, 'public')
+  const outFile = path.join(outDir, 'block-manifest.json')
   mkdirSync(outDir, { recursive: true })
-  writeFileSync(
-    path.join(outDir, 'block-manifest.json'),
-    `${JSON.stringify(manifest, null, 2)}\n`,
-  )
+
+  // Keep the old timestamp when nothing else changed. A fresh one on every
+  // build left the file modified after each `npm run build`, so a clean
+  // checkout never stayed clean.
+  try {
+    const previous = JSON.parse(readFileSync(outFile, 'utf8'))
+    const { generatedAt, ...rest } = previous
+    const { generatedAt: _, ...next } = manifest
+    if (JSON.stringify(rest) === JSON.stringify(next)) manifest.generatedAt = generatedAt
+  } catch { /* first run, or unreadable: write a fresh one */ }
+
+  writeFileSync(outFile, `${JSON.stringify(manifest, null, 2)}\n`)
   console.log(`Generated public/block-manifest.json (${manifest.blocks.length} blocks)`)
 }
 
