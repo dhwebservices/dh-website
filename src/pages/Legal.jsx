@@ -20,9 +20,12 @@ function renderMarkdown(text) {
     })
 }
 
-export default function Legal() {
+export default function Legal({ page }) {
   const { pathname } = useLocation()
-  const policy = POLICIES[pathname]
+  // Look the policy up by the route's own name: the live site serves these at
+  // /security/ (trailing slash), which never matched a '/security' key and so
+  // showed "Page Not Found" to visitors and Google alike.
+  const policy = POLICIES['/' + page] || POLICIES[pathname.replace(/\/+$/, '')]
 
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
 
