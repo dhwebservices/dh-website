@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#15171A">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/dh-logo-icon.png">
-<title>Jack's Day 4</title>
+<title>Jack's Day 5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 <style>
@@ -68,8 +68,8 @@
 <div class="wrap">
   <header>
     <p class="eyebrow">DH Website Services · for Jack</p>
-    <h1>Jack's Day 4</h1>
-    <p class="lede">Today is the Maltsters Arms website. Claude has built a preview. You check it with Shaun and help finish the page where he adds his own events. Tick each task when it's done. David sees the same ticks.</p>
+    <h1>Jack's Day 5</h1>
+    <p class="lede">Monday 26 October. First get the Maltsters ready for Halloween, then the DH listings, reviews and leads. Tick each task when it's done. David sees the same ticks.</p>
     <div class="progress"><div class="bar"><i id="bar"></i></div><span class="count" id="count">0 of 0</span></div>
     <p class="sync" id="sync">Loading ticks…</p>
   </header>
@@ -77,9 +77,9 @@
   <section class="rules">
     <h2>Before you start</h2>
     <ul>
-      <li>Work in Claude Code on David's account, in the Maltsters session. Start by typing the line below.</li>
+      <li>Work in Claude Code on David's account, in a new session. Start by typing the line below.</li>
       <li>Never paste a password or code into the chat. If something needs a login, Claude tells you where to type it yourself.</li>
-      <li>Nothing goes to Shaun in writing (email, text or Messenger) until David has seen it. Phone calls and chatting in person are fine.</li>
+      <li>Nothing goes to Shaun or a client in writing (email, text or Messenger) until David has seen it. Phone calls and chatting in person are fine.</li>
       <li>Pass any questions about prices or the contract to David.</li>
     </ul>
   </section>
@@ -87,7 +87,7 @@
   <section>
     <h2>Type this to start</h2>
     <div class="details">
-      <pre id="nap">Hi Claude, it's Jack, starting the Maltsters plan</pre>
+      <pre id="nap">Hi Claude, it's Jack, starting Day 5 from dhwebsiteservices.co.uk/jack</pre>
       <button class="copy" id="copyBtn" type="button">Copy</button>
     </div>
   </section>
@@ -97,20 +97,28 @@
     <ul class="tasks" id="tasks"></ul>
   </section>
 
-  <footer>Made for Jack by Claude for David, 22 October 2026.</footer>
+  <footer>Made for Jack by Claude for David, 26 October 2026.</footer>
 </div>
 
 <script>
 var TASKS = [
-  { id:"d4-preview", when:"Morning", t:"Look over the preview on your phone", d:"About 20 minutes. Go through all three pages. Tell Claude anything that looks wrong, odd or clumsy, and it'll fix it while you watch.", url:"https://maltsters-preview.pages.dev" },
-  { id:"d4-shaun", when:"Morning", t:"Ring Shaun or pop in and check the facts", d:"Write down exactly what he says:\n• Is there a Halloween night on Saturday 31 October? What time does it start, is entry free, is there a DJ or fancy dress?\n• Which number is right for the pub: 01443 403550 or 01443 485076?\n• What time do the DJs start on Fridays and Saturdays?\n• Which night is karaoke?\n• Is it still open 12 till 11, seven days a week?\n• Is the 10% off (Mon to Thu, 4 to 7pm) still running?\n• Is there outdoor seating?\n• What email address does he want to log in with to update his events?" },
-  { id:"d4-photos", when:"Morning", t:"Book a time to take photos in the pub", d:"Use yesterday's shot list. This week, ideally on a busy evening: the bar, the pool table, the pumps and the outside." },
-  { id:"d4-answers", when:"Midday", t:"Give Claude Shaun's answers", d:"Type them into the chat. Claude updates the site, then you check it again on your phone." },
-  { id:"d4-admin", when:"Midday", t:"Try every part of the admin on your phone", d:"It's built. Log in at maltsters-preview.pages.dev/admin with the password you set. Go through every section in the menu and tell Claude anything that's confusing or doesn't work.", url:"https://maltsters-preview.pages.dev/admin" },
-  { id:"d4-test", when:"Afternoon", t:"Pretend you're Shaun", d:"David has already added a Halloween event with just the name. Once Shaun confirms the details, open it under What's On, press Change, and fill in the start time, entry and what's happening. Check it shows properly on the What's On page. Then add a test event, delete it, and check it's gone." },
-  { id:"d4-guide", when:"Afternoon", t:"Test Shaun's Help page", d:"In the admin, open Help. Follow each guide word for word on your phone, as if you'd never seen the admin before. Anywhere you get stuck or the words don't match the screen, tell Claude and it gets fixed." },
-  { id:"d4-gbp", when:"Afternoon", t:"Google Business: arrange the claim with Shaun", d:"Yesterday you checked the pub's Business Profile. Claiming it or getting manager access needs Shaun's phone or email, so agree a time with him to do it together.", url:"https://business.google.com" },
-  { id:"d4-summary", when:"End of day", t:"Send David a summary", d:"Type \"write David's summary\" in the chat. Claude writes up what's confirmed, what's still open and what's been built. You send it to David." }
+  { id:"d4-test", when:"First thing", t:"Halloween: fill in the event (it's this Saturday)", d:"Log in at maltsters-preview.pages.dev/admin. Go to What's On, open Halloween, press Change, and fill in the start time, entry and what's happening, using what Shaun told you. Check it shows properly on the What's On page. Then add a test event, delete it, and check it's gone.", url:"https://maltsters-preview.pages.dev/admin" },
+  { id:"d4-admin", when:"Morning", t:"Maltsters: try every part of the admin on your phone", d:"Go through every section in the menu. Tell Claude anything that's confusing or doesn't work." },
+  { id:"d4-guide", when:"Morning", t:"Maltsters: test Shaun's Help page", d:"In the admin, open Help. Follow each guide word for word, as if you'd never seen the admin before. Anywhere you get stuck or the words don't match the screen, tell Claude." },
+  { id:"d5-shaun", when:"Morning", t:"Maltsters: ring Shaun or Sophie", d:"Ask:\n• Is he OK with the Friday-night video on the home page? Customers can be recognised in it, so it can't go live without his yes.\n• What's he still sending us (photos, wording), and when?\n• When is he happy for the site to go live?\n• If the photo session isn't booked yet, book a busy evening this week.\nWrite down exactly what he says and give it to Claude." },
+  { id:"d4-gbp", when:"Morning", t:"Maltsters: book the Google Business claim with Shaun", d:"Claiming the pub's Business Profile needs Shaun's phone or email, so agree a time with him to do it together.", url:"https://business.google.com" },
+  { id:"d5-apple", when:"Midday", t:"Apple Business: get our phone number fixed", d:"Our Apple Maps listing still shows the old 029 2002 4218 number and we can't change that field ourselves. Contact Apple Business support and ask them to change it to 01443 805303. The listing also needs a real cover photo: the office, or you and David.", url:"https://business.apple.com" },
+  { id:"d5-bonline", when:"Midday", t:"bOnline: find out how to leave", d:"Ring bOnline. Ask when the contract ends, how much notice they need, and whether there's an exit fee. Don't cancel anything. Write the answers down for David. Moving the number to our own phone system saves about £200 a month." },
+  { id:"d5-bing", when:"Midday", t:"Bing Places: check our listing is live", d:"It was due to publish 7 to 12 days after 7 October. If it's still pending, tell Claude.", url:"https://www.bingplaces.com" },
+  { id:"d5-reviews-dh", when:"Afternoon", t:"Ask past clients for Google reviews", d:"Message each past client and ask for a Google review. Give them the review link from our Business Profile. Use the wording Claude writes, and show David before sending anything." , david:true },
+  { id:"d5-reviews-apps", when:"Afternoon", t:"Get ratings for Fam & a Half and Fish Tank", d:"Ask friends and family who use them to rate them on the App Store or Google Play. Share Fam & a Half in local parent groups (only where the group allows it).", url:"https://www.dhwebsiteservices.co.uk/famandahalf/" },
+  { id:"d2-leads", when:"Afternoon", t:"Find 15 to 20 new web design leads", d:"Local pubs, trades, salons and similar with no website or a bad one. Open each site and look at it yourself. For each one, note the name, phone number, website (or \"none\") and one line on what's wrong. Leave out the Maltsters." },
+  { id:"d2-press-chase", when:"Afternoon", t:"Chase the press and awards", d:"Follow up anything you contacted on 19 October that hasn't replied yet." },
+  { id:"d2-competitors", when:"Afternoon", t:"List local competitors", d:"Other web designers around Pontypridd, RCT and Cardiff: who they are, their prices if they show them, and their Google rating." },
+  { id:"d2-client-logos", when:"Afternoon", t:"Collect client logos and photos", d:"Logos and photos we're allowed to use for the website and case studies. Save them in a folder and tell Claude where." },
+  { id:"d2-gbp-services", when:"Afternoon", t:"Google Business: check our services and badges", d:"Make sure the services list on our profile is right, and add any award badge we've got." },
+  { id:"d5-socials", when:"If David says yes", t:"Schedule the written social posts", d:"20 X posts and 12 LinkedIn posts are written and waiting, in Apps/social. Ask Claude to show them to you, then schedule one a day.", david:true },
+  { id:"d4-summary", when:"End of day", t:"Send David a summary", d:"Type \"write David's summary\" in the chat. Claude writes up what's done, what's still open and what you found out. You send it to David." }
 ];
 
 var done = {};
