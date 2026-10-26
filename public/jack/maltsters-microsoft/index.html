@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#15171A">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/dh-logo-icon.png">
+<title>Maltsters Microsoft Branding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  /* Same look as Jack's daily list: one column, numbered steps, copy buttons for anything he has to type */
+  :root {
+    color-scheme:dark;
+    --bg:#15171A; --card:#1E2124; --ink:#ECEDEA; --muted:#A3A8AE; --line:#30343A;
+    --blue:#6FB6EA; --blue-soft:#1B2C3A; --done:#6CC48E; --done-soft:#17291F; --warn:#E5B65C; --warn-soft:#2E2514;
+    --bad:#F08A80; --bad-soft:#331B19;
+    --sans:"Public Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.55; padding:0 16px; }
+  .wrap { max-width:760px; margin:0 auto; padding-block:40px 64px; display:flex; flex-direction:column; gap:36px; }
+  header { display:flex; flex-direction:column; gap:10px; }
+  .back { color:var(--blue); font-weight:600; text-decoration:none; font-size:14px; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0; }
+  h1 { font-size:clamp(28px,6vw,40px); line-height:1.1; font-weight:800; letter-spacing:-.5px; margin:0; text-wrap:balance; }
+  .lede { color:var(--muted); margin:0; max-width:62ch; }
+  section { display:flex; flex-direction:column; gap:14px; }
+  h2 { font-size:22px; margin:0; letter-spacing:-.2px; text-wrap:balance; }
+  h3 { font-size:17px; margin:0; }
+  p { margin:0; }
+  .box { border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:10px; }
+  .box ul { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px; }
+  .note { background:var(--blue-soft); }
+  .warn { background:var(--warn-soft); }
+  .stop { background:var(--bad-soft); }
+  .stop h3 { color:var(--bad); }
+  .warn h3 { color:var(--warn); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:12px; }
+  .steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; counter-reset:s; }
+  .steps > li { counter-increment:s; display:grid; grid-template-columns:32px minmax(0,1fr); gap:12px; }
+  .steps > li::before { content:counter(s); width:28px; height:28px; border-radius:50%; background:var(--blue-soft); color:var(--blue); font-weight:700; font-size:14px; display:grid; place-items:center; margin-top:1px; }
+  .steps > li > div { min-width:0; display:flex; flex-direction:column; gap:8px; }
+  .who { align-self:flex-start; font-size:13px; font-weight:700; padding:3px 10px; border-radius:99px; }
+  .who.jack { background:var(--done-soft); color:var(--done); }
+  .who.david { background:var(--warn-soft); color:var(--warn); }
+  .path { font-family:var(--mono); font-size:13px; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:2px 7px; }
+  a { color:var(--blue); font-weight:600; word-break:break-word; }
+  .val { display:flex; flex-wrap:wrap; align-items:center; gap:10px; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .val .k { font-size:13px; color:var(--muted); flex-basis:100%; }
+  .val code { font-family:var(--mono); font-size:14px; word-break:break-all; flex:1; min-width:0; }
+  .sw { width:22px; height:22px; border-radius:5px; border:1px solid var(--line); flex:none; }
+  button.copy { font:inherit; cursor:pointer; background:var(--ink); color:var(--bg); border:0; border-radius:7px; padding:5px 12px; font-weight:600; font-size:13px; flex:none; }
+  button.copy:focus-visible { outline:3px solid var(--blue); outline-offset:2px; }
+  figure { margin:0; display:flex; flex-direction:column; gap:8px; }
+  figure img { border-radius:10px; background:#fff; max-width:100%; height:auto; display:block; }
+  figcaption { font-size:13px; color:var(--muted); }
+  .logo-show { background:#09080A; border-radius:10px; padding:18px; display:flex; justify-content:center; }
+  .logo-show img { width:200px; height:48px; }
+  /* A drawn preview of the Microsoft 365 top bar using the real colours, not a screenshot */
+  .bar { background:#09080A; border-radius:10px 10px 0 0; display:flex; align-items:center; gap:14px; padding:8px 14px; color:#fff; font-size:14px; }
+  .bar .grid { width:18px; height:18px; display:grid; grid-template-columns:repeat(3,4px); gap:2px; flex:none; }
+  .bar .grid i { width:4px; height:4px; background:#fff; border-radius:1px; }
+  .bar img { height:30px; width:auto; }
+  .bar .sp { flex:1; }
+  .bar .me { width:28px; height:28px; border-radius:50%; background:#C8102E; display:grid; place-items:center; font-size:12px; font-weight:700; flex:none; }
+  .page { background:#fff; color:#222; border-radius:0 0 10px 10px; padding:16px 18px; font-size:14px; display:flex; flex-direction:column; gap:8px; }
+  .page b { color:#C8102E; }
+  .page .btn { align-self:flex-start; background:#C8102E; color:#fff; border-radius:4px; padding:6px 14px; font-weight:600; }
+  footer { font-size:14px; color:var(--muted); border-top:1px solid var(--line); padding-top:18px; display:flex; flex-direction:column; gap:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="back" href="/jack/">← Back to today's list</a>
+    <p class="eyebrow">DH Website Services · for Jack</p>
+    <h1>Maltsters branding in Microsoft 365</h1>
+    <p class="lede">Shaun's email (shaun@malstersponty.com) lives on our Microsoft network. This guide gives him the Maltsters logo and colours across the top of Outlook and Microsoft 365, while everyone at DH keeps the DH look. Allow about 30 minutes, plus a few hours for Microsoft to catch up.</p>
+  </header>
+
+  <section>
+    <div class="box note">
+      <h3>What Shaun will see</h3>
+      <p>Every time he opens Outlook on the web, office.com or another Microsoft 365 web app, this bar is across the top:</p>
+      <div>
+        <div class="bar" aria-label="Preview of the Microsoft 365 top bar with the Maltsters theme">
+          <span class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <img src="/jack/m365/maltsters-m365-logo.png" alt="Maltsters Arms logo">
+          <span class="sp"></span>
+          <span>Shaun Shah</span>
+          <span class="me">SS</span>
+        </div>
+        <div class="page"><span>Inbox · links and buttons pick up the <b>Maltsters red</b></span><span class="btn">New mail</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--muted)">This is a drawing to show the idea. The real thing will look slightly different.</p>
+    </div>
+
+    <div class="box warn">
+      <h3>The one thing we can't brand</h3>
+      <p>The Microsoft <strong>sign-in page</strong> (where Shaun types his email and password) has one look for the whole network, so Shaun can't get his own version. He'll see the same sign-in page as you and David. As soon as he's signed in, he gets the Maltsters bar.</p>
+      <p>Don't try to change the sign-in page for him. That's under <span class="path">Entra → Custom branding</span>, and any change there changes it for <strong>everyone at DH</strong> too.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Before you start</h2>
+    <div class="box stop">
+      <h3>Don't touch these</h3>
+      <ul>
+        <li><strong>"Default theme"</strong> in Custom themes. That's the DH look for everyone. Only ever add a <em>new</em> theme.</li>
+        <li><strong>Entra → Custom branding</strong> (the sign-in page). It changes for everyone.</li>
+        <li>Never ask anyone for a password, and never type David's.</li>
+      </ul>
+    </div>
+    <div class="box warn">
+      <h3>Who does which bit</h3>
+      <p><strong>Part 1</strong> (make the group): you can do it, because your User Admin role covers groups.</p>
+      <p><strong>Part 2</strong> (make the theme): Microsoft only lets a <strong>Global Administrator</strong> do this, and you don't have that role any more. Get to the end of Part 1, then sit with David while he does Part 2 on his own login, reading this page out to him. It takes him 5 minutes.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What you'll be adding</h2>
+    <p>Everything's below. Press <strong>Copy</strong>, then paste it into Microsoft.</p>
+    <div class="card">
+      <h3>The logo</h3>
+      <div class="logo-show"><img src="/jack/m365/maltsters-m365-logo.png" alt="Maltsters Arms logo, white and pink on a dark background"></div>
+      <p style="font-size:14px;color:var(--muted)">It's already online at the address below, at the right size for Microsoft (200 × 48 pixels). You don't need to download or upload anything, just paste the address.</p>
+      <div class="val"><span class="k">Logo address (use it for both Default logo and Alternate logo)</span><code>https://malstersponty.com/img/m365-logo.png</code><button class="copy" type="button">Copy</button></div>
+      <div class="val"><span class="k">On-click link (where the logo goes when he clicks it)</span><code>https://malstersponty.com</code><button class="copy" type="button">Copy</button></div>
+    </div>
+    <div class="card">
+      <h3>The colours</h3>
+      <div class="val"><span class="k">Navigation bar colour (pub black)</span><span class="sw" style="background:#09080A"></span><code>#09080A</code><button class="copy" type="button">Copy</button></div>
+      <div class="val"><span class="k">Text and icon colour (white)</span><span class="sw" style="background:#FFFFFF"></span><code>#FFFFFF</code><button class="copy" type="button">Copy</button></div>
+      <div class="val"><span class="k">Accent colour (Maltsters red)</span><span class="sw" style="background:#C8102E"></span><code>#C8102E</code><button class="copy" type="button">Copy</button></div>
+    </div>
+    <div class="card">
+      <h3>The names</h3>
+      <div class="val"><span class="k">Group name</span><code>Maltsters Arms Theme</code><button class="copy" type="button">Copy</button></div>
+      <div class="val"><span class="k">Group email (the part before the @)</span><code>maltsters-theme</code><button class="copy" type="button">Copy</button></div>
+      <div class="val"><span class="k">Group description</span><code>Gives The Maltsters Arms staff their own Microsoft 365 branding. Don't use it for email.</code><button class="copy" type="button">Copy</button></div>
+      <div class="val"><span class="k">Theme name</span><code>The Maltsters Arms</code><button class="copy" type="button">Copy</button></div>
+      <div class="val"><span class="k">Shaun's email (the only member)</span><code>shaun@malstersponty.com</code><button class="copy" type="button">Copy</button></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 1: make a group for the Maltsters</h2>
+    <div class="box note">
+      <p>Why a new group? Themes only work with a <strong>Microsoft 365 group</strong>. The existing "Client - The Maltsters Arms" group is a <em>security</em> group, which is why the Save button stayed grey when we tried before. Leave that group as it is. You're making a second one just for the branding.</p>
+    </div>
+    <ol class="steps">
+      <li><div>
+        <span class="who jack">You</span>
+        <p>On the computer, open the Microsoft 365 admin centre and sign in with your own DH account:</p>
+        <a href="https://admin.microsoft.com/#/groups" target="_blank" rel="noopener">admin.microsoft.com → Teams &amp; groups</a>
+        <p>If the menu on the left is short, press <strong>Show all</strong> at the bottom first. Then go to <span class="path">Teams &amp; groups → Active teams &amp; groups</span>.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Make sure the <strong>Teams &amp; Microsoft 365 groups</strong> tab is selected along the top, then press <strong>Add a Microsoft 365 group</strong>.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p><strong>Basics:</strong> paste the group name and description from above. Press <strong>Next</strong>.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p><strong>Owners:</strong> add yourself and David. Press <strong>Next</strong>.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p><strong>Members:</strong> add <strong>Shaun Shah</strong> (shaun@malstersponty.com) and nobody else. Press <strong>Next</strong>.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p><strong>Settings:</strong></p>
+        <ul style="margin:0;padding-left:20px">
+          <li>Group email address: paste <code class="path">maltsters-theme</code> and leave the domain as <strong>dhwebsiteservices.co.uk</strong>.</li>
+          <li>Privacy: <strong>Private</strong>.</li>
+          <li><strong>Untick</strong> "Add Microsoft Teams to your group". He doesn't need a Team.</li>
+        </ul>
+        <p>Press <strong>Next</strong>, check it all, then <strong>Create group</strong>.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Wait about 15 minutes for the group to finish setting up. Then search for <strong>Maltsters Arms Theme</strong> in Active teams &amp; groups and check that Shaun is the only member.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Part 2: make the Maltsters theme</h2>
+    <p>David does this on his login, with you reading out the steps.</p>
+    <ol class="steps">
+      <li><div>
+        <span class="who david">David</span>
+        <p>Open Organisation profile:</p>
+        <a href="https://admin.microsoft.com/#/Settings/OrganizationProfile" target="_blank" rel="noopener">admin.microsoft.com → Settings → Org settings → Organization profile</a>
+        <p>Press <strong>Custom themes</strong>.</p>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p>Press <strong>Add theme</strong>. <strong>Don't</strong> open "Default theme", because that one is the DH look for everyone.</p>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p><strong>General tab:</strong></p>
+        <ul style="margin:0;padding-left:20px">
+          <li>Name: <strong>The Maltsters Arms</strong></li>
+          <li>Groups: type <strong>Maltsters</strong> and choose <strong>Maltsters Arms Theme</strong></li>
+          <li>Tick <strong>Prevent users from overriding their theme</strong></li>
+          <li>Tick <strong>Show the user's display name</strong></li>
+        </ul>
+        <figure>
+          <img src="/jack/m365/default-theme-general-users1.png" alt="Microsoft's General tab, showing the theme name, the group picker and the two tick boxes" width="500" height="463" loading="lazy">
+          <figcaption>Microsoft's example of the General tab. Where it says "Contoso", ours says "The Maltsters Arms" and the group is "Maltsters Arms Theme".</figcaption>
+        </figure>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p><strong>Logos tab:</strong> paste the logo address into <strong>Default logo</strong> and <strong>Alternate logo</strong>, then paste the on-click link.</p>
+        <figure>
+          <img src="/jack/m365/logos_tab.png" alt="Microsoft's Logos tab, with the Default logo, Alternate logo and On-click link boxes" width="500" height="532" loading="lazy">
+          <figcaption>Microsoft's example of the Logos tab. Every box gets one of the addresses from "What you'll be adding".</figcaption>
+        </figure>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p><strong>Colors tab:</strong> paste the three colour codes:</p>
+        <ul style="margin:0;padding-left:20px">
+          <li>Navigation bar: <strong>#09080A</strong></li>
+          <li>Text and icon: <strong>#FFFFFF</strong></li>
+          <li>Accent: <strong>#C8102E</strong></li>
+        </ul>
+        <p>If it warns about colour contrast, that's only advice. You can still save.</p>
+        <figure>
+          <img src="/jack/m365/default-theme-colors1.png" alt="Microsoft's Colors tab, with the navigation bar, text and icon, and accent colour boxes" width="500" height="472" loading="lazy">
+          <figcaption>Microsoft's example of the Colors tab.</figcaption>
+        </figure>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p>Press <strong>Save</strong>. If Save stays grey, the group picked in step 3 is probably the old security group. Pick <strong>Maltsters Arms Theme</strong> instead.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Part 3: check it works</h2>
+    <ol class="steps">
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Wait. It can take a few hours, sometimes until the next day, before the theme reaches Shaun.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>To see it for yourself: add <strong>yourself</strong> to the Maltsters Arms Theme group. Then open a private browser window, sign in at <a href="https://www.office.com" target="_blank" rel="noopener">office.com</a>, and check the bar is black with the Maltsters logo.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p><strong>Take yourself back out of the group</strong> as soon as you've checked, or you'll keep the Maltsters look. Someone in two theme groups gets the plain default instead.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Next time you're with Shaun, ask him to open Outlook at <a href="https://outlook.office.com" target="_blank" rel="noopener">outlook.office.com</a> and check he sees the Maltsters bar. Help him save it to his phone's home screen.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Tick "Maltsters Microsoft branding" on <a href="/jack/">today's list</a>.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>If something's wrong</h2>
+    <div class="card">
+      <p><strong>Save is grey:</strong> the theme is pointed at a security group. It has to be the Microsoft 365 group from Part 1.</p>
+      <p><strong>No logo, just the colours:</strong> open <a href="https://malstersponty.com/img/m365-logo.png" target="_blank" rel="noopener">the logo address</a> in a browser. If it doesn't load, tell Claude. On narrow screens, Microsoft sometimes hides the logo to make room, and that's normal.</p>
+      <p><strong>Everyone at DH has the Maltsters look:</strong> someone edited "Default theme". Tell David straight away.</p>
+      <p><strong>Shaun still sees the normal look after a day:</strong> check he's in Maltsters Arms Theme, and that he isn't in any other theme group.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Made for Jack by Claude for David, 26 October 2026.</span>
+    <span>Tab screenshots: Microsoft Learn, "Customize the theme for your organization" (CC BY 4.0).</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll("button.copy").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var code = btn.parentNode.querySelector("code");
+    function selectIt() { var r = document.createRange(); r.selectNodeContents(code); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected"; }
+    try {
+      navigator.clipboard.writeText(code.textContent).then(function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1600); }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+});
+</script>
+</body>
+</html>
