@@ -2,7 +2,7 @@
 // badge_week_ticks (RLS on, no policies), so only the service role can touch it.
 
 const TASKS = new Set([
-  'd5-shaun', 'd5-apple', 'd5-bonline', 'd5-bing', 'd5-reviews-dh', 'd5-reviews-apps', 'd5-socials', 'd5-m365',
+  'd5-shaun', 'd5-apple', 'd5-bonline', 'd5-bing', 'd5-reviews-dh', 'd5-reviews-apps', 'd5-socials', 'd5-m365', 'd5-hide-group', 'd5-ms-accounts', 'd5-ms-groups', 'd5-shaun-phone',
   'd4-preview', 'd4-shaun', 'd4-photos', 'd4-answers', 'd4-admin', 'd4-test', 'd4-guide', 'd4-gbp', 'd4-summary',
   'd3-pm-choose', 'd3-pm-collections', 'd3-pm-move', 'd3-pm-install', 'd3-malt-board', 'd3-malt-folder', 'd3-malt-checklist', 'd3-malt-google', 'd3-malt-meta', 'd3-malt-photos', 'd3-uptime', 'd3-crm', 'd3-sentry',
   'press', 'case-studies', 'review-list', 'free-awards', 'gbp-post', 'usw', 'cynnig',
