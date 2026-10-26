@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#15171A">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/dh-logo-icon.png">
+<title>Maltsters Staff Phones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  /* Same look as Jack's daily list: one column, numbered steps, copy buttons for anything he has to type */
+  :root {
+    color-scheme:dark;
+    --bg:#15171A; --card:#1E2124; --ink:#ECEDEA; --muted:#A3A8AE; --line:#30343A;
+    --blue:#6FB6EA; --blue-soft:#1B2C3A; --done:#6CC48E; --done-soft:#17291F; --warn:#E5B65C; --warn-soft:#2E2514;
+    --bad:#F08A80; --bad-soft:#331B19;
+    --sans:"Public Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.55; padding:0 16px; }
+  .wrap { max-width:760px; margin:0 auto; padding-block:40px 64px; display:flex; flex-direction:column; gap:36px; }
+  header { display:flex; flex-direction:column; gap:10px; }
+  .back { color:var(--blue); font-weight:600; text-decoration:none; font-size:14px; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0; }
+  h1 { font-size:clamp(28px,6vw,40px); line-height:1.1; font-weight:800; letter-spacing:-.5px; margin:0; text-wrap:balance; }
+  .lede { color:var(--muted); margin:0; max-width:62ch; }
+  section { display:flex; flex-direction:column; gap:14px; }
+  h2 { font-size:22px; margin:0; letter-spacing:-.2px; text-wrap:balance; }
+  h3 { font-size:17px; margin:0; }
+  p { margin:0; }
+  .box { border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:10px; }
+  .box ul { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px; }
+  .note { background:var(--blue-soft); }
+  .warn { background:var(--warn-soft); }
+  .stop { background:var(--bad-soft); }
+  .stop h3 { color:var(--bad); }
+  .warn h3 { color:var(--warn); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:12px; }
+  .steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; counter-reset:s; }
+  .steps > li { counter-increment:s; display:grid; grid-template-columns:32px minmax(0,1fr); gap:12px; }
+  .steps > li::before { content:counter(s); width:28px; height:28px; border-radius:50%; background:var(--blue-soft); color:var(--blue); font-weight:700; font-size:14px; display:grid; place-items:center; margin-top:1px; }
+  .steps > li > div { min-width:0; display:flex; flex-direction:column; gap:8px; }
+  .who { align-self:flex-start; font-size:13px; font-weight:700; padding:3px 10px; border-radius:99px; }
+  .who.jack { background:var(--done-soft); color:var(--done); }
+  .who.david { background:var(--warn-soft); color:var(--warn); }
+  .path { font-family:var(--mono); font-size:13px; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:2px 7px; }
+  a { color:var(--blue); font-weight:600; word-break:break-word; }
+  .val { display:flex; flex-wrap:wrap; align-items:center; gap:10px; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .val .k { font-size:13px; color:var(--muted); flex-basis:100%; }
+  .val code { font-family:var(--mono); font-size:14px; word-break:break-all; flex:1; min-width:0; }
+  .sw { width:22px; height:22px; border-radius:5px; border:1px solid var(--line); flex:none; }
+  button.copy { font:inherit; cursor:pointer; background:var(--ink); color:var(--bg); border:0; border-radius:7px; padding:5px 12px; font-weight:600; font-size:13px; flex:none; }
+  button.copy:focus-visible { outline:3px solid var(--blue); outline-offset:2px; }
+  figure { margin:0; display:flex; flex-direction:column; gap:8px; }
+  figure img { border-radius:10px; background:#fff; max-width:100%; height:auto; display:block; }
+  figcaption { font-size:13px; color:var(--muted); }
+  .logo-show { background:#09080A; border-radius:10px; padding:18px; display:flex; justify-content:center; }
+  .logo-show img { width:200px; height:48px; }
+  /* A drawn preview of the Microsoft 365 top bar using the real colours, not a screenshot */
+  .bar { background:#09080A; border-radius:10px 10px 0 0; display:flex; align-items:center; gap:14px; padding:8px 14px; color:#fff; font-size:14px; }
+  .bar .grid { width:18px; height:18px; display:grid; grid-template-columns:repeat(3,4px); gap:2px; flex:none; }
+  .bar .grid i { width:4px; height:4px; background:#fff; border-radius:1px; }
+  .bar img { height:30px; width:auto; }
+  .bar .sp { flex:1; }
+  .bar .me { width:28px; height:28px; border-radius:50%; background:#C8102E; display:grid; place-items:center; font-size:12px; font-weight:700; flex:none; }
+  .page { background:#fff; color:#222; border-radius:0 0 10px 10px; padding:16px 18px; font-size:14px; display:flex; flex-direction:column; gap:8px; }
+  .page b { color:#C8102E; }
+  .page .btn { align-self:flex-start; background:#C8102E; color:#fff; border-radius:4px; padding:6px 14px; font-weight:600; }
+  footer { font-size:14px; color:var(--muted); border-top:1px solid var(--line); padding-top:18px; display:flex; flex-direction:column; gap:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="back" href="/jack/">← Back to today's list</a>
+    <p class="eyebrow">DH Website Services · for Jack</p>
+    <h1>Setting up Maltsters staff phones</h1>
+    <p class="lede">How to get Shaun and any Maltsters staff onto their work email on their own phones, <strong>without</strong> the DH rules we put on our own devices. Their phones stay theirs: nothing locked down, no passcode rules, no wiping, and we can't see anything on them.</p>
+  </header>
+
+  <section>
+    <div class="box note">
+      <h3>How it works, in one line</h3>
+      <p>Our DH rules only reach a phone if that phone is <strong>signed up to Intune</strong> (Microsoft calls this "enrolling" or "managing" the device). Maltsters phones never get signed up. They only get the Outlook app with their work account, so none of our rules ever touch them.</p>
+    </div>
+    <div class="card">
+      <h3>DH phones vs Maltsters phones</h3>
+      <div style="overflow-x:auto">
+      <table style="border-collapse:collapse;width:100%;font-size:14px;min-width:460px">
+        <thead><tr style="text-align:left;color:var(--muted)"><th style="padding:8px 10px 8px 0;border-bottom:1px solid var(--line)"></th><th style="padding:8px 10px;border-bottom:1px solid var(--line)">DH staff</th><th style="padding:8px 10px;border-bottom:1px solid var(--line)">Maltsters staff</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:8px 10px 8px 0;border-bottom:1px solid var(--line)">Signed up to Intune</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">Yes</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)"><strong>Never</strong></td></tr>
+          <tr><td style="padding:8px 10px 8px 0;border-bottom:1px solid var(--line)">Company Portal app</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">Installed</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)"><strong>Never install it</strong></td></tr>
+          <tr><td style="padding:8px 10px 8px 0;border-bottom:1px solid var(--line)">Passcode and security rules</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">Yes</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">None from us</td></tr>
+          <tr><td style="padding:8px 10px 8px 0;border-bottom:1px solid var(--line)">Can be wiped by us</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">Yes</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">No</td></tr>
+          <tr><td style="padding:8px 10px 8px 0;border-bottom:1px solid var(--line)">Apps they need</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">Everything DH uses</td><td style="padding:8px 10px;border-bottom:1px solid var(--line)">Outlook + Microsoft Authenticator</td></tr>
+          <tr><td style="padding:8px 10px 8px 0">Groups</td><td style="padding:8px 10px">DHWS - Employees / Administrators</td><td style="padding:8px 10px">Client - The Maltsters Arms only</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Before you start</h2>
+    <div class="box stop">
+      <h3>Never do these on a Maltsters phone</h3>
+      <ul>
+        <li>Install <strong>Intune Company Portal</strong>.</li>
+        <li>Go into iPhone <strong>Settings → General → VPN &amp; Device Management</strong> and add a work account.</li>
+        <li>On Android, tap <strong>"Set up work profile"</strong> or <strong>"Register device"</strong> if anything ever asks.</li>
+        <li>Add a Maltsters person to any <strong>DHWS</strong> group.</li>
+        <li>Type someone's password for them. They type it themselves.</li>
+      </ul>
+      <p>If the phone asks to "let your organisation manage this device", <strong>stop and press Cancel</strong>, then tell David. That's the step that would bring our rules onto their phone.</p>
+    </div>
+    <div class="box warn">
+      <h3>Who does which bit</h3>
+      <p><strong>Part 1</strong> is David's. It's a one-off check in Intune that our DH rules can't reach Maltsters people. You don't have access to Intune, so he does it, with you reading this page out to him.</p>
+      <p><strong>Part 2</strong> is yours, in the pub, for each person's phone.</p>
+      <p>New Maltsters email accounts come from <strong>David</strong>, because they need a licence. Ask him first, and only then set up the phone.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 1: make sure our rules can't reach them (one-off)</h2>
+    <p>David does this once on his login. It takes about 10 minutes.</p>
+    <ol class="steps">
+      <li><div>
+        <span class="who david">David</span>
+        <p><strong>Stop them signing up to Intune by mistake.</strong> Go to Intune → Devices → Enrollment → Device platform restrictions.</p>
+        <a href="https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/DevicesEnrollmentMenu/~/windowsEnrollment" target="_blank" rel="noopener">intune.microsoft.com → Devices → Enrollment</a>
+        <p>Create a restriction for <strong>iOS/iPadOS</strong> and one for <strong>Android</strong>. Set <strong>Personally owned devices</strong> to <strong>Block</strong>, and assign both to <strong>Client - The Maltsters Arms</strong>. If a Maltsters phone ever tries to sign up, it's refused.</p>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p><strong>Check Outlook app rules.</strong> Go to Intune → Apps → Protection. If any policy there is assigned to <strong>All users</strong>, add <strong>Client - The Maltsters Arms</strong> under <em>Excluded groups</em>. These are the only rules that can reach the Outlook app without Intune sign-up.</p>
+        <a href="https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsMenu/~/protection" target="_blank" rel="noopener">intune.microsoft.com → Apps → Protection</a>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p><strong>Check phone rules.</strong> Go to Intune → Devices → Compliance, and then Configuration. For every iOS or Android policy (including <em>IOS/IPADOS CONFIG</em>), check it's assigned to DHWS groups and not to All users or All devices. If it's on All users, exclude <strong>Client - The Maltsters Arms</strong>.</p>
+      </div></li>
+      <li><div>
+        <span class="who david">David</span>
+        <p><strong>Check sign-in rules.</strong> Go to Entra → Conditional Access. On <em>DHWS - Staff require compliant device</em>, add <strong>Client - The Maltsters Arms</strong> under <em>Exclude</em>, so it can never ask a Maltsters phone to be "compliant". Leave <em>Block legacy authentication</em> on for them, because it's harmless and protects their accounts.</p>
+        <a href="https://entra.microsoft.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies" target="_blank" rel="noopener">entra.microsoft.com → Conditional Access</a>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Check every Maltsters person is in <strong>Client - The Maltsters Arms</strong> and in <strong>no DHWS groups</strong>. In admin.microsoft.com, open Users → Active users → their name → Groups. You can do this one yourself.</p>
+        <a href="https://admin.microsoft.com/#/users" target="_blank" rel="noopener">admin.microsoft.com → Users</a>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Part 2: set up each phone (in the pub)</h2>
+    <p>About 10 minutes per person. They hold the phone and type their own password. You talk them through it.</p>
+    <ol class="steps">
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Have them install two free apps from the App Store or Google Play:</p>
+        <ul style="margin:0;padding-left:20px">
+          <li><strong>Microsoft Outlook</strong></li>
+          <li><strong>Microsoft Authenticator</strong></li>
+        </ul>
+        <p>Nothing else. <strong>Not</strong> Company Portal.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Open <strong>Outlook</strong> → Add account. They type their work email (for example <code class="path">shaun@malstersponty.com</code>) and then their own password.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>If Microsoft says <strong>"More information required"</strong>, that's the sign-in security setup and it's fine. Choose the <strong>Authenticator app</strong> and follow the steps. It flips over to Authenticator and back.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>If anything says <strong>"Allow my organisation to manage this device"</strong>, <strong>"Register"</strong> or <strong>"Install Company Portal"</strong>, press <strong>Cancel / No</strong> and tell David. Our setup shouldn't ever ask them that.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Check it works: they send you a test email and you reply. Their inbox should load in the Outlook app.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Show them the Maltsters branding at <a href="https://outlook.office.com" target="_blank" rel="noopener">outlook.office.com</a> in their phone's browser (the black bar with the pub logo). The Outlook app itself stays the normal Microsoft colours, and that's expected.</p>
+      </div></li>
+      <li><div>
+        <span class="who jack">You</span>
+        <p>Write down who you set up and the date, and add it to David's end-of-day summary.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>If something's wrong</h2>
+    <div class="card">
+      <p><strong>"You can't get there from here" or "Your device must be managed":</strong> one of our DH sign-in rules is catching them. Stop. David needs to finish Part 1, step 4.</p>
+      <p><strong>Outlook asks them to install Company Portal or Intune:</strong> an Outlook app rule is catching them. Press Cancel. David needs to finish Part 1, step 2.</p>
+      <p><strong>They forgot their password:</strong> David or you can reset it in admin.microsoft.com. Give them the temporary one in person, never by text.</p>
+      <p><strong>They lose their phone or leave the pub:</strong> tell David. He signs them out of everything and blocks the account. There's nothing to wipe on the phone, because we never managed it.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Made for Jack by Claude for David, 26 October 2026.</span>
+  </footer>
+</div>
+</body>
+</html>
