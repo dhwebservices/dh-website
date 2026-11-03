@@ -93,7 +93,7 @@ export const TEAM_PEOPLE = [
     desc: 'Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.',
     // Certificates and training shown under the name.
     badges: [
-      { label: 'GDPR trained', detail: 'GDPR Foundations · Measured Collective · Nov 2026' },
+      { label: 'GDPR Foundations certified', detail: 'Measured Collective · Nov 2026' },
     ],
   },
 ]
