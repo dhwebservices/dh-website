@@ -191,6 +191,22 @@ function Avatar({ person }) {
   )
 }
 
+/** A certificate or qualification, shown as a small pill under a person's name. */
+function PersonBadge({ badge }) {
+  return (
+    <span title={badge.detail || badge.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '5px 11px 5px 8px', borderRadius: 999, background: 'rgba(31,111,74,0.08)', border: '1px solid rgba(31,111,74,0.22)', color: '#1f6f4a', lineHeight: 1.2 }}>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2.5 4.5 5.5v5.8c0 4.6 3.1 8.8 7.5 10.2 4.4-1.4 7.5-5.6 7.5-10.2V5.5L12 2.5Z" fill="currentColor" opacity="0.14" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+        <path d="m8.6 12.2 2.3 2.3 4.6-4.8" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <span style={{ display: 'grid' }}>
+        <span style={{ fontSize: 12.5, fontWeight: 600 }}>{badge.label}</span>
+        {badge.detail ? <span style={{ fontSize: 11, color: 'var(--mid)', fontWeight: 400 }}>{badge.detail}</span> : null}
+      </span>
+    </span>
+  )
+}
+
 export function TeamBlock({ eyebrow, heading, body, people, note, background }) {
   return (
     <section className="section" style={{ background: background || 'var(--cream)', borderTop: '1px solid var(--border-light)' }}>
@@ -208,6 +224,11 @@ export function TeamBlock({ eyebrow, heading, body, people, note, background }) 
                 <div style={{ marginBottom: 18 }}><Avatar person={person} /></div>
                 <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 4 }}>{person.name}</h3>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)', marginBottom: 14 }}>{person.role}</p>
+                {Array.isArray(person.badges) && person.badges.length ? (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: -4, marginBottom: 14 }}>
+                    {person.badges.map((badge) => <PersonBadge key={badge.label} badge={badge} />)}
+                  </div>
+                ) : null}
                 <p className="body-sm">{person.desc}</p>
                 {person.phone || person.email ? (
                   <div style={{ display: 'grid', gap: 8, marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--border-light)' }}>
