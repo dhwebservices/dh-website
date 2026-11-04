@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import './index.css'
 import SiteBanner from './components/SiteBanner'
+import { XmasProvider } from './components/Christmas'
+import './christmas.css'
 import InitialLoader from './components/InitialLoader'
 import MaintenanceMode from './components/MaintenanceMode'
 import { useCMS } from './hooks/useCMS'
@@ -421,7 +423,9 @@ function StaticPage() {
 export default function App() {
   return (
     <BrowserRouter>
-      <Layout />
+      <XmasProvider>
+        <Layout />
+      </XmasProvider>
     </BrowserRouter>
   )
 }

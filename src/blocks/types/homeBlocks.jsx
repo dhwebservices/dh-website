@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
 import { HeroBg, Typewriter, PricingCard } from '../shared/HomeParts'
 import { Icon } from '../shared/Icon'
+import { XmasHero } from '../../components/Christmas'
 
 /**
  * Several of these headings used a literal <br /> in the original markup.
@@ -37,6 +38,7 @@ export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, p
       style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', position: 'relative', overflow: 'hidden', padding: 'calc(var(--nav-h) + clamp(10px,2vw,18px)) clamp(20px,5vw,60px) clamp(60px,8vw,100px)' }}
     >
       <HeroBg />
+      <XmasHero />
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 880, margin: '0 auto', width: '100%' }}>
         <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(44px,7vw,88px)', fontWeight: 600, letterSpacing: '-0.035em', lineHeight: 1.0, marginBottom: 24, animation: 'fadeUp 0.7s ease 0.05s both' }}>
           {headlineLead}<br />
