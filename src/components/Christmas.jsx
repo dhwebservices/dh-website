@@ -111,7 +111,7 @@ function SnowOverlay({ theme }) {
     }
 
     const deposit = (x, amt) => {
-      for (let d = -5; d <= 5; d++) { const i = x + d; if (i >= 0 && i < drift.length) drift[i] = Math.min(11, drift[i] + amt * Math.exp(-(d * d) / 8)) }
+      for (let d = -5; d <= 5; d++) { const i = x + d; if (i >= 0 && i < drift.length) drift[i] = Math.min(6, drift[i] + amt * Math.exp(-(d * d) / 8)) }
     }
     const relax = () => {
       for (let i = 1; i < drift.length - 1; i++) {

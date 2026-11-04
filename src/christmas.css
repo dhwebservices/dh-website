@@ -113,8 +113,11 @@ html[data-xmas="midnight"] .mob-menu__link.is-active { background: rgba(255,196,
 html[data-xmas="midnight"] .mob-menu .btn-secondary { color: #fff; border-color: rgba(255,255,255,.3); }
 /* the call-us banner hangs below the lights instead of under them */
 html[data-xmas] .site-banner { padding-top: 46px; }
-html[data-xmas="midnight"] .site-banner { background: linear-gradient(180deg, #06101F 0 46px, #0B1C36); padding-bottom: 10px; }
-html[data-xmas="midnight"] .site-banner__item { background: #10233F !important; color: #FFE6B8 !important; border: 1px solid rgba(255,196,107,.3); box-shadow: 0 10px 30px rgba(2,6,14,.25); }
+html[data-xmas="midnight"] .site-banner { background: #06101F; padding-bottom: 4px; }
+/* the header, lights and banner read as one block of night sky, so the bar loses its own edge */
+html[data-xmas="midnight"] .site-header, html[data-xmas="midnight"] .site-header.is-solid { border-bottom-color: transparent; box-shadow: none; background: #06101F; }
+html[data-xmas="midnight"] .site-banner__item { background: transparent !important; color: #FFE6B8 !important; border: 0; box-shadow: none; border-radius: 0; }
+html[data-xmas="midnight"] .site-banner__link, html[data-xmas="midnight"] .site-banner__item > span { padding: 4px 18px 6px; font-size: 15px; letter-spacing: .01em; }
 html[data-xmas="midnight"] .site-banner__item a { color: #FFE6B8 !important; }
 
 /* Midnight through the rest of the page */
