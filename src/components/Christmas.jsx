@@ -6,8 +6,8 @@
  * ?xmas=wrapped | midnight | jumper and remembered for the tab, so David can
  * click around the whole site in one design. ?xmas=off clears it.
  *
- * XMAS_DEFAULT is what everyone sees with no query string. It stays null on
- * this branch; going live is changing it to the chosen id.
+ * XMAS_DEFAULT is what everyone sees with no query string. David picked
+ * Midnight on 4 Nov 2026. Set it back to null after Christmas to switch off.
  *
  * Everything here is decoration: pointer-events are off, nothing moves the
  * layout, and prefers-reduced-motion stops all of the animation.
@@ -20,7 +20,7 @@ export const XMAS_THEMES = [
   { id: 'midnight', name: 'Midnight' },
   { id: 'jumper', name: 'Jumper' },
 ]
-export const XMAS_DEFAULT = null
+export const XMAS_DEFAULT = 'midnight'
 
 const KEY = 'dh-xmas'
 const valid = (id) => XMAS_THEMES.some((t) => t.id === id)

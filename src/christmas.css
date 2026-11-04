@@ -85,6 +85,63 @@ html[data-xmas="midnight"] .page-hero::before {
 .xmas-pagenight { position: absolute; left: 0; right: 0; bottom: 0; z-index: 0; }
 .xmas-roofline { display: block; width: 100%; height: 120px; }
 
+/* Midnight header: a dark, frosted bar the snow settles on */
+html[data-xmas="midnight"] .site-header,
+html[data-xmas="midnight"] .site-header.is-solid {
+  background: rgba(6,16,31,.94); backdrop-filter: saturate(1.3) blur(14px); -webkit-backdrop-filter: saturate(1.3) blur(14px);
+  border-bottom: 1px solid rgba(255,196,107,.28); box-shadow: 0 10px 30px rgba(2,6,14,.35);
+  --dark: #FFFFFF; --mid: #C4D0E0; --light: #AEBBCB; --cream: #10233F;
+}
+html[data-xmas="midnight"] .site-header .brand-logo__icon { filter: brightness(0) invert(1); }
+html[data-xmas="midnight"] .site-nav__trigger { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18); color: #fff; }
+html[data-xmas="midnight"] .site-nav__trigger:hover,
+html[data-xmas="midnight"] .site-nav__trigger.is-open { background: rgba(255,255,255,.14); border-color: rgba(255,196,107,.5); box-shadow: none; }
+html[data-xmas="midnight"] .site-nav__chevron { color: #FFC46B; }
+html[data-xmas="midnight"] .site-nav__menu { background: #0B1A31; border-color: rgba(255,255,255,.12); box-shadow: 0 24px 60px rgba(2,6,14,.55); z-index: 520; }
+html[data-xmas="midnight"] .site-nav__menu-link { color: #fff; }
+html[data-xmas="midnight"] .site-nav__menu-link:hover,
+html[data-xmas="midnight"] .site-nav__menu-link.is-active { background: rgba(255,255,255,.08); border-color: rgba(255,196,107,.25); }
+html[data-xmas="midnight"] .site-nav__menu-link.is-accent { color: #FFC46B; background: rgba(255,196,107,.1); border-color: rgba(255,196,107,.25); }
+html[data-xmas="midnight"] .site-header__signin { color: #C4D0E0; }
+html[data-xmas="midnight"] .site-header__signin:hover { color: #fff; }
+html[data-xmas="midnight"] .site-header__ghost { background: transparent; border-color: rgba(255,255,255,.3); color: #fff; }
+html[data-xmas="midnight"] .site-header__ghost:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); }
+html[data-xmas="midnight"] .hamburger span { background: #fff; }
+html[data-xmas="midnight"] .mob-menu { background: rgba(6,16,31,.985); --dark: #fff; --light: #AEBBCB; --off-white: #10233F; }
+html[data-xmas="midnight"] .mob-menu__link { background: #10233F; color: #fff; }
+html[data-xmas="midnight"] .mob-menu__link.is-active { background: rgba(255,196,107,.12); border-color: rgba(255,196,107,.3); color: #FFC46B; }
+html[data-xmas="midnight"] .mob-menu .btn-secondary { color: #fff; border-color: rgba(255,255,255,.3); }
+/* the call-us banner hangs below the lights instead of under them */
+html[data-xmas] .site-banner { padding-top: 46px; }
+html[data-xmas="midnight"] .site-banner__item { background: #10233F !important; color: #FFE6B8 !important; border: 1px solid rgba(255,196,107,.3); box-shadow: 0 10px 30px rgba(2,6,14,.25); }
+html[data-xmas="midnight"] .site-banner__item a { color: #FFE6B8 !important; }
+
+/* Midnight through the rest of the page */
+html[data-xmas="midnight"] section[style*="var(--cream)"] { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg stroke='%23B7C9DD' stroke-width='1.2' stroke-linecap='round' opacity='.45'%3E%3Cpath d='M30 20v20M21 25l18 10M21 35l18-10'/%3E%3Cpath d='M90 74v14M84 77l12 8M84 85l12-8'/%3E%3C/g%3E%3C/svg%3E") !important; }
+html[data-xmas="midnight"] section[style*="background: var(--dark)"] {
+  background: radial-gradient(120% 120% at 70% 0%, #173257 0%, #0B1C36 45%, #06101F 100%) !important; position: relative; overflow: hidden;
+}
+html[data-xmas="midnight"] section[style*="background: var(--dark)"]::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .8;
+  background-image: radial-gradient(1px 1px at 20px 30px, #fff 50%, transparent 51%), radial-gradient(1.4px 1.4px at 140px 80px, #FFE9C4 50%, transparent 51%), radial-gradient(1px 1px at 90px 140px, #fff 50%, transparent 51%), radial-gradient(1px 1px at 200px 20px, #fff 50%, transparent 51%);
+  background-size: 240px 180px;
+}
+html[data-xmas="midnight"] section[style*="background: var(--dark)"] > * { position: relative; }
+html[data-xmas="midnight"] .eyebrow::before {
+  content: ""; display: inline-block; width: 11px; height: 11px; margin-right: 8px; vertical-align: -1px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cg stroke='%23C8102E' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M6 .8v10.4M1.5 3.4l9 5.2M1.5 8.6l9-5.2'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+}
+/* snow settled on top of every card */
+html[data-xmas="midnight"] .glass-card,
+html[data-xmas="midnight"] .glass-card-dark { position: relative; }
+html[data-xmas="midnight"] .glass-card::before,
+html[data-xmas="midnight"] .glass-card-dark::before {
+  content: ""; position: absolute; left: 10px; right: 10px; top: -8px; height: 14px; pointer-events: none; z-index: 2;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='14' viewBox='0 0 120 14'%3E%3Cpath d='M0 11 Q10 3 22 9 Q32 1 46 8 Q58 2 70 9 Q82 3 94 8 Q106 1 120 10 L120 14 L0 14Z' fill='%23FFFFFF'/%3E%3Cpath d='M0 11 Q10 3 22 9 Q32 1 46 8 Q58 2 70 9 Q82 3 94 8 Q106 1 120 10' fill='none' stroke='%239FB3C9' stroke-opacity='.5'/%3E%3C/svg%3E") repeat-x;
+  background-size: 120px 14px;
+}
+html[data-xmas="midnight"] .glass-card-dark { background: linear-gradient(180deg, #10233F, #0B1A31) !important; border-color: rgba(255,196,107,.3) !important; }
+
 /* ── Jumper: knitted green with a fair-isle band ────────────────────────── */
 html[data-xmas="jumper"] { --cream: #F6F1EA; --off-white: #FBF8F3; --cream2: #EEE6DA; }
 html[data-xmas="jumper"] .home-hero,
