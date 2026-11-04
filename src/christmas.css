@@ -1,0 +1,138 @@
+/* Christmas looks. Everything is scoped to html[data-xmas], which only the
+   XmasProvider sets, so with no look chosen this file changes nothing.
+   Components here use the site's own tokens; each look re-points those tokens
+   inside a hero or the footer instead of restyling every block. */
+
+/* ── Shared ─────────────────────────────────────────────────────────────── */
+.xmas-snow { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 510; }
+.xmas-lights { position: fixed; left: 0; top: var(--nav-h); width: 100vw; height: 44px; pointer-events: none; z-index: 499; overflow: visible; }
+.xmas-bulb { animation: xmasTwinkle 2.4s ease-in-out infinite; }
+@keyframes xmasTwinkle { 0%, 100% { opacity: 1 } 50% { opacity: .35 } }
+
+.xmas-switcher {
+  position: fixed; left: 16px; bottom: 16px; z-index: 520;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  max-width: calc(100vw - 32px); padding: 6px 6px 6px 14px; border-radius: 999px;
+  background: #14181A; color: #fff; font-size: 13px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.xmas-switcher > span { font-weight: 600; margin-right: 4px; }
+.xmas-switcher button { border: 0; border-radius: 999px; padding: 7px 12px; font: inherit; font-weight: 500; background: rgba(255,255,255,.1); color: #fff; }
+.xmas-switcher button[aria-pressed="true"] { background: #C8102E; }
+
+html[data-xmas] .home-hero > [aria-hidden="true"]:first-child { display: none; }
+html[data-xmas] .home-hero,
+html[data-xmas] .page-hero { position: relative; overflow: hidden; isolation: isolate; }
+html[data-xmas] .page-hero > .container { position: relative; z-index: 1; }
+
+/* the light ribbon of a hero re-points the ink tokens to white */
+html[data-xmas] .home-hero,
+html[data-xmas] .page-hero {
+  color: #fff;
+  --dark: #FFFFFF; --dark2: #F3F4F6; --mid: #E9ECEF; --light: #D6DADF;
+  --border: rgba(255,255,255,.45); --border-light: rgba(255,255,255,.25);
+}
+html[data-xmas] .home-hero .btn-ghost,
+html[data-xmas] .page-hero .eyebrow { color: #fff; }
+html[data-xmas] .home-hero .btn-ghost:hover { background: rgba(255,255,255,.12); }
+
+/* ── Wrapped: brand red paper, gold satin ribbon and a bow ──────────────── */
+html[data-xmas="wrapped"] .home-hero,
+html[data-xmas="wrapped"] .page-hero {
+  background: radial-gradient(120% 90% at 22% 18%, #E0233F 0%, #C8102E 38%, #8C0A20 78%, #5E0716 100%);
+  --mid: #FFE3E7; --light: #FFCDD4;
+}
+html[data-xmas="wrapped"] .home-hero::before,
+html[data-xmas="wrapped"] .page-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: .13;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88'%3E%3Cg fill='%23FFE7B0'%3E%3Cpath d='M22 12l2.4 6.6 7 .3-5.5 4.3 1.9 6.8L22 26.2 16.2 30l1.9-6.8-5.5-4.3 7-.3z'/%3E%3Cpath d='M66 56l1.8 5 5.2.2-4.1 3.2 1.4 5.1L66 66.6l-4.3 2.9 1.4-5.1-4.1-3.2 5.2-.2z'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[data-xmas="wrapped"] .home-hero { padding-top: calc(var(--nav-h) + 190px) !important; }
+html[data-xmas="wrapped"] .home-hero .btn-primary { background: #fff; color: #C8102E; font-weight: 600; }
+html[data-xmas="wrapped"] .home-hero .btn-primary:hover { background: #FFF1F3; }
+html[data-xmas="wrapped"] .home-hero { --accent: #F7DFA2; }
+
+.xmas-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.xmas-ribbon { position: absolute; box-shadow: 0 3px 10px rgba(58,4,16,.45); }
+.xmas-ribbon::after { content: ""; position: absolute; inset: 4px; border: 1px dashed rgba(255,248,225,.5); }
+.xmas-ribbon--v { top: 0; bottom: 0; right: 20%; width: 58px; background: linear-gradient(90deg, #9C6F1F, #E2B65C 18%, #F7DFA2 45%, #E2B65C 62%, #8E6419); }
+.xmas-ribbon--v::after { top: -4px; bottom: -4px; }
+.xmas-ribbon--h { left: 0; right: 0; top: calc(var(--nav-h) + 92px); height: 58px; background: linear-gradient(180deg, #9C6F1F, #E2B65C 20%, #F7DFA2 48%, #E2B65C 66%, #8E6419); }
+.xmas-ribbon--h::after { left: -4px; right: -4px; }
+.xmas-ribbon--page { right: 12%; }
+.xmas-bowpos { position: absolute; right: calc(20% + 29px); top: calc(var(--nav-h) + 121px); transform: translate(50%, -30%); pointer-events: auto; }
+.xmas-bowsvg { display: block; overflow: visible; }
+.xmas-bow { transform-box: fill-box; transform-origin: 50% 60%; }
+.xmas-bowpos:hover .xmas-bow { animation: xmasWiggle .6s ease; }
+.xmas-tag { transform-box: fill-box; transform-origin: 30% 0; animation: xmasSwing 4.8s ease-in-out infinite; }
+@keyframes xmasWiggle { 0%, 100% { transform: rotate(0) } 25% { transform: rotate(-6deg) } 75% { transform: rotate(5deg) } }
+@keyframes xmasSwing { 0%, 100% { transform: rotate(6deg) } 50% { transform: rotate(-5deg) } }
+
+/* ── Midnight: a snowy night over Pontypridd, icy page tints ────────────── */
+html[data-xmas="midnight"] { --cream: #EEF3F9; --off-white: #F5F8FC; --cream2: #E3EBF4; }
+html[data-xmas="midnight"] .home-hero { background: #06101F; padding-bottom: 470px !important; --mid: #C4D0E0; --light: #AEBBCB; }
+html[data-xmas="midnight"] .home-hero { --accent: #FFC46B; }
+html[data-xmas="midnight"] .home-hero .btn-primary,
+html[data-xmas="jumper"] .home-hero .btn-primary { background: #C8102E; color: #fff; }
+html[data-xmas="midnight"] .home-hero .btn-primary:hover,
+html[data-xmas="jumper"] .home-hero .btn-primary:hover { background: #A50D26; }
+.xmas-night { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+html[data-xmas="midnight"] .page-hero { background: linear-gradient(180deg, #040A16 0%, #0B1C36 70%, #132B4B 100%); padding-bottom: 170px !important; --mid: #C4D0E0; }
+html[data-xmas="midnight"] .page-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: .7;
+  background-image: radial-gradient(1px 1px at 20px 30px, #fff 50%, transparent 51%), radial-gradient(1.4px 1.4px at 140px 80px, #FFE9C4 50%, transparent 51%), radial-gradient(1px 1px at 90px 140px, #fff 50%, transparent 51%), radial-gradient(1px 1px at 200px 20px, #fff 50%, transparent 51%);
+  background-size: 240px 180px;
+}
+.xmas-pagenight { position: absolute; left: 0; right: 0; bottom: 0; z-index: 0; }
+.xmas-roofline { display: block; width: 100%; height: 120px; }
+
+/* ── Jumper: knitted green with a fair-isle band ────────────────────────── */
+html[data-xmas="jumper"] { --cream: #F6F1EA; --off-white: #FBF8F3; --cream2: #EEE6DA; }
+html[data-xmas="jumper"] .home-hero,
+html[data-xmas="jumper"] .page-hero { background: var(--knit-green) repeat; background-size: 20px 20px; }
+html[data-xmas="jumper"] .home-hero::before,
+html[data-xmas="jumper"] .page-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(90% 80% at 30% 40%, rgba(0,0,0,.05), rgba(0,0,0,.4)); }
+html[data-xmas="jumper"] .home-hero { padding-top: calc(var(--nav-h) + 150px) !important; padding-bottom: 190px !important; }
+html[data-xmas="jumper"] .page-hero { padding-bottom: 150px !important; }
+html[data-xmas="jumper"] .home-hero { --accent: #FFE7A8; }
+.xmas-jumper { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.xmas-knitband { height: 95px; background: var(--knit-band) repeat-x; background-size: auto 95px; }
+.xmas-knitband--top { position: absolute; left: 0; right: 0; top: var(--nav-h); }
+.xmas-knitband--bottom { position: absolute; left: 0; right: 0; bottom: 0; }
+
+/* ── Footer band and dark footers ───────────────────────────────────────── */
+.xmas-footband { position: relative; }
+.xmas-footnote { max-width: var(--max-w); margin: 0 auto; padding: 18px clamp(20px,5vw,60px) 0; font-size: 14px; line-height: 1.6; color: var(--mid); }
+.xmas-footnote strong { color: var(--dark); }
+.xmas-ribbon--foot { position: relative; height: 40px; background: linear-gradient(180deg, #9C6F1F, #E2B65C 20%, #F7DFA2 48%, #E2B65C 66%, #8E6419); }
+.xmas-footbow { position: absolute; left: 50%; top: 20px; width: 230px; height: 300px; transform: translate(-50%, -30%) scale(.42); transform-origin: 50% 30%; }
+
+html[data-xmas] footer .brand-logo__icon { filter: brightness(0) invert(1); }
+html[data-xmas="wrapped"] footer {
+  background: linear-gradient(180deg, #8C0A20, #5E0716) !important;
+  --cream: #8C0A20; --dark: #FFFFFF; --dark2: #FFE3E7; --mid: #FFD3D9; --light: #FFC4CC;
+  --border: rgba(255,255,255,.3); --border-light: rgba(255,255,255,.18); --accent: #F7DFA2;
+}
+html[data-xmas="midnight"] footer {
+  background: #081426 !important;
+  --cream: #081426; --dark: #F3F7FB; --dark2: #D7E0EA; --mid: #AEBBCB; --light: #AEBBCB;
+  --border: #22385A; --border-light: #1A2E4C; --accent: #FFC46B;
+}
+html[data-xmas="jumper"] footer {
+  background: var(--knit-green) repeat !important; background-size: 20px 20px !important;
+  --cream: #0F3B22; --dark: #FFFFFF; --dark2: #EAF3EC; --mid: #CFE3D5; --light: #BFD8C6;
+  --border: rgba(255,255,255,.3); --border-light: rgba(255,255,255,.18); --accent: #FFD9DF;
+}
+
+@media (max-width: 700px) {
+  .xmas-ribbon--v { right: 14px; width: 30px; }
+  .xmas-ribbon--h { top: calc(var(--nav-h) + 60px); height: 30px; }
+  .xmas-bowpos { right: 29px; top: calc(var(--nav-h) + 75px); transform: translate(50%, -30%) scale(.55); transform-origin: 50% 30%; }
+  html[data-xmas="wrapped"] .home-hero { padding-top: calc(var(--nav-h) + 130px) !important; padding-right: 56px !important; }
+  html[data-xmas="midnight"] .home-hero { padding-bottom: 300px !important; }
+  .xmas-knitband { height: 66px; background-size: auto 66px; }
+  .xmas-switcher > span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xmas-bulb, .xmas-tag, .xmas-bowpos:hover .xmas-bow { animation: none; }
+}

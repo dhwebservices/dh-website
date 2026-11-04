@@ -8,6 +8,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
+import { XmasPageHero } from '../../components/Christmas'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
 import appleAuthorisedSellerBadge from '../../assets/apple-authorised-seller.svg'
 import CareerJobCard from '../../components/CareerJobCard'
@@ -30,7 +31,8 @@ export function PageHeroBlock({ eyebrow, heading, body, maxWidth, bodyMaxWidth, 
   return (
     // Pricing trims its hero's bottom padding so the tab bar sits closer;
     // Services does not. Without this the two heroes differ by 76px.
-    <section className="section" style={paddingBottom ? { paddingBottom } : undefined}>
+    <section className="section page-hero" style={paddingBottom ? { paddingBottom } : undefined}>
+      <XmasPageHero />
       <div className="container" style={{ maxWidth: maxWidth || 720 }}>
         <div className="reveal">
           {eyebrow ? <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p> : null}

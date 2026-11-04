@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import MicrosoftPartnerBadge from './MicrosoftPartnerBadge'
 import BrandLogo from './BrandLogo'
+import { XmasFooterBand } from './Christmas'
 import { GEO_CITY_LINKS } from '../lib/seoContent'
 
 const LEGAL = [
@@ -33,6 +34,7 @@ const AREAS = GEO_CITY_LINKS.map((page) => ({
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--cream)', borderTop: '1px solid var(--border-light)' }}>
+      <XmasFooterBand />
       <div
         style={{
           maxWidth: 'var(--max-w)',
