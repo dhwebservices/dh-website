@@ -346,10 +346,10 @@ function NightScene() {
       const rs = seeded(7)
       for (let i = 0; i < (W * H) / 2600; i++) { const v = rs(); s.globalAlpha = 0.25 + v * 0.6; s.fillStyle = '#fff'; s.beginPath(); s.arc(rs() * W, rs() * H * 0.6, v > 0.95 ? 1.4 : v * 0.9 + 0.2, 0, 6.283); s.fill() }
       s.globalAlpha = 1
-      moon = { x: W * (narrow ? 0.82 : 0.84), y: Math.min(200, H * 0.22) + 40 }
+      moon = narrow ? { x: W * 0.86, y: 70 } : { x: W * 0.84, y: Math.min(200, H * 0.22) + 40 }
       const mg = s.createRadialGradient(moon.x, moon.y, 20, moon.x, moon.y, 240); mg.addColorStop(0, 'rgba(255,236,196,.33)'); mg.addColorStop(1, 'rgba(255,236,196,0)'); s.fillStyle = mg; s.fillRect(moon.x - 240, moon.y - 240, 480, 480)
-      s.fillStyle = '#F7EFD8'; s.beginPath(); s.arc(moon.x, moon.y, narrow ? 30 : 44, 0, 6.283); s.fill()
-      s.fillStyle = 'rgba(200,184,146,.45)'; for (const [dx, dy, rr] of [[-12, -8, 7], [10, 6, 9], [-4, 16, 5]]) { s.beginPath(); s.arc(moon.x + dx, moon.y + dy, rr * (narrow ? 0.7 : 1), 0, 6.283); s.fill() }
+      s.fillStyle = '#F7EFD8'; s.beginPath(); s.arc(moon.x, moon.y, narrow ? 20 : 44, 0, 6.283); s.fill()
+      s.fillStyle = 'rgba(200,184,146,.45)'; for (const [dx, dy, rr] of [[-12, -8, 7], [10, 6, 9], [-4, 16, 5]]) { s.beginPath(); s.arc(moon.x + dx * (narrow ? 0.45 : 1), moon.y + dy * (narrow ? 0.45 : 1), rr * (narrow ? 0.45 : 1), 0, 6.283); s.fill() }
       // hills
       const [far, f] = layer()
       const range = (base, amp, s1, s2, ph, top, bottom) => {
