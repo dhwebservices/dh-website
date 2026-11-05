@@ -7,7 +7,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { withBlackFridayBuilds } from '../../lib/offers'
+import { withBlackFridayBuilds, withBlackFridayApps, blackFridayText } from '../../lib/offers'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
 import { XmasPageHero } from '../../components/Christmas'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
@@ -43,7 +43,7 @@ export function PageHeroBlock({ eyebrow, heading, body, maxWidth, bodyMaxWidth, 
           {/* No width set means unconstrained: Services caps its intro at 480px,
               Pricing deliberately does not, and forcing a default made the
               Pricing hero 76px taller than the live page. */}
-          {body ? <p className="body-lg" style={bodyMaxWidth ? { maxWidth: bodyMaxWidth } : undefined}>{body}</p> : null}
+          {body ? <p className="body-lg" style={bodyMaxWidth ? { maxWidth: bodyMaxWidth } : undefined}>{blackFridayText(body)}</p> : null}
         </div>
       </div>
     </section>
@@ -396,12 +396,12 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
               )}
             </div>
             <div className="pricing-grid-two" style={{ gap: 16 }}>
-              {(appPlans || []).map((p, i) => (
+              {(withBlackFridayApps(appPlans) || []).map((p, i) => (
                 <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
                   {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: p.badge === 'Best Value' ? 'white' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
                   <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>{p.price}</div>
-                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: p.monthly ? 6 : 20, letterSpacing: '0.04em' }}>{p.type}</p>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: p.monthly ? 6 : 20, letterSpacing: '0.04em', textTransform: p.priceNote ? 'uppercase' : undefined }}>{p.priceNote || p.type}</p>
                   {/* The lump sum is the barrier for a small local business, so
                       the instalment has to be readable without clicking. */}
                   {p.monthly && (

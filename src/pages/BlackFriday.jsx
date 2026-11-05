@@ -38,8 +38,19 @@ const TERMS = [
   'Comes with our care plan at £15 a month + VAT for a minimum of 12 months: hosting, security updates and small text and photo changes.',
   'A 50% deposit books a place. It is refunded in full if you cancel before we start your build.',
   'Your content is due within 14 days of booking. Places without content move to the back of the queue.',
+  'Other plans: Black Friday prices apply to projects booked with a deposit by Monday 30 November 2026. The care plan requirement applies to the £249 website only.',
   'One per business. Cannot be combined with the £20 voucher or any other offer.',
   'All prices exclude VAT at 20%.',
+]
+
+// Must match PLAN_PRICES in src/lib/offers.js.
+const OTHER_PLANS = [
+  ['Growth website, 10 pages and a blog', '£749', '£999'],
+  ['Pro website, 15 pages, e-commerce ready', '£1,099', '£1,499'],
+  ['Enterprise website + HR system', '£1,899', '£2,499'],
+  ['Simple app on the App Store and Google Play', '£249', '£349'],
+  ['Booking or ordering app', '£499', '£699'],
+  ['Business app or game', 'from £1,099', 'from £1,499'],
 ]
 
 const card = { padding: 'clamp(24px,3vw,32px)', border: '1px solid var(--border-light)', borderRadius: 18, background: 'var(--white, #fff)' }
@@ -110,6 +121,30 @@ export default function BlackFriday() {
                   </tbody>
                 </table>
                 <Link to={BOOK_HREF} className="btn-primary" style={{ marginTop: 20, width: '100%', justifyContent: 'center' }}>Book a place</Link>
+              </div>
+            </div>
+          </section>
+
+          <section className="section" style={{ paddingBottom: 0 }}>
+            <div className="container reveal" style={{ maxWidth: 1040 }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 8 }}>Every plan is cheaper too</h2>
+              <p className="body-md" style={{ marginBottom: 24 }}>About 25% off our other websites and apps, booked by Monday 30 November. All prices + VAT.</p>
+              <div style={{ ...card, padding: '8px clamp(16px,3vw,28px)' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 16 }}>
+                  <tbody>
+                    {OTHER_PLANS.map(([plan, now, was], i) => (
+                      <tr key={plan} style={{ borderTop: i ? '1px solid var(--border-light)' : 'none' }}>
+                        <td style={{ padding: '14px 0', color: 'var(--dark)' }}>{plan}</td>
+                        <td style={{ padding: '14px 12px', textAlign: 'right', color: 'var(--light)', whiteSpace: 'nowrap', fontSize: 14 }}>was {was}</td>
+                        <td style={{ padding: '14px 0', textAlign: 'right', fontWeight: 700, color: 'var(--dark)', whiteSpace: 'nowrap' }}>{now}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 20 }}>
+                <Link to="/contact" className="btn-primary">Get started</Link>
+                <Link to="/pricing" className="btn-secondary">See what each plan includes</Link>
               </div>
             </div>
           </section>

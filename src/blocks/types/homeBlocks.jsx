@@ -9,7 +9,7 @@
  */
 
 import { Link } from 'react-router-dom'
-import { blackFridayOn, withBlackFridayPackages } from '../../lib/offers'
+import { blackFridayOn, withBlackFridayPackages, withBlackFridayStats } from '../../lib/offers'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
 import { HeroBg, Typewriter, PricingCard } from '../shared/HomeParts'
 import { Icon } from '../shared/Icon'
@@ -63,7 +63,7 @@ export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, p
         </div>
 
         <div className="home-hero__stats" style={{ display: 'flex', alignItems: 'center', gap: 24, marginTop: 56, flexWrap: 'wrap', animation: 'fadeUp 0.7s ease 0.2s both' }}>
-          {(stats || []).map((stat) => (blackFridayOn() && stat.value === 'From £449' ? { value: 'From £249', label: 'Websites, Black Friday' } : stat)).map((stat) => (
+          {(withBlackFridayStats(stats) || []).map((stat) => (
             <div key={stat.label}>
               <div style={{ fontSize: 20, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1 }}>{stat.value}</div>
               <div style={{ fontSize: 12, color: 'var(--light)', marginTop: 3 }}>{stat.label}</div>
@@ -332,7 +332,7 @@ export function TestimonialsBlock({ eyebrow, heading, testimonials, stats }) {
 
         {(stats || []).length > 0 && (
           <div className="reveal glass-card" style={{ padding: '28px 32px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: 24, textAlign: 'center' }}>
-            {stats.map((stat) => (
+            {withBlackFridayStats(stats).map((stat) => (
               <div key={stat.label}>
                 <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--dark)', marginBottom: 4 }}>{stat.value}</div>
                 <div style={{ fontSize: 12, color: 'var(--light)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{stat.label}</div>
