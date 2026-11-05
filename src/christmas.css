@@ -201,3 +201,6 @@ html[data-xmas="jumper"] footer {
 
 /* outlined buttons in a dark page hero read in white, not brand red */
 html[data-xmas="midnight"] .page-hero .btn-secondary { color: #fff; border-color: rgba(255,255,255,.55); background: transparent; }
+html[data-xmas="midnight"] .bf-pill { background: rgba(6,16,31,.7); border-color: #FFC46B; color: #fff; }
+html[data-xmas="midnight"] .bf-pill:hover { background: rgba(255,196,107,.12); }
+html[data-xmas="midnight"] .bf-pill__tag { background: #FFC46B; color: #06101F; }
