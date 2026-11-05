@@ -9,14 +9,17 @@ const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
 const distDir = path.join(rootDir, 'dist')
 const ogImageUrl = `${SEO_SITE_URL}/og-image.png`
-const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap'
-// Fonts load without blocking the first paint; the system font shows for a
-// moment instead of a blank page.
-const HEAD_LINKS = `<link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://xtunnfdwltfesscmpove.supabase.co" crossorigin />
-    <link rel="preload" as="style" href="${FONTS_URL}" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="${FONTS_URL}" /></noscript>
+// Fonts are self-hosted (public/fonts), the same block as index.html, so
+// nothing waits on Google; the system font shows for a moment instead.
+const HEAD_LINKS = `<link rel="preconnect" href="https://xtunnfdwltfesscmpove.supabase.co" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/plexsans.woff2" crossorigin />
+    <style>
+      @font-face{font-family:'Archivo';font-style:normal;font-weight:600 800;font-display:swap;src:url(/fonts/archivo.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+      @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/plexsans.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+      @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plexmono-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+      @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plexmono-500.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    </style>
     <link rel="icon" href="/dh-logo-icon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />`
 

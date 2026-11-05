@@ -47,6 +47,17 @@ export const useXmas = () => useContext(XmasContext)
 const reducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+// Canvas work waits until the page has loaded and the browser is idle, so the
+// decoration never competes with the content for the first paint.
+function afterLoad(fn) {
+  let id = 0, done = false
+  const run = () => { if (!done) { done = true; fn() } }
+  const idle = () => { id = window.requestIdleCallback ? window.requestIdleCallback(run, { timeout: 1500 }) : window.setTimeout(run, 200) }
+  if (document.readyState === 'complete') idle()
+  else window.addEventListener('load', idle, { once: true })
+  return () => { done = true; window.removeEventListener('load', idle); if (window.cancelIdleCallback) window.cancelIdleCallback(id); window.clearTimeout(id) }
+}
+
 export function XmasProvider({ children }) {
   const [{ theme, preview }, setState] = useState(initialTheme)
 
@@ -152,7 +163,7 @@ function SnowOverlay({ theme }) {
       if (!still) raf = requestAnimationFrame(frame)
     }
 
-    size(); seed(); frame(0)
+    const cancelStart = afterLoad(() => { size(); seed(); frame(0) })
     const onResize = () => size()
     const onScroll = () => { navH = document.querySelector('.site-header')?.getBoundingClientRect().bottom || 52 }
     window.addEventListener('resize', onResize)
@@ -161,7 +172,7 @@ function SnowOverlay({ theme }) {
     const vis = () => { cancelAnimationFrame(raf); if (!document.hidden && !still) raf = requestAnimationFrame(frame) }
     document.addEventListener('visibilitychange', vis)
     return () => {
-      cancelAnimationFrame(raf)
+      cancelStart(); cancelAnimationFrame(raf)
       window.removeEventListener('resize', onResize); window.removeEventListener('scroll', onScroll)
       window.removeEventListener('pointermove', onMove); document.removeEventListener('visibilitychange', vis)
     }
@@ -463,16 +474,19 @@ function NightScene() {
       for (const l of lamps) { const gl = ctx.createRadialGradient(l.x, l.y - 2, 1, l.x, l.y - 2, 46); gl.addColorStop(0, 'rgba(255,196,107,.55)'); gl.addColorStop(1, 'rgba(255,196,107,0)'); ctx.fillStyle = gl; ctx.fillRect(l.x - 46, l.y - 48, 92, 92) }
       for (const b of treeLights) { const a = still ? 0.8 : 0.45 + 0.55 * Math.max(0, Math.sin(t / 420 + b.ph)); ctx.globalAlpha = a; ctx.fillStyle = b.c; ctx.beginPath(); ctx.arc(b.x, b.y, 2.2, 0, 6.283); ctx.fill(); ctx.globalAlpha = a * 0.35; ctx.beginPath(); ctx.arc(b.x, b.y, 7, 0, 6.283); ctx.fill() }
       ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'
-      if (!still) raf = requestAnimationFrame(frame)
+      if (!still && onScreen) raf = requestAnimationFrame(frame)
     }
 
-    build(); frame(0)
+    // only animates while the hero is on screen and the tab is visible
+    let onScreen = true
+    const vis = () => { cancelAnimationFrame(raf); if (layers && onScreen && !document.hidden && !still) raf = requestAnimationFrame(frame) }
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver((e) => { onScreen = e[0].isIntersecting; vis() }) : null
+    const cancelStart = afterLoad(() => { build(); frame(0); cv.classList.add('ready'); io?.observe(cv) })
     let rt = 0
-    const onResize = () => { clearTimeout(rt); rt = setTimeout(() => { build(); if (still) frame(0) }, 150) }
+    const onResize = () => { if (!layers) return; clearTimeout(rt); rt = setTimeout(() => { build(); if (still) frame(0) }, 150) }
     window.addEventListener('resize', onResize)
-    const vis = () => { cancelAnimationFrame(raf); if (!document.hidden && !still) raf = requestAnimationFrame(frame) }
     document.addEventListener('visibilitychange', vis)
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); document.removeEventListener('visibilitychange', vis) }
+    return () => { cancelStart(); io?.disconnect(); cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); document.removeEventListener('visibilitychange', vis) }
   }, [])
   return <canvas ref={ref} className="xmas-night" aria-hidden="true" />
 }

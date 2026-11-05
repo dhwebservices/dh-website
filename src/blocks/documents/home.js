@@ -42,7 +42,7 @@ export const HOME_DOCUMENT = {
       id: 'home-award',
       type: 'award-banner',
       props: {
-        image: '/wales-prestige-awards-2027-28-winner.jpg',
+        image: '/wales-prestige-awards-winner-400.webp',
         imageAlt: 'Wales Prestige Awards 2027/28 winner',
         eyebrow: 'Wales Prestige Awards 2027/28',
         heading: 'Web Design Service of the Year – Wales',

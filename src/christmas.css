@@ -69,13 +69,14 @@ html[data-xmas="wrapped"] .home-hero { --accent: #F7DFA2; }
 
 /* ── Midnight: a snowy night over Pontypridd, icy page tints ────────────── */
 html[data-xmas="midnight"] { --cream: #EEF3F9; --off-white: #F5F8FC; --cream2: #E3EBF4; }
-html[data-xmas="midnight"] .home-hero { background: #06101F; padding-bottom: 470px !important; --mid: #C4D0E0; --light: #AEBBCB; }
+html[data-xmas="midnight"] .home-hero { background: linear-gradient(#040A16, #0B1C36 55%, #173257); padding-bottom: 470px !important; --mid: #C4D0E0; --light: #AEBBCB; }
 html[data-xmas="midnight"] .home-hero { --accent: #FFC46B; }
 html[data-xmas="midnight"] .home-hero .btn-primary,
 html[data-xmas="jumper"] .home-hero .btn-primary { background: #C8102E; color: #fff; }
 html[data-xmas="midnight"] .home-hero .btn-primary:hover,
 html[data-xmas="jumper"] .home-hero .btn-primary:hover { background: #A50D26; }
-.xmas-night { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+.xmas-night { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; opacity: 0; transition: opacity .7s ease; }
+.xmas-night.ready { opacity: 1; }
 html[data-xmas="midnight"] .page-hero { background: linear-gradient(180deg, #040A16 0%, #0B1C36 70%, #132B4B 100%); padding-bottom: 170px !important; --mid: #C4D0E0; }
 html[data-xmas="midnight"] .page-hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1; opacity: .7;
