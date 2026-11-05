@@ -113,7 +113,7 @@ function SnowOverlay({ theme }) {
     const tint = theme === 'midnight' ? null : 'rgba(120,140,165,0.35)'
 
     const size = () => {
-      W = window.innerWidth; H = window.innerHeight; D = Math.min(2, window.devicePixelRatio || 1)
+      W = window.innerWidth; H = window.innerHeight; D = Math.min(1.5, window.devicePixelRatio || 1)
       cv.width = W * D; cv.height = H * D; ctx.setTransform(D, 0, 0, D, 0, 0)
       const n = Math.round((W * H) / 9000)
       flakes = Array.from({ length: n }, () => { const d = Math.random(); return { x: Math.random() * W, y: Math.random() * H, d, r: 0.8 + d * 2.4, ph: Math.random() * 6.28 } })
@@ -348,7 +348,7 @@ function NightScene() {
     const layer = () => { const c = document.createElement('canvas'); c.width = W * D; c.height = H * D; const g = c.getContext('2d'); g.scale(D, D); return [c, g] }
 
     const build = () => {
-      const r = cv.getBoundingClientRect(); W = Math.max(320, r.width); H = Math.max(400, r.height); D = Math.min(2, window.devicePixelRatio || 1)
+      const r = cv.getBoundingClientRect(); W = Math.max(320, r.width); H = Math.max(400, r.height); D = Math.min(1.5, window.devicePixelRatio || 1)
       cv.width = W * D; cv.height = H * D; ctx.setTransform(D, 0, 0, D, 0, 0)
       const narrow = W < 760
       // sky
@@ -449,8 +449,12 @@ function NightScene() {
       ctx.restore()
     }
 
+    let last = -1e9
     const frame = (t) => {
       if (!layers) return
+      // 30fps is plenty for a slow scene and halves the drawing work
+      if (t && t - last < 30) { if (!still && onScreen) raf = requestAnimationFrame(frame); return }
+      last = t
       ctx.clearRect(0, 0, W, H)
       ctx.drawImage(layers.sky, 0, 0, W, H)
       if (!still) sleigh(t)
