@@ -198,3 +198,6 @@ html[data-xmas="jumper"] footer {
 @media (prefers-reduced-motion: reduce) {
   .xmas-bulb, .xmas-tag, .xmas-bowpos:hover .xmas-bow { animation: none; }
 }
+
+/* outlined buttons in a dark page hero read in white, not brand red */
+html[data-xmas="midnight"] .page-hero .btn-secondary { color: #fff; border-color: rgba(255,255,255,.55); background: transparent; }
