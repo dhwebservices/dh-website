@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T12:14:00.593Z",
+  "generatedAt": "2026-11-05T12:25:54.609Z",
   "blocks": [
     {
       "type": "hero",
@@ -2472,7 +2472,13 @@
                 "phone": "07368 353011",
                 "phoneHref": "tel:+447368353011",
                 "email": "jack@dhwebsiteservices.co.uk",
-                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out."
+                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.",
+                "badges": [
+                  {
+                    "label": "GDPR Foundations certified",
+                    "detail": "Measured Collective · Nov 2026"
+                  }
+                ]
               }
             ],
             "background": "var(--white)"
@@ -2868,7 +2874,7 @@
           "id": "home-award",
           "type": "award-banner",
           "props": {
-            "image": "/wales-prestige-awards-2027-28-winner.jpg",
+            "image": "/wales-prestige-awards-winner-400.webp",
             "imageAlt": "Wales Prestige Awards 2027/28 winner",
             "eyebrow": "Wales Prestige Awards 2027/28",
             "heading": "Web Design Service of the Year – Wales",
@@ -2892,8 +2898,8 @@
                 "tone": "live",
                 "desc": "A multiplayer fish game we designed, built and run. Players on iPhone and Android play against each other in real time, add friends, challenge them and climb a shared leaderboard.",
                 "points": "Native Swift app for iOS, separate Android build · Cross-platform multiplayer on servers we run · Friends, challenges, push notifications and a daily leaderboard · Taken through Apple review and Google Play ourselves",
-                "icon": "/work/fish-tank-icon.png",
-                "image": "/work/fish-tank-title.jpg",
+                "icon": "/work/fish-tank-icon.webp",
+                "image": "/work/fish-tank-title.webp",
                 "imageAlt": "Fish Tank on iPhone: the title screen with the tank, the Play button and the coin total",
                 "image2": "/work/fish-tank-home.jpg",
                 "image2Alt": "Fish Tank on iPhone: a home aquarium full of fish",
@@ -2908,7 +2914,7 @@
                 "status": "Live on the App Store",
                 "tone": "live",
                 "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. Free on the App Store.",
-                "icon": "/work/findmygang-icon.png",
+                "icon": "/work/findmygang-icon.webp",
                 "iconAlt": "Fam & a Half app icon",
                 "panel": "#E7F1EC",
                 "linkLabel": "See the app",
@@ -2920,7 +2926,7 @@
                 "status": "In daily use",
                 "tone": "internal",
                 "desc": "The system we run our own staff on. Microsoft sign-in, rotas, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone and shifts synced to Outlook.",
-                "icon": "/work/staff-portal-icon.png",
+                "icon": "/work/staff-portal-icon.webp",
                 "iconAlt": "DH Staff Portal app icon",
                 "panel": "#ECEEEC"
               },
@@ -3029,7 +3035,13 @@
                 "phone": "07368 353011",
                 "phoneHref": "tel:+447368353011",
                 "email": "jack@dhwebsiteservices.co.uk",
-                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out."
+                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.",
+                "badges": [
+                  {
+                    "label": "GDPR Foundations certified",
+                    "detail": "Measured Collective · Nov 2026"
+                  }
+                ]
               }
             ]
           }
@@ -3330,8 +3342,8 @@
                 "tone": "live",
                 "desc": "A multiplayer fish game we designed, built and run. Players on iPhone and Android play against each other in real time, add friends, challenge them and climb a shared leaderboard.",
                 "points": "Native Swift app for iOS, separate Android build · Cross-platform multiplayer on servers we run · Friends, challenges, push notifications and a daily leaderboard · Taken through Apple review and Google Play ourselves",
-                "icon": "/work/fish-tank-icon.png",
-                "image": "/work/fish-tank-title.jpg",
+                "icon": "/work/fish-tank-icon.webp",
+                "image": "/work/fish-tank-title.webp",
                 "imageAlt": "Fish Tank on iPhone: the title screen with the tank, the Play button and the coin total",
                 "image2": "/work/fish-tank-home.jpg",
                 "image2Alt": "Fish Tank on iPhone: a home aquarium full of fish",
@@ -3346,7 +3358,7 @@
                 "status": "Live on the App Store",
                 "tone": "live",
                 "desc": "Free, private location sharing for family and friends, named after our own family group chat. Live map, arrival alerts, SOS and crash detection, pick-up requests and night-out circles. Free on the App Store.",
-                "icon": "/work/findmygang-icon.png",
+                "icon": "/work/findmygang-icon.webp",
                 "iconAlt": "Fam & a Half app icon",
                 "panel": "#E7F1EC",
                 "linkLabel": "See the app",
@@ -3358,7 +3370,7 @@
                 "status": "In daily use",
                 "tone": "internal",
                 "desc": "The system we run our own staff on. Microsoft sign-in, rotas, clock-in, timesheets, leave approvals and payslips, with push notifications to the phone and shifts synced to Outlook.",
-                "icon": "/work/staff-portal-icon.png",
+                "icon": "/work/staff-portal-icon.webp",
                 "iconAlt": "DH Staff Portal app icon",
                 "panel": "#ECEEEC"
               },
