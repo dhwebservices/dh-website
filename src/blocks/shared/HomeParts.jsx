@@ -45,15 +45,15 @@ export function HeroBg() {
   )
 }
 
-export function PricingCard({ name, price, tagline, who, features, popular, delay }) {
+export function PricingCard({ name, price, priceNote, tagline, who, features, popular, badge, href, ctaLabel, delay }) {
   return (
     <div
       className={`reveal pricing-card ${popular ? 'glass-card-dark' : 'glass-card'}`}
       style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${delay}s`, display: 'flex', flexDirection: 'column' }}
     >
-      {popular && (
+      {(popular || badge) && (
         <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: 'var(--accent)', fontSize: 11, fontWeight: 600, color: 'white', letterSpacing: '0.04em' }}>
-          Popular
+          {badge || 'Popular'}
         </div>
       )}
 
@@ -65,7 +65,7 @@ export function PricingCard({ name, price, tagline, who, features, popular, dela
         {price}
       </div>
       <p style={{ fontSize: 12, color: popular ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 16, fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-        One-off · Fixed price
+        {priceNote || 'One-off · Fixed price'}
       </p>
 
       <div style={{ fontSize: 15, fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.3, color: popular ? 'white' : 'var(--dark)', marginBottom: 8 }}>
@@ -86,12 +86,12 @@ export function PricingCard({ name, price, tagline, who, features, popular, dela
       </div>
 
       <Link
-        to="/pricing"
+        to={href || '/pricing'}
         style={{ display: 'block', textAlign: 'center', padding: '11px 20px', borderRadius: 100, fontSize: 13.5, fontWeight: 600, background: popular ? 'white' : 'var(--accent)', color: popular ? 'var(--dark)' : 'white', transition: 'opacity 0.15s', textDecoration: 'none' }}
         onMouseOver={(e) => { e.currentTarget.style.opacity = '0.85' }}
         onMouseOut={(e) => { e.currentTarget.style.opacity = '1' }}
       >
-        See what&apos;s included →
+        {ctaLabel || <>See what&apos;s included</>} →
       </Link>
     </div>
   )
