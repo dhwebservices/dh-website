@@ -29,7 +29,7 @@ const INCLUDED = [
 const STEPS = [
   ['Book a place', 'Send the form. We reply within a day with a link for the 50% deposit (£124.50 + VAT).'],
   ['Send your content', 'Your text, logo and photos within 14 days. We tell you exactly what we need.'],
-  ['We build it in January', 'Builds go in booking order. You see it before it goes live and get one round of changes.'],
+  ['We build it', 'We start as soon as your content is in. You see it before it goes live and get one round of changes.'],
   ['It goes live', 'The rest of the build price is due on launch, then the care plan starts.'],
 ]
 
@@ -37,7 +37,7 @@ const TERMS = [
   'Offer open from 5 November until 23:59 on Monday 30 November 2026, or until the 10 places are booked.',
   'Covers up to 3 pages from our own design system. Online shops, bookings, logins and extra pages are quoted at our normal rates.',
   'Comes with our care plan at £15 a month + VAT for a minimum of 12 months: hosting, security updates and small text and photo changes.',
-  'A 50% deposit books a place. It is refunded in full if we cannot start your build in January 2027.',
+  'A 50% deposit books a place. It is refunded in full if you cancel before we start your build.',
   'Your content is due within 14 days of booking. Places without content move to the back of the queue.',
   'One per business. Cannot be combined with the £20 voucher or any other offer.',
   'All prices exclude VAT at 20%.',
@@ -67,7 +67,7 @@ export default function BlackFriday() {
             ) : (
               <>
                 <p className="body-lg" style={{ maxWidth: 600, marginBottom: 28 }}>
-                  Normally from £449 + VAT. Built by our team in Pontypridd in January, with hosting and updates at £15 a month. Only 10 places.
+                  Normally from £449 + VAT. Built by our team in Pontypridd as soon as you book, with hosting and updates at £15 a month. Only 10 places.
                 </p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                   <Link to={BOOK_HREF} className="btn-primary">Book a place</Link>
