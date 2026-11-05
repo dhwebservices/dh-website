@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T12:14:00.593Z",
+  "generatedAt": "2026-11-05T12:43:03.951Z",
   "blocks": [
     {
       "type": "hero",
@@ -2472,7 +2472,13 @@
                 "phone": "07368 353011",
                 "phoneHref": "tel:+447368353011",
                 "email": "jack@dhwebsiteservices.co.uk",
-                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out."
+                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.",
+                "badges": [
+                  {
+                    "label": "GDPR Foundations certified",
+                    "detail": "Measured Collective · Nov 2026"
+                  }
+                ]
               }
             ],
             "background": "var(--white)"
@@ -3029,7 +3035,13 @@
                 "phone": "07368 353011",
                 "phoneHref": "tel:+447368353011",
                 "email": "jack@dhwebsiteservices.co.uk",
-                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out."
+                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.",
+                "badges": [
+                  {
+                    "label": "GDPR Foundations certified",
+                    "detail": "Measured Collective · Nov 2026"
+                  }
+                ]
               }
             ]
           }

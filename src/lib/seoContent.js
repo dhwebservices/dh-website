@@ -208,6 +208,26 @@ const BASE_INDEXABLE_PAGES = [
     ctaHref: '/contact',
   },
   {
+    // Temporary offer page (5 to 30 Nov 2026); take it out of here when the page goes.
+    path: '/black-friday',
+    title: 'Early Black Friday: 3-Page Website £249 + VAT | DH Website Services',
+    description: 'Early Black Friday at DH Website Services: a 3-page website for £249 + VAT, normally from £449. 10 places, built in January in Pontypridd. Ends 30 November.',
+    heading: 'A 3-page website for £249 + VAT.',
+    intro: 'Normally from £449 + VAT. Built by our team in Pontypridd in January, with hosting and updates at £15 a month + VAT. Only 10 places, until Monday 30 November 2026.',
+    sections: [
+      {
+        title: 'What you get',
+        body: 'Up to 3 pages in your colours and logo, built for phones first, with a contact form, Google Maps, a link to your Google reviews, your own domain and basic SEO. One round of changes before launch.',
+      },
+      {
+        title: 'What it costs',
+        body: 'Website build £249 + VAT, with a 50% deposit to book. Care plan £15 a month + VAT for a minimum of 12 months. First year in total £429 + VAT.',
+      },
+    ],
+    ctaLabel: 'Book a place',
+    ctaHref: '/contact?source=black-friday#brief',
+  },
+  {
     path: '/contact',
     title: 'Book a Call | DH Website Services',
     description: 'Book a free project consultation and get a clear plan with a fixed price.',

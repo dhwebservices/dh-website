@@ -1149,3 +1149,12 @@ h2 { max-width: 20ch; }
   .award-banner-logo { width: 120px; }
   .award-banner-text { flex: none; }
 }
+
+/* Early Black Friday page (temporary, Nov 2026) */
+.bf-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; align-items: start; }
+.bf-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+@media (max-width: 860px) {
+  .bf-grid { grid-template-columns: 1fr; }
+  .bf-steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) { .bf-steps { grid-template-columns: 1fr; } }

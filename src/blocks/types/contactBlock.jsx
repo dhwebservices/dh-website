@@ -29,6 +29,8 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
 
   const params = new URLSearchParams(search)
   const preferredMode = params.get('mode')
+  // From the /black-friday page: the enquiry is a booking for that offer.
+  const blackFriday = params.get('source') === 'black-friday'
   const quoteSummary = params.get('source') !== 'calculator' ? null : {
     total: params.get('total'),
     monthly: params.get('monthly'),
@@ -50,12 +52,14 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
 
     const summaryHtml = quoteSummary
       ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Estimate</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${quoteSummary.packageName || 'Custom'} · £${quoteSummary.total || '0'}${quoteSummary.monthly && quoteSummary.monthly !== '0' ? ` + £${quoteSummary.monthly}/mo` : ''}</td></tr>${quoteSummary.features ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Features</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${quoteSummary.features}</td></tr>` : ''}`
-      : ''
+      : blackFriday
+        ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Offer</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px"><strong>Early Black Friday booking</strong>: 3-page website £249 + VAT, care plan £15/mo + VAT for 12 months</td></tr>`
+        : ''
 
     try {
       await sendCustomEmail({
         to: 'clients@dhwebsiteservices.co.uk',
-        subject: `New website enquiry - ${form.name}`,
+        subject: `${blackFriday ? 'Black Friday booking' : 'New website enquiry'} - ${form.name}`,
         from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
         html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:560px"><h2 style="color:#1A1612;margin-bottom:4px">New Website Enquiry</h2><p style="color:#6E6E73;margin-bottom:20px;font-size:14px">Submitted via dhwebsiteservices.co.uk/contact</p><table style="width:100%;border-collapse:collapse;margin-bottom:20px"><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px;width:140px">Name</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.name}</td></tr><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Email</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.email}</td></tr>${form.business ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Business</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.business}</td></tr>` : ''}${form.budget ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Budget</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.budget}</td></tr>` : ''}${form.timeline ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Timeline</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.timeline}</td></tr>` : ''}${summaryHtml}</table><div style="padding:16px 18px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px"><div style="font-size:12px;font-weight:700;color:#6E6E73;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Project brief</div><p style="font-size:14px;line-height:1.7;color:#1A1612;white-space:pre-wrap;margin:0">${form.message}</p></div></div>`,
       })
@@ -68,7 +72,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
       })
 
       trackEvent('contact_enquiry_submitted', {
-        source: quoteSummary ? 'calculator_handoff' : 'contact_form',
+        source: quoteSummary ? 'calculator_handoff' : blackFriday ? 'black_friday' : 'contact_form',
       })
       setSent(true)
     } catch {
@@ -100,6 +104,16 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
             <a href="#brief" className="btn-primary" style={{ justifyContent:'center' }}>Send a brief</a>
             <a href="#booking" className="btn-secondary" style={{ justifyContent:'center' }}>Book a call</a>
           </div>
+
+          {blackFriday && (
+            <div className="reveal section-narrow" style={{ marginBottom:48 }}>
+              <div style={{ padding:'18px 20px', border:'1px solid var(--border-light)', borderRadius:16, background:'var(--cream)' }}>
+                <div style={{ fontSize:12, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--accent)', marginBottom:8 }}>Early Black Friday booking</div>
+                <div style={{ fontSize:18, fontWeight:600, color:'var(--dark)', marginBottom:6 }}>3-page website · £249 + VAT</div>
+                <p className="body-sm">Plus our care plan at £15 a month + VAT for 12 months. Send the form below and we'll reply within a day with the deposit link.</p>
+              </div>
+            </div>
+          )}
 
           {quoteSummary && (
             <div className="reveal section-narrow" style={{ marginBottom:48 }}>
