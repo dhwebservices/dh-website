@@ -7,6 +7,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { withBlackFridayBuilds } from '../../lib/offers'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
 import { XmasPageHero } from '../../components/Christmas'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
@@ -334,14 +335,14 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
         <section className="section">
           <div className="container">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 16 }}>
-              {(builds || []).map((p, i) => {
+              {(withBlackFridayBuilds(builds) || []).map((p, i) => {
                 const dark = p.badge === 'Most Popular'
                 return (
                   <div key={p.name} className={`reveal pricing-card ${dark ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s`, display: 'flex', flexDirection: 'column' }}>
                     {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: dark ? 'var(--accent)' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: dark ? 'white' : 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
                     <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: dark ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
                     <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: dark ? 'white' : 'var(--dark)', marginBottom: 6 }}>£{Number(p.price || 0).toLocaleString()}</div>
-                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: dark ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 16, letterSpacing: '0.04em' }}>ONE-OFF</p>
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: dark ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 16, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{p.priceNote || 'ONE-OFF'}</p>
                     <div style={{ display: 'flex', gap: 16, marginBottom: 20, paddingBottom: 20, borderBottom: `1px solid ${dark ? 'rgba(255,255,255,0.1)' : 'var(--border-light)'}` }}>
                       <div style={{ fontSize: 12, color: dark ? 'rgba(255,255,255,0.5)' : 'var(--mid)' }}>Delivery: <strong style={{ color: dark ? 'white' : 'var(--dark)' }}>{p.delivery}</strong></div>
                     </div>
@@ -356,7 +357,7 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
                         </div>
                       ))}
                     </div>
-                    <div style={{ marginTop: 20 }}><PricingCta dark={dark} to="/contact">{ctaLabel || 'Get started'}</PricingCta></div>
+                    <div style={{ marginTop: 20 }}><PricingCta dark={dark} to={p.href || '/contact'}>{p.ctaLabel || ctaLabel || 'Get started'}</PricingCta></div>
                   </div>
                 )
               })}
