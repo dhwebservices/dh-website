@@ -481,7 +481,7 @@ function NightScene() {
     let onScreen = true
     const vis = () => { cancelAnimationFrame(raf); if (layers && onScreen && !document.hidden && !still) raf = requestAnimationFrame(frame) }
     const io = 'IntersectionObserver' in window ? new IntersectionObserver((e) => { onScreen = e[0].isIntersecting; vis() }) : null
-    const cancelStart = afterLoad(() => { build(); frame(0); cv.classList.add('ready'); io?.observe(cv) })
+    const cancelStart = afterLoad(() => { build(); frame(0); io?.observe(cv) })
     let rt = 0
     const onResize = () => { if (!layers) return; clearTimeout(rt); rt = setTimeout(() => { build(); if (still) frame(0) }, 150) }
     window.addEventListener('resize', onResize)
