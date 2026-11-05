@@ -13,9 +13,8 @@
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { XmasPageHero } from '../components/Christmas'
+import { blackFridayOn } from '../lib/offers'
 
-// Monday 30 November 2026, 23:59:59 UK time (GMT in November).
-const OFFER_ENDS = Date.UTC(2026, 10, 30, 23, 59, 59)
 const BOOK_HREF = '/contact?source=black-friday#brief'
 
 const INCLUDED = [
@@ -47,7 +46,7 @@ const card = { padding: 'clamp(24px,3vw,32px)', border: '1px solid var(--border-
 
 export default function BlackFriday() {
   useReveal()
-  const ended = Date.now() > OFFER_ENDS
+  const ended = !blackFridayOn()
 
   return (
     <main>

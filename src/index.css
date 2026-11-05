@@ -1158,3 +1158,9 @@ h2 { max-width: 20ch; }
   .bf-steps { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 520px) { .bf-steps { grid-template-columns: 1fr; } }
+
+/* Homepage notice for the Early Black Friday offer (hides itself after 30 Nov) */
+.bf-pill { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; padding: 7px 14px 7px 7px; border: 1px solid var(--accent); border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--dark); text-decoration: none; background: var(--white); }
+.bf-pill:hover { background: var(--cream); }
+.bf-pill__tag { background: var(--accent); color: #fff; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+@media (max-width: 520px) { .bf-pill { font-size: 13px; border-radius: 16px; } }

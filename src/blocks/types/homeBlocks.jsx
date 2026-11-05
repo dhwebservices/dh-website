@@ -9,6 +9,7 @@
  */
 
 import { Link } from 'react-router-dom'
+import { blackFridayOn } from '../../lib/offers'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
 import { HeroBg, Typewriter, PricingCard } from '../shared/HomeParts'
 import { Icon } from '../shared/Icon'
@@ -40,6 +41,13 @@ export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, p
       <HeroBg />
       <XmasHero />
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 880, margin: '0 auto', width: '100%' }}>
+        {blackFridayOn() && (
+          <Link to="/black-friday" className="bf-pill" style={{ animation: 'fadeUp 0.7s ease both' }}>
+            <span className="bf-pill__tag">Early Black Friday</span>
+            <span>Prices now live: 3-page websites £249 + VAT</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
         <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(44px,7vw,88px)', fontWeight: 600, letterSpacing: '-0.035em', lineHeight: 1.0, marginBottom: 24, animation: 'fadeUp 0.7s ease 0.05s both' }}>
           {headlineLead}<br />
           <Typewriter lines={typewriterLines} />
