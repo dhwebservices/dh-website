@@ -157,7 +157,7 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/portfolio',
     title: 'Our Work: Apps and Websites | DH Website Services',
-    description: 'Apps and websites we have built: Fish Tank on the App Store and Google Play, Fam & a Half on the App Store, our staff portal and phone system, and web design work.',
+    description: 'Apps and websites we have built: Fish Tank on the App Store and Google Play, Fam & a Half on the App Store, our staff portal and phone system, and websites for clients like the Maltsters Arms in Pontypridd.',
     heading: 'Apps and websites we have shipped.',
     intro: 'Shipped work rather than mockups. Fish Tank is on the App Store and Google Play and you can download it now.',
     sections: [
@@ -167,7 +167,7 @@ const BASE_INDEXABLE_PAGES = [
       },
       {
         title: 'Web design',
-        body: 'Glow With Lucy, a website for a candle business, built in seven days.',
+        body: 'The Maltsters Arms on Bridge Street, Pontypridd: a pub website with a What\'s On page and an admin the pub uses to update its own hours, drinks, photos and events, live at maltstersponty.com. Glow With Lucy, a website for a candle business, built in seven days.',
       },
     ],
     ctaLabel: 'Talk to us',

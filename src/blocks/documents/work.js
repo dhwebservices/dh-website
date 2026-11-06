@@ -68,6 +68,29 @@ export const WORK_ITEMS = [
 ]
 
 /*
+ * Client websites we have built and still look after. Same rule as above:
+ * only what is true and public. Never prices, contract terms or anything from
+ * the client's admin. Checked 6 Nov 2026:
+ *   - The Maltsters Arms, Pontypridd: live at maltstersponty.com since
+ *     28 Oct 2026, built and hosted by us, with an admin the pub uses itself.
+ */
+export const CLIENT_SITES = [
+  {
+    name: 'The Maltsters Arms',
+    place: 'Pub · Bridge Street, Pontypridd',
+    status: 'Live',
+    desc: 'A new website for a local pub. It is built around their own photos of the building at night, with a neon sign, the week\'s offers and what is on.',
+    points: 'What\'s On page the pub updates itself · Their own login for opening hours, drinks, photos and notices · Mailing list for events · Built, hosted and looked after by us',
+    image: '/work/maltsters-arms-site.jpg',
+    imageSmall: '/work/maltsters-arms-site-960.jpg',
+    imageAlt: 'The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it',
+    url: 'maltstersponty.com',
+    linkLabel: 'Visit the site',
+    linkHref: 'https://maltstersponty.com/',
+  },
+]
+
+/*
  * TODO(David): photos. Drop a square photo in public/team/ and set `photo` on
  * each person below; the initials are only a stand-in.
  */

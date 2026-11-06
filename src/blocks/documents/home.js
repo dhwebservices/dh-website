@@ -12,7 +12,7 @@
  * and this is only a safety net. As of 6 Oct 2026 there is no such row.
  */
 
-import { WORK_ITEMS, TEAM_PEOPLE } from './work.js'
+import { WORK_ITEMS, CLIENT_SITES, TEAM_PEOPLE } from './work.js'
 
 export const HOME_DOCUMENT = {
   version: 1,
@@ -60,6 +60,17 @@ export const HOME_DOCUMENT = {
         heading: 'Apps we build\nfor ourselves.',
         body: 'Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is on the App Store, and two more run our business every day.',
         items: WORK_ITEMS,
+      },
+    },
+
+    {
+      id: 'home-clients',
+      type: 'client-sites',
+      props: {
+        eyebrow: 'Client websites',
+        heading: 'And websites\nfor local businesses.',
+        body: 'Our latest client site is for the Maltsters Arms on Bridge Street, Pontypridd. Go and have a look.',
+        items: CLIENT_SITES,
       },
     },
 

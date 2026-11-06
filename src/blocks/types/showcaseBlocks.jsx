@@ -178,6 +178,81 @@ export function WorkShowcaseBlock({ eyebrow, heading, body, items }) {
   )
 }
 
+/* ── Client sites ──────────────────────────────────────────────────────── */
+
+/** A website screenshot in a plain browser frame, with the real address in the bar. */
+function BrowserFrame({ src, srcSmall, alt, url }) {
+  return (
+    <div style={{ width: '100%', borderRadius: 12, overflow: 'hidden', background: '#0B0E0F', boxShadow: '0 30px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.08)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '9px 12px' }}>
+        {['#FF5F57', '#FEBC2E', '#28C840'].map((c) => <span key={c} aria-hidden style={{ width: 9, height: 9, borderRadius: '50%', background: c, opacity: 0.85 }} />)}
+        {url ? (
+          <span style={{ flex: 1, marginLeft: 8, padding: '3px 10px', borderRadius: 6, background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-mono)', fontSize: 11, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{url}</span>
+        ) : null}
+      </div>
+      <img
+        src={src}
+        srcSet={srcSmall ? `${srcSmall} 960w, ${src} 1440w` : undefined}
+        sizes="(max-width: 900px) 92vw, 640px"
+        alt={alt || ''}
+        loading="lazy"
+        width="1440"
+        height="900"
+        style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1440 / 900', objectFit: 'cover' }}
+      />
+    </div>
+  )
+}
+
+export function ClientSitesBlock({ eyebrow, heading, body, items }) {
+  return (
+    <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border-light)' }}>
+      <div className="container">
+        <div className="reveal" style={{ maxWidth: 720, marginBottom: 'clamp(36px,5vw,56px)' }}>
+          {eyebrow ? <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p> : null}
+          <h2 className="headline-lg"><Lines text={heading} /></h2>
+          {body ? <p className="body-md" style={{ marginTop: 16 }}>{body}</p> : null}
+        </div>
+
+        <div style={{ display: 'grid', gap: 16 }}>
+          {(items || []).map((item, i) => (
+            <article key={item.name || i} className="reveal portfolio-hero-grid" style={{ alignItems: 'stretch', gap: 0, borderRadius: 20, overflow: 'hidden', border: '1px solid var(--border-light)', background: 'var(--white)' }}>
+              <div style={{ padding: 'clamp(28px,4vw,48px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div style={{ marginBottom: 14 }}><StatusPill status={item.status} tone="live" /></div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px,3vw,36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.05 }}>{item.name}</h3>
+                {item.place ? <p style={{ fontSize: 13, color: 'var(--mid)', marginTop: 6, marginBottom: 18 }}>{item.place}</p> : null}
+                <p className="body-md" style={{ marginBottom: 20 }}>{item.desc}</p>
+                {splitPoints(item.points).length > 0 ? (
+                  <ul style={{ listStyle: 'none', display: 'grid', gap: 8, marginBottom: 28 }}>
+                    {splitPoints(item.points).map((point) => (
+                      <li key={point} style={{ display: 'flex', gap: 10, fontSize: 14, lineHeight: 1.55, color: 'var(--dark2)' }}>
+                        <span aria-hidden style={{ width: 12, height: 1, background: 'var(--dark2)', marginTop: 10, flexShrink: 0 }} />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                  <SmartLink href={item.linkHref} className="btn-primary">{item.linkLabel || 'Visit the site'}</SmartLink>
+                </div>
+              </div>
+              <div style={{ background: 'linear-gradient(160deg, #1B2326 0%, #0E1315 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(24px,4vw,48px) clamp(16px,3vw,40px)' }}>
+                {item.image ? (
+                  item.linkHref ? (
+                    <SmartLink href={item.linkHref} style={{ display: 'block', width: '100%' }}>
+                      <BrowserFrame src={item.image} srcSmall={item.imageSmall} alt={item.imageAlt} url={item.url} />
+                    </SmartLink>
+                  ) : <BrowserFrame src={item.image} srcSmall={item.imageSmall} alt={item.imageAlt} url={item.url} />
+                ) : null}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ── Team ──────────────────────────────────────────────────────────────── */
 
 function Avatar({ person }) {
