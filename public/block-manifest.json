@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T12:43:03.951Z",
+  "generatedAt": "2026-11-06T01:15:37.856Z",
   "blocks": [
     {
       "type": "hero",
@@ -458,6 +458,99 @@
       ],
       "defaults": {
         "eyebrow": "Our work",
+        "heading": "",
+        "body": "",
+        "items": []
+      }
+    },
+    {
+      "type": "client-sites",
+      "label": "Client websites",
+      "group": "Sections",
+      "hint": "Websites we built for clients, each with a screenshot in a browser frame. Only live sites, and never prices.",
+      "directorOnly": false,
+      "fields": [
+        {
+          "key": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "key": "heading",
+          "type": "textarea",
+          "label": "Heading"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Intro"
+        },
+        {
+          "key": "items",
+          "type": "list",
+          "label": "Clients",
+          "itemFields": [
+            {
+              "key": "name",
+              "type": "text",
+              "label": "Client"
+            },
+            {
+              "key": "place",
+              "type": "text",
+              "label": "Type and place"
+            },
+            {
+              "key": "status",
+              "type": "text",
+              "label": "Status"
+            },
+            {
+              "key": "desc",
+              "type": "textarea",
+              "label": "Description"
+            },
+            {
+              "key": "points",
+              "type": "textarea",
+              "label": "Points",
+              "hint": "Separate with ·"
+            },
+            {
+              "key": "image",
+              "type": "image",
+              "label": "Screenshot (1440×900)"
+            },
+            {
+              "key": "imageSmall",
+              "type": "image",
+              "label": "Smaller screenshot (960×600)"
+            },
+            {
+              "key": "imageAlt",
+              "type": "text",
+              "label": "Screenshot alt text"
+            },
+            {
+              "key": "url",
+              "type": "text",
+              "label": "Address shown in the browser bar"
+            },
+            {
+              "key": "linkLabel",
+              "type": "text",
+              "label": "Link label"
+            },
+            {
+              "key": "linkHref",
+              "type": "link",
+              "label": "Link"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "eyebrow": "Client websites",
         "heading": "",
         "body": "",
         "items": []
@@ -2943,6 +3036,30 @@
           }
         },
         {
+          "id": "home-clients",
+          "type": "client-sites",
+          "props": {
+            "eyebrow": "Client websites",
+            "heading": "And websites\nfor local businesses.",
+            "body": "Our latest client site is for the Maltsters Arms on Bridge Street, Pontypridd. Go and have a look.",
+            "items": [
+              {
+                "name": "The Maltsters Arms",
+                "place": "Pub · Bridge Street, Pontypridd",
+                "status": "Live",
+                "desc": "A new website for a local pub. It is built around their own photos of the building at night, with a neon sign, the week's offers and what is on.",
+                "points": "What's On page the pub updates itself · Their own login for opening hours, drinks, photos and notices · Mailing list for events · Built, hosted and looked after by us",
+                "image": "/work/maltsters-arms-site.jpg",
+                "imageSmall": "/work/maltsters-arms-site-960.jpg",
+                "imageAlt": "The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it",
+                "url": "maltstersponty.com",
+                "linkLabel": "Visit the site",
+                "linkHref": "https://maltstersponty.com/"
+              }
+            ]
+          }
+        },
+        {
           "id": "home-trust",
           "type": "trust-bar",
           "props": {
@@ -3322,7 +3439,7 @@
           "props": {
             "eyebrow": "Our work",
             "heading": "Apps and websites\nwe have shipped.",
-            "body": "Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is on the App Store.",
+            "body": "Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is on the App Store. The Maltsters Arms in Pontypridd runs on a website we built.",
             "maxWidth": 760,
             "bodyMaxWidth": 560
           }
@@ -3382,6 +3499,30 @@
                 "desc": "Our own phone system, built to replace a hosted one. The greeting, the call menu, the queue and who rings in what order all run on our code, with Twilio carrying the calls. Ring 01443 805303 and you are on it.",
                 "flow": "Incoming call → Greeting and menu → Queue → Rings the team",
                 "panel": "#F4F5F3"
+              }
+            ]
+          }
+        },
+        {
+          "id": "portfolio-clients",
+          "type": "client-sites",
+          "props": {
+            "eyebrow": "Client websites",
+            "heading": "Live for local businesses.",
+            "body": "Real sites for real businesses, still live, and still looked after by us.",
+            "items": [
+              {
+                "name": "The Maltsters Arms",
+                "place": "Pub · Bridge Street, Pontypridd",
+                "status": "Live",
+                "desc": "A new website for a local pub. It is built around their own photos of the building at night, with a neon sign, the week's offers and what is on.",
+                "points": "What's On page the pub updates itself · Their own login for opening hours, drinks, photos and notices · Mailing list for events · Built, hosted and looked after by us",
+                "image": "/work/maltsters-arms-site.jpg",
+                "imageSmall": "/work/maltsters-arms-site-960.jpg",
+                "imageAlt": "The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it",
+                "url": "maltstersponty.com",
+                "linkLabel": "Visit the site",
+                "linkHref": "https://maltstersponty.com/"
               }
             ]
           }

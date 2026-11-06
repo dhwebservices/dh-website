@@ -48,7 +48,7 @@ import {
   CareersBlock,
 } from './types/pageBlocks'
 
-import { WorkShowcaseBlock, TeamBlock } from './types/showcaseBlocks'
+import { WorkShowcaseBlock, ClientSitesBlock, TeamBlock } from './types/showcaseBlocks'
 import { ContactBlock } from './types/contactBlock'
 import { CalculatorBlock } from './types/calculatorBlock'
 
@@ -231,6 +231,37 @@ export const BLOCKS = {
       },
     ],
     defaults: { eyebrow: 'Our work', heading: '', body: '', items: [] },
+  },
+
+  'client-sites': {
+    label: 'Client websites',
+    group: 'Sections',
+    component: ClientSitesBlock,
+    hint: 'Websites we built for clients, each with a screenshot in a browser frame. Only live sites, and never prices.',
+    fields: [
+      { key: 'eyebrow', type: 'text', label: 'Eyebrow' },
+      { key: 'heading', type: 'textarea', label: 'Heading' },
+      { key: 'body', type: 'textarea', label: 'Intro' },
+      {
+        key: 'items',
+        type: 'list',
+        label: 'Clients',
+        itemFields: [
+          { key: 'name', type: 'text', label: 'Client' },
+          { key: 'place', type: 'text', label: 'Type and place' },
+          { key: 'status', type: 'text', label: 'Status' },
+          { key: 'desc', type: 'textarea', label: 'Description' },
+          { key: 'points', type: 'textarea', label: 'Points', hint: 'Separate with ·' },
+          { key: 'image', type: 'image', label: 'Screenshot (1440×900)' },
+          { key: 'imageSmall', type: 'image', label: 'Smaller screenshot (960×600)' },
+          { key: 'imageAlt', type: 'text', label: 'Screenshot alt text' },
+          { key: 'url', type: 'text', label: 'Address shown in the browser bar' },
+          { key: 'linkLabel', type: 'text', label: 'Link label' },
+          { key: 'linkHref', type: 'link', label: 'Link' },
+        ],
+      },
+    ],
+    defaults: { eyebrow: 'Client websites', heading: '', body: '', items: [] },
   },
 
   team: {

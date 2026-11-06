@@ -3,9 +3,10 @@
  *
  * October 2026: leads with our own apps (shared with the homepage through
  * work.js), then the Glow With Lucy website as the web design example.
+ * November 2026: client websites (the Maltsters Arms) sit between the two.
  */
 
-import { WORK_ITEMS } from './work.js'
+import { WORK_ITEMS, CLIENT_SITES } from './work.js'
 
 export const PORTFOLIO_DOCUMENT = {
   version: 1,
@@ -16,7 +17,7 @@ export const PORTFOLIO_DOCUMENT = {
       props: {
         eyebrow: 'Our work',
         heading: 'Apps and websites\nwe have shipped.',
-        body: 'Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is on the App Store.',
+        body: 'Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is on the App Store. The Maltsters Arms in Pontypridd runs on a website we built.',
         maxWidth: 760,
         bodyMaxWidth: 560,
       },
@@ -30,6 +31,17 @@ export const PORTFOLIO_DOCUMENT = {
         heading: 'Built and run by us.',
         body: 'We make our own products as well as client work. It is the quickest way to show what we can do, and it means we have dealt with app review, push notifications and live servers ourselves.',
         items: WORK_ITEMS,
+      },
+    },
+
+    {
+      id: 'portfolio-clients',
+      type: 'client-sites',
+      props: {
+        eyebrow: 'Client websites',
+        heading: 'Live for local businesses.',
+        body: 'Real sites for real businesses, still live, and still looked after by us.',
+        items: CLIENT_SITES,
       },
     },
 
