@@ -43,7 +43,7 @@ function Paid({ sessionId }) {
       <p className="eyebrow" style={{ marginBottom: 16 }}>Deposit paid</p>
       <h1 style={h1}>Thank you. You're booked in.</h1>
       <p className="body-lg" style={{ marginBottom: 24 }}>We've received {state.total} for the {state.plan}. A confirmation is on its way to {state.email}.</p>
-      <div style={card}>
+      <div style={{ ...card, color: 'var(--dark)' }}>
         <p className="eyebrow" style={{ marginBottom: 12 }}>What happens next</p>
         <ol className="body-md" style={{ paddingLeft: 20, margin: 0, display: 'grid', gap: 8 }}>
           <li>We'll be in touch within one working day to plan your build.</li>
@@ -91,8 +91,15 @@ export default function Order() {
             <>
               <p className="eyebrow" style={{ marginBottom: 16 }}>Book online</p>
               <h1 style={h1}>{plan.name}</h1>
-              <p className="body-lg" style={{ marginBottom: 32 }}>{plan.summary} Pay the 50% deposit now and we'll start planning your build within one working day.</p>
+              <p className="body-lg" style={{ marginBottom: 0 }}>{plan.summary} Pay the 50% deposit now and we'll start planning your build within one working day.</p>
+            </>
+          )}
+        </div>
+      </section>
 
+      {!sessionId && plan && (
+        <section className="section" style={{ background: 'var(--cream)' }}>
+          <div className="container" style={{ maxWidth: 960 }}>
               <div className="order-grid">
                 <div style={card}>
                   <p className="eyebrow" style={{ marginBottom: 14 }}>What it costs</p>
@@ -145,10 +152,9 @@ export default function Order() {
                   <p className="body-sm" style={{ margin: 0, textAlign: 'center' }}>Secure card payment by Stripe. Questions first? Call <a href="tel:+441443805303" style={{ color: 'var(--accent)' }}>01443 805303</a>.</p>
                 </form>
               </div>
-            </>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
     </main>
   )
 }
