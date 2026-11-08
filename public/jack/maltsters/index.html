@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#15171A">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/dh-logo-icon.png">
+<title>Jack's Day 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  /* One working column: rules and copy-paste details first, then a single list of tickable tasks */
+  :root {
+    color-scheme:dark;
+    --bg:#15171A; --card:#1E2124; --ink:#ECEDEA; --muted:#A3A8AE; --line:#30343A;
+    --blue:#6FB6EA; --blue-soft:#1B2C3A; --done:#6CC48E; --done-soft:#17291F; --warn:#E5B65C; --warn-soft:#2E2514;
+    --sans:"Public Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.5; padding:0 16px; }
+  .wrap { max-width:760px; margin:0 auto; padding-block:40px 64px; display:flex; flex-direction:column; gap:36px; }
+  header { display:flex; flex-direction:column; gap:10px; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0; }
+  h1 { font-size:clamp(30px,6vw,42px); line-height:1.1; font-weight:800; letter-spacing:-.5px; margin:0; text-wrap:balance; }
+  .lede { color:var(--muted); margin:0; max-width:62ch; }
+  .progress { display:flex; align-items:center; gap:14px; margin-top:6px; }
+  .bar { flex:1; height:10px; border-radius:99px; background:var(--line); overflow:hidden; }
+  .bar i { display:block; height:100%; width:0; background:var(--done); transition:width .3s; }
+  .count { font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .sync { font-size:13px; color:var(--muted); margin:0; }
+  section { display:flex; flex-direction:column; gap:14px; }
+  h2 { font-size:22px; margin:0; letter-spacing:-.2px; text-wrap:balance; }
+  h2 small { font-size:14px; font-weight:500; color:var(--muted); margin-left:8px; letter-spacing:0; }
+  .rules { background:var(--warn-soft); border-radius:12px; padding:18px 20px; }
+  .rules ul { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px; }
+  .details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:12px; }
+  .details pre { font-family:var(--mono); font-size:14px; line-height:1.7; margin:0; white-space:pre-wrap; word-break:break-word; }
+  .details p { margin:0; font-size:14px; color:var(--muted); }
+  button { font:inherit; cursor:pointer; }
+  .start { font-family:var(--mono); font-size:14px; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:0; word-break:break-word; }
+  .copy { align-self:flex-start; background:var(--ink); color:var(--bg); border:0; border-radius:8px; padding:8px 14px; font-weight:600; font-size:14px; }
+  .copy:focus-visible, .task input:focus-visible + .box { outline:3px solid var(--blue); outline-offset:2px; }
+  .tasks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .task { background:var(--card); border:1px solid var(--line); border-radius:12px; }
+  .task label { display:grid; grid-template-columns:28px minmax(0,1fr); gap:14px; padding:16px 18px; cursor:pointer; }
+  .task input { position:absolute; opacity:0; width:1px; height:1px; }
+  .box { width:24px; height:24px; border:2px solid var(--muted); border-radius:6px; margin-top:2px; display:grid; place-items:center; }
+  .box svg { width:16px; height:16px; opacity:0; }
+  .task.done { background:var(--done-soft); border-color:transparent; }
+  .task.done .box { background:var(--done); border-color:var(--done); }
+  .task.done .box svg { opacity:1; }
+  .task.done .t { text-decoration:line-through; color:var(--muted); }
+  .body { min-width:0; display:flex; flex-direction:column; gap:6px; }
+  .t { font-weight:700; font-size:17px; }
+  .d { color:var(--muted); margin:0; font-size:15px; white-space:pre-line; }
+  .meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:13px; }
+  .chip { padding:2px 9px; border-radius:99px; font-weight:600; background:var(--blue-soft); color:var(--blue); }
+  .chip.when { background:var(--card); color:var(--ink); border:1px solid var(--line); }
+  .chip.david { background:var(--warn-soft); color:var(--warn); }
+  .meta a { color:var(--blue); font-weight:600; word-break:break-all; }
+  footer { font-size:14px; color:var(--muted); border-top:1px solid var(--line); padding-top:18px; }
+  @media (prefers-reduced-motion: reduce) { .bar i { transition:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">DH Website Services · for Jack</p>
+    <h1>Jack's Day 5</h1>
+    <p class="lede">Monday 26 October. First get the Maltsters ready for Halloween, then the DH listings, reviews and leads. Tick each task when it's done. David sees the same ticks.</p>
+    <div class="progress"><div class="bar"><i id="bar"></i></div><span class="count" id="count">0 of 0</span></div>
+    <p class="sync" id="sync">Loading ticks…</p>
+  </header>
+
+  <section class="rules">
+    <h2>Before you start</h2>
+    <ul>
+      <li>Work in Claude Code on David's account, in a new session. Start by typing the line below.</li>
+      <li>Never paste a password or code into the chat. If something needs a login, Claude tells you where to type it yourself.</li>
+      <li>Nothing goes to Shaun or a client in writing (email, text or Messenger) until David has seen it. Phone calls and chatting in person are fine.</li>
+      <li>Pass any questions about prices or the contract to David.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Type this to start</h2>
+    <div class="details">
+      <pre id="nap">Hi Claude, it's Jack, starting Day 5 from dhwebsiteservices.co.uk/jack</pre>
+      <button class="copy" id="copyBtn" type="button">Copy</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Today's list<small>Work from the top down</small></h2>
+    <ul class="tasks" id="tasks"></ul>
+  </section>
+
+  <footer>Made for Jack by Claude for David, 26 October 2026.</footer>
+</div>
+
+<script>
+var TASKS = [
+  { id:"d4-test", when:"First thing", t:"Halloween: fill in the event (it's this Saturday)", d:"Log in at maltsters-preview.pages.dev/admin. Go to What's On, open Halloween, press Change, and fill in the start time, entry and what's happening, using what Shaun told you. Check it shows properly on the What's On page. Then add a test event, delete it, and check it's gone.", url:"https://maltsters-preview.pages.dev/admin" },
+  { id:"d4-admin", when:"Morning", t:"Maltsters: try every part of the admin on your phone", d:"Go through every section in the menu. Tell Claude anything that's confusing or doesn't work." },
+  { id:"d4-guide", when:"Morning", t:"Maltsters: test Shaun's Help page", d:"In the admin, open Help. Follow each guide word for word, as if you'd never seen the admin before. Anywhere you get stuck or the words don't match the screen, tell Claude." },
+  { id:"d5-shaun", when:"Morning", t:"Maltsters: ring Shaun or Sophie", d:"Ask:\n• Is he OK with the Friday-night video on the home page? Customers can be recognised in it, so it can't go live without his yes.\n• What's he still sending us (photos, wording), and when?\n• When is he happy for the site to go live?\n• If the photo session isn't booked yet, book a busy evening this week.\nWrite down exactly what he says and give it to Claude." },
+  { id:"d4-gbp", when:"Morning", t:"Maltsters: book the Google Business claim with Shaun", d:"Claiming the pub's Business Profile needs Shaun's phone or email, so agree a time with him to do it together.", url:"https://business.google.com" },
+  { id:"d5-m365", when:"Midday", t:"Maltsters Microsoft branding for Shaun", d:"Give Shaun the Maltsters logo and colours across the top of Outlook and Microsoft 365. Follow the step-by-step guide. You do Part 1, and David does Part 2 with you because it needs a Global Admin.", url:"https://www.dhwebsiteservices.co.uk/jack/maltsters-microsoft/" },
+  { id:"d5-hide-group", when:"Microsoft", t:"Hide the Maltsters Arms Theme group from the address book", d:"Go to admin.microsoft.com → Teams & groups → Active teams & groups → Maltsters Arms Theme → Settings. Tick \"Hide from my organization's global address list\" and save. Then nobody at DH can email it by mistake.", url:"https://admin.microsoft.com/#/groups" },
+  { id:"d5-shaun-phone", when:"Microsoft", t:"Maltsters staff phones (their own phones, no DH rules)", d:"Follow the step-by-step guide. David does the one-off check in Intune first (Part 1). Then you set up Shaun's phone, and any staff David has made accounts for, with just Outlook and Authenticator. Never Company Portal.", url:"https://www.dhwebsiteservices.co.uk/jack/maltsters-phones/", david:true },
+  { id:"d6-shaun-profile", when:"Microsoft", t:"Tidy Shaun's Microsoft profile", d:"Go to admin.microsoft.com → Users → Active users → Shaun. Under Contact information, set his job title (Owner), company (The Maltsters Arms), the pub's phone and address (Pontypridd CF37 4PF). Then press Change photo and upload the Maltsters logo (malstersponty.com/img/logo.jpg), so it shows next to his emails. Don't touch his password, licences or groups.", url:"https://admin.microsoft.com/#/users" },
+  { id:"d6-signature", when:"Microsoft", t:"Set up Shaun's email signature", d:"Ask Claude to write a Maltsters signature: Shaun's name, The Maltsters Arms, address, phone and malstersponty.com. Check the details with Shaun. Then, with Shaun signed in, add it in Outlook on the web (Settings → Mail → Compose and reply) and in the Outlook app on his phone (Settings → Signature).", url:"https://outlook.office.com/mail/options/mail/messageContent" },
+  { id:"d6-shaun-safety", when:"Microsoft", t:"Show Shaun how to stay safe on email", d:"While you're with him (5 minutes): show him the Report button in Outlook for dodgy emails, tell him we will never ask for his password or a code by email or text, and check his Authenticator sign-in works. If anything asks him to \"let your organisation manage this device\", he presses Cancel and rings you." },
+  { id:"d6-mail-test", when:"Microsoft", t:"Check Shaun's emails don't land in spam", d:"Only after David says he's fixed the Maltsters email settings (SPF and DMARC). Open mail-tester.com, copy the address it gives you, and send an email to it from Shaun's account. Press Check your score and give Claude the score and anything marked in red.", url:"https://www.mail-tester.com", david:true },
+  { id:"d6-pub-listings", when:"Maltsters", t:"Find every listing for the Maltsters Arms", d:"Search for the pub on Google Maps, Facebook, Instagram, Tripadvisor, Apple Maps, Bing, Yelp, CAMRA WhatPub, Beer in the Evening and Pubs Galore. For each one, note the link, whether it's claimed, and whether the phone, hours and address are right. Don't change anything yet. We update them all at launch." },
+  { id:"d6-site-check", when:"DH", t:"Check our website on your phone", d:"Go through every page of dhwebsiteservices.co.uk on your phone. Note any typos, broken links, slow pages, or anything out of date (old phone numbers, old prices, apps that aren't mentioned). Give the list to Claude.", url:"https://www.dhwebsiteservices.co.uk" },
+  { id:"d6-gbp-post", when:"DH", t:"Write this week's Google Business post", d:"Ask Claude for a short post about a recent piece of work (the Maltsters can't be named until it's live). Show David, then post it with a photo on our Business Profile.", url:"https://business.google.com", david:true },
+  { id:"d7-aliases", when:"New · Microsoft", t:"Give Shaun info@ and bookings@ addresses", d:"Go to admin.microsoft.com → Users → Active users → Shaun → Manage username and email. Add info@malstersponty.com and bookings@malstersponty.com as aliases (extra addresses, not new users, so they cost nothing). Then email both from your own account and check they land in Shaun's inbox. Don't change his main address.", url:"https://admin.microsoft.com/#/users" },
+  { id:"d7-photos-folder", when:"New · Microsoft", t:"Make a photo drop folder for Shaun", d:"With Shaun signed in to OneDrive (onedrive.com), make a folder called \"Maltsters website photos\" and share it with you and David (Can edit). Show him how to add photos to it from his phone in the OneDrive app. We need his own photos of the bar, food, garden and events for the website.", url:"https://onedrive.live.com" },
+  { id:"d7-outlook-tidy", when:"New · Microsoft", t:"Set up Shaun's Outlook folders", d:"With Shaun, in Outlook on the web: make folders for Bookings, Suppliers and Website. Then make a rule (Settings → Mail → Rules) so anything sent to bookings@ goes into Bookings. Do this after the aliases task above.", url:"https://outlook.office.com/mail/options/mail/rules" },
+  { id:"d7-away-reply", when:"New · Microsoft", t:"Write Shaun an away message he can switch on", d:"Ask Claude for a short Maltsters out-of-office reply with the pub's phone number and opening hours. Check it with Shaun, then save it in Outlook on the web (Settings → Mail → Automatic replies) but leave it switched off. Show him the one switch to turn it on when he's away.", url:"https://outlook.office.com/mail/options/mail/automaticReplies" },
+  { id:"d7-shaun-cheatsheet", when:"New · Maltsters", t:"Make Shaun a one-page cheat sheet", d:"Ask Claude to write one page for Shaun: how to sign in to his email, the website admin link, how to add an event, who to ring for help (you, then David) and what never to share (passwords and codes). Read it through, fix anything wrong, then send it to David to check before it goes to Shaun or Sophie." },
+  { id:"d7-hours-menu", when:"New · Maltsters", t:"Get the pub's hours and menu confirmed in writing", d:"Ask Sophie (Sophie.wiggin@yahoo.co.uk) to confirm the opening hours for every day, food serving times, and the latest menu with prices. Show Claude your message before you send it. Put the reply in the photos folder so it's all in one place.", david:true },
+  { id:"d5-apple", when:"Midday", t:"Apple Business: get our phone number fixed", d:"Our Apple Maps listing still shows the old 029 2002 4218 number and we can't change that field ourselves. Contact Apple Business support and ask them to change it to 01443 805303. The listing also needs a real cover photo: the office, or you and David.", url:"https://business.apple.com" },
+  { id:"d5-bonline", when:"Midday", t:"bOnline: find out how to leave", d:"Ring bOnline. Ask when the contract ends, how much notice they need, and whether there's an exit fee. Don't cancel anything. Write the answers down for David. Moving the number to our own phone system saves about £200 a month." },
+  { id:"d5-bing", when:"Midday", t:"Bing Places: check our listing is live", d:"It was due to publish 7 to 12 days after 7 October. If it's still pending, tell Claude.", url:"https://www.bingplaces.com" },
+  { id:"d5-reviews-dh", when:"Afternoon", t:"Ask past clients for Google reviews", d:"Message each past client and ask for a Google review. Give them the review link from our Business Profile. Use the wording Claude writes, and show David before sending anything." , david:true },
+  { id:"d5-reviews-apps", when:"Afternoon", t:"Get ratings for Fam & a Half and Fish Tank", d:"Ask friends and family who use them to rate them on the App Store or Google Play. Share Fam & a Half in local parent groups (only where the group allows it).", url:"https://www.dhwebsiteservices.co.uk/famandahalf/" },
+  { id:"d2-leads", when:"Afternoon", t:"Find 15 to 20 new web design leads", d:"Local pubs, trades, salons and similar with no website or a bad one. Open each site and look at it yourself. For each one, note the name, phone number, website (or \"none\") and one line on what's wrong. Leave out the Maltsters." },
+  { id:"d2-press-chase", when:"Afternoon", t:"Chase the press and awards", d:"Follow up anything you contacted on 19 October that hasn't replied yet." },
+  { id:"d2-competitors", when:"Afternoon", t:"List local competitors", d:"Other web designers around Pontypridd, RCT and Cardiff: who they are, their prices if they show them, and their Google rating." },
+  { id:"d2-client-logos", when:"Afternoon", t:"Collect client logos and photos", d:"Logos and photos we're allowed to use for the website and case studies. Save them in a folder and tell Claude where." },
+  { id:"d2-gbp-services", when:"Afternoon", t:"Google Business: check our services and badges", d:"Make sure the services list on our profile is right, and add any award badge we've got." },
+  { id:"d5-socials", when:"If David says yes", t:"Schedule the written social posts", d:"20 X posts and 12 LinkedIn posts are written and waiting, in Apps/social. Ask Claude to show them to you, then schedule one a day.", david:true },
+  { id:"d4-summary", when:"End of day", t:"Send David a summary", d:"Type \"write David's summary\" in the chat. Claude writes up what's done, what's still open and what you found out. You send it to David." }
+];
+
+var done = {};
+var tick = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function render() {
+  var ul = document.getElementById("tasks");
+  ul.textContent = "";
+  var total = 0, n = 0;
+  TASKS.forEach(function (task) {
+    total++; if (done[task.id]) n++;
+    var li = el("li", "task" + (done[task.id] ? " done" : ""));
+    var label = el("label");
+    var input = el("input"); input.type = "checkbox"; input.id = "t-" + task.id; input.checked = !!done[task.id];
+    input.addEventListener("change", function () { setDone(task.id, input.checked); });
+    var box = el("span", "box"); box.innerHTML = tick;
+    var body = el("span", "body");
+    body.appendChild(el("span", "t", task.t));
+    body.appendChild(el("span", "d", task.d));
+    var meta = el("span", "meta");
+    if (task.when) meta.appendChild(el("span", "chip when", task.when));
+    if (task.david) meta.appendChild(el("span", "chip david", "David approves"));
+    if (task.url) {
+      var a = el("a", null, task.url.replace(/^https:\/\/(www\.)?/, "").replace(/\/$/, ""));
+      a.href = task.url; a.target = "_blank"; a.rel = "noopener";
+      a.addEventListener("click", function (e) { e.stopPropagation(); });
+      meta.appendChild(a);
+    }
+    body.appendChild(meta);
+    label.appendChild(input); label.appendChild(box); label.appendChild(body);
+    li.appendChild(label); ul.appendChild(li);
+  });
+  document.getElementById("count").textContent = n + " of " + total + " done";
+  document.getElementById("bar").style.width = (total ? Math.round(n / total * 100) : 0) + "%";
+}
+
+function setSync(t) { document.getElementById("sync").textContent = t; }
+
+function setDone(id, value) {
+  if (value) done[id] = true; else delete done[id];
+  render();
+  fetch("/api/badge-week", { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ task:id, done:value }) })
+    .then(function (r) { if (!r.ok) throw 0; setSync("Saved. David sees your ticks."); })
+    .catch(function () { setSync("Couldn't save that tick. Check your connection and tick it again."); });
+}
+
+function load() {
+  fetch("/api/badge-week", { cache:"no-store" })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (data) {
+      var next = {};
+      (data.ticks || []).forEach(function (t) { next[t.task_id] = true; });
+      done = next; render();
+      setSync("Ticks are shared and update every few seconds.");
+    })
+    .catch(function () { setSync("Can't reach the tick list right now. Reload the page."); });
+}
+
+document.getElementById("copyBtn").addEventListener("click", function () {
+  var text = document.getElementById("nap").textContent, btn = this;
+  function selectIt() { var r = document.createRange(); r.selectNodeContents(document.getElementById("nap")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press Copy"; }
+  try {
+    navigator.clipboard.writeText(text).then(function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1800); }, selectIt);
+  } catch (e) { selectIt(); }
+});
+
+render();
+load();
+setInterval(function () { if (!document.hidden) load(); }, 5000);
+document.addEventListener("visibilitychange", function () { if (!document.hidden) load(); });
+</script>
+
+</body>
+</html>
