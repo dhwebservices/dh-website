@@ -3,8 +3,8 @@
  *
  * A temporary page: it is not in the sitemap, and after OFFER_ENDS it says the
  * offer has ended instead of taking bookings. The "Book a place" button opens
- * the normal contact form with ?source=black-friday, which marks the enquiry
- * as a booking in the email David gets.
+ * /order, where the 50% deposit is paid online; places are counted from Stripe
+ * plus BF_BOOKED_OFFLINE (see functions/api/_deposits.js).
  *
  * Every claim here must stay true (UK pricing rules): £449 is the real normal
  * price, and the 10 places are counted by Jack in the bookings log.
@@ -15,7 +15,7 @@ import { useReveal } from '../hooks/useReveal'
 import { XmasPageHero } from '../components/Christmas'
 import { blackFridayOn } from '../lib/offers'
 
-const BOOK_HREF = '/contact?source=black-friday#brief'
+const BOOK_HREF = '/order?plan=bf-website'
 
 const INCLUDED = [
   'Up to 3 pages, for example Home, Services and Contact',
@@ -26,7 +26,7 @@ const INCLUDED = [
 ]
 
 const STEPS = [
-  ['Book a place', 'Send the form. We reply within a day with a link for the 50% deposit (£124.50 + VAT).'],
+  ['Book a place', 'Pay the 50% deposit online (£124.50 + VAT) and your place is yours. We call you within one working day.'],
   ['Send your content', 'Your text, logo and photos within 14 days. We tell you exactly what we need.'],
   ['We build it', 'We start as soon as your content is in. You see it before it goes live and get one round of changes.'],
   ['It goes live', 'The rest of the build price is due on launch, then the care plan starts.'],
@@ -38,7 +38,7 @@ const TERMS = [
   'Comes with our care plan at £15 a month + VAT for a minimum of 12 months: hosting, security updates and small text and photo changes.',
   'A 50% deposit books a place. It is refunded in full if you cancel before we start your build.',
   'Your content is due within 14 days of booking. Places without content move to the back of the queue.',
-  'Other plans: Black Friday prices apply to projects booked with a deposit by Monday 30 November 2026. The care plan requirement applies to the £249 website only.',
+  'Other plans: Black Friday prices apply to projects booked with a deposit by Monday 30 November 2026. The 12-month care plan minimum applies to the £249 website only; other plans come with a month-to-month care plan.',
   'One per business. Cannot be combined with the £20 voucher or any other offer.',
   'All prices exclude VAT at 20%.',
 ]

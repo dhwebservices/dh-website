@@ -116,7 +116,7 @@ Either party may terminate the agreement with 30 days written notice. In the eve
   },
   '/refunds': {
     title: 'Refunds & Cancellation Policy',
-    updated: 'January 2026',
+    updated: 'November 2026',
     content: `
 ## Refund Policy
 
@@ -125,6 +125,9 @@ Deposits are non-refundable once work has commenced, as they cover time spent on
 
 ### Project Cancellation
 If you cancel a project after work has begun, payment is due for all work completed to the date of cancellation. We will provide an itemised breakdown of work completed.
+
+### Buying online as a consumer
+If you book a package online as an individual rather than for a business, you can cancel within 14 days of paying your deposit without giving a reason (Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013). To cancel, tell us by email or by calling 01443 805303. We refund your deposit within 14 days, less a fair amount for any work you asked us to start within the 14 days. After 14 days the deposit terms above apply.
 
 ### Completed Projects
 Refunds are not available for completed projects that have been delivered as agreed. If you are unhappy with the outcome, please raise this through our complaints process.

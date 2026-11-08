@@ -40,7 +40,8 @@ export const PRICING_DOCUMENT = {
               "Basic SEO setup",
               "Contact form",
               "Google Maps embed",
-              "SSL certificate"
+              "SSL certificate",
+              "Care plan from £35/mo + VAT from launch"
             ]
           },
           {
@@ -56,7 +57,8 @@ export const PRICING_DOCUMENT = {
               "Branding integration",
               "Google Analytics",
               "Social media links",
-              "SSL certificate"
+              "SSL certificate",
+              "Care plan from £35/mo + VAT from launch"
             ]
           },
           {
@@ -72,7 +74,8 @@ export const PRICING_DOCUMENT = {
               "Advanced SEO",
               "Blog/News section",
               "Priority support",
-              "SSL certificate"
+              "SSL certificate",
+              "Care plan from £35/mo + VAT from launch"
             ]
           },
           {
@@ -87,11 +90,12 @@ export const PRICING_DOCUMENT = {
               "Staff onboarding portal",
               "Leave & timesheet management",
               "SEO & branding",
-              "Content creation"
+              "Content creation",
+              "Care plan from £35/mo + VAT from launch"
             ]
           }
         ],
-        hostingIntro: "Monthly hosting plans to keep your site fast, secure and up to date. Prices exclude VAT.",
+        hostingIntro: "Every website we build comes with a care plan: hosting, security, backups and updates, so it keeps working after launch. It starts when your site goes live and runs month to month on 30 days' notice. Prices exclude VAT.",
         hosting: [
           {
             name: "Starter",
@@ -168,13 +172,13 @@ export const PRICING_DOCUMENT = {
             name: "Simple app",
             price: "£349",
             type: "one-off",
-            desc: "Your website as a real app on the App Store and Google Play, with push notifications so you can message customers directly. Both store submissions handled."
+            desc: "Your website as a real app on the App Store and Google Play, with push notifications so you can message customers directly. Both store submissions handled. App care £29/mo + VAT from launch."
           },
           {
             name: "Booking or ordering app",
             price: "£699",
             type: "one-off",
-            desc: "Customers book a slot or place an order from their phone, pay by card, and get a reminder. You run the lot from one screen.",
+            desc: "Customers book a slot or place an order from their phone, pay by card, and get a reminder. You run the lot from one screen. App care £29/mo + VAT from launch.",
             badge: "Most Popular"
           },
           {
@@ -182,7 +186,7 @@ export const PRICING_DOCUMENT = {
             price: "from £1,499",
             monthly: "or from £135/mo over 12 months",
             type: "one-off",
-            desc: "A proper build: your own system, your own rules, or a full game on both stores. Quoted once we know what it has to do."
+            desc: "A proper build: your own system, your own rules, or a full game on both stores. Quoted once we know what it has to do. App care £29/mo + VAT from launch."
           },
           {
             name: "App care",
