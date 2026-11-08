@@ -1,3 +1,4 @@
+import { siteUrlFrom } from '../_siteUrl.js'
 const DEFAULT_SUPABASE_URL = 'https://xtunnfdwltfesscmpove.supabase.co'
 const DEFAULT_WORKER_URL = 'https://dh-email-worker.aged-silence-66a7.workers.dev'
 const STRIPE_API_BASE = 'https://api.stripe.com/v1'
@@ -16,7 +17,7 @@ export function json(data, status = 200) {
 export function getEnv(context) {
   const { env } = context
   return {
-    siteUrl: env.VITE_SITE_URL || env.SITE_URL || 'https://dhwebsiteservices.co.uk',
+    siteUrl: siteUrlFrom(env.VITE_SITE_URL, env.SITE_URL),
     supabaseUrl: env.SUPABASE_URL || DEFAULT_SUPABASE_URL,
     supabaseServiceRoleKey: env.SUPABASE_SERVICE_ROLE_KEY,
     stripeSecretKey: env.STRIPE_SECRET_KEY,
