@@ -57,7 +57,7 @@ export function PricingCard({ name, price, priceNote, tagline, who, features, po
         </div>
       )}
 
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: popular ? 'rgba(255,255,255,0.45)' : 'var(--light)', marginBottom: 8 }}>
+      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: popular ? 'rgba(255,255,255,0.45)' : 'var(--light)', marginBottom: 8, paddingRight: (popular || badge) ? 96 : 0 }}>
         {name}
       </p>
 

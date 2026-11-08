@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T02:17:21.870Z",
+  "generatedAt": "2026-11-08T12:47:04.931Z",
   "blocks": [
     {
       "type": "hero",
@@ -2545,15 +2545,13 @@
           "props": {
             "eyebrow": "The team",
             "heading": "Who you will\ndeal with.",
-            "body": "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. You can ring either of them directly.",
+            "body": "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. Ring 01443 805303 and you get one of them.",
             "people": [
               {
                 "name": "David Hooper",
                 "role": "Founder · Development",
                 "initials": "DH",
                 "photo": "",
-                "phone": "07359 587007",
-                "phoneHref": "tel:+447359587007",
                 "email": "david@dhwebsiteservices.co.uk",
                 "desc": "Started the company. Designs and builds the apps, websites and the systems behind them, and takes them through Apple and Google review."
               },
@@ -2562,8 +2560,6 @@
                 "role": "Assistant Manager",
                 "initials": "JD",
                 "photo": "",
-                "phone": "07368 353011",
-                "phoneHref": "tel:+447368353011",
                 "email": "jack@dhwebsiteservices.co.uk",
                 "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.",
                 "badges": [
@@ -2933,28 +2929,28 @@
           "id": "home-hero",
           "type": "hero",
           "props": {
-            "headlineLead": "We build apps",
+            "headlineLead": "Websites and apps",
             "typewriterLines": [
-              "and websites."
+              "for local businesses."
             ],
-            "body": "DH Website Services is a small software company in Pontypridd, Wales. We build and run our own apps: Fam & a Half, a free family location app, and Fish Tank, a multiplayer game on both app stores. We also build iPhone and Android apps and websites for businesses, at a fixed price agreed before we start.",
-            "primaryLabel": "See Fam & a Half",
-            "primaryHref": "/famandahalf/",
-            "secondaryLabel": "Talk to us about a project",
+            "body": "A small team in Pontypridd building websites and apps for pubs, cafés, salons, trades and shops across Wales. Fixed prices on the page, and we look after it once it is live.",
+            "primaryLabel": "See prices",
+            "primaryHref": "/pricing",
+            "secondaryLabel": "Or book a free call",
             "secondaryHref": "/contact",
             "showScrollHint": true,
             "stats": [
               {
-                "value": "2 apps",
-                "label": "Our own products"
-              },
-              {
-                "value": "From £349",
-                "label": "Client apps"
+                "value": "£0 upfront",
+                "label": "DH Local, £79 a month"
               },
               {
                 "value": "From £449",
                 "label": "Websites"
+              },
+              {
+                "value": "7 days",
+                "label": "Website delivery"
               },
               {
                 "value": "Fixed price",
@@ -2977,12 +2973,226 @@
           }
         },
         {
+          "id": "home-clients",
+          "type": "client-sites",
+          "props": {
+            "eyebrow": "Our latest website",
+            "heading": "Built for a pub\nin Pontypridd.",
+            "body": "The Maltsters Arms on Bridge Street. The pub updates its own offers, drinks and opening hours, and we host it and look after it. Go and have a look.",
+            "items": [
+              {
+                "name": "The Maltsters Arms",
+                "place": "Pub · Bridge Street, Pontypridd",
+                "status": "Live",
+                "desc": "A new website for a local pub. It is built around their own photos of the building at night, with a neon sign, the week's offers and what is on.",
+                "points": "What's On page the pub updates itself · Their own login for opening hours, drinks, photos and notices · Mailing list for events · Built, hosted and looked after by us",
+                "image": "/work/maltsters-arms-site.jpg",
+                "imageSmall": "/work/maltsters-arms-site-960.jpg",
+                "imageAlt": "The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it",
+                "url": "maltstersponty.com",
+                "linkLabel": "Visit the site",
+                "linkHref": "https://maltstersponty.com/",
+                "caseStudyHref": "/case-studies/maltsters-arms/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-pricing",
+          "type": "pricing-preview",
+          "props": {
+            "eyebrow": "Pricing",
+            "heading": "Prices on the page,\nnot on request.",
+            "note": "All prices exclude VAT. One-off builds come with a care plan from £35 a month once live; DH Local includes it.",
+            "linkLabel": "See full pricing, hosting and app care",
+            "linkHref": "/pricing",
+            "packages": [
+              {
+                "name": "DH Local",
+                "price": "£79",
+                "priceNote": "a month + VAT · £0 upfront",
+                "tagline": "Your website and Google listing, looked after",
+                "who": "No build fee. A five-page site, updates whenever you need them and your Google listing kept up to date. 12-month minimum.",
+                "features": "Up to 5 pages · Hosting included · Changes on request · Google listing",
+                "popular": true,
+                "badge": "No build fee",
+                "href": "/local",
+                "ctaLabel": "See DH Local"
+              },
+              {
+                "name": "Starter website",
+                "price": "£449",
+                "tagline": "A five-page website",
+                "who": "Delivered in 7 days",
+                "features": "5 pages · Mobile layout · SEO setup · Contact form",
+                "popular": false,
+                "href": "/order?plan=starter",
+                "ctaLabel": "Pay deposit & start"
+              },
+              {
+                "name": "Growth website",
+                "price": "£999",
+                "tagline": "Ten pages and a blog",
+                "who": "Delivered in 7 days",
+                "features": "10 pages · Blog · Full SEO setup · Branding",
+                "popular": false,
+                "href": "/order?plan=growth",
+                "ctaLabel": "Pay deposit & start"
+              },
+              {
+                "name": "Booking or ordering app",
+                "price": "£699",
+                "tagline": "Customers book or order from their phone",
+                "who": "Card payments and reminders",
+                "features": "Bookings or orders · Card payments · Reminder notifications · One screen to run it",
+                "popular": false,
+                "href": "/order?plan=booking-app",
+                "ctaLabel": "Pay deposit & start"
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-trust",
+          "type": "trust-bar",
+          "props": {
+            "items": [
+              {
+                "icon": "phone",
+                "label": "On the App Store",
+                "sub": "Fish Tank · Fam & a Half"
+              },
+              {
+                "icon": "game",
+                "label": "On Google Play",
+                "sub": "Fish Tank"
+              },
+              {
+                "icon": "award",
+                "label": "Web Design Service of the Year",
+                "sub": "Wales Prestige Awards 2027/28",
+                "href": "/news/web-design-service-of-the-year-wales"
+              },
+              {
+                "icon": "award",
+                "label": "Microsoft Partner",
+                "sub": "Verified"
+              },
+              {
+                "icon": "lock",
+                "label": "GDPR compliant",
+                "sub": "Data protection"
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-services",
+          "type": "services-grid",
+          "props": {
+            "eyebrow": "What we build",
+            "heading": "Websites first.\nApps when you need one.",
+            "body": "We design it, build it, host it and keep it running. One fixed price, agreed before anything starts.",
+            "linkLabel": "See all services",
+            "linkHref": "/services",
+            "services": [
+              {
+                "icon": "design",
+                "title": "Web design",
+                "desc": "Websites designed for your business and written in React, not assembled in a page builder. The domain stays in your name."
+              },
+              {
+                "icon": "phone",
+                "title": "iPhone and Android apps",
+                "desc": "Native apps for the App Store and Google Play. We handle Apple review and the Play Console, which is where most first apps get stuck."
+              },
+              {
+                "icon": "people",
+                "title": "Staff portals and business systems",
+                "desc": "Rotas, clock-in, timesheets, leave and payslips, on the web and on the phone. We run our own business on one."
+              },
+              {
+                "icon": "game",
+                "title": "Games",
+                "desc": "Fish Tank is ours: a multiplayer game on the App Store and Google Play. If you have a game in mind, we have done the hard parts before."
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-why",
+          "type": "why-grid",
+          "props": {
+            "eyebrow": "How we work",
+            "heading": "What you get.",
+            "items": [
+              {
+                "title": "Fixed price",
+                "desc": "We quote before we start and that is the price. If you add something halfway through, we price it separately and tell you first."
+              },
+              {
+                "title": "Both app stores handled",
+                "desc": "Developer accounts, screenshots, privacy forms, Apple review and Google Play. You do not need to learn any of it."
+              },
+              {
+                "title": "You try it first",
+                "desc": "Test builds go onto your own phone through Apple TestFlight and Google Play testing. Nothing reaches the public stores until you have signed it off."
+              },
+              {
+                "title": "You own it",
+                "desc": "Source code, design files, the domain and the store listings are yours. Take them anywhere."
+              },
+              {
+                "title": "Quick replies",
+                "desc": "Email or call and we reply the same working day, usually within a few hours."
+              },
+              {
+                "title": "Based in Pontypridd",
+                "desc": "We meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK."
+              }
+            ]
+          }
+        },
+        {
+          "id": "home-team",
+          "type": "team",
+          "props": {
+            "eyebrow": "Who you deal with",
+            "heading": "A small team,\nby name.",
+            "body": "There is no account manager between you and the work. You talk to the people building your app or site, and when you ring, you get one of us.",
+            "people": [
+              {
+                "name": "David Hooper",
+                "role": "Founder · Development",
+                "initials": "DH",
+                "photo": "",
+                "email": "david@dhwebsiteservices.co.uk",
+                "desc": "Started the company. Designs and builds the apps, websites and the systems behind them, and takes them through Apple and Google review."
+              },
+              {
+                "name": "Jack Deane",
+                "role": "Assistant Manager",
+                "initials": "JD",
+                "photo": "",
+                "email": "jack@dhwebsiteservices.co.uk",
+                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.",
+                "badges": [
+                  {
+                    "label": "GDPR Foundations certified",
+                    "detail": "Measured Collective · Nov 2026"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
           "id": "home-work",
           "type": "work-showcase",
           "props": {
-            "eyebrow": "Our products",
-            "heading": "Apps we build\nfor ourselves.",
-            "body": "Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is on the App Store, and two more run our business every day.",
+            "eyebrow": "Apps too",
+            "heading": "We also build apps.\nThese ones are ours.",
+            "body": "Fish Tank is live on the App Store and Google Play, Fam & a Half is on the App Store, and two more run our business every day. If you want an app of your own, these are what we bring to it.",
             "items": [
               {
                 "name": "Fish Tank",
@@ -3031,213 +3241,6 @@
                 "desc": "Our own phone system, built to replace a hosted one. The greeting, the call menu, the queue and who rings in what order all run on our code, with Twilio carrying the calls. Ring 01443 805303 and you are on it.",
                 "flow": "Incoming call → Greeting and menu → Queue → Rings the team",
                 "panel": "#F4F5F3"
-              }
-            ]
-          }
-        },
-        {
-          "id": "home-clients",
-          "type": "client-sites",
-          "props": {
-            "eyebrow": "Client websites",
-            "heading": "And websites\nfor local businesses.",
-            "body": "Our latest client site is for the Maltsters Arms on Bridge Street, Pontypridd. Go and have a look.",
-            "items": [
-              {
-                "name": "The Maltsters Arms",
-                "place": "Pub · Bridge Street, Pontypridd",
-                "status": "Live",
-                "desc": "A new website for a local pub. It is built around their own photos of the building at night, with a neon sign, the week's offers and what is on.",
-                "points": "What's On page the pub updates itself · Their own login for opening hours, drinks, photos and notices · Mailing list for events · Built, hosted and looked after by us",
-                "image": "/work/maltsters-arms-site.jpg",
-                "imageSmall": "/work/maltsters-arms-site-960.jpg",
-                "imageAlt": "The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it",
-                "url": "maltstersponty.com",
-                "linkLabel": "Visit the site",
-                "linkHref": "https://maltstersponty.com/"
-              }
-            ]
-          }
-        },
-        {
-          "id": "home-trust",
-          "type": "trust-bar",
-          "props": {
-            "items": [
-              {
-                "icon": "phone",
-                "label": "On the App Store",
-                "sub": "Fish Tank · Fam & a Half"
-              },
-              {
-                "icon": "game",
-                "label": "On Google Play",
-                "sub": "Fish Tank"
-              },
-              {
-                "icon": "award",
-                "label": "Web Design Service of the Year",
-                "sub": "Wales Prestige Awards 2027/28",
-                "href": "/news/web-design-service-of-the-year-wales"
-              },
-              {
-                "icon": "award",
-                "label": "Microsoft Partner",
-                "sub": "Verified"
-              },
-              {
-                "icon": "lock",
-                "label": "GDPR compliant",
-                "sub": "Data protection"
-              }
-            ]
-          }
-        },
-        {
-          "id": "home-services",
-          "type": "services-grid",
-          "props": {
-            "eyebrow": "What we build",
-            "heading": "Apps first.\nWebsites too.",
-            "body": "We design it, build it, get it through the app stores and keep it running. One fixed price, agreed before anything starts.",
-            "linkLabel": "See all services",
-            "linkHref": "/services",
-            "services": [
-              {
-                "icon": "phone",
-                "title": "iPhone and Android apps",
-                "desc": "Native apps for the App Store and Google Play. We handle Apple review and the Play Console, which is where most first apps get stuck."
-              },
-              {
-                "icon": "design",
-                "title": "Web design",
-                "desc": "Websites designed for your business and written in React, not assembled in a page builder. The domain stays in your name."
-              },
-              {
-                "icon": "people",
-                "title": "Staff portals and business systems",
-                "desc": "Rotas, clock-in, timesheets, leave and payslips, on the web and on the phone. We run our own business on one."
-              },
-              {
-                "icon": "game",
-                "title": "Games",
-                "desc": "Fish Tank is ours: a multiplayer game on the App Store and Google Play. If you have a game in mind, we have done the hard parts before."
-              }
-            ]
-          }
-        },
-        {
-          "id": "home-team",
-          "type": "team",
-          "props": {
-            "eyebrow": "Who you deal with",
-            "heading": "A small team,\nby name.",
-            "body": "There is no account manager between you and the work. You talk to the people building your app or site, and when you ring, you get one of us.",
-            "people": [
-              {
-                "name": "David Hooper",
-                "role": "Founder · Development",
-                "initials": "DH",
-                "photo": "",
-                "phone": "07359 587007",
-                "phoneHref": "tel:+447359587007",
-                "email": "david@dhwebsiteservices.co.uk",
-                "desc": "Started the company. Designs and builds the apps, websites and the systems behind them, and takes them through Apple and Google review."
-              },
-              {
-                "name": "Jack Deane",
-                "role": "Assistant Manager",
-                "initials": "JD",
-                "photo": "",
-                "phone": "07368 353011",
-                "phoneHref": "tel:+447368353011",
-                "email": "jack@dhwebsiteservices.co.uk",
-                "desc": "Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.",
-                "badges": [
-                  {
-                    "label": "GDPR Foundations certified",
-                    "detail": "Measured Collective · Nov 2026"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "id": "home-why",
-          "type": "why-grid",
-          "props": {
-            "eyebrow": "How we work",
-            "heading": "What you get.",
-            "items": [
-              {
-                "title": "Fixed price",
-                "desc": "We quote before we start and that is the price. If you add something halfway through, we price it separately and tell you first."
-              },
-              {
-                "title": "Both app stores handled",
-                "desc": "Developer accounts, screenshots, privacy forms, Apple review and Google Play. You do not need to learn any of it."
-              },
-              {
-                "title": "You try it first",
-                "desc": "Test builds go onto your own phone through Apple TestFlight and Google Play testing. Nothing reaches the public stores until you have signed it off."
-              },
-              {
-                "title": "You own it",
-                "desc": "Source code, design files, the domain and the store listings are yours. Take them anywhere."
-              },
-              {
-                "title": "Quick replies",
-                "desc": "Email or call and we reply the same working day, usually within a few hours."
-              },
-              {
-                "title": "Based in Pontypridd",
-                "desc": "We meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK."
-              }
-            ]
-          }
-        },
-        {
-          "id": "home-pricing",
-          "type": "pricing-preview",
-          "props": {
-            "eyebrow": "Pricing",
-            "heading": "Prices on the page,\nnot on request.",
-            "note": "All prices exclude VAT. Hosting and app care are monthly and listed separately.",
-            "linkLabel": "See full pricing, hosting and app care",
-            "linkHref": "/pricing",
-            "packages": [
-              {
-                "name": "Simple app",
-                "price": "£349",
-                "tagline": "Your website as a real app",
-                "who": "On the App Store and Google Play",
-                "features": "Both store submissions · Push notifications · Your own app icon and listing",
-                "popular": false
-              },
-              {
-                "name": "Booking or ordering app",
-                "price": "£699",
-                "tagline": "Customers book or order from their phone",
-                "who": "Card payments and reminders",
-                "features": "Bookings or orders · Card payments · Reminder notifications · One screen to run it",
-                "popular": true
-              },
-              {
-                "name": "Starter website",
-                "price": "£449",
-                "tagline": "A five-page website",
-                "who": "Delivered in 7 days",
-                "features": "5 pages · Mobile layout · SEO setup · Contact form",
-                "popular": false
-              },
-              {
-                "name": "Growth website",
-                "price": "£999",
-                "tagline": "Ten pages and a blog",
-                "who": "Delivered in 7 days",
-                "features": "10 pages · Blog · Full SEO setup · Branding",
-                "popular": false
               }
             ]
           }
@@ -3296,6 +3299,10 @@
             "body": "The things people usually ask first.",
             "items": [
               {
+                "q": "How much does a website cost?",
+                "a": "Our websites start at £449 + VAT as a one-off, delivered in 7 days, plus a care plan from £35 a month once it is live (hosting, security, backups and updates). If you would rather not pay upfront, DH Local is £79 a month + VAT with no build fee, on a 12-month minimum, and includes the care plan, changes and your Google listing."
+              },
+              {
                 "q": "Do I need an app, or just a website?",
                 "a": "Most businesses need a website first, and we will say so rather than sell you an app. An app earns its keep when customers come back again and again: booking, ordering, loyalty, or staff who need something on their phone."
               },
@@ -3329,16 +3336,16 @@
           "id": "home-cta",
           "type": "closing-cta",
           "props": {
-            "eyebrow": "Got an app or a site in mind?",
+            "eyebrow": "Got a website or an app in mind?",
             "heading": "Tell us what it needs to do.",
             "body": "We will reply within a working day with questions, a plan and a fixed price.",
-            "primaryLabel": "Start a project →",
+            "primaryLabel": "Book a free call →",
             "primaryHref": "/contact",
             "secondaryLabel": "View pricing",
             "secondaryHref": "/pricing",
             "assurances": [
               "Fixed price",
-              "No contracts",
+              "No hidden costs",
               "Reply within 24 hours"
             ]
           }
@@ -3522,7 +3529,8 @@
                 "imageAlt": "The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it",
                 "url": "maltstersponty.com",
                 "linkLabel": "Visit the site",
-                "linkHref": "https://maltstersponty.com/"
+                "linkHref": "https://maltstersponty.com/",
+                "caseStudyHref": "/case-studies/maltsters-arms/"
               }
             ]
           }
@@ -3610,7 +3618,7 @@
           "props": {
             "eyebrow": "Pricing",
             "heading": "Simple,\nfixed pricing.",
-            "body": "Apps from £349 and websites from £449. No hourly billing and no surprises. All prices exclude VAT, which is charged at 20% (VAT No. GB 517 076 395).",
+            "body": "Apps from £349 and websites from £449. Or no build fee at all with DH Local, £79 a month. No hourly billing and no surprises. All prices exclude VAT, which is charged at 20% (VAT No. GB 517 076 395).",
             "maxWidth": 720,
             "bodyMaxWidth": null,
             "paddingBottom": "clamp(40px,5vw,64px)"
@@ -3621,6 +3629,15 @@
           "type": "pricing-tabs",
           "props": {
             "ctaLabel": "Get started",
+            "localOffer": {
+              "eyebrow": "No build fee",
+              "heading": "DH Local: £79 a month + VAT, £0 upfront",
+              "body": "A five-page website, hosting, changes whenever you need them and your Google listing kept up to date. 12-month minimum, then month to month.",
+              "primaryLabel": "See DH Local",
+              "primaryHref": "/local",
+              "secondaryLabel": "Sign up",
+              "secondaryHref": "/order?plan=dh-local"
+            },
             "builds": [
               {
                 "name": "Starter",
@@ -3755,7 +3772,7 @@
                 "desc": "Ongoing HR support, staff changes, updates."
               }
             ],
-            "appIntro": "Plenty of businesses do not need an app, and we will say so rather than sell you one. If you just want to be found, the £449 website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
+            "appIntro": "Plenty of businesses do not need an app, and we will say so rather than sell you one. If you just want to be found, a website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
             "appNote": "Prices start low deliberately. A first app should be cheap enough to try, not a decision you have to sleep on.",
             "appPlans": [
               {
@@ -3802,11 +3819,11 @@
             "items": [
               {
                 "q": "Do you offer payment plans?",
-                "a": "Yes. We can arrange staged payments for larger projects. Get in touch to talk through what works for you."
+                "a": "Yes. DH Local spreads the cost of a website over the plan: no build fee, £79 a month + VAT on a 12-month minimum. For one-off builds you pay a 50% deposit to start and the rest before launch, and we can stage larger projects."
               },
               {
                 "q": "What happens after the project is delivered?",
-                "a": "You get a handover call, access to all files, and ongoing support through one of our hosting & maintenance plans."
+                "a": "You get a handover call and access to all your files. Your care plan then starts: hosting, security, backups and updates, from £35 a month + VAT."
               },
               {
                 "q": "Can I upgrade my package later?",
@@ -3814,7 +3831,7 @@
               },
               {
                 "q": "Is hosting included in the build price?",
-                "a": "No — hosting is a separate monthly plan. This keeps things flexible so you're not locked into a bundle you don't need."
+                "a": "Not in a one-off build. Hosting comes with the care plan, from £35 a month + VAT, which starts when your site goes live and runs month to month on 30 days' notice. On DH Local it is included in the £79."
               },
               {
                 "q": "Do you work with clients outside Wales / the UK?",

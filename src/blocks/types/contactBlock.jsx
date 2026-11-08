@@ -248,6 +248,8 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                       <label className="field-label" htmlFor="enq-budget">Budget range</label>
                       <select id="enq-budget" name="budget" className="field-inp" value={form.budget} onChange={(e) => update('budget', e.target.value)} style={{ cursor:'pointer' }}>
                         <option value="">Select your budget</option>
+                        <option value="Monthly (DH Local)">£79 a month, nothing upfront — DH Local</option>
+                        <option value="Under £449">Under £449 — Black Friday or a small site</option>
                         <option value="£449-£999">£449-£999 — Starter websites</option>
                         <option value="£1,000-£2,500">£1,000-£2,500 — Growing businesses</option>
                         <option value="£2,500-£5,000">£2,500-£5,000 — Pro solutions</option>

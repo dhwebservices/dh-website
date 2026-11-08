@@ -33,8 +33,9 @@ Our prices are published on the [pricing page](/pricing) and agreed in full befo
 - **Growth, £999:** ten pages, a blog, a full SEO setup and branding
 - **Pro, £1,499:** everything in Growth plus an online shop
 - **Enterprise, £2,499:** a full site plus a staff portal for rotas, timesheets and leave
+- **DH Local, £79 a month:** no build fee. A five-page site, hosting, changes whenever you need them and your Google listing kept up to date, on a 12-month minimum. [See DH Local](/local)
 
-Hosting starts at **£35 a month**, kept separate from the build price so you can see what you pay once and what you pay every month.
+For one-off builds, hosting starts at **£35 a month**, kept separate from the build price so you can see what you pay once and what you pay every month. On DH Local it is included.
 
 ## What actually changes the price
 ### The number of pages
@@ -185,6 +186,39 @@ For press enquiries, call **01443 805303** or [contact us](/contact). DH Website
 
 export const CASE_STUDIES = [
   {
+    // Public facts only, the same ones on the homepage card (work.js): no
+    // prices, contract terms or anything from the pub's admin. No quote from
+    // the client until they give us one.
+    slug: 'maltsters-arms',
+    title: 'The Maltsters Arms, Pontypridd: A Website a Pub Runs Itself | DH Website Services',
+    description: 'How we built maltstersponty.com for the Maltsters Arms on Bridge Street, Pontypridd: their own photos, a What\'s On page they update themselves and a mailing list for events.',
+    heading: 'The Maltsters Arms: a website the pub runs itself',
+    intro: 'The Maltsters Arms is a pub on Bridge Street, Pontypridd. We built their website, maltstersponty.com, host it and look after it, and the pub keeps it up to date itself.',
+    published: '2026-11-08',
+    image: '/work/maltsters-arms-site-960.jpg',
+    imageWide: true,
+    imageAlt: 'The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it',
+    body: `
+## The brief
+A local pub needs a website that shows people what the place is like, tells them what is on this week, and is easy for the staff to keep current without ringing a web designer every time the offers change.
+
+## What we built
+- **A site built around the pub's own photos** of the building at night, with its neon sign, rather than stock pictures
+- **The week's offers and what is on,** on the front page where people look first
+- **A What's On page the pub updates itself**
+- **Their own login** for opening hours, drinks, photos and notices
+- **A mailing list** so regulars hear about events
+
+## Looked after by us
+We host the site and keep it running, secure and backed up. The pub changes the day-to-day details itself, and anything bigger comes to us.
+
+## What it shows
+A local business website does not need to be complicated. It needs to look like the real place, show what is on, and be easy to keep up to date. If that is what you need, [DH Local](/local) does it for a monthly price with nothing upfront, or see our [one-off website prices](/pricing).
+
+[Visit maltstersponty.com](https://maltstersponty.com/) · [Book a free call](/contact)
+`,
+  },
+  {
     slug: 'fish-tank',
     title: 'Fish Tank: Building a Multiplayer Game for iPhone and Android | DH Website Services',
     description: 'How we designed, built and launched Fish Tank, a real-time multiplayer game live on the App Store and Google Play, and the servers that run it.',
@@ -330,7 +364,7 @@ function toPage(item, base, kind, type) {
     sections: [],
     ctaLabel: 'Talk to us about your project',
     ctaHref: '/contact',
-    article: { kind, body: item.body, published: item.published, image: item.image, imageAlt: item.imageAlt },
+    article: { kind, body: item.body, published: item.published, image: item.image, imageAlt: item.imageAlt, imageWide: item.imageWide },
     schema: articleSchema(item, path, type),
   }
 }
@@ -355,9 +389,9 @@ export const ARTICLE_PAGES = [
   {
     path: '/case-studies',
     title: 'Case Studies: Apps and Systems We Have Built | DH Website Services',
-    description: 'How we built Fish Tank, Fam & a Half, our staff portal and our own phone system: what each one does, how it works and what it shows.',
+    description: 'How we built the Maltsters Arms website in Pontypridd, Fish Tank, Fam & a Half, our staff portal and our own phone system: what each one does and how it works.',
     heading: 'Case studies.',
-    intro: 'Products we designed, built and still run ourselves. Each one is live or in daily use, not a mockup.',
+    intro: 'Client websites and our own products, all live or in daily use. Not mockups.',
     sections: [],
     ctaLabel: 'Talk to us about your project',
     ctaHref: '/contact',

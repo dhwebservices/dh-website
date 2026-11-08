@@ -87,10 +87,14 @@ export const CLIENT_SITES = [
     url: 'maltstersponty.com',
     linkLabel: 'Visit the site',
     linkHref: 'https://maltstersponty.com/',
+    caseStudyHref: '/case-studies/maltsters-arms/',
   },
 ]
 
 /*
+ * No mobile numbers here (8 Nov 2026): every call goes through 01443 805303
+ * so DH Phone logs it, texts back if it is missed and can route it later.
+ *
  * TODO(David): photos. Drop a square photo in public/team/ and set `photo` on
  * each person below; the initials are only a stand-in.
  */
@@ -100,8 +104,6 @@ export const TEAM_PEOPLE = [
     role: 'Founder · Development',
     initials: 'DH',
     photo: '',
-    phone: '07359 587007',
-    phoneHref: 'tel:+447359587007',
     email: 'david@dhwebsiteservices.co.uk',
     desc: 'Started the company. Designs and builds the apps, websites and the systems behind them, and takes them through Apple and Google review.',
   },
@@ -110,8 +112,6 @@ export const TEAM_PEOPLE = [
     role: 'Assistant Manager',
     initials: 'JD',
     photo: '',
-    phone: '07368 353011',
-    phoneHref: 'tel:+447368353011',
     email: 'jack@dhwebsiteservices.co.uk',
     desc: 'Looks after enquiries, bookings and the day-to-day running of projects, and tests our apps on his own phone before they go out.',
     // Certificates and training shown under the name.

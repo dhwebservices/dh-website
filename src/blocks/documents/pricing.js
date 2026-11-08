@@ -16,7 +16,7 @@ export const PRICING_DOCUMENT = {
       props: {
         eyebrow: "Pricing",
         heading: "Simple,\nfixed pricing.",
-        body: "Apps from £349 and websites from £449. No hourly billing and no surprises. All prices exclude VAT, which is charged at 20% (VAT No. GB 517 076 395).",
+        body: "Apps from £349 and websites from £449. Or no build fee at all with DH Local, £79 a month. No hourly billing and no surprises. All prices exclude VAT, which is charged at 20% (VAT No. GB 517 076 395).",
         maxWidth: 720,
         bodyMaxWidth: null,
         paddingBottom: "clamp(40px,5vw,64px)"
@@ -27,6 +27,17 @@ export const PRICING_DOCUMENT = {
       type: "pricing-tabs",
       props: {
         ctaLabel: "Get started",
+        // The no-upfront option, shown above the one-off builds so someone
+        // who cannot find £449 today still has a way to buy (8 Nov 2026).
+        localOffer: {
+          eyebrow: "No build fee",
+          heading: "DH Local: £79 a month + VAT, £0 upfront",
+          body: "A five-page website, hosting, changes whenever you need them and your Google listing kept up to date. 12-month minimum, then month to month.",
+          primaryLabel: "See DH Local",
+          primaryHref: "/local",
+          secondaryLabel: "Sign up",
+          secondaryHref: "/order?plan=dh-local"
+        },
         builds: [
           {
             name: "Starter",
@@ -165,7 +176,7 @@ export const PRICING_DOCUMENT = {
         // reading as a hobby. Market rate for a wrapped app is £3-5k and for a
         // business app £8-15k; these undercut that heavily while still sitting
         // above the website ladder, so the two price lists make sense together.
-        appIntro: "Plenty of businesses do not need an app, and we will say so rather than sell you one. If you just want to be found, the £449 website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
+        appIntro: "Plenty of businesses do not need an app, and we will say so rather than sell you one. If you just want to be found, a website does that better. An app earns its keep when you have customers who come back: booking, ordering, loyalty, or staff who need something on their phone.",
         appNote: "Prices start low deliberately. A first app should be cheap enough to try, not a decision you have to sleep on.",
         appPlans: [
           {
@@ -212,11 +223,11 @@ export const PRICING_DOCUMENT = {
         items: [
           {
             q: "Do you offer payment plans?",
-            a: "Yes. We can arrange staged payments for larger projects. Get in touch to talk through what works for you."
+            a: "Yes. DH Local spreads the cost of a website over the plan: no build fee, £79 a month + VAT on a 12-month minimum. For one-off builds you pay a 50% deposit to start and the rest before launch, and we can stage larger projects."
           },
           {
             q: "What happens after the project is delivered?",
-            a: "You get a handover call, access to all files, and ongoing support through one of our hosting & maintenance plans."
+            a: "You get a handover call and access to all your files. Your care plan then starts: hosting, security, backups and updates, from £35 a month + VAT."
           },
           {
             q: "Can I upgrade my package later?",
@@ -224,7 +235,7 @@ export const PRICING_DOCUMENT = {
           },
           {
             q: "Is hosting included in the build price?",
-            a: "No — hosting is a separate monthly plan. This keeps things flexible so you're not locked into a bundle you don't need."
+            a: "Not in a one-off build. Hosting comes with the care plan, from £35 a month + VAT, which starts when your site goes live and runs month to month on 30 days' notice. On DH Local it is included in the £79."
           },
           {
             q: "Do you work with clients outside Wales / the UK?",

@@ -100,8 +100,15 @@ export default function ArticlePage() {
             </p>
           )}
           {page.article.image && (
-            <img src={page.article.image} alt={page.article.imageAlt || ''} width="240" height="224"
-              style={{ width: 200, height: 'auto', display: 'block', margin: '0 0 32px', background: 'var(--white)', borderRadius: 16, padding: 12, border: '1px solid var(--border-light)' }} />
+            page.article.imageWide ? (
+              // A screenshot of a client site reads at full width; the award
+              // logo below is a badge and stays small.
+              <img src={page.article.image} alt={page.article.imageAlt || ''} width="960" height="600"
+                style={{ width: '100%', height: 'auto', display: 'block', margin: '0 0 32px', borderRadius: 16, border: '1px solid var(--border-light)' }} />
+            ) : (
+              <img src={page.article.image} alt={page.article.imageAlt || ''} width="240" height="224"
+                style={{ width: 200, height: 'auto', display: 'block', margin: '0 0 32px', background: 'var(--white)', borderRadius: 16, padding: 12, border: '1px solid var(--border-light)' }} />
+            )
           )}
           {renderBody(page.article.body)}
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 40 }}>

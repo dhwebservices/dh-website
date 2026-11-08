@@ -93,9 +93,9 @@ const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
     title: 'Web Design & App Development in Pontypridd, Wales | DH Website Services',
-    description: 'Web designer and app developer in Pontypridd. Websites from £449 and iPhone and Android apps from £349 for businesses in Rhondda Cynon Taf, Cardiff and Wales.',
-    heading: 'We build apps and websites.',
-    intro: 'DH Website Services is a small software company in Pontypridd, Wales. We build and run our own apps: Fam & a Half, a free family location app, and Fish Tank, a multiplayer game on both app stores. We also build iPhone and Android apps and websites for businesses, at a fixed price agreed before we start.',
+    description: 'Web designer and app developer in Pontypridd. Websites from £449, or £0 upfront with DH Local at £79 a month, and iPhone and Android apps from £349 for businesses in Rhondda Cynon Taf, Cardiff and Wales.',
+    heading: 'Websites and apps for local businesses.',
+    intro: 'A small team in Pontypridd building websites and apps for pubs, cafés, salons, trades and shops across Wales. Fixed prices on the page, and we look after it once it is live.',
     sections: [
       {
         title: 'Our products',
@@ -103,14 +103,14 @@ const BASE_INDEXABLE_PAGES = [
       },
       {
         title: 'What we build',
-        body: 'Apps for the App Store and Google Play from £349. Websites from £449. Staff portals with rotas, timesheets, leave and payslips. Our own game, Fish Tank, is live on both stores.',
+        body: 'Websites from £449, or £0 upfront with DH Local at £79 a month. Apps for the App Store and Google Play from £349. Staff portals with rotas, timesheets, leave and payslips. Our own game, Fish Tank, is live on both stores.',
       },
       {
         title: 'How we work',
         body: 'You deal with the people who build your project: David Hooper, who founded the company and does the development, and Jack Deane, our assistant manager. The price is agreed before anything starts and does not move.',
       },
     ],
-    ctaLabel: 'Start a project',
+    ctaLabel: 'Book a free call',
     ctaHref: '/contact',
     schema: makeServiceSchema('/', 'App development and web design', 'iPhone and Android app development and web design for UK businesses. Apps from £349, websites from £449.'),
   },
@@ -524,7 +524,7 @@ function makeGeoPage(market) {
       },
       {
         title: 'Who does the work',
-        body: 'We do: David Hooper builds it and Jack Deane keeps it moving. No account manager and no outsourcing. You get our direct numbers and we answer them.',
+        body: 'We do: David Hooper builds it and Jack Deane keeps it moving. No account manager and no outsourcing. Ring 01443 805303 and you get one of us.',
       },
       ...(market.extra || []),
     ],
@@ -622,7 +622,7 @@ export const SITE_FAQS = [
   },
   {
     q: 'How much does a website cost?',
-    a: 'Four fixed packages: £449 for five pages, £999 for ten pages with a blog, £1,499 with e-commerce, and £2,499 including a staff portal. The price is agreed in full before anything starts and does not move.',
+    a: 'Four fixed packages: £449 for five pages, £999 for ten pages with a blog, £1,499 with e-commerce, and £2,499 including a staff portal. The price is agreed in full before anything starts and does not move. Or DH Local: no build fee, £79 a month + VAT on a 12-month minimum, with hosting, changes and your Google listing included.',
   },
   {
     q: 'How long does it take?',
@@ -642,7 +642,7 @@ export const SITE_FAQS = [
   },
   {
     q: 'What does hosting cost?',
-    a: 'Every website we build comes with a care plan from £35 a month, starting when the site goes live and running month to month on 30 days\' notice. It is kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates.',
+    a: 'Every website we build comes with a care plan from £35 a month, starting when the site goes live and running month to month on 30 days\' notice. It is kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates. On DH Local, hosting is included in the £79 a month.',
   },
   {
     q: 'Where are you based?',

@@ -314,6 +314,42 @@ img { max-width: 100%; display: block; }
   color: var(--accent-hover);
   background: rgba(200,16,46,0.1);
 }
+.site-nav__inline {
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+.site-nav__inline-link {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.site-nav__inline-link:hover,
+.site-nav__inline-link.is-active {
+  background: rgba(17,24,39,0.06);
+}
+.site-header__phone {
+  padding: 6px 10px;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.btn-primary.site-header__cta {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 0;
+}
+/* Wide enough for every link: show them and drop the menu button. */
+@media (min-width: 1100px) {
+  .site-nav__inline { display: flex; }
+  .site-nav { display: none; }
+}
 .site-header__actions {
   display: flex;
   align-items: center;
@@ -891,6 +927,11 @@ img { max-width: 100%; display: block; }
   }
   .site-header__ghost {
     background: var(--white);
+  }
+  .btn-primary.site-header__cta {
+    padding: 9px 14px;
+    font-size: 13px;
+    border-radius: 8px;
   }
   .site-banner {
     display: none;

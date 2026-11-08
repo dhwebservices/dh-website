@@ -8,6 +8,10 @@
  * no download counts, ratings, client logos or testimonials until there are
  * real ones to show.
  *
+ * November 2026: reordered for someone buying a website (David, 8 Nov):
+ * what we do and the prices first, then proof, then how we work; our own
+ * apps come after as evidence. DH Local is the first price card.
+ *
  * Once a published document exists in website_pages for slug "home", that wins
  * and this is only a safety net. As of 6 Oct 2026 there is no such row.
  */
@@ -21,18 +25,18 @@ export const HOME_DOCUMENT = {
       id: 'home-hero',
       type: 'hero',
       props: {
-        headlineLead: 'We build apps',
-        typewriterLines: ['and websites.'],
-        body: 'DH Website Services is a small software company in Pontypridd, Wales. We build and run our own apps: Fam & a Half, a free family location app, and Fish Tank, a multiplayer game on both app stores. We also build iPhone and Android apps and websites for businesses, at a fixed price agreed before we start.',
-        primaryLabel: 'See Fam & a Half',
-        primaryHref: '/famandahalf/',
-        secondaryLabel: 'Talk to us about a project',
+        headlineLead: 'Websites and apps',
+        typewriterLines: ['for local businesses.'],
+        body: 'A small team in Pontypridd building websites and apps for pubs, cafés, salons, trades and shops across Wales. Fixed prices on the page, and we look after it once it is live.',
+        primaryLabel: 'See prices',
+        primaryHref: '/pricing',
+        secondaryLabel: 'Or book a free call',
         secondaryHref: '/contact',
         showScrollHint: true,
         stats: [
-          { value: '2 apps', label: 'Our own products' },
-          { value: 'From £349', label: 'Client apps' },
+          { value: '£0 upfront', label: 'DH Local, £79 a month' },
           { value: 'From £449', label: 'Websites' },
+          { value: '7 days', label: 'Website delivery' },
           { value: 'Fixed price', label: 'Agreed before we start' },
         ],
       },
@@ -53,24 +57,31 @@ export const HOME_DOCUMENT = {
     },
 
     {
-      id: 'home-work',
-      type: 'work-showcase',
+      id: 'home-clients',
+      type: 'client-sites',
       props: {
-        eyebrow: 'Our products',
-        heading: 'Apps we build\nfor ourselves.',
-        body: 'Our own products, not client work. Fish Tank is live on both app stores, Fam & a Half is on the App Store, and two more run our business every day.',
-        items: WORK_ITEMS,
+        eyebrow: 'Our latest website',
+        heading: 'Built for a pub\nin Pontypridd.',
+        body: 'The Maltsters Arms on Bridge Street. The pub updates its own offers, drinks and opening hours, and we host it and look after it. Go and have a look.',
+        items: CLIENT_SITES,
       },
     },
 
     {
-      id: 'home-clients',
-      type: 'client-sites',
+      id: 'home-pricing',
+      type: 'pricing-preview',
       props: {
-        eyebrow: 'Client websites',
-        heading: 'And websites\nfor local businesses.',
-        body: 'Our latest client site is for the Maltsters Arms on Bridge Street, Pontypridd. Go and have a look.',
-        items: CLIENT_SITES,
+        eyebrow: 'Pricing',
+        heading: 'Prices on the page,\nnot on request.',
+        note: 'All prices exclude VAT. One-off builds come with a care plan from £35 a month once live; DH Local includes it.',
+        linkLabel: 'See full pricing, hosting and app care',
+        linkHref: '/pricing',
+        packages: [
+          { name: 'DH Local', price: '£79', priceNote: 'a month + VAT · £0 upfront', tagline: 'Your website and Google listing, looked after', who: 'No build fee. A five-page site, updates whenever you need them and your Google listing kept up to date. 12-month minimum.', features: 'Up to 5 pages · Hosting included · Changes on request · Google listing', popular: true, badge: 'No build fee', href: '/local', ctaLabel: 'See DH Local' },
+          { name: 'Starter website', price: '£449', tagline: 'A five-page website', who: 'Delivered in 7 days', features: '5 pages · Mobile layout · SEO setup · Contact form', popular: false, href: '/order?plan=starter', ctaLabel: 'Pay deposit & start' },
+          { name: 'Growth website', price: '£999', tagline: 'Ten pages and a blog', who: 'Delivered in 7 days', features: '10 pages · Blog · Full SEO setup · Branding', popular: false, href: '/order?plan=growth', ctaLabel: 'Pay deposit & start' },
+          { name: 'Booking or ordering app', price: '£699', tagline: 'Customers book or order from their phone', who: 'Card payments and reminders', features: 'Bookings or orders · Card payments · Reminder notifications · One screen to run it', popular: false, href: '/order?plan=booking-app', ctaLabel: 'Pay deposit & start' },
+        ],
       },
     },
 
@@ -88,33 +99,21 @@ export const HOME_DOCUMENT = {
       },
     },
 
-
     {
       id: 'home-services',
       type: 'services-grid',
       props: {
         eyebrow: 'What we build',
-        heading: 'Apps first.\nWebsites too.',
-        body: 'We design it, build it, get it through the app stores and keep it running. One fixed price, agreed before anything starts.',
+        heading: 'Websites first.\nApps when you need one.',
+        body: 'We design it, build it, host it and keep it running. One fixed price, agreed before anything starts.',
         linkLabel: 'See all services',
         linkHref: '/services',
         services: [
-          { icon: 'phone', title: 'iPhone and Android apps', desc: 'Native apps for the App Store and Google Play. We handle Apple review and the Play Console, which is where most first apps get stuck.' },
           { icon: 'design', title: 'Web design', desc: 'Websites designed for your business and written in React, not assembled in a page builder. The domain stays in your name.' },
+          { icon: 'phone', title: 'iPhone and Android apps', desc: 'Native apps for the App Store and Google Play. We handle Apple review and the Play Console, which is where most first apps get stuck.' },
           { icon: 'people', title: 'Staff portals and business systems', desc: 'Rotas, clock-in, timesheets, leave and payslips, on the web and on the phone. We run our own business on one.' },
           { icon: 'game', title: 'Games', desc: 'Fish Tank is ours: a multiplayer game on the App Store and Google Play. If you have a game in mind, we have done the hard parts before.' },
         ],
-      },
-    },
-
-    {
-      id: 'home-team',
-      type: 'team',
-      props: {
-        eyebrow: 'Who you deal with',
-        heading: 'A small team,\nby name.',
-        body: 'There is no account manager between you and the work. You talk to the people building your app or site, and when you ring, you get one of us.',
-        people: TEAM_PEOPLE,
       },
     },
 
@@ -136,20 +135,24 @@ export const HOME_DOCUMENT = {
     },
 
     {
-      id: 'home-pricing',
-      type: 'pricing-preview',
+      id: 'home-team',
+      type: 'team',
       props: {
-        eyebrow: 'Pricing',
-        heading: 'Prices on the page,\nnot on request.',
-        note: 'All prices exclude VAT. Hosting and app care are monthly and listed separately.',
-        linkLabel: 'See full pricing, hosting and app care',
-        linkHref: '/pricing',
-        packages: [
-          { name: 'Simple app', price: '£349', tagline: 'Your website as a real app', who: 'On the App Store and Google Play', features: 'Both store submissions · Push notifications · Your own app icon and listing', popular: false },
-          { name: 'Booking or ordering app', price: '£699', tagline: 'Customers book or order from their phone', who: 'Card payments and reminders', features: 'Bookings or orders · Card payments · Reminder notifications · One screen to run it', popular: true },
-          { name: 'Starter website', price: '£449', tagline: 'A five-page website', who: 'Delivered in 7 days', features: '5 pages · Mobile layout · SEO setup · Contact form', popular: false },
-          { name: 'Growth website', price: '£999', tagline: 'Ten pages and a blog', who: 'Delivered in 7 days', features: '10 pages · Blog · Full SEO setup · Branding', popular: false },
-        ],
+        eyebrow: 'Who you deal with',
+        heading: 'A small team,\nby name.',
+        body: 'There is no account manager between you and the work. You talk to the people building your app or site, and when you ring, you get one of us.',
+        people: TEAM_PEOPLE,
+      },
+    },
+
+    {
+      id: 'home-work',
+      type: 'work-showcase',
+      props: {
+        eyebrow: 'Apps too',
+        heading: 'We also build apps.\nThese ones are ours.',
+        body: 'Fish Tank is live on the App Store and Google Play, Fam & a Half is on the App Store, and two more run our business every day. If you want an app of your own, these are what we bring to it.',
+        items: WORK_ITEMS,
       },
     },
 
@@ -196,6 +199,7 @@ export const HOME_DOCUMENT = {
         heading: 'Before you get in touch',
         body: 'The things people usually ask first.',
         items: [
+          { q: 'How much does a website cost?', a: 'Our websites start at £449 + VAT as a one-off, delivered in 7 days, plus a care plan from £35 a month once it is live (hosting, security, backups and updates). If you would rather not pay upfront, DH Local is £79 a month + VAT with no build fee, on a 12-month minimum, and includes the care plan, changes and your Google listing.' },
           { q: 'Do I need an app, or just a website?', a: 'Most businesses need a website first, and we will say so rather than sell you an app. An app earns its keep when customers come back again and again: booking, ordering, loyalty, or staff who need something on their phone.' },
           { q: 'Do you deal with Apple and Google for us?', a: 'Yes. We set up the store listings, write the privacy declarations, submit the builds and answer the reviewers. We have taken our own apps through Apple review and Google Play, so we know where they get held up.' },
           { q: 'Can we try the app before it goes live?', a: 'Yes. You get test builds on your own phone through Apple TestFlight and Google Play testing, and nothing goes to the public stores until you have signed it off.' },
@@ -213,14 +217,14 @@ export const HOME_DOCUMENT = {
       id: 'home-cta',
       type: 'closing-cta',
       props: {
-        eyebrow: 'Got an app or a site in mind?',
+        eyebrow: 'Got a website or an app in mind?',
         heading: 'Tell us what it needs to do.',
         body: 'We will reply within a working day with questions, a plan and a fixed price.',
-        primaryLabel: 'Start a project →',
+        primaryLabel: 'Book a free call →',
         primaryHref: '/contact',
         secondaryLabel: 'View pricing',
         secondaryHref: '/pricing',
-        assurances: ['Fixed price', 'No contracts', 'Reply within 24 hours'],
+        assurances: ['Fixed price', 'No hidden costs', 'Reply within 24 hours'],
       },
     },
   ],
