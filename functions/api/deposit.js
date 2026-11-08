@@ -30,6 +30,8 @@ export async function onRequestPost(context) {
     if (!EMAIL.test(buyer.email)) return json({ error: 'Please give a valid email address.' }, 400)
     if (buyer.phone.replace(/\D/g, '').length < 10) return json({ error: 'Please give a phone number we can reach you on.' }, 400)
     if (buyer.buyerType === 'business' && !buyer.business) return json({ error: 'Please give your business name.' }, 400)
+    // DH Local is a business contract with a 12-month minimum term.
+    if (plan.monthly && buyer.buyerType !== 'business') return json({ error: `${plan.name} is for businesses. Choose "For my business" to continue.` }, 400)
     if (body.acceptTerms !== true) return json({ error: 'Please tick the box to accept the terms.' }, 400)
     // A consumer has 14 days to cancel. Starting inside that window needs
     // their express request (Consumer Contracts Regulations 2013, reg 36).
@@ -48,6 +50,7 @@ export async function onRequestPost(context) {
       plan: plan.id,
       plan_name: plan.name,
       build_price: String(plan.price),
+      monthly: plan.monthly ? String(plan.monthly) : '',
       name: buyer.name,
       business: buyer.business,
       phone: buyer.phone,
@@ -58,26 +61,49 @@ export async function onRequestPost(context) {
     }
 
     const params = new URLSearchParams()
-    params.set('mode', 'payment')
+    params.set('mode', plan.monthly ? 'subscription' : 'payment')
     params.set('success_url', `${siteUrl}/order?session_id={CHECKOUT_SESSION_ID}`)
     params.set('cancel_url', `${siteUrl}/order?plan=${encodeURIComponent(plan.id)}&cancelled=1`)
     params.set('customer_email', buyer.email)
     params.set('payment_method_types[0]', 'card')
     params.set('billing_address_collection', 'required')
-    params.set('line_items[0][quantity]', '1')
-    params.set('line_items[0][price_data][currency]', 'gbp')
-    params.set('line_items[0][price_data][unit_amount]', String(plan.depositPence))
-    params.set('line_items[0][price_data][product_data][name]', `50% deposit: ${plan.name}`)
-    params.set('line_items[0][price_data][product_data][description]', `Build price £${plan.price.toLocaleString('en-GB')} + VAT. The other 50% is due before launch.`)
-    params.set('line_items[1][quantity]', '1')
-    params.set('line_items[1][price_data][currency]', 'gbp')
-    params.set('line_items[1][price_data][unit_amount]', String(plan.vatPence))
-    params.set('line_items[1][price_data][product_data][name]', 'VAT at 20% (GB 517 076 395)')
-    for (const [k, v] of Object.entries(meta)) {
-      params.set(`metadata[${k}]`, v)
-      params.set(`payment_intent_data[metadata][${k}]`, v)
+    if (plan.monthly) {
+      // DH Local: the monthly fee and its VAT, billed every month by Stripe.
+      // The 12-month minimum is a contract term (services terms), not a
+      // Stripe setting, so cancelling in Stripe early still owes the rest.
+      const monthly = [
+        [`${plan.name} monthly plan`, plan.monthlyPence, `${plan.minMonths}-month minimum term, then month to month on 30 days' notice. Nothing to pay upfront.`],
+        ['VAT at 20% (GB 517 076 395)', plan.vatPence, null],
+      ]
+      monthly.forEach(([name, amount, description], i) => {
+        params.set(`line_items[${i}][quantity]`, '1')
+        params.set(`line_items[${i}][price_data][currency]`, 'gbp')
+        params.set(`line_items[${i}][price_data][unit_amount]`, String(amount))
+        params.set(`line_items[${i}][price_data][recurring][interval]`, 'month')
+        params.set(`line_items[${i}][price_data][product_data][name]`, name)
+        if (description) params.set(`line_items[${i}][price_data][product_data][description]`, description)
+      })
+      for (const [k, v] of Object.entries(meta)) {
+        params.set(`metadata[${k}]`, v)
+        params.set(`subscription_data[metadata][${k}]`, v)
+      }
+      params.set('subscription_data[description]', `${plan.name} (${buyer.business || buyer.name})`)
+    } else {
+      params.set('line_items[0][quantity]', '1')
+      params.set('line_items[0][price_data][currency]', 'gbp')
+      params.set('line_items[0][price_data][unit_amount]', String(plan.depositPence))
+      params.set('line_items[0][price_data][product_data][name]', `50% deposit: ${plan.name}`)
+      params.set('line_items[0][price_data][product_data][description]', `Build price £${plan.price.toLocaleString('en-GB')} + VAT. The other 50% is due before launch.`)
+      params.set('line_items[1][quantity]', '1')
+      params.set('line_items[1][price_data][currency]', 'gbp')
+      params.set('line_items[1][price_data][unit_amount]', String(plan.vatPence))
+      params.set('line_items[1][price_data][product_data][name]', 'VAT at 20% (GB 517 076 395)')
+      for (const [k, v] of Object.entries(meta)) {
+        params.set(`metadata[${k}]`, v)
+        params.set(`payment_intent_data[metadata][${k}]`, v)
+      }
+      params.set('payment_intent_data[description]', `50% deposit: ${plan.name} (${buyer.business || buyer.name})`)
     }
-    params.set('payment_intent_data[description]', `50% deposit: ${plan.name} (${buyer.business || buyer.name})`)
 
     const session = await stripeRequest(context, '/checkout/sessions', params)
     return json({ url: session.url })

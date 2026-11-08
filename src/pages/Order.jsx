@@ -47,7 +47,7 @@ function Paid({ sessionId }) {
         <p className="eyebrow" style={{ marginBottom: 12 }}>What happens next</p>
         <ol className="body-md" style={{ paddingLeft: 20, margin: 0, display: 'grid', gap: 8 }}>
           <li>We'll be in touch within one working day to plan your build.</li>
-          <li>The other 50% of the build price is due before it goes live.</li>
+          <li>{state.monthly ? `Stripe takes £${state.monthly} + VAT each month. The plan has a 12-month minimum term.` : 'The other 50% of the build price is due before it goes live.'}</li>
           <li>{state.care}</li>
         </ol>
       </div>
@@ -92,7 +92,7 @@ export default function Order() {
             <>
               <p className="eyebrow" style={{ marginBottom: 16 }}>Book online</p>
               <h1 style={h1}>{plan.name}</h1>
-              <p className="body-lg" style={{ marginBottom: 0 }}>{plan.summary} Pay the 50% deposit now and we'll start planning your build within one working day.</p>
+              <p className="body-lg" style={{ marginBottom: 0 }}>{plan.summary} {plan.monthly ? `Nothing to pay upfront: £${plan.monthly} a month + VAT, and we start planning your site within one working day.` : 'Pay the 50% deposit now and we\'ll start planning your build within one working day.'}</p>
             </>
           )}
         </div>
@@ -106,11 +106,15 @@ export default function Order() {
                   <p className="eyebrow" style={{ marginBottom: 14 }}>What it costs</p>
                   <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 15 }}>
                     <tbody>
-                      {[
+                      {(plan.monthly ? [
+                        ['Upfront', '£0', 'No build fee'],
+                        ['Every month', `£${plan.monthly} + VAT`, `${pounds(plan.totalPence)} including VAT, by card`],
+                        ['Minimum term', `${plan.minMonths} months`, 'Then month to month, 30 days\' notice'],
+                      ] : [
                         ['Build price', `£${plan.price.toLocaleString('en-GB')} + VAT`, plan.was ? `Normally £${plan.was.toLocaleString('en-GB')} · ends 30 Nov` : null],
                         ['Deposit today (50%)', `${pounds(plan.depositPence)} + VAT`, `${pounds(plan.totalPence)} including VAT`],
                         ['Before it goes live', `${pounds(plan.price * 100 - plan.depositPence)} + VAT`, 'The other 50%'],
-                      ].map(([label, price, note], i) => (
+                      ]).map(([label, price, note], i) => (
                         <tr key={label} style={{ borderTop: i ? '1px solid var(--border-light)' : 'none' }}>
                           <td style={{ padding: '12px 0', color: 'var(--mid)' }}>{label}{note ? <div style={{ fontSize: 13, color: 'var(--light)' }}>{note}</div> : null}</td>
                           <td style={{ padding: '12px 0', textAlign: 'right', fontWeight: 700, color: 'var(--dark)', whiteSpace: 'nowrap' }}>{price}</td>
@@ -122,13 +126,13 @@ export default function Order() {
                 </div>
 
                 <form onSubmit={submit} style={{ ...card, display: 'grid', gap: 14 }}>
-                  <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }} role="radiogroup" aria-label="Who is buying">
+                  {!plan.monthly && <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }} role="radiogroup" aria-label="Who is buying">
                     {[['business', 'For my business'], ['consumer', 'As an individual']].map(([v, l]) => (
                       <label key={v} style={{ display: 'flex', gap: 8, alignItems: 'center', fontSize: 15 }}>
                         <input type="radio" name="buyerType" value={v} checked={form.buyerType === v} onChange={set('buyerType')} /> {l}
                       </label>
                     ))}
-                  </div>
+                  </div>}
                   <div><label className="field-label" htmlFor="o-name">Your name</label><input id="o-name" className="field-inp" autoComplete="name" required value={form.name} onChange={set('name')} /></div>
                   {form.buyerType === 'business' && (
                     <div><label className="field-label" htmlFor="o-business">Business name</label><input id="o-business" className="field-inp" autoComplete="organization" required value={form.business} onChange={set('business')} /></div>
@@ -155,7 +159,7 @@ export default function Order() {
                     </Link>
                   )}
                   <button type="submit" className="btn-primary" disabled={sending} style={{ justifyContent: 'center', width: '100%' }}>
-                    {sending ? 'Opening secure payment…' : `Pay ${pounds(plan.totalPence)} deposit`}
+                    {sending ? 'Opening secure payment…' : plan.monthly ? `Start for ${pounds(plan.totalPence)} a month` : `Pay ${pounds(plan.totalPence)} deposit`}
                   </button>
                   <p className="body-sm" style={{ margin: 0, textAlign: 'center' }}>Secure card payment by Stripe. Questions first? Call <a href="tel:+441443805303" style={{ color: 'var(--accent)' }}>01443 805303</a>.</p>
                 </form>

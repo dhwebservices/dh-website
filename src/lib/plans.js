@@ -30,6 +30,10 @@ const PLANS = [
     summary: 'Your website as a real app on the App Store and Google Play.', care: APP_CARE },
   { id: 'booking-app', name: 'Booking or ordering app', kind: 'app', price: 699,
     summary: 'Customers book or order from their phone and pay by card.', care: APP_CARE },
+  // Monthly, nothing upfront: the lead offer in the growth plan (David, 8 Nov 2026).
+  { id: 'dh-local', name: 'DH Local', kind: 'website', monthly: 79, minMonths: 12,
+    summary: 'A five-page website, kept up to date for you, with your Google listing and reviews looked after.',
+    care: 'Hosting, security, backups and updates are included in the monthly fee.' },
 ]
 
 /** The plan as it can be bought right now, with today's price, or null. */
@@ -39,6 +43,11 @@ export function depositPlan(id) {
   const bf = blackFridayOn()
   if (plan.blackFridayOnly && !bf) return null
   if (plan.notDuringBlackFriday && bf) return null
+  if (plan.monthly) {
+    const monthlyPence = plan.monthly * 100
+    const vatPence = Math.round(monthlyPence * VAT_RATE)
+    return { ...plan, price: 0, was: null, monthlyPence, depositPence: monthlyPence, vatPence, totalPence: monthlyPence + vatPence }
+  }
   const offer = !plan.blackFridayOnly && bf ? PLAN_PRICES.find(([re]) => re.test(plan.name.replace(/ website$/i, ''))) : null
   const price = offer ? offer[1] : plan.price
   const was = plan.blackFridayOnly ? plan.was : offer ? offer[2] : null

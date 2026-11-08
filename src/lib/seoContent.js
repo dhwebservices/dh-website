@@ -225,7 +225,26 @@ const BASE_INDEXABLE_PAGES = [
       },
     ],
     ctaLabel: 'Book a place',
-    ctaHref: '/contact?source=black-friday#brief',
+    ctaHref: '/order?plan=bf-website',
+  },
+  {
+    path: '/local',
+    title: 'DH Local: Website and Google Listing for £79 a Month | DH Website Services',
+    description: 'DH Local: a website for your local business, kept up to date, with your Google Business Profile and reviews looked after. No build fee, £79 a month + VAT. Pontypridd, the valleys and Cardiff.',
+    heading: 'Your website and Google listing, looked after for £79 a month.',
+    intro: 'No build fee. We build your site, keep it up to date and look after your Google listing and reviews. £79 a month + VAT, 12-month minimum. For pubs, cafés, takeaways, salons and trades in Pontypridd, the valleys and Cardiff.',
+    sections: [
+      {
+        title: 'What you get',
+        body: 'A website of up to 5 pages built for phones first, your own domain, hosting, SSL, backups and security updates, small changes whenever you need them, your Google Business Profile kept up to date, a Google review QR code and link, and a short monthly report.',
+      },
+      {
+        title: 'What it costs',
+        body: '£0 upfront. £79 a month + VAT for a minimum of 12 months, then month to month on 30 days\' notice. A Welsh and English site is a one-off £150 + VAT on top.',
+      },
+    ],
+    ctaLabel: 'Start for £0 upfront',
+    ctaHref: '/order?plan=dh-local',
   },
   {
     path: '/contact',
