@@ -1,3 +1,4 @@
+import { siteUrlFrom } from './_siteUrl.js'
 const SITE_URL = 'https://dhwebsiteservices.co.uk'
 const DEFAULT_SUPABASE_URL = 'https://xtunnfdwltfesscmpove.supabase.co'
 const DEFAULT_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0dW5uZmR3bHRmZXNzY21wb3ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1MDkyNzAsImV4cCI6MjA4OTA4NTI3MH0.MaNZGpdSrn5kSTmf3kR87WCK_ga5Meze0ZvlZDkIjfM'
@@ -19,7 +20,7 @@ function getEnv(context) {
     supabaseUrl: env.SUPABASE_URL || DEFAULT_SUPABASE_URL,
     supabaseKey: env.SUPABASE_SERVICE_ROLE_KEY || env.SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY,
     workerUrl: env.WORKER_URL || DEFAULT_WORKER_URL,
-    siteUrl: env.SITE_URL || SITE_URL,
+    siteUrl: siteUrlFrom(env.SITE_URL, SITE_URL),
   }
 }
 
