@@ -8,6 +8,7 @@ const BookingWidget = lazy(() => import('./BookingWidget').then((module) => ({ d
 const LINKS = [
   { to: '/services',   label: 'Services' },
   { to: '/portfolio',  label: 'Portfolio' },
+  { to: '/local',      label: 'DH Local' },
   { to: '/pricing',    label: 'Pricing' },
   { to: '/about',      label: 'About' },
 ]

@@ -84,7 +84,7 @@ We may update these terms at any time. Continued use of the site after changes c
   },
   '/services-terms': {
     title: 'Services Terms & Conditions',
-    updated: 'January 2026',
+    updated: 'November 2026',
     content: `
 ## 1. Services
 DH Website Services provides website design, development, hosting, and related digital services. The scope of work is agreed prior to project commencement.
@@ -112,6 +112,16 @@ Our total liability for any claim is limited to the amount paid for the relevant
 
 ## 8. Termination
 Either party may terminate the agreement with 30 days written notice. In the event of termination, payment is due for all work completed to date.
+
+## 9. DH Local monthly plans
+DH Local is for businesses only. These terms apply to it on top of sections 1 to 8, and win where they differ.
+- **No build fee.** You pay a monthly fee, in advance, by card through Stripe, starting on the day you sign up.
+- **Minimum term.** The plan runs for at least 12 months from sign-up. If you end it before then, the monthly fees for the rest of the 12 months are still due.
+- **After 12 months** the plan runs month to month, and either of us can end it with 30 days' written notice.
+- **What's included:** a website of up to 5 pages, hosting, SSL, backups, security updates, small text and photo changes, keeping your Google Business Profile up to date, and a short monthly report.
+- **Price changes:** we won't change the price during the minimum term. After it, we give at least 30 days' notice of any change.
+- **Missed payments:** if a payment fails and isn't sorted within 14 days of us telling you, we may take the website offline until it is.
+- **Ownership:** your domain name, words, logo and photos are always yours. The website's design and code are licensed to you while the plan runs. If you leave after the minimum term, we transfer your domain and content to you, and we can transfer the website itself for a one-off fee we agree with you.
     `,
   },
   '/refunds': {
