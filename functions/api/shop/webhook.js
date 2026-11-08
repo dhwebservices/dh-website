@@ -2,7 +2,10 @@ import { confirmPaidOrder, getEnv, json, supabaseRequest } from './_lib.js'
 
 async function verifyStripeSignature(context, payload, header) {
   const { stripeWebhookSecret } = getEnv(context)
-  if (!stripeWebhookSecret) return true
+  // No secret means no way to tell a real Stripe event from a forged one, so
+  // refuse them all. Orders are still confirmed by confirm-checkout.js, which
+  // asks Stripe directly when the customer returns.
+  if (!stripeWebhookSecret) return false
   if (!header) return false
 
   const parts = Object.fromEntries(

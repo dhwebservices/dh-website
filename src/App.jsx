@@ -60,13 +60,14 @@ const Calculator = lazyPage(() => import('./pages/Calculator'))
 const About = lazyPage(() => import('./pages/About'))
 const Partners = lazyPage(() => import('./pages/Partners'))
 const BlackFriday = lazyPage(() => import('./pages/BlackFriday'))
+const Order = lazyPage(() => import('./pages/Order'))
 const ManagedPage = lazyPage(() => import('./pages/ManagedPage'))
 const GeoPage = lazyPage(() => import('./pages/GeoPage'))
 const ArticlePage = lazyPage(() => import('./pages/ArticlePage'))
 const LEGAL_PATHS = new Set(['privacy', 'terms', 'services-terms', 'refunds', 'cookies', 'acceptable-use', 'accessibility', 'security', 'complaints'])
 const PAGES_BY_SEGMENT = {
   services: Services, pricing: Pricing, portfolio: Portfolio, contact: Contact,
-  calculator: Calculator, about: About, partners: Partners, 'black-friday': BlackFriday,
+  calculator: Calculator, about: About, partners: Partners, 'black-friday': BlackFriday, order: Order,
   appointment: Appointment, proposal: Proposal,
 }
 
@@ -387,6 +388,7 @@ function Layout() {
           <Route path="/about" element={<About />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/black-friday" element={<BlackFriday />} />
+          <Route path="/order" element={<Order />} />
           {/* Fam & a Half is static HTML in public/, not part of this app. An
               in-app link there would otherwise land on NotFound, so any link
               to it, from any block or article, becomes a real page load. */}

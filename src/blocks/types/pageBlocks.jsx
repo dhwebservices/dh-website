@@ -8,6 +8,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { withBlackFridayBuilds, withBlackFridayApps, blackFridayText } from '../../lib/offers'
+import { depositPlan, planIdForCard } from '../../lib/plans'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
 import { XmasPageHero } from '../../components/Christmas'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
@@ -298,6 +299,25 @@ export function DomainFeatureBlock({ eyebrow, heading, body, linkLabel, linkHref
 
 /* ── Pricing tabs ───────────────────────────────────────────────────────── */
 
+/** The package a card can be booked online as, if any (fixed price only). */
+const bookable = (name) => {
+  const id = planIdForCard(name)
+  return id && depositPlan(id) ? id : null
+}
+
+/**
+ * A fixed-price package is booked by paying the deposit online; the free call
+ * stays one tap away underneath for anyone who wants to talk first.
+ */
+function DepositCta({ dark, plan }) {
+  return (
+    <>
+      <PricingCta dark={dark} to={`/order?plan=${plan}`}>Pay deposit &amp; start</PricingCta>
+      <Link to="/contact" style={{ display: 'block', textAlign: 'center', marginTop: 10, fontSize: 13, color: dark ? 'rgba(255,255,255,0.6)' : 'var(--mid)' }}>or book a free call</Link>
+    </>
+  )
+}
+
 function PricingCta({ dark, to, external, children }) {
   const style = { display: 'block', textAlign: 'center', padding: '12px', borderRadius: 100, fontSize: 14, fontWeight: 500, background: dark ? 'white' : 'var(--accent)', color: dark ? 'var(--dark)' : 'white', transition: 'opacity 0.15s' }
   if (external) return <a href={to} target="_blank" rel="noreferrer" className="card-cta" style={style}>{children}</a>
@@ -357,7 +377,11 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
                         </div>
                       ))}
                     </div>
-                    <div style={{ marginTop: 20 }}><PricingCta dark={dark} to={p.href || '/contact'}>{p.ctaLabel || ctaLabel || 'Get started'}</PricingCta></div>
+                    <div style={{ marginTop: 20 }}>
+                      {bookable(p.name)
+                        ? <DepositCta dark={dark} plan={bookable(p.name)} />
+                        : <PricingCta dark={dark} to={p.href || '/contact'}>{p.ctaLabel || ctaLabel || 'Get started'}</PricingCta>}
+                    </div>
                   </div>
                 )
               })}
@@ -408,7 +432,9 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
                     <p style={{ fontSize: 13, fontWeight: 600, color: p.badge ? 'rgba(255,255,255,0.8)' : 'var(--accent)', marginBottom: 20 }}>{p.monthly}</p>
                   )}
                   <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.68)' : 'var(--mid)', marginBottom: 24 }}>{p.desc}</p>
-                  <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
+                  {bookable(p.name)
+                    ? <DepositCta dark={!!p.badge} plan={bookable(p.name)} />
+                    : <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>}
                 </div>
               ))}
             </div>

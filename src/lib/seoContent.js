@@ -147,7 +147,7 @@ const BASE_INDEXABLE_PAGES = [
       },
       {
         title: 'Ongoing costs',
-        body: 'Hosting is separate and starts at £35 a month, so you can see what you pay once and what you pay every month.',
+        body: 'Every website comes with a care plan from £35 a month, starting at launch. It is listed separately from the build price, so you can see what you pay once and what you pay every month. Fixed-price packages can be booked online with a 50% deposit.',
       },
     ],
     ctaLabel: 'View contact options',
@@ -623,7 +623,7 @@ export const SITE_FAQS = [
   },
   {
     q: 'What does hosting cost?',
-    a: 'From £35 a month, kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates.',
+    a: 'Every website we build comes with a care plan from £35 a month, starting when the site goes live and running month to month on 30 days\' notice. It is kept separate from the build price so you can see what you pay once and what you pay every month. It covers the server, SSL, backups and updates.',
   },
   {
     q: 'Where are you based?',

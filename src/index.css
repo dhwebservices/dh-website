@@ -1164,3 +1164,7 @@ h2 { max-width: 20ch; }
 .bf-pill:hover { background: var(--cream); }
 .bf-pill__tag { background: var(--accent); color: #fff; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
 @media (max-width: 520px) { .bf-pill { font-size: 13px; border-radius: 16px; } }
+
+/* ── Order page: price summary beside the form, stacked on phones ── */
+.order-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 16px; align-items: start; }
+@media (max-width: 760px) { .order-grid { grid-template-columns: minmax(0, 1fr); } }

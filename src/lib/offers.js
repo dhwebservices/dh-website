@@ -8,7 +8,7 @@ export const blackFridayOn = () => Date.now() <= BLACK_FRIDAY_ENDS
 // The "was" price is each plan's real normal price, as UK pricing rules need.
 // Matched on the plan name so they apply whether the page content comes from
 // this repo or from the portal editor.
-const PLAN_PRICES = [
+export const PLAN_PRICES = [
   [/^simple app/i, 249, 349],
   [/^booking or ordering app/i, 499, 699],
   [/^business app/i, 1099, 1499],
