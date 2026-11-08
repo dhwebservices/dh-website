@@ -61,6 +61,7 @@ export default function Order() {
   const plan = depositPlan(params.get('plan'))
   const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', notes: '', buyerType: 'business', acceptTerms: false, startNow: false })
   const [sending, setSending] = useState(false)
+  const [failed, setFailed] = useState(false)
   const [error, setError] = useState(params.get('cancelled') ? 'Payment cancelled. Nothing was charged. You can try again below.' : '')
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }))
 
@@ -73,7 +74,7 @@ export default function Order() {
       if (!res.ok || !data.url) throw new Error(data.error || 'We couldn\'t start the payment. Please try again.')
       window.location.assign(data.url)
     } catch (err) {
-      setError(err.message); setSending(false)
+      setError(err.message); setSending(false); setFailed(true)
     }
   }
 
@@ -146,6 +147,13 @@ export default function Order() {
                     <span>I accept the <Link to="/services-terms" style={{ color: 'var(--accent)' }}>services terms</Link> and the <Link to="/refunds" style={{ color: 'var(--accent)' }}>refunds and cancellation policy</Link>.</span>
                   </label>
                   {error && <p role="alert" style={{ margin: 0, padding: '10px 14px', borderRadius: 10, background: 'var(--accent-soft)', color: 'var(--accent)', fontSize: 14 }}>{error}</p>}
+                  {/* If card payment can't start, nobody should be stuck here:
+                      the enquiry form still books them in and we send a payment link. */}
+                  {failed && (
+                    <Link to={`/contact?source=${plan.id === 'bf-website' ? 'black-friday' : 'order'}#brief`} className="btn-secondary" style={{ justifyContent: 'center', width: '100%' }}>
+                      Send us your details instead
+                    </Link>
+                  )}
                   <button type="submit" className="btn-primary" disabled={sending} style={{ justifyContent: 'center', width: '100%' }}>
                     {sending ? 'Opening secure payment…' : `Pay ${pounds(plan.totalPence)} deposit`}
                   </button>
