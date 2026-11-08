@@ -90,7 +90,7 @@ export function preloadRoute(pathname) {
 }
 
 const MailingListPopup = lazy(() => import('./components/MailingListPopup'))
-const WhatsAppButtonLazy = lazy(() => import('./components/WhatsAppButton'))
+const MAILING_POPUP_ON = false
 const ExitIntentLazy = lazy(() => import('./components/ExitIntent'))
 
 function RouteFallback() {
@@ -180,10 +180,9 @@ function MarketingEnhancements() {
 
   return (
     <Suspense fallback={null}>
-      <>
-        <WhatsAppButtonLazy />
-        <ExitIntentLazy />
-      </>
+      {/* The floating WhatsApp button went to David's own mobile; the
+          header's phone number and Book a free call replace it (8 Nov 2026). */}
+      <ExitIntentLazy />
     </Suspense>
   )
 }
@@ -325,7 +324,11 @@ function Layout() {
       <Analytics />
       <Nav />
       <SiteBanner settings={bannerSettings} />
-      {popupReady && (
+      {/* The 45-second mailing-list popup is off (8 Nov 2026): someone
+          looking for a website does not join a web designer's newsletter,
+          and it interrupted them on the pricing page. The component and its
+          CMS settings stay, so it can come back for a real campaign. */}
+      {MAILING_POPUP_ON && popupReady && (
         <Suspense fallback={null}>
           <MailingListPopup settings={mlSettings} />
         </Suspense>

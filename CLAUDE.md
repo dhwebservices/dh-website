@@ -34,7 +34,9 @@ This is the **live** marketing site, https://www.dhwebsiteservices.co.uk. A push
 - **A dynamic segment must be a whole path segment** in React Router v6 (`/web-design-:city` never matches). Generate explicit routes, like `GEO_PAGES`.
 - **Trailing slashes.** Pages serves `/security/`, so never look things up by raw `pathname`; normalise it or pass the key as a prop.
 - **New lazy pages go in `PAGES_BY_SEGMENT` / `preloadRoute()` in `src/App.jsx`.** Otherwise a direct visit shows "Loading…" and the footer jumps (Lighthouse CLS 0.77).
-- **The apex `dhwebsiteservices.co.uk` returns 200, not a 301 to www.** Fix it with a Cloudflare redirect rule, not code: a root `_middleware.js` would run a Function on every asset request.
+- **The apex `dhwebsiteservices.co.uk` 301s to www** (checked 8 Nov 2026). Keep that in Cloudflare, not code: a root `_middleware.js` would run a Function on every asset request.
+- **Briefs from /contact are saved in the `ENQUIRIES` KV namespace** (bound on the Pages project, kept two years) by `functions/api/enquiry.js`, then emailed. Read them in the Cloudflare dashboard under Workers KV.
+- **Visitor numbers: use Cloudflare Web Analytics** (beacon in `index.html`), not the zone's request counts. Those are mostly uptime monitors (PieMonitor, Better Stack, our own `sysadmin-api` Worker) and scanners.
 
 ## Rules
 
