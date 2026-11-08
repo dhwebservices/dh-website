@@ -6,7 +6,7 @@
 // /api/deposit-confirm emails David once Stripe says it is paid.
 
 import { depositPlan } from '../../src/lib/plans.js'
-import { getEnv, json, stripeRequest } from './shop/_lib.js'
+import { json, stripeRequest } from './shop/_lib.js'
 import { bfPlacesLeft } from './_deposits.js'
 
 const clean = (v, max) => String(v ?? '').trim().slice(0, max)
@@ -41,7 +41,9 @@ export async function onRequestPost(context) {
       return json({ error: 'All 10 Black Friday places have gone. Call 01443 805303 and we\'ll tell you what we can do.' }, 409)
     }
 
-    const { siteUrl } = getEnv(context)
+    // The return address is built from this request rather than the SITE_URL
+    // setting, which Stripe rejected as "Not a valid URL".
+    const siteUrl = new URL(context.request.url).origin
     const meta = {
       plan: plan.id,
       plan_name: plan.name,
