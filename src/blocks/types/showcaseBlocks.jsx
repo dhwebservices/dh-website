@@ -234,6 +234,7 @@ export function ClientSitesBlock({ eyebrow, heading, body, items }) {
                 ) : null}
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                   <SmartLink href={item.linkHref} className="btn-primary">{item.linkLabel || 'Visit the site'}</SmartLink>
+                  {item.caseStudyHref ? <SmartLink href={item.caseStudyHref} className="btn-secondary">Read the case study</SmartLink> : null}
                 </div>
               </div>
               <div style={{ background: 'linear-gradient(160deg, #1B2326 0%, #0E1315 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(24px,4vw,48px) clamp(16px,3vw,40px)' }}>

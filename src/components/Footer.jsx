@@ -3,6 +3,7 @@ import MicrosoftPartnerBadge from './MicrosoftPartnerBadge'
 import BrandLogo from './BrandLogo'
 import { XmasFooterBand } from './Christmas'
 import { GEO_CITY_LINKS } from '../lib/seoContent'
+import { blackFridayOn } from '../lib/offers'
 
 const LEGAL = [
   { l: 'Privacy', to: '/privacy' },
@@ -291,6 +292,14 @@ export default function Footer() {
                 Services
               </Link>
               <Link
+                to="/local"
+                style={{ fontSize: 14, color: 'var(--mid)', transition: 'color 0.15s' }}
+                onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
+                onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
+              >
+                DH Local, £79 a month
+              </Link>
+              <Link
                 to="/pricing"
                 style={{ fontSize: 14, color: 'var(--mid)', transition: 'color 0.15s' }}
                 onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
@@ -298,6 +307,16 @@ export default function Footer() {
               >
                 Pricing
               </Link>
+              {blackFridayOn() && (
+                <Link
+                  to="/black-friday"
+                  style={{ fontSize: 14, color: 'var(--mid)', transition: 'color 0.15s' }}
+                  onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
+                  onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
+                >
+                  Black Friday
+                </Link>
+              )}
               <Link
                 to="/calculator"
                 style={{ fontSize: 14, color: 'var(--mid)', transition: 'color 0.15s' }}
@@ -307,14 +326,14 @@ export default function Footer() {
                 Get a quote
               </Link>
               <a
-                href="https://portal.dhwebsiteservices.co.uk"
+                href="https://app.dhwebsiteservices.co.uk"
                 target="_blank"
                 rel="noreferrer"
                 style={{ fontSize: 14, color: 'var(--mid)', transition: 'color 0.15s' }}
                 onMouseOver={(e) => (e.currentTarget.style.color = 'var(--dark)')}
                 onMouseOut={(e) => (e.currentTarget.style.color = 'var(--mid)')}
               >
-                Client Portal
+                Client login
               </a>
             </div>
           </div>
@@ -338,7 +357,7 @@ export default function Footer() {
             </div>
             <div>
               <div style={{ fontSize: 13, color: 'var(--mid)', marginBottom: 2 }}>Weekends</div>
-              <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--dark)' }}>Next business day</div>
+              <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--dark)' }}>Closed, we reply on Monday</div>
             </div>
           </div>
         </div>

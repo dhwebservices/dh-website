@@ -32,7 +32,7 @@ const WHO = ['Pubs and bars', 'Cafés and restaurants', 'Takeaways', 'Salons and
 const FAQ = [
   ['Why is there no build fee?', 'Because we look after the site every month, we spread the cost of building it across the plan. You get a proper website without finding hundreds of pounds upfront.'],
   ['What happens after 12 months?', 'The plan carries on month to month and you can stop with 30 days\' notice. Your domain, words, logo and photos are always yours.'],
-  ['How quickly will my site be live?', 'We aim to have it live within 14 days of getting your words and photos. We tell you exactly what we need on the first call.'],
+  ['How quickly will my site be live?', 'Seven days from getting your words and photos, the same as our other website packages. We tell you exactly what we need on the first call.'],
   ['Can it be in Welsh and English?', 'Yes. A fully bilingual site is a one-off £150 + VAT on top.'],
   ['I need bookings or online ordering.', 'Ask about DH Local Plus, from £149 a month + VAT, which adds table bookings or online ordering and two social posts a week.'],
 ]

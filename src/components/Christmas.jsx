@@ -340,6 +340,10 @@ function NightScene() {
       const r = cv.getBoundingClientRect(); W = Math.max(320, r.width); H = Math.max(400, r.height); D = Math.min(2, window.devicePixelRatio || 1)
       cv.width = W * D; cv.height = H * D; ctx.setTransform(D, 0, 0, D, 0, 0)
       const narrow = W < 760
+      // The scene is drawn at about 70% of its first size so the hero is one
+      // screen, not one and a half (8 Nov 2026). christmas.css matches the
+      // hero's bottom padding to it.
+      const k = narrow ? 0.78 : 0.68
       // sky
       const [sky, s] = layer()
       const gr = s.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#040A16'); gr.addColorStop(0.55, '#0B1C36'); gr.addColorStop(1, '#173257'); s.fillStyle = gr; s.fillRect(0, 0, W, H)
@@ -359,11 +363,11 @@ function NightScene() {
         for (let t = 0; t < W / 14; t++) { const tx = rt() * W, ty = ridge(tx, base, amp, s1, s2, ph) + 6 + rt() * 70, z = 3 + rt() * 5; f.fillStyle = 'rgba(8,18,34,.7)'; f.beginPath(); f.moveTo(tx - z * 0.6, ty); f.lineTo(tx, ty - z * 1.8); f.lineTo(tx + z * 0.6, ty); f.fill() }
         f.beginPath(); for (let x = 0; x <= W; x += 6) { const y = ridge(x, base, amp, s1, s2, ph); x ? f.lineTo(x, y) : f.moveTo(x, y) } f.strokeStyle = 'rgba(235,243,252,.55)'; f.lineWidth = 1.5; f.stroke()
       }
-      range(H - 360, 40, 0.0032, 0.009, 1.1, '#7F93B3', '#203A5E')
-      range(H - 290, 30, 0.0045, 0.013, 2.4, '#5D7699', '#16304F')
+      range(H - 360 * k, 40, 0.0032, 0.009, 1.1, '#7F93B3', '#203A5E')
+      range(H - 290 * k, 30, 0.0045, 0.013, 2.4, '#5D7699', '#16304F')
       // terraces
       const [mid, m] = layer(); const rm = seeded(42); windows = []; chimneys = []
-      const base = H - 215, amp = 22, ph = 3.3
+      const base = H - 215 * k, amp = 22, ph = 3.3
       m.beginPath(); m.moveTo(0, H); for (let x = 0; x <= W; x += 6) m.lineTo(x, ridge(x, base, amp, 0.006, 0.017, ph)); m.lineTo(W, H); m.closePath()
       const mgd = m.createLinearGradient(0, base - 40, 0, H); mgd.addColorStop(0, '#3E5679'); mgd.addColorStop(0.4, '#142A47'); mgd.addColorStop(1, '#0B1A30'); m.fillStyle = mgd; m.fill()
       const walls = ['#1A2A44', '#22324D', '#1D2B3F', '#2A3350', '#202E46']
@@ -388,10 +392,10 @@ function NightScene() {
       }
       // foreground: snow, the Old Bridge, pines
       const [front, g] = layer(); const rf = seeded(99); lamps = []; treeLights = []
-      const ground = H - 90
+      const ground = H - 90 * k
       g.beginPath(); g.moveTo(0, ground); for (let x = 0; x <= W; x += 8) g.lineTo(x, ground - 10 - Math.sin(x * 0.009) * 10); g.lineTo(W, H); g.lineTo(0, H); g.closePath()
       const sg = g.createLinearGradient(0, ground - 30, 0, H); sg.addColorStop(0, '#E4ECF5'); sg.addColorStop(1, '#AFC0D5'); g.fillStyle = sg; g.fill()
-      const span = narrow ? Math.min(230, W * 0.55) : Math.min(420, W * 0.3), Lx = narrow ? W * 0.38 : W * 0.56, Rx = Lx + span, M = (Lx + Rx) / 2, gy = ground + 6, rise = span * 0.38
+      const span = (narrow ? Math.min(230, W * 0.55) : Math.min(420, W * 0.3)) * k, Lx = narrow ? W * 0.38 : W * 0.56, Rx = Lx + span, M = (Lx + Rx) / 2, gy = ground + 6, rise = span * 0.38
       const qp = (t, a, b, c) => (1 - t) * (1 - t) * a + 2 * (1 - t) * t * b + t * t * c
       g.fillStyle = '#081426'; g.beginPath(); g.moveTo(Lx + span * 0.06, gy); g.lineTo(Rx - span * 0.06, gy); g.quadraticCurveTo(Rx + span * 0.2, gy + 40, M + span * 0.9, H); g.lineTo(M - span * 0.7, H); g.quadraticCurveTo(Lx - span * 0.25, gy + 50, Lx + span * 0.06, gy); g.fill()
       g.beginPath(); g.moveTo(Lx - 22, gy - 2); g.quadraticCurveTo(M, gy - rise * 2, Rx + 22, gy - 2); g.lineTo(Rx + 22, gy + 12); g.lineTo(Rx - span * 0.08, gy + 12); g.quadraticCurveTo(M, gy - rise * 1.58, Lx + span * 0.08, gy + 12); g.lineTo(Lx - 22, gy + 12); g.closePath()
@@ -413,8 +417,8 @@ function NightScene() {
         }
         g.fillStyle = '#1A120C'; g.fillRect(tx - 4, ty, 8, 12)
       }
-      pine(narrow ? W * 0.1 : W * 0.06, ground + 10, narrow ? 140 : 220, false)
-      pine(narrow ? W * 0.9 : W * 0.92, ground + 16, narrow ? 160 : 250, true)
+      pine(narrow ? W * 0.1 : W * 0.06, ground + 10, (narrow ? 140 : 220) * k, false)
+      pine(narrow ? W * 0.9 : W * 0.92, ground + 16, (narrow ? 160 : 250) * k, true)
       layers = { sky, far, mid, front }
     }
 

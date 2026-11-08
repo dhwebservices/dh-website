@@ -5,10 +5,12 @@ import BrandLogo from './BrandLogo'
 
 const BookingWidget = lazy(() => import('./BookingWidget').then((module) => ({ default: module.BookingWidget })))
 
+// Shown in full across the top on a wide screen: a buyer should see where
+// the prices are without opening a menu first.
 const LINKS = [
   { to: '/services',   label: 'Services' },
-  { to: '/portfolio',  label: 'Portfolio' },
   { to: '/local',      label: 'DH Local' },
+  { to: '/portfolio',  label: 'Our work' },
   { to: '/pricing',    label: 'Pricing' },
   { to: '/about',      label: 'About' },
 ]
@@ -95,6 +97,18 @@ export default function Nav() {
           <BrandLogo compact />
         </Link>
 
+        <nav className="nav-links site-nav__inline" aria-label="Primary navigation">
+          {navLinks.map(l => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`site-nav__inline-link${loc.pathname.replace(/\/$/, '') === l.to ? ' is-active' : ''}`}
+            >{l.label}</Link>
+          ))}
+        </nav>
+
+        {/* Between tablet and a wide laptop the five links do not fit, so
+            they fold back into a menu button. */}
         <div className="nav-links site-nav" ref={desktopMenuRef}>
           <button
             type="button"
@@ -104,12 +118,12 @@ export default function Nav() {
             aria-controls="desktop-navigation"
             onClick={() => setDesktopMenuOpen((value) => !value)}
           >
-            <span>Browse</span>
+            <span>Menu</span>
             <span className="site-nav__chevron" aria-hidden="true">⌄</span>
           </button>
 
           {desktopMenuOpen && (
-            <nav id="desktop-navigation" className="site-nav__menu" aria-label="Primary navigation">
+            <nav id="desktop-navigation" className="site-nav__menu" aria-label="Site navigation">
               {navLinks.map(l => (
                 <Link
                   key={l.to}
@@ -124,19 +138,14 @@ export default function Nav() {
           )}
         </div>
 
+        {/* One way in: the phone number and one button. Client sign-in lives
+            in the footer and the phone menu, since buyers never need it. */}
         <div className="site-header__actions">
-          <Link to="/contact?mode=brief#brief" className="btn-primary show-mob site-header__mobile-cta">
-            Start brief
-          </Link>
-          <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer"
-            className="site-header__signin hide-mob"
-          >Sign in</a>
-          <button onClick={() => setBookModal(true)} className="site-header__ghost hide-mob">
-            Book a call
+          <a href="tel:+441443805303" className="site-header__phone hide-mob">01443 805303</a>
+          <button onClick={() => setBookModal(true)} className="btn-primary site-header__cta">
+            <span className="hide-mob">Book a free call</span>
+            <span className="show-mob">Book a call</span>
           </button>
-          <Link to="/contact" className="btn-primary hide-mob" style={{ padding: '10px 18px', fontSize: 14, fontWeight: 500 }}>
-            Get started
-          </Link>
 
           <button
             onClick={() => setOpen(o => !o)}
@@ -176,10 +185,10 @@ export default function Nav() {
               ))}
             </nav>
             <div className="mob-menu__actions">
-              <button onClick={() => { setOpen(false); setBookModal(true) }} className="site-header__ghost">
-                Book a call
+              <button onClick={() => { setOpen(false); setBookModal(true) }} className="btn-primary" style={{ justifyContent: 'center' }}>
+                Book a free call
               </button>
-              <Link to="/contact" className="btn-primary" style={{ justifyContent: 'center' }}>Get started</Link>
+              <a href="tel:+441443805303" className="site-header__ghost" style={{ textAlign: 'center' }}>Call 01443 805303</a>
               <a href="https://app.dhwebsiteservices.co.uk" target="_blank" rel="noreferrer" className="btn-secondary" style={{ justifyContent: 'center' }}>Client login</a>
             </div>
           </div>

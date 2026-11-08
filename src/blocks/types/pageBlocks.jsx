@@ -328,7 +328,11 @@ function PricingCta({ dark, to, external, children }) {
  * The three pricing tabs. Tab state lives inside the block - it is behaviour,
  * not content, so there is nothing for an editor to set.
  */
-export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appIntro, appNote, appPlans, appPrimaryLabel, appPrimaryHref, hostingIntro, hrPrimaryLabel, hrPrimaryHref, hrSecondaryLabel, hrSecondaryHref, ctaLabel }) {
+// The tab bar already separates the hero from the cards, so the usual
+// section top padding left a 140px empty band under it.
+const TAB_SECTION = { paddingTop: 'clamp(28px,4vw,48px)' }
+
+export function PricingTabsBlock({ tabs, localOffer, builds, hosting, hrIntro, hrPlans, appIntro, appNote, appPlans, appPrimaryLabel, appPrimaryHref, hostingIntro, hrPrimaryLabel, hrPrimaryHref, hrSecondaryLabel, hrSecondaryHref, ctaLabel }) {
   const [tab, setTab] = useState('build')
   const labels = tabs || [
     { key: 'build', label: 'Website Builds' },
@@ -352,8 +356,23 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
       </div>
 
       {tab === 'build' && (
-        <section className="section">
+        <section className="section" style={TAB_SECTION}>
           <div className="container">
+            {localOffer && (
+              <div className="reveal glass-card-dark" style={{ padding: 'clamp(22px,3vw,30px)', borderRadius: 20, marginBottom: 16, display: 'flex', gap: 20, alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+                <div style={{ maxWidth: 620 }}>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 8 }}>{localOffer.eyebrow}</p>
+                  <h2 style={{ fontSize: 'clamp(20px,2.4vw,26px)', fontWeight: 600, letterSpacing: '-0.02em', color: 'white', marginBottom: 8 }}>{localOffer.heading}</h2>
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: 'rgba(255,255,255,0.7)', margin: 0 }}>{localOffer.body}</p>
+                </div>
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                  <PricingCta dark to={localOffer.primaryHref}>{localOffer.primaryLabel}</PricingCta>
+                  {localOffer.secondaryHref && (
+                    <Link to={localOffer.secondaryHref} style={{ display: 'block', padding: '12px 18px', borderRadius: 100, fontSize: 14, fontWeight: 500, color: 'white', border: '1px solid rgba(255,255,255,0.35)' }}>{localOffer.secondaryLabel}</Link>
+                  )}
+                </div>
+              </div>
+            )}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 16 }}>
               {(withBlackFridayBuilds(builds) || []).map((p, i) => {
                 const dark = p.badge === 'Most Popular'
@@ -391,7 +410,7 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
       )}
 
       {tab === 'hosting' && (
-        <section className="section">
+        <section className="section" style={TAB_SECTION}>
           <div className="container" style={{ maxWidth: 860 }}>
             <div className="reveal" style={{ marginBottom: 40 }}><p className="body-md">{hostingIntro}</p></div>
             <div className="pricing-grid-three" style={{ gap: 16 }}>
@@ -401,7 +420,17 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
                   <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>£{p.price}</div>
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 20, letterSpacing: '0.04em' }}>PER MONTH</p>
-                  <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.6)' : 'var(--mid)', marginBottom: 24, flex: 1 }}>{p.desc}</p>
+                  {/* The features were in the content all along but never
+                      drawn, so the three tiers could not be told apart. */}
+                  <div style={{ flex: 1, marginBottom: 20 }}>
+                    {p.desc && <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.6)' : 'var(--mid)', marginBottom: 12 }}>{p.desc}</p>}
+                    {(p.features || []).map((f) => (
+                      <div key={f} style={{ display: 'flex', gap: 8, marginBottom: 8, fontSize: 13.5, color: p.badge ? 'rgba(255,255,255,0.65)' : 'var(--dark2)', alignItems: 'baseline' }}>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, marginTop: 2 }}><path d="M1.5 6.5L4 9L10.5 2.5" stroke={p.badge ? 'rgba(255,255,255,0.5)' : 'var(--accent)'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        {f}
+                      </div>
+                    ))}
+                  </div>
                   <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
                 </div>
               ))}
@@ -411,7 +440,7 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
       )}
 
       {tab === 'apps' && (
-        <section className="section">
+        <section className="section" style={TAB_SECTION}>
           <div className="container" style={{ maxWidth: 860 }}>
             <div className="reveal" style={{ marginBottom: 32 }}>
               <p className="body-md" style={{ maxWidth: 560 }}>{appIntro}</p>
@@ -446,16 +475,18 @@ export function PricingTabsBlock({ tabs, builds, hosting, hrIntro, hrPlans, appI
       )}
 
       {tab === 'hr' && (
-        <section className="section">
+        <section className="section" style={TAB_SECTION}>
           <div className="container" style={{ maxWidth: 860 }}>
             <div className="reveal" style={{ marginBottom: 40 }}><p className="body-md" style={{ maxWidth: 520 }}>{hrIntro}</p></div>
             <div className="pricing-grid-two" style={{ gap: 16 }}>
-              {(hrPlans || []).map((p, i) => (
+              {/* Same Black Friday prices as the Website tab, so Enterprise +
+                  HR is not £1,899 on one tab and £2,499 on the next. */}
+              {(withBlackFridayApps(hrPlans) || []).map((p, i) => (
                 <div key={p.name} className={`reveal pricing-card ${p.badge ? 'glass-card-dark' : 'glass-card'}`} style={{ padding: '28px 24px', borderRadius: 20, position: 'relative', transitionDelay: `${i * 0.07}s` }}>
                   {p.badge && <div style={{ position: 'absolute', top: 16, right: 16, padding: '3px 10px', borderRadius: 100, background: p.badge === 'Best Value' ? 'white' : 'var(--accent-soft)', fontSize: 11, fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.04em' }}>{p.badge}</div>}
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 12 }}>{p.name}</p>
                   <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1, color: p.badge ? 'white' : 'var(--dark)', marginBottom: 4 }}>{p.price}</div>
-                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 20, letterSpacing: '0.04em' }}>{p.type}</p>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: p.badge ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 20, letterSpacing: '0.04em', textTransform: p.priceNote ? 'uppercase' : undefined }}>{p.priceNote || p.type}</p>
                   <p style={{ fontSize: 14, lineHeight: 1.6, color: p.badge ? 'rgba(255,255,255,0.68)' : 'var(--mid)', marginBottom: 24 }}>{p.desc}</p>
                   <PricingCta dark={!!p.badge} to="/contact">{ctaLabel || 'Get started'}</PricingCta>
                 </div>

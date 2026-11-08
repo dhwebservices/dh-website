@@ -11,6 +11,8 @@ import {
 } from '../lib/booking'
 import { trackEvent } from '../lib/analytics'
 
+// Dates first, details last (8 Nov 2026): seeing free times straight away
+// gets people to commit before we ask for their name and number.
 export function BookingWidget() {
   const [step, setStep] = useState(1)
   const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', notes: '', website: '' })
@@ -29,7 +31,9 @@ export function BookingWidget() {
     trackEvent('booking_started', { source: 'website_booking_widget' })
     fetchAvailability()
       .then((data) => {
-        setAvailability(data)
+        // The calendar is the first step now, so it draws before anything
+        // else could catch an empty reply: never let availability be null.
+        setAvailability(data || { staff: [], availability: [], appointments: [] })
         setLoading(false)
       })
       .catch(() => {
@@ -135,7 +139,7 @@ export function BookingWidget() {
               <div style={{ width: 28, height: 28, borderRadius: '50%', background: step > n ? '#166534' : step === n ? '#1D1D1F' : '#E8E8ED', border: '2px solid ' + (step > n ? '#166534' : step === n ? '#1D1D1F' : '#D2D2D7'), color: step >= n ? '#fff' : 'var(--light)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, transition: 'all 0.25s', flexShrink: 0 }}>
                 {step > n ? '✓' : n}
               </div>
-              <span style={{ fontSize: 12, color: step === n ? '#1D1D1F' : 'var(--light)', fontWeight: step === n ? 600 : 400, whiteSpace: 'nowrap' }}>{['Your details', 'Pick a date', 'Choose a slot'][n - 1]}</span>
+              <span style={{ fontSize: 12, color: step === n ? '#1D1D1F' : 'var(--light)', fontWeight: step === n ? 600 : 400, whiteSpace: 'nowrap' }}>{['Pick a date', 'Choose a time', 'Your details'][n - 1]}</span>
             </div>
             {index < 2 && <div style={{ flex: 1, height: 1.5, background: step > n ? '#166534' : '#D2D2D7', margin: '0 10px', transition: 'background 0.25s' }} />}
           </div>
@@ -143,20 +147,10 @@ export function BookingWidget() {
       </div>
 
       {step === 1 && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Tell us about yourself</h2>
-          {[['name', 'Your name *', 'text'], ['business', 'Business name', 'text'], ['email', 'Email address *', 'email'], ['phone', 'Phone number *', 'tel']].map(([key, placeholder, type]) => (
-            <div key={key}>
-              <label className="field-label" htmlFor={`book-${key}`}>{placeholder}</label>
-              <input id={`book-${key}`} name={key} autoComplete={{ name: 'name', business: 'organization', email: 'email', phone: 'tel' }[key]} className="field-inp" type={type} value={form[key]} onChange={(event) => setForm((current) => ({ ...current, [key]: event.target.value }))} placeholder={placeholder.replace(' *', '')} />
-            </div>
-          ))}
-          <div>
-            <label className="field-label" htmlFor="book-notes">What should we read up on first?</label>
-            <textarea id="book-notes" name="notes" className="field-inp" rows={4} value={form.notes} onChange={(event) => setForm((current) => ({ ...current, notes: event.target.value }))} placeholder="Optional notes about your project or what you want to cover on the call." style={{ resize: 'vertical', lineHeight: 1.6 }} />
-          </div>
-          <input type="text" aria-label="Leave this empty" value={form.website} onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} />
-          <div>
+        <div>
+          <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Pick a date</h2>
+          <p style={{ color: '#6E6E73', fontSize: 13, marginBottom: 16 }}>Free, no obligation. Available dates are in green, up to 30 days ahead.</p>
+          <div style={{ marginBottom: 16 }}>
             <label className="field-label">Call duration</label>
             <div style={{ display: 'flex', gap: 8 }}>
               {[15, 30].map((duration) => (
@@ -166,16 +160,6 @@ export function BookingWidget() {
               ))}
             </div>
           </div>
-          <button className="btn-primary" disabled={!form.name || !form.email || !form.phone} onClick={() => setStep(2)} style={{ justifyContent: 'center', marginTop: 8, opacity: (!form.name || !form.email || !form.phone) ? 0.5 : 1 }}>
-            Choose a date
-          </button>
-        </div>
-      )}
-
-      {step === 2 && (
-        <div>
-          <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Pick a date</h2>
-          <p style={{ color: '#6E6E73', fontSize: 13, marginBottom: 16 }}>Available dates shown in green. Up to 30 days ahead.</p>
           {loading ? (
             <div style={{ textAlign: 'center', padding: 32, color: '#6E6E73', fontSize: 13 }}>Loading availability...</div>
           ) : (
@@ -195,7 +179,7 @@ export function BookingWidget() {
                   const isAvail = !isPast && !isFuture && hasAvailabilityForDate(availability, dateStr, selectedDuration)
                   const isSelected = dateStr === selectedDate
                   return (
-                    <button key={dateStr} disabled={!isAvail} onClick={() => { setSelectedDate(dateStr); setSelectedSlot(null); setStep(3) }}
+                    <button key={dateStr} disabled={!isAvail} onClick={() => { setSelectedDate(dateStr); setSelectedSlot(null); setStep(2) }}
                       style={{ padding: '6px 4px', borderRadius: 7, border: '1px solid ' + (isSelected ? '#1D1D1F' : isAvail ? '#bbf7d0' : '#D2D2D7'), background: isSelected ? '#1D1D1F' : isAvail ? '#f0fdf4' : 'transparent', color: isSelected ? '#fff' : isPast || isFuture ? '#D2D2D7' : isAvail ? '#166534' : '#A1A1A6', cursor: isAvail ? 'pointer' : 'default', fontSize: 12, fontWeight: isAvail ? 500 : 400, transition: 'all 0.15s' }}>
                       {date.getDate()}
                     </button>
@@ -205,11 +189,13 @@ export function BookingWidget() {
             </>
           )}
           {!loading && error && <p style={{ color: '#ef4444', fontSize: 13, marginBottom: 12 }}>{error}</p>}
-          <button className="btn-secondary" onClick={() => setStep(1)} style={{ fontSize: 13 }}>← Back</button>
+          {!loading && !error && !availability.staff?.length && (
+            <p style={{ color: '#6E6E73', fontSize: 13, marginBottom: 12 }}>No times showing? Ring us on <a href="tel:+441443805303" style={{ color: 'var(--accent)' }}>01443 805303</a>.</p>
+          )}
         </div>
       )}
 
-      {step === 3 && (
+      {step === 2 && (
         <div>
           <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Choose a time</h2>
           <p style={{ color: '#6E6E73', fontSize: 13, marginBottom: 16 }}>{new Date(selectedDate + 'T12:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</p>
@@ -251,17 +237,43 @@ export function BookingWidget() {
               </div>
             ))
           })()}
-          {error && <p style={{ color: '#ef4444', fontSize: 13, margin: '8px 0' }}>{error}</p>}
           <div style={{ display: 'flex', gap: 10, marginTop: 16 }}>
-            <button className="btn-secondary" onClick={() => setStep(2)} style={{ fontSize: 13 }}>← Back</button>
+            <button className="btn-secondary" onClick={() => setStep(1)} style={{ fontSize: 13 }}>← Back</button>
             {selectedSlot && (
-              <button className="btn-primary" onClick={submit} disabled={submitting} style={{ flex: 1, justifyContent: 'center' }}>
-                {submitting ? 'Booking...' : 'Confirm booking'}
+              <button className="btn-primary" onClick={() => setStep(3)} style={{ flex: 1, justifyContent: 'center' }}>
+                Next: your details
               </button>
             )}
           </div>
         </div>
       )}
+      {step === 3 && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <h2 style={{ letterSpacing: 'normal', maxWidth: 'none', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontSize: 18, fontWeight: 600, marginBottom: 4 }}>Your details</h2>
+          <p style={{ color: '#6E6E73', fontSize: 13, marginTop: -8 }}>
+            {selectedDuration} minutes on {selectedDate ? new Date(selectedDate + 'T12:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }) : ''} at {selectedSlot?.time} with {selectedSlot?.staffName?.split(' ')[0]}. We call you from 01443 805303.
+          </p>
+          {[['name', 'Your name *', 'text'], ['business', 'Business name', 'text'], ['email', 'Email address *', 'email'], ['phone', 'Phone number *', 'tel']].map(([key, placeholder, type]) => (
+            <div key={key}>
+              <label className="field-label" htmlFor={`book-${key}`}>{placeholder}</label>
+              <input id={`book-${key}`} name={key} autoComplete={{ name: 'name', business: 'organization', email: 'email', phone: 'tel' }[key]} className="field-inp" type={type} value={form[key]} onChange={(event) => setForm((current) => ({ ...current, [key]: event.target.value }))} placeholder={placeholder.replace(' *', '')} />
+            </div>
+          ))}
+          <div>
+            <label className="field-label" htmlFor="book-notes">What should we read up on first?</label>
+            <textarea id="book-notes" name="notes" className="field-inp" rows={4} value={form.notes} onChange={(event) => setForm((current) => ({ ...current, notes: event.target.value }))} placeholder="Optional notes about your project or what you want to cover on the call." style={{ resize: 'vertical', lineHeight: 1.6 }} />
+          </div>
+          <input type="text" aria-label="Leave this empty" value={form.website} onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} />
+          {error && <p style={{ color: '#ef4444', fontSize: 13, margin: 0 }}>{error}</p>}
+          <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
+            <button className="btn-secondary" onClick={() => setStep(2)} style={{ fontSize: 13 }}>← Back</button>
+            <button className="btn-primary" disabled={!form.name || !form.email || !form.phone || submitting} onClick={submit} style={{ flex: 1, justifyContent: 'center', opacity: (!form.name || !form.email || !form.phone) ? 0.5 : 1 }}>
+              {submitting ? 'Booking...' : 'Confirm booking'}
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }
