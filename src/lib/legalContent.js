@@ -167,7 +167,7 @@ Required for the website to function. These cannot be disabled.
 - Security tokens
 
 ### Analytics Cookies
-If analytics is enabled on this site, those tools may set cookies to help us understand usage and improve the website.
+We use Cloudflare Web Analytics to count visits and see which pages are used. It does not set cookies or use local storage, does not track you across other sites, and does not build a profile of you. It records the page, the referring site, your browser type and your country.
 
 ### Preference Cookies
 May remember choices you make on the site where those features are available.

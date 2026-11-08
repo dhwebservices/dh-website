@@ -2,8 +2,8 @@
  * The Contact page as an app block.
  *
  * Moved here wholesale from src/pages/Contact.jsx rather than retyped. It
- * carries the enquiry form, the calculator hand-off, the booking widget and
- * two outbound emails - retyping 200 lines of that to make it "cleaner" is how
+ * carries the enquiry form, the calculator hand-off and the booking widget;
+ * the brief is saved and emailed by functions/api/enquiry.js - retyping 200 lines of that to make it "cleaner" is how
  * a working lead-capture form quietly stops working.
  *
  * Only the surrounding copy is parameterised. Field labels, validation and the
@@ -15,14 +15,13 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCMS } from '../../hooks/useCMS'
 import { BookingWidget } from '../../components/BookingWidget'
-import { sendCustomEmail } from '../../lib/booking'
 import { trackEvent } from '../../lib/analytics'
 import { GEO_CITY_LINKS } from '../../lib/seoContent'
 
 export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeading, successHeading, successBody, geoEyebrow, geoBody }) {
   const { data: cms } = useCMS('contact')
   const { search } = useLocation()
-  const [form, setForm] = useState({ name: '', email: '', business: '', budget: '', timeline: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', business: '', budget: '', timeline: '', message: '', website: '' })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState('')
@@ -50,26 +49,23 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
     setSending(true)
     setError('')
 
-    const summaryHtml = quoteSummary
-      ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Estimate</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${quoteSummary.packageName || 'Custom'} · £${quoteSummary.total || '0'}${quoteSummary.monthly && quoteSummary.monthly !== '0' ? ` + £${quoteSummary.monthly}/mo` : ''}</td></tr>${quoteSummary.features ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Features</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${quoteSummary.features}</td></tr>` : ''}`
-      : blackFriday
-        ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Offer</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px"><strong>Early Black Friday booking</strong>: 3-page website £249 + VAT, care plan £15/mo + VAT for 12 months</td></tr>`
-        : ''
-
     try {
-      await sendCustomEmail({
-        to: 'clients@dhwebsiteservices.co.uk',
-        subject: `${blackFriday ? 'Black Friday booking' : 'New website enquiry'} - ${form.name}`,
-        from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
-        html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:560px"><h2 style="color:#1A1612;margin-bottom:4px">New Website Enquiry</h2><p style="color:#6E6E73;margin-bottom:20px;font-size:14px">Submitted via dhwebsiteservices.co.uk/contact</p><table style="width:100%;border-collapse:collapse;margin-bottom:20px"><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px;width:140px">Name</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.name}</td></tr><tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Email</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.email}</td></tr>${form.business ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Business</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.business}</td></tr>` : ''}${form.budget ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Budget</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.budget}</td></tr>` : ''}${form.timeline ? `<tr><td style="padding:9px 14px;background:#F9FAFB;border:1px solid #E5E7EB;font-weight:600;font-size:13px">Timeline</td><td style="padding:9px 14px;border:1px solid #E5E7EB;font-size:13px">${form.timeline}</td></tr>` : ''}${summaryHtml}</table><div style="padding:16px 18px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px"><div style="font-size:12px;font-weight:700;color:#6E6E73;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Project brief</div><p style="font-size:14px;line-height:1.7;color:#1A1612;white-space:pre-wrap;margin:0">${form.message}</p></div></div>`,
+      // Saved and emailed server-side by functions/api/enquiry.js, so a
+      // failed email no longer loses the lead.
+      const estimate = quoteSummary
+        ? `${quoteSummary.packageName || 'Custom'} · £${quoteSummary.total || '0'}${quoteSummary.monthly && quoteSummary.monthly !== '0' ? ` + £${quoteSummary.monthly}/mo` : ''}${quoteSummary.features ? ` · ${quoteSummary.features}` : ''}`
+        : ''
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          estimate,
+          offer: blackFriday ? 'Early Black Friday: 3-page website £249 + VAT, care plan £15/mo + VAT for 12 months' : '',
+          page: window.location.pathname + window.location.search,
+        }),
       })
-
-      await sendCustomEmail({
-        to: form.email,
-        subject: 'We received your enquiry - DH Website Services',
-        from: 'DH Website Services <clients@dhwebsiteservices.co.uk>',
-        html: `<div style="font-family:Arial,sans-serif;padding:32px;max-width:560px"><h2 style="color:#1A1612;margin-bottom:10px">Thanks, ${form.name.split(' ')[0]}</h2><p style="font-size:14px;line-height:1.7;color:#3D3D3F">We have your enquiry and will reply within 24 hours with a clear next step. If your brief needs a call, we will say so. If it can be priced directly, we will do that too.</p><p style="font-size:14px;line-height:1.7;color:#3D3D3F;margin-top:16px">If you need anything in the meantime, reply to this email or call 01443 805303.</p></div>`,
-      })
+      if (!res.ok) throw new Error('enquiry failed')
 
       trackEvent('contact_enquiry_submitted', {
         source: quoteSummary ? 'calculator_handoff' : blackFriday ? 'black_friday' : 'contact_form',
@@ -278,6 +274,8 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                     <p style={{ fontSize:12, color:'var(--mid)', marginTop:6, fontStyle:'italic' }}>Tip: Include what you like/dislike about your current site, target audience, and key features needed.</p>
                   </div>
                   {error && <p style={{ fontSize:13, color:'#FF3B30' }}>{error}</p>}
+                  {/* Hidden from people; bots fill it and the server drops them. */}
+                  <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={form.website} onChange={(e) => update('website', e.target.value)} style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} />
                   <button className="btn-primary" type="submit" disabled={sending} style={{ justifyContent:'center' }}>
                     {sending ? 'Sending...' : 'Send project brief'}
                   </button>
