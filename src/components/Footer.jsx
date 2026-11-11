@@ -20,6 +20,8 @@ const LEGAL = [
 const COMPANY = [
   { l: 'About', to: '/about' },
   { l: 'Partners', to: '/partners' },
+  { l: 'IT support', to: '/it-support' },
+  { l: 'For agencies', to: '/agencies' },
   { l: 'Portfolio', to: '/portfolio' },
   { l: 'Case studies', to: '/case-studies' },
   { l: 'Guides', to: '/guides' },
