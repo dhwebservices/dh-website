@@ -247,6 +247,44 @@ const BASE_INDEXABLE_PAGES = [
     ctaHref: '/order?plan=dh-local',
   },
   {
+    path: '/agencies',
+    title: 'White Label App and Web Development for Agencies | DH Website Services',
+    description: 'A UK build team for agencies and IT firms: iPhone and Android apps, web apps, portals and integrations, built under your brand. Fixed price or £400 a day + VAT. Based in Pontypridd.',
+    heading: 'Your build team, under your name.',
+    intro: 'You win the app, the portal or the integration. We build it to your brief and your deadline, white label, fixed price or £400 a day + VAT.',
+    sections: [
+      {
+        title: 'What we build',
+        body: 'Native iPhone and Android apps shipped to both stores, web apps and client portals, booking systems, and integrations with Stripe, Microsoft 365, calendars, Twilio and email.',
+      },
+      {
+        title: 'How it works',
+        body: 'Your brand on everything and no contact with your client. NDA first. Fixed price per project or £400 a day + VAT. You get the code, the accounts and a handover note.',
+      },
+    ],
+    ctaLabel: 'Talk about a project',
+    ctaHref: '/contact',
+  },
+  {
+    path: '/it-support',
+    title: 'IT Support for Small Offices in Pontypridd and Cardiff | DH Website Services',
+    description: 'Managed IT for offices of 5 to 25 staff: Microsoft 365, laptops, iPhones and a helpdesk, for £45 a person a month + VAT. Local team in Pontypridd covering the valleys and Cardiff.',
+    heading: 'Your IT department, for £45 a person.',
+    intro: 'Microsoft 365, laptops, phones and a helpdesk that picks up, looked after by a local team in Pontypridd. One monthly price per person.',
+    sections: [
+      {
+        title: 'What is included',
+        body: 'A helpdesk Monday to Friday 9 to 5, Microsoft 365 administration, new starters and leavers, Windows and Apple device management, security set-up, remote fixes and visits, and a quarterly report.',
+      },
+      {
+        title: 'What it costs',
+        body: '£45 per person a month + VAT, plus £250 + VAT to take over your set-up. Three-month minimum, then 30 days\' notice.',
+      },
+    ],
+    ctaLabel: 'Book a free call',
+    ctaHref: '/contact',
+  },
+  {
     path: '/contact',
     title: 'Book a Call | DH Website Services',
     description: 'Book a free project consultation and get a clear plan with a fixed price.',

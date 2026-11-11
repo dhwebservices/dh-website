@@ -62,13 +62,15 @@ const Partners = lazyPage(() => import('./pages/Partners'))
 const BlackFriday = lazyPage(() => import('./pages/BlackFriday'))
 const Order = lazyPage(() => import('./pages/Order'))
 const Local = lazyPage(() => import('./pages/Local'))
+const Agencies = lazyPage(() => import('./pages/Agencies'))
+const ItSupport = lazyPage(() => import('./pages/ItSupport'))
 const ManagedPage = lazyPage(() => import('./pages/ManagedPage'))
 const GeoPage = lazyPage(() => import('./pages/GeoPage'))
 const ArticlePage = lazyPage(() => import('./pages/ArticlePage'))
 const LEGAL_PATHS = new Set(['privacy', 'terms', 'services-terms', 'refunds', 'cookies', 'acceptable-use', 'accessibility', 'security', 'complaints'])
 const PAGES_BY_SEGMENT = {
   services: Services, pricing: Pricing, portfolio: Portfolio, contact: Contact,
-  calculator: Calculator, about: About, partners: Partners, 'black-friday': BlackFriday, order: Order, local: Local,
+  calculator: Calculator, about: About, partners: Partners, 'black-friday': BlackFriday, order: Order, local: Local, agencies: Agencies, 'it-support': ItSupport,
   appointment: Appointment, proposal: Proposal,
 }
 
@@ -394,6 +396,8 @@ function Layout() {
           <Route path="/black-friday" element={<BlackFriday />} />
           <Route path="/order" element={<Order />} />
           <Route path="/local" element={<Local />} />
+          <Route path="/agencies" element={<Agencies />} />
+          <Route path="/it-support" element={<ItSupport />} />
           {/* Fam & a Half is static HTML in public/, not part of this app. An
               in-app link there would otherwise land on NotFound, so any link
               to it, from any block or article, becomes a real page load. */}
