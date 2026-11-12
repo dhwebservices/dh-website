@@ -22,7 +22,7 @@ const RESERVED_SLUGS = new Set([
   '', 'services', 'about', 'partners', 'portfolio', 'pricing', 'calculator',
   'careers', 'contact', 'privacy', 'terms', 'services-terms', 'refunds',
   'cookies', 'acceptable-use', 'accessibility', 'security', 'complaints',
-  'appointment', 'shop', 'local', 'agencies', 'it-support',
+  'appointment', 'shop', 'local', 'agencies', 'it-support', 'holiday-lets', 'takeaways',
 ])
 
 export default function ManagedPage() {
