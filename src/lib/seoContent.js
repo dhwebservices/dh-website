@@ -266,6 +266,40 @@ const BASE_INDEXABLE_PAGES = [
     ctaHref: '/contact',
   },
   {
+    path: '/holiday-lets',
+    title: 'Direct Booking Websites for Holiday Lets, Caravans and Lodges | DH Website Services',
+    description: 'A booking website for caravans, lodges and cottages with two-way Airbnb, VRBO and Booking.com calendar sync, so guests can book direct without a platform fee. Built in Pontypridd.',
+    heading: 'Take bookings direct. Keep the commission.',
+    intro: 'A booking website for your caravans, lodges or cottages, with calendars that sync both ways with Airbnb, VRBO and Booking.com, so nothing double-books.',
+    sections: [
+      {
+        title: 'What you get',
+        body: 'Every unit with photos, prices and live availability, two-way iCal calendar sync, booking requests or card deposits into your own Stripe account, search and filters, and up to 15 pages.',
+      },
+      {
+        title: 'The sums',
+        body: 'Listing sites typically take 15% or more of each booking. On a £600 week that is £90, so around twelve direct bookings pay for the build.',
+      },
+    ],
+    ctaLabel: 'Pay the deposit and start',
+    ctaHref: '/order?plan=pro',
+  },
+  {
+    path: '/takeaways',
+    title: 'Your Own Ordering App for Takeaways and Cafés | DH Website Services',
+    description: 'Customers order and pay from your own ordering app for collection or your own delivery, with card payments straight to your Stripe account. No commission on every order.',
+    heading: 'Your own ordering. No commission on every order.',
+    intro: 'Customers order and pay from your own ordering app, for collection or your own delivery. The delivery apps take a cut of every order; your own ordering does not.',
+    sections: [
+      {
+        title: 'What you get',
+        body: 'Your menu with sizes, extras and allergens, card payments into your own Stripe account, collection times or delivery postcodes, kitchen alerts for new orders, and quick reorders for regulars.',
+      },
+    ],
+    ctaLabel: 'Pay the deposit and start',
+    ctaHref: '/order?plan=booking-app',
+  },
+  {
     path: '/it-support',
     title: 'IT Support for Small Offices in Pontypridd and Cardiff | DH Website Services',
     description: 'Managed IT for offices of 5 to 25 staff: Microsoft 365, laptops, iPhones and a helpdesk, for £45 a person a month + VAT. Local team in Pontypridd covering the valleys and Cardiff.',
