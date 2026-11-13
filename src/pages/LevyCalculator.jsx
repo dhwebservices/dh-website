@@ -16,7 +16,7 @@ const gbp = (n) => n.toLocaleString('en-GB', { style: 'currency', currency: 'GBP
 
 const card = { padding: 'clamp(24px,3vw,32px)', border: '1px solid var(--border-light)', borderRadius: 18, background: 'var(--white, #fff)' }
 const h2 = { fontFamily: 'var(--font-display)', fontSize: 'clamp(26px,3.6vw,38px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }
-const label = { display: 'grid', gap: 6, fontSize: 14, fontWeight: 600 }
+const label = { display: 'grid', gap: 6, fontSize: 14, fontWeight: 600, alignContent: 'start' }
 const input = { padding: '12px 14px', borderRadius: 10, border: '1px solid var(--border-light)', fontSize: 16, fontFamily: 'inherit', background: 'var(--white, #fff)', color: 'inherit' }
 
 function NumberField({ name, value, onChange, min = 0, max = 999, help }) {
