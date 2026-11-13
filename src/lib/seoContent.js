@@ -71,11 +71,15 @@ const makeServiceSchema = (path, title, description) => ({
   url: `${SEO_SITE_URL}${path}`,
   description,
   areaServed: [
-    { '@type': 'City', name: 'Pontypridd' },
-    { '@type': 'City', name: 'Cardiff' },
+    ...['Pontypridd', 'Treforest', 'Porth', 'Tonypandy', 'Treorchy', 'Aberdare', 'Mountain Ash', 'Abercynon', 'Llantrisant', 'Talbot Green', 'Tonyrefail', 'Church Village', 'Caerphilly', 'Merthyr Tydfil', 'Cardiff', 'Newport', 'Bridgend', 'Swansea'].map((name) => ({ '@type': 'City', name })),
+    { '@type': 'AdministrativeArea', name: 'Rhondda Cynon Taf' },
     { '@type': 'AdministrativeArea', name: 'South Wales' },
     { '@type': 'Country', name: 'United Kingdom' },
   ],
+  geo: { '@type': 'GeoCoordinates', latitude: 51.609215, longitude: -3.330585 },
+  hasMap: 'https://www.google.com/maps/search/?api=1&query=DH+Website+Services+Pontypridd',
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' }],
+  knowsAbout: ['Web design', 'Web development', 'iPhone app development', 'Android app development', 'Website hosting', 'SEO', 'Microsoft 365', 'IT support'],
   telephone: '+44 1443 805303',
   email: 'clients@dhwebsiteservices.co.uk',
   serviceType: title,
@@ -509,7 +513,7 @@ const GEO_MARKETS = [
     title: 'Web Design Pontypridd & Rhondda Cynon Taf | DH Website Services',
     description: 'Pontypridd web design and app development, based in Trallwn. Websites for Ponty and Rhondda Cynon Taf businesses from £449, fixed price. Ring 01443 805303.',
     heading: 'Web design in Pontypridd and the Rhondda.',
-    intro: 'We are a web design and app development company based in Pontypridd. If your business is in Ponty, Treforest, Porth, the Rhondda or anywhere else in Rhondda Cynon Taf, we are minutes away.',
+    intro: 'We are web developers and app builders based in Trallwn, Pontypridd. If your business is in Ponty, Treforest, Porth, the Rhondda or anywhere else in Rhondda Cynon Taf, we are minutes away.',
     travel: 'We are local, so we can meet you at your business, in town or on a video call, whichever suits. The first conversation is free and there is no obligation to go ahead.',
     extra: [
       {
@@ -523,6 +527,14 @@ const GEO_MARKETS = [
       {
         title: 'A Pontypridd pub, online',
         body: 'The Maltsters Arms in Pontypridd came to us for a straightforward site. They got a website, an admin area where the team updates events, opening hours and the menu themselves, and a mailing list to tell regulars what is on. It is the kind of job we like most: a local business, a fixed price and something staff actually use every week. The full story is in our case studies.',
+      },
+      {
+        title: 'Web designer or web developer?',
+        body: 'Both, and it matters. A designer makes a site look right; a developer makes it work: booking systems, payments, logins, admin areas, links to the tools you already use. We write the code ourselves rather than dropping your logo into a template, which is how the same team builds iPhone and Android apps too.',
+      },
+      {
+        title: 'Where to find us',
+        body: 'We are in Trallwn, just across the river from Pontypridd town centre. Meetings are by appointment: at your premises, somewhere in town, or on a video call. Monday to Friday, 9am to 5pm.',
       },
       {
         title: 'Ring a Pontypridd number, get us',
