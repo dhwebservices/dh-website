@@ -506,6 +506,9 @@ const BASE_INDEXABLE_PAGES = [
 const GEO_MARKETS = [
   {
     city: 'Pontypridd',
+    title: 'Web Design Pontypridd & Rhondda Cynon Taf | DH Website Services',
+    description: 'Pontypridd web design and app development, based in Trallwn. Websites for Ponty and Rhondda Cynon Taf businesses from £449, fixed price. Ring 01443 805303.',
+    heading: 'Web design in Pontypridd and the Rhondda.',
     intro: 'We are a web design and app development company based in Pontypridd. If your business is in Ponty, Treforest, Porth, the Rhondda or anywhere else in Rhondda Cynon Taf, we are minutes away.',
     travel: 'We are local, so we can meet you at your business, in town or on a video call, whichever suits. The first conversation is free and there is no obligation to go ahead.',
     extra: [
@@ -516,6 +519,14 @@ const GEO_MARKETS = [
       {
         title: 'What we have built here',
         body: 'Our own apps are made in Pontypridd: Fish Tank, a multiplayer game on the App Store and Google Play, and Fam & a Half, a free family location app. We also run our own staff portal and phone system, and we build websites and apps for local businesses.',
+      },
+      {
+        title: 'A Pontypridd pub, online',
+        body: 'The Maltsters Arms in Pontypridd came to us for a straightforward site. They got a website, an admin area where the team updates events, opening hours and the menu themselves, and a mailing list to tell regulars what is on. It is the kind of job we like most: a local business, a fixed price and something staff actually use every week. The full story is in our case studies.',
+      },
+      {
+        title: 'Ring a Pontypridd number, get us',
+        body: 'Our number is 01443 805303, a Pontypridd landline that we answer ourselves. No call centre, no account manager. If we cannot help, we will tell you who can.',
       },
     ],
   },
@@ -584,9 +595,9 @@ function makeGeoPage(market) {
     path,
     city: market.city,
     intentLabel: 'Web design',
-    title: `Web Design & App Development ${market.city} | DH Website Services`,
-    description: `Web design and iPhone and Android apps for ${market.city} businesses. Websites from £449, apps from £349, fixed price.`,
-    heading: `Web design and apps in ${market.city}.`,
+    title: market.title || `Web Design & App Development ${market.city} | DH Website Services`,
+    description: market.description || `Web design and iPhone and Android apps for ${market.city} businesses. Websites from £449, apps from £349, fixed price.`,
+    heading: market.heading || `Web design and apps in ${market.city}.`,
     intro: market.intro,
     sections: [
       { title: 'Getting to you', body: market.travel },
