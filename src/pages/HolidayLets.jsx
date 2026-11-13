@@ -25,6 +25,7 @@ export default function HolidayLets() {
         ['Do I have to come off Airbnb or Booking.com?', 'No. Keep your listings. The calendars sync, so the platforms bring new guests and your own site takes the repeat and direct bookings.'],
         ['Can owners log in to see their unit?', 'Yes, if you manage units for owners. It depends how your current system works, so we confirm that part in writing before you pay anything.'],
         ['How do guests pay?', 'Either a booking request you confirm yourself, or a card deposit through your own Stripe account. The money goes to you, not to us.'],
+        ['What about the Wales visitor levy?', 'Every holiday let in Wales has to register with the Welsh Revenue Authority by 31 March 2027, and councils can charge a per-night levy, starting with Cardiff on 1 April 2027. If guests book direct, the levy has to be shown, charged and recorded by your own booking system, so we build it into the brief. Our visitor levy guide, under Guides, explains the rules.'],
         ['What does it cost after launch?', 'Hosting, security, backups and updates are on a care plan from £35 a month + VAT, starting when the site goes live. Month to month, 30 days\' notice.'],
       ]}
     />

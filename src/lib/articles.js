@@ -154,6 +154,140 @@ You never pay twice for the same thing: the app can reuse your website's content
 [Book a free call](/contact) and tell us how your customers find you and how often they come back. We will tell you honestly which one to do first, even if the answer is neither yet.
 `,
   },
+  {
+    slug: 'app-cost-uk',
+    title: 'How Much Does an App Cost in the UK? (2026 Prices) | DH Website Services',
+    description: 'What it really costs to build an iPhone and Android app for a UK small business in 2026: build prices, Apple and Google fees, and the yearly upkeep nobody mentions.',
+    heading: 'How much does an app cost in the UK?',
+    intro: 'App quotes in the UK range from a few hundred pounds to tens of thousands, and the gap is rarely explained. Here is what actually drives the price, what we charge, and the running costs that come after launch.',
+    published: '2026-11-13',
+    body: `
+## The short answer
+What you pay depends on what the app has to do, not on how many screens it has:
+- **An app version of your website, with push notifications:** a few hundred pounds with us, often several thousand elsewhere
+- **Booking, ordering or loyalty, with card payments:** the next step up, because money and accounts are involved
+- **Your own system or a game:** quoted on the job, because no two are the same
+
+Then there are yearly costs: store fees and keeping the app working when Apple and Google change their rules.
+
+## What we charge
+These are the prices on our [pricing page](/pricing). All exclude VAT.
+- **Simple app, £349:** your website as a real app on the App Store and Google Play, with push notifications. Both store submissions handled.
+- **Booking or ordering app, £699:** customers book or order from their phone, pay by card and get a reminder. You run it from one screen.
+- **Business app or game, from £1,499:** your own system or a full game on both stores, quoted once we know what it has to do.
+- **App care, £29 a month:** from launch. Keeps the app working through iOS and Android updates and covers the store fees.
+
+## The fees Apple and Google charge
+- **Apple Developer Program:** 99 US dollars a year, charged in pounds. The account should be in your business name.
+- **Google Play Console:** a one-off 25 US dollar registration.
+- **A cut of in-app sales:** if you sell digital extras inside the app, the stores take a commission. Physical goods and real-world services, such as a table booking or a takeaway order, are paid by card in the normal way.
+
+Our [App Store guide](/guides/get-your-app-on-the-app-store/) covers accounts, reviews and privacy forms step by step.
+
+## What makes an app cost more
+### Accounts and logins
+The moment customers sign in, you need password resets, a way to delete an account, and Sign in with Apple if you offer other social logins.
+
+### Taking money
+Card payments, refunds and receipts add work and testing, and they are worth getting right.
+
+### Anything live
+Live chat, live locations or multiplayer need a server that runs all the time. Our own [Fam & a Half](/case-studies/fam-and-a-half/) and [Fish Tank](/case-studies/fish-tank/) both do this.
+
+## The cost people forget: upkeep
+Apple and Google change their requirements every year. Google Play, for example, sets a deadline each year for apps to target a recent version of Android, and apps that miss it stop being shown to new users on newer phones. An app nobody looks after slowly stops working. Budget for upkeep from day one, or ask your developer what it costs before you sign.
+
+## Do you need an app at all?
+Often not yet. If people mostly need to find you, a website does that better and costs less. Our [website or app guide](/guides/website-or-app/) goes through it honestly.
+
+If you want a price, [book a free call](/contact) or ring **01443 805303**.
+`,
+  },
+  {
+    slug: 'wales-visitor-levy-holiday-lets',
+    title: 'Wales Visitor Levy: What Holiday Let Owners Need to Do (2026) | DH Website Services',
+    description: 'The Welsh visitor levy in plain English: registering with the WRA by 31 March 2027, the £1.30 and 75p rates, Cardiff from April 2027, and the records you must keep.',
+    heading: 'The Wales visitor levy: what holiday let owners need to do',
+    intro: 'Wales now has a register for every holiday let, B&B and guest house, and a per-night visitor levy that councils can choose to charge. Even if your council never charges it, you still have to register. Here is what applies, when, and how to keep on top of it.',
+    published: '2026-11-13',
+    body: `
+## The short version
+- **Everyone registers.** If you take bookings for overnight stays in Wales, you must register with the Welsh Revenue Authority (WRA) **by 31 March 2027**, whether or not your council charges the levy.
+- **The levy is per person, per night.** The higher rate is **£1.30**, the lower rate is **75p**.
+- **Councils choose.** Each council decides whether to charge it. A council can start on 1 April or 1 October, and must give a year's notice.
+- **Cardiff starts on 1 April 2027.** Cardiff Council has confirmed it. Check the Welsh Government's list for other councils.
+
+This guide is a summary. Always check the [Welsh Government's guidance](https://www.gov.wales/visitor-levy-wales) for your own situation.
+
+## Which rate applies
+The **higher rate (£1.30)** covers hotels, B&Bs, guest houses, self-catering cottages and holiday lets, lodges, chalets, glamping, shepherd's huts, caravan and motorhome pitches, and Airbnb-style rooms.
+
+The **lower rate (75p)** covers tent pitches, and dormitories or shared rooms in places such as hostels and bunkhouses.
+
+## How the levy is worked out
+Guests on the booking, times nights, times the rate. A family of four staying seven nights in a cottage is 28 overnight stays. At £1.30 that is **£36.40**.
+
+## When it starts to matter
+If your property is in a council area that charges the levy, you have to account for it **before** the start date, on bookings made in advance. In Cardiff, the levy has applied since **28 September 2026** to new bookings for stays from 1 April 2027, including extra nights or guests added to existing bookings.
+
+So if you take bookings months ahead, this already affects what you quote guests now.
+
+## The records you have to keep
+For every stay: the dates, the number of visitors and the number of nights. That is the basis of your return to the WRA.
+
+## Returns and payment
+- If you expect to owe **£1,000 or less** in a year, you file **yearly**.
+- If you expect to owe **more than £1,000**, you file **quarterly**.
+
+Returns are filed online with the WRA and paid by bank transfer.
+
+## Booking platforms will not do it all for you
+Airbnb, Booking.com and other platforms may help you add the levy to bookings, but the guidance is clear that the obligation stays with you. Ask each platform and your booking software how they will show, collect and report it.
+
+## Taking direct bookings?
+If guests book with you directly, your own booking system has to handle the levy too: show it to the guest, add it to the price and keep the records. If you are getting a [direct booking website](/holiday-lets) built, make sure the levy is in the brief from the start.
+
+We build direct booking sites for holiday parks and lets in Wales, with calendar sync to Airbnb and Booking.com. [Get in touch](/contact) or ring **01443 805303**.
+`,
+  },
+  {
+    slug: 'phone-line-switch-off-2027',
+    title: 'The 2027 Phone Line Switch-Off: A Checklist for Small Businesses | DH Website Services',
+    description: 'The UK copper phone network (PSTN and ISDN) switches off by 31 January 2027. Here is what stops working in a small business, from alarms to card machines, and what to do now.',
+    heading: 'The 2027 phone line switch-off: a small business checklist',
+    intro: 'The old copper phone network that has carried UK landlines for decades is being switched off, with the industry deadline at 31 January 2027. Phone calls are the easy part. The things that catch businesses out are the boxes on the wall that quietly use the line.',
+    published: '2026-11-13',
+    body: `
+## What is happening
+The analogue phone network (PSTN) and ISDN lines are being retired and replaced with digital lines that run over broadband. Most homes and businesses have already been moved, or will be moved by their provider. The deadline for the switch-off is **31 January 2027**.
+
+If your landline already plugs into your router, your phone calls have probably moved already. The question is what else is still on the old line.
+
+## Things that often still use the old line
+- **Intruder and fire alarms** that dial out to a monitoring centre
+- **Lift emergency phones**
+- **Card machines** that dial out over a phone line instead of broadband or mobile data
+- **Door entry systems** and gate intercoms
+- **Franking machines and fax machines**
+- **Telecare alarms** for elderly or vulnerable people, at work or at home
+- **Old ADSL broadband**, which runs over the same copper
+
+The danger is that some of these look fine locally, with the panel lit and the keypad working, but can no longer call out. You find out when you need it.
+
+## The checklist
+1. **Walk the building.** List everything that plugs into a phone socket, not just the phones.
+2. **Ask each supplier directly.** Your alarm company, lift maintainer and card machine provider can tell you whether your kit works on a digital line.
+3. **Get it in writing.** Note the date each one was checked or replaced.
+4. **Book early.** Engineers get busier the closer the deadline gets.
+5. **Test after any change.** Trigger a test alarm and make a test card payment once a line has moved.
+
+## Phone systems
+If you are replacing your business phones anyway, this is a good time to move to a cloud phone system with call queues, voicemail to email and missed-call alerts. We run our own on our main number, [01443 805303](/case-studies/phone-system/).
+
+## Need a hand?
+We look after IT for small offices in South Wales, including working out what in the building still depends on an old line. See [IT support](/it-support) or ring **01443 805303**.
+`,
+  },
 ]
 
 export const NEWS = [

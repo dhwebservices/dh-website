@@ -26,6 +26,7 @@ const FAQ = [
   ['What does it cost?', '£45 per person a month + VAT, plus a one-off £250 + VAT to take over and tidy up your set-up. Microsoft licences are billed at cost or through us, whichever works out cheaper for you.'],
   ['Is there a contract?', 'Three months to start, so we can get your set-up right, then month to month with 30 days\' notice.'],
   ['We already have someone.', 'Fine. We can take over from them, or just handle Microsoft 365 and devices while they keep the rest. We will tell you honestly on the first call if switching isn\'t worth it.'],
+  ['Will the 2027 phone line switch-off affect us?', 'Probably in ways you would not expect. The old copper network switches off by 31 January 2027, and alarms, lift phones, card machines and door entry systems often still use it. As part of taking over, we list everything in the building that depends on an old line and help you get each one moved. Our switch-off checklist, under Guides, has the details.'],
   ['Do you do Apple as well as Windows?', 'Yes. We manage Macs, iPhones and iPads with the same care as Windows laptops. We run our own Apple device management.'],
 ]
 
