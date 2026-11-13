@@ -78,7 +78,7 @@ const makeServiceSchema = (path, title, description) => ({
   ],
   geo: { '@type': 'GeoCoordinates', latitude: 51.609215, longitude: -3.330585 },
   hasMap: 'https://www.google.com/maps/search/?api=1&query=DH+Website+Services+Pontypridd',
-  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' }],
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '09:00', closes: '17:00' }],
   knowsAbout: ['Web design', 'Web development', 'iPhone app development', 'Android app development', 'Website hosting', 'SEO', 'Microsoft 365', 'IT support'],
   telephone: '+44 1443 805303',
   email: 'clients@dhwebsiteservices.co.uk',
@@ -534,7 +534,7 @@ const GEO_MARKETS = [
       },
       {
         title: 'Where to find us',
-        body: 'We are in Trallwn, just across the river from Pontypridd town centre. Meetings are by appointment: at your premises, somewhere in town, or on a video call. Monday to Friday, 9am to 5pm.',
+        body: 'We are in Trallwn, just across the river from Pontypridd town centre. Meetings are by appointment: at your premises, somewhere in town, or on a video call. Monday to Saturday, 9am to 5pm.',
       },
       {
         title: 'Ring a Pontypridd number, get us',
