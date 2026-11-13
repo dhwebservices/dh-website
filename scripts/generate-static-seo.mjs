@@ -172,7 +172,7 @@ function pageContent(page) {
 const LINK_GROUPS = [
   ['Services', (p) => ['/services', '/pricing', '/local', '/agencies', '/it-support', '/holiday-lets', '/takeaways', '/calculator'].includes(p.path)],
   ['Areas', (p) => p.path.startsWith('/web-design-')],
-  ['Guides', (p) => p.path.startsWith('/guides')],
+  ['Guides', (p) => p.path.startsWith('/guides') || p.path === '/visitor-levy-calculator'],
   ['Case studies', (p) => p.path.startsWith('/case-studies') || p.path.startsWith('/news')],
   ['Company', (p) => ['/about', '/portfolio', '/partners', '/careers', '/contact'].includes(p.path)],
 ]
@@ -181,7 +181,7 @@ function siteLinksHtml() {
     '/services': 'Services', '/pricing': 'Pricing', '/local': 'DH Local, £79 a month', '/agencies': 'For agencies',
     '/it-support': 'IT support for offices', '/holiday-lets': 'Holiday let booking sites', '/takeaways': 'Takeaway ordering',
     '/calculator': 'Project calculator', '/about': 'About us', '/portfolio': 'Our work', '/partners': 'Partners',
-    '/careers': 'Careers', '/contact': 'Contact', '/guides': 'All guides', '/case-studies': 'All case studies', '/news': 'News',
+    '/careers': 'Careers', '/contact': 'Contact', '/guides': 'All guides', '/case-studies': 'All case studies', '/news': 'News', '/visitor-levy-calculator': 'Visitor levy calculator',
   }
   const label = (p) => escapeHtml(SHORT[p.path] || (p.heading || p.title || p.path).split(' | ')[0].replace(/\.$/, ''))
   const groups = LINK_GROUPS.map(([name, test]) => {

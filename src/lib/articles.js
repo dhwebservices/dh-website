@@ -227,6 +227,8 @@ The **lower rate (75p)** covers tent pitches, and dormitories or shared rooms in
 ## How the levy is worked out
 Guests on the booking, times nights, times the rate. A family of four staying seven nights in a cottage is 28 overnight stays. At £1.30 that is **£36.40**.
 
+Try your own numbers with our free [visitor levy calculator](/visitor-levy-calculator/).
+
 ## When it starts to matter
 If your property is in a council area that charges the levy, you have to account for it **before** the start date, on bookings made in advance. In Cardiff, the levy has applied since **28 September 2026** to new bookings for stays from 1 April 2027, including extra nights or guests added to existing bookings.
 
