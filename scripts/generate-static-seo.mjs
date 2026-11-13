@@ -159,6 +159,45 @@ function pageContent(page) {
   `
 }
 
+
+/**
+ * The site's links, in the prerendered HTML.
+ *
+ * The React nav and footer only exist after JavaScript runs, so the HTML a
+ * crawler fetches first linked to two pages. Search Console showed the guides
+ * and case studies as "Discovered - currently not indexed": known about, never
+ * fetched. This puts every indexable page one link from every other page. The
+ * app replaces #root on load, so visitors see the normal footer.
+ */
+const LINK_GROUPS = [
+  ['Services', (p) => ['/services', '/pricing', '/local', '/agencies', '/it-support', '/holiday-lets', '/takeaways', '/calculator'].includes(p.path)],
+  ['Areas', (p) => p.path.startsWith('/web-design-')],
+  ['Guides', (p) => p.path.startsWith('/guides')],
+  ['Case studies', (p) => p.path.startsWith('/case-studies') || p.path.startsWith('/news')],
+  ['Company', (p) => ['/about', '/portfolio', '/partners', '/careers', '/contact'].includes(p.path)],
+]
+function siteLinksHtml() {
+  const SHORT = {
+    '/services': 'Services', '/pricing': 'Pricing', '/local': 'DH Local, £79 a month', '/agencies': 'For agencies',
+    '/it-support': 'IT support for offices', '/holiday-lets': 'Holiday let booking sites', '/takeaways': 'Takeaway ordering',
+    '/calculator': 'Project calculator', '/about': 'About us', '/portfolio': 'Our work', '/partners': 'Partners',
+    '/careers': 'Careers', '/contact': 'Contact', '/guides': 'All guides', '/case-studies': 'All case studies', '/news': 'News',
+  }
+  const label = (p) => escapeHtml(SHORT[p.path] || (p.heading || p.title || p.path).split(' | ')[0].replace(/\.$/, ''))
+  const groups = LINK_GROUPS.map(([name, test]) => {
+    const pages = INDEXABLE_PAGES.filter((p) => !p.noindex && test(p))
+    if (!pages.length) return ''
+    const items = pages.map((p) => `<li><a href="${withTrailingSlash(p.path)}">${label(p)}</a></li>`).join('')
+    return `<div><p class="eyebrow" style="margin:0 0 10px">${name}</p><ul style="list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px">${items}</ul></div>`
+  }).join('')
+  return `
+    <footer class="section" style="border-top:1px solid var(--border-light)">
+      <nav class="container" aria-label="Site" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px">${groups}</nav>
+      <p class="container body-sm" style="margin-top:24px">DH Website Services, Pontypridd · <a href="tel:+441443805303">01443 805303</a></p>
+    </footer>
+  `
+}
+
 function buildHtml(page, assetTags) {
   // FAQ schema only on the pages where the questions are actually answered,
   // because marking up content that is not on the page is exactly what
@@ -200,7 +239,7 @@ function buildHtml(page, assetTags) {
     ${schema}
   </head>
   <body>
-    <div id="root">${pageContent(page)}</div>
+    <div id="root">${pageContent(page)}${siteLinksHtml()}</div>
     ${assetTags.scripts}
   </body>
 </html>`
