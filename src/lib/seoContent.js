@@ -270,6 +270,20 @@ const BASE_INDEXABLE_PAGES = [
     ctaHref: '/contact',
   },
   {
+    path: '/visitor-levy-calculator',
+    title: 'Wales Visitor Levy Calculator (2027 Rates) | DH Website Services',
+    description: 'Free Wales visitor levy calculator: work out the levy on a booking at £1.30 or 75p per person per night, your yearly total, and whether you file yearly or quarterly.',
+    heading: 'Wales visitor levy calculator',
+    intro: 'Work out the levy on a booking and roughly what you will owe in a year, using the Welsh Government rates: £1.30 per person per night for most holiday lets, 75p for tents and shared rooms.',
+    sections: [
+      { title: 'How it is worked out', body: 'Guests on the booking, times nights, times the rate. Under-18s are not counted where the lower rate applies. Four guests for seven nights in a cottage is 28 overnight stays, or £36.40.' },
+      { title: 'Yearly or quarterly', body: 'If you expect to owe £1,000 or less in a year you file one return a year; above that, quarterly. Every provider registers with the Welsh Revenue Authority by 31 March 2027.' },
+    ],
+    ctaLabel: 'Direct booking websites',
+    ctaHref: '/holiday-lets',
+    schema: { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Wales visitor levy calculator', url: 'https://www.dhwebsiteservices.co.uk/visitor-levy-calculator/', applicationCategory: 'FinanceApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' }, publisher: { '@type': 'Organization', name: 'DH Website Services' } },
+  },
+  {
     path: '/holiday-lets',
     title: 'Direct Booking Websites for Holiday Lets, Caravans and Lodges | DH Website Services',
     description: 'A booking website for caravans, lodges and cottages with two-way Airbnb, VRBO and Booking.com calendar sync, so guests can book direct without a platform fee. Built in Pontypridd.',
