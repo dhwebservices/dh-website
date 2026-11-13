@@ -336,6 +336,10 @@ async function write404Page(assetTags) {
     ${assetTags.styles}
   </head>
   <body>
+    <!-- #root lets the app take over, so missing pages get the full 404 page
+         (nav, footer, the dead-end game). This static copy shows until then
+         and stays for anyone without JavaScript. -->
+    <div id="root">
     <main style="padding:140px 20px 80px;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center">
       <div>
         <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin:0 0 16px">404</p>
@@ -344,6 +348,7 @@ async function write404Page(assetTags) {
         <a href="/" class="btn-primary">Go home →</a>
       </div>
     </main>
+    </div>
     ${assetTags.scripts}
   </body>
 </html>`
