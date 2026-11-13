@@ -150,7 +150,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://facebook.com/dhwebsiteservices"
+                  href="https://www.facebook.com/dhwebservices"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
