@@ -15,11 +15,22 @@ export const PORTFOLIO_DOCUMENT = {
       id: 'portfolio-hero',
       type: 'page-hero',
       props: {
-        eyebrow: 'Our work',
-        heading: 'Apps and websites\nwe have shipped.',
-        body: 'Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is on the App Store. The Maltsters Arms in Pontypridd runs on a website we built.',
+        eyebrow: 'Portfolio',
+        heading: 'Our work',
+        body: 'The Maltsters Arms in Pontypridd runs on a website we built and look after. We also build and run our own apps: Fish Tank is on both app stores, Fam & a Half is on the App Store, and our staff portal and phone system run the business every day.',
         maxWidth: 760,
         bodyMaxWidth: 560,
+      },
+    },
+
+    {
+      id: 'portfolio-clients',
+      type: 'client-sites',
+      props: {
+        eyebrow: 'Websites',
+        heading: 'Client websites',
+        body: 'Live, and still looked after by us.',
+        items: CLIENT_SITES,
       },
     },
 
@@ -28,20 +39,9 @@ export const PORTFOLIO_DOCUMENT = {
       type: 'work-showcase',
       props: {
         eyebrow: 'Apps',
-        heading: 'Built and run by us.',
+        heading: 'Our own apps',
         body: 'We make our own products as well as client work. It is the quickest way to show what we can do, and it means we have dealt with app review, push notifications and live servers ourselves.',
         items: WORK_ITEMS,
-      },
-    },
-
-    {
-      id: 'portfolio-clients',
-      type: 'client-sites',
-      props: {
-        eyebrow: 'Client websites',
-        heading: 'Live for local businesses.',
-        body: 'Real sites for real businesses, still live, and still looked after by us.',
-        items: CLIENT_SITES,
       },
     },
 

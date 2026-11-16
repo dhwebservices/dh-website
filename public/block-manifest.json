@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T01:33:18.826Z",
+  "generatedAt": "2026-11-16T01:35:40.291Z",
   "blocks": [
     {
       "type": "hero",
@@ -2511,7 +2511,7 @@
           "type": "about-hero",
           "props": {
             "eyebrow": "About",
-            "heading": "A small team.\nApps and websites.",
+            "heading": "Two people in Pontypridd",
             "lead": "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project.",
             "body": "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
             "primaryLabel": "Start a project →",
@@ -2544,7 +2544,7 @@
           "type": "team",
           "props": {
             "eyebrow": "The team",
-            "heading": "Who you will\ndeal with.",
+            "heading": "Who you will deal with",
             "body": "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. Ring 01443 805303 and you get one of them.",
             "people": [
               {
@@ -2578,7 +2578,7 @@
           "type": "values-grid",
           "props": {
             "eyebrow": "How we work",
-            "heading": "What you can expect.",
+            "heading": "What to expect",
             "items": [
               {
                 "title": "Fixed price",
@@ -2612,7 +2612,7 @@
           "type": "closing-cta",
           "props": {
             "eyebrow": "Ready to work together?",
-            "heading": "Let us build something that works.",
+            "heading": "Tell us what you need",
             "body": "Free 15 minute call. Clear plan. Fixed price. No obligation.",
             "primaryLabel": "Book a free call →",
             "primaryHref": "/contact",
@@ -3357,11 +3357,36 @@
           "id": "portfolio-hero",
           "type": "page-hero",
           "props": {
-            "eyebrow": "Our work",
-            "heading": "Apps and websites\nwe have shipped.",
-            "body": "Go and look at them. Fish Tank is on both app stores, our staff portal and phone system run the business every day, and Fam & a Half, our family location app, is on the App Store. The Maltsters Arms in Pontypridd runs on a website we built.",
+            "eyebrow": "Portfolio",
+            "heading": "Our work",
+            "body": "The Maltsters Arms in Pontypridd runs on a website we built and look after. We also build and run our own apps: Fish Tank is on both app stores, Fam & a Half is on the App Store, and our staff portal and phone system run the business every day.",
             "maxWidth": 760,
             "bodyMaxWidth": 560
+          }
+        },
+        {
+          "id": "portfolio-clients",
+          "type": "client-sites",
+          "props": {
+            "eyebrow": "Websites",
+            "heading": "Client websites",
+            "body": "Live, and still looked after by us.",
+            "items": [
+              {
+                "name": "The Maltsters Arms",
+                "place": "Pub · Bridge Street, Pontypridd",
+                "status": "Live",
+                "desc": "A new website for a local pub. It is built around their own photos of the building at night, with a neon sign, the week's offers and what is on.",
+                "points": "What's On page the pub updates itself · Their own login for opening hours, drinks, photos and notices · Mailing list for events · Built, hosted and looked after by us",
+                "image": "/work/maltsters-arms-site.jpg",
+                "imageSmall": "/work/maltsters-arms-site-960.jpg",
+                "imageAlt": "The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it",
+                "url": "maltstersponty.com",
+                "linkLabel": "Visit the site",
+                "linkHref": "https://maltstersponty.com/",
+                "caseStudyHref": "/case-studies/maltsters-arms/"
+              }
+            ]
           }
         },
         {
@@ -3369,7 +3394,7 @@
           "type": "work-showcase",
           "props": {
             "eyebrow": "Apps",
-            "heading": "Built and run by us.",
+            "heading": "Our own apps",
             "body": "We make our own products as well as client work. It is the quickest way to show what we can do, and it means we have dealt with app review, push notifications and live servers ourselves.",
             "items": [
               {
@@ -3419,31 +3444,6 @@
                 "desc": "Our own phone system, built to replace a hosted one. The greeting, the call menu, the queue and who rings in what order all run on our code, with Twilio carrying the calls. Ring 01443 805303 and you are on it.",
                 "flow": "Incoming call → Greeting and menu → Queue → Rings the team",
                 "panel": "#F4F5F3"
-              }
-            ]
-          }
-        },
-        {
-          "id": "portfolio-clients",
-          "type": "client-sites",
-          "props": {
-            "eyebrow": "Client websites",
-            "heading": "Live for local businesses.",
-            "body": "Real sites for real businesses, still live, and still looked after by us.",
-            "items": [
-              {
-                "name": "The Maltsters Arms",
-                "place": "Pub · Bridge Street, Pontypridd",
-                "status": "Live",
-                "desc": "A new website for a local pub. It is built around their own photos of the building at night, with a neon sign, the week's offers and what is on.",
-                "points": "What's On page the pub updates itself · Their own login for opening hours, drinks, photos and notices · Mailing list for events · Built, hosted and looked after by us",
-                "image": "/work/maltsters-arms-site.jpg",
-                "imageSmall": "/work/maltsters-arms-site-960.jpg",
-                "imageAlt": "The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it",
-                "url": "maltstersponty.com",
-                "linkLabel": "Visit the site",
-                "linkHref": "https://maltstersponty.com/",
-                "caseStudyHref": "/case-studies/maltsters-arms/"
               }
             ]
           }
@@ -3766,7 +3766,7 @@
           "type": "page-hero",
           "props": {
             "eyebrow": "Services",
-            "heading": "Apps and websites,\nbuilt properly.",
+            "heading": "Websites, apps and IT for local businesses",
             "body": "We build iPhone and Android apps and design websites for businesses, then host and look after them. Everything else we do supports those two.",
             "maxWidth": 720,
             "bodyMaxWidth": 520
@@ -3857,7 +3857,7 @@
           "type": "process-steps",
           "props": {
             "eyebrow": "How it works",
-            "heading": "How it goes.",
+            "heading": "How it goes",
             "steps": [
               {
                 "n": "01",
@@ -3896,7 +3896,7 @@
           "type": "app.geo-links",
           "props": {
             "eyebrow": "Areas we cover",
-            "heading": "Where we work.",
+            "heading": "Where we work",
             "body": "We are based in Pontypridd, meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK."
           }
         }

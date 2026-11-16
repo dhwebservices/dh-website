@@ -16,7 +16,7 @@ export const ABOUT_DOCUMENT = {
       type: "about-hero",
       props: {
         eyebrow: "About",
-        heading: "A small team.\nApps and websites.",
+        heading: "Two people in Pontypridd",
         lead: "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project.",
         body: "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
         primaryLabel: "Start a project →",
@@ -49,7 +49,7 @@ export const ABOUT_DOCUMENT = {
       type: "team",
       props: {
         eyebrow: "The team",
-        heading: "Who you will\ndeal with.",
+        heading: "Who you will deal with",
         body: "Two names to remember. David Hooper builds, Jack Deane keeps everything moving. Ring 01443 805303 and you get one of them.",
         people: TEAM_PEOPLE,
         background: "var(--white)"
@@ -60,7 +60,7 @@ export const ABOUT_DOCUMENT = {
       type: "values-grid",
       props: {
         eyebrow: "How we work",
-        heading: "What you can expect.",
+        heading: "What to expect",
         items: [
           {
             title: "Fixed price",
@@ -94,7 +94,7 @@ export const ABOUT_DOCUMENT = {
       type: "closing-cta",
       props: {
         eyebrow: "Ready to work together?",
-        heading: "Let us build something that works.",
+        heading: "Tell us what you need",
         body: "Free 15 minute call. Clear plan. Fixed price. No obligation.",
         primaryLabel: "Book a free call →",
         primaryHref: "/contact",
