@@ -7,7 +7,7 @@ function renderMarkdown(text) {
   return text
     .split('\n')
     .map((line, i) => {
-      if (line.startsWith('## ')) return <h2 key={i} style={{ fontFamily: 'var(--font-sans)', fontSize: '20px', fontWeight: 700, marginTop: '32px', marginBottom: '12px', color: 'var(--dark)' }}>{line.slice(3)}</h2>
+      if (line.startsWith('## ')) return <h2 key={i} style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 700, marginTop: '32px', marginBottom: '12px', color: 'var(--dark)' }}>{line.slice(3)}</h2>
       if (line.startsWith('### ')) return <h3 key={i} style={{ fontSize: '16px', fontWeight: 700, marginTop: '20px', marginBottom: '8px', color: 'var(--cyan)' }}>{line.slice(4)}</h3>
       if (line.startsWith('- ')) {
         const parts = line.slice(2).split(/\*\*(.*?)\*\*/)
@@ -31,7 +31,7 @@ export default function Legal({ page }) {
 
   if (!policy) return (
     <main style={{ paddingTop: '88px', padding: '120px 24px', textAlign: 'center' }}>
-      <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: '40px', fontWeight: 800, marginBottom: '16px' }}>Page Not Found</h1>
+      <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '40px', fontWeight: 800, marginBottom: '16px' }}>Page Not Found</h1>
       <Link to="/" style={{ color: 'var(--cyan)' }}>← Back to Home</Link>
     </main>
   )
@@ -47,7 +47,7 @@ export default function Legal({ page }) {
           <div style={{ display: 'inline-block', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '16px' }}>
 Legal
           </div>
-          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.0, marginBottom: '8px' }}>{policy.title}</h1>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.0, marginBottom: '8px' }}>{policy.title}</h1>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--light)', letterSpacing: '0.06em', marginBottom: '40px' }}>Last updated: {policy.updated}</p>
           <div style={{ padding: '40px', background: 'var(--white)', border: '1px solid var(--border)', borderRadius: '4px' }}>
             {renderMarkdown(policy.content)}

@@ -61,11 +61,10 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              iPhone and Android apps and web design, from a small team in Pontypridd, serving Cardiff and Wales. Working with
-              clients across the UK.
+              Websites and apps for local businesses, from a two-person team in Pontypridd, serving Cardiff and South Wales.
             </p>
             <div style={{ marginBottom: 20, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12 }}>
-              <MicrosoftPartnerBadge width={180} framed />
+              <MicrosoftPartnerBadge width={120} framed />
               <a
                 href="https://www.thegreenwebfoundation.org/green-web-check/?url=dhwebsiteservices.co.uk"
                 target="_blank"
@@ -75,8 +74,8 @@ export default function Footer() {
                 <img
                   src="https://app.greenweb.org/api/v3/greencheckimage/dhwebsiteservices.co.uk?nocache=true"
                   alt="This website runs on green hosting - verified by thegreenwebfoundation.org"
-                  width="160"
-                  height="76"
+                  width="110"
+                  height="52"
                   loading="lazy"
                 />
               </a>

@@ -11,7 +11,7 @@
 import { Link } from 'react-router-dom'
 import { blackFridayOn, withBlackFridayPackages, withBlackFridayStats } from '../../lib/offers'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
-import { HeroBg, Typewriter, PricingCard } from '../shared/HomeParts'
+import { Typewriter, PricingCard } from '../shared/HomeParts'
 import { Icon } from '../shared/Icon'
 import { XmasHero } from '../../components/Christmas'
 
@@ -32,52 +32,64 @@ function Lines({ text }) {
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
 
-export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref, stats, showScrollHint }) {
+/*
+ * 16 Nov 2026 rebuild. The hero used to be a full-screen dark sky with the
+ * offer floating in it and a dotted grid behind; the only proof we can do the
+ * job was three screens down. Now: the offer on the left, the real site we
+ * built (Maltsters) on the right, and one main action, which is the call.
+ */
+export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref, stats, showcase }) {
   return (
-    <section
-      className="home-hero"
-      style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', position: 'relative', overflow: 'hidden', padding: 'calc(var(--nav-h) + clamp(10px,2vw,18px)) clamp(20px,5vw,60px) clamp(60px,8vw,100px)' }}
-    >
-      <HeroBg />
+    <section className="home-hero">
       <XmasHero />
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 880, margin: '0 auto', width: '100%' }}>
-        {blackFridayOn() && (
-          <Link to="/black-friday" className="bf-pill" style={{ animation: 'fadeUp 0.7s ease both' }}>
-            <span className="bf-pill__tag">Early Black Friday</span>
-            <span>Prices now live: 3-page websites £249 + VAT</span>
-            <span aria-hidden="true">→</span>
-          </Link>
+      <div className="home-hero__grid container">
+        <div className="home-hero__copy">
+          {blackFridayOn() && (
+            <Link to="/black-friday" className="bf-pill">
+              <span className="bf-pill__tag">Black Friday</span>
+              <span>3-page websites £249 + VAT until 30 Nov</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          )}
+          <h1 className="home-hero__title">
+            {headlineLead}<br />
+            <Typewriter lines={typewriterLines} />
+          </h1>
+
+          <p className="body-lg home-hero__body">{body}</p>
+
+          <div className="home-hero__actions">
+            <Link to={primaryHref} className="btn-primary">{primaryLabel}</Link>
+            <Link to={secondaryHref} className="btn-secondary">{secondaryLabel}</Link>
+          </div>
+
+          {(stats || []).length > 0 && (
+            <ul className="home-hero__stats">
+              {withBlackFridayStats(stats).map((stat) => (
+                <li key={stat.label}><strong>{stat.value}</strong> {stat.label}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {showcase?.image && (
+          <figure className="home-hero__shot">
+            <a href={showcase.href} target="_blank" rel="noopener noreferrer" className="home-hero__frame">
+              <span className="home-hero__bar" aria-hidden="true"><i /><i /><i /><span>{showcase.url}</span></span>
+              <img
+                src={showcase.image}
+                srcSet={showcase.imageSmall ? `${showcase.imageSmall} 960w, ${showcase.image} 1440w` : undefined}
+                sizes="(max-width: 900px) 100vw, 560px"
+                alt={showcase.alt || ''} width="1440" height="900" fetchpriority="high"
+              />
+            </a>
+            <figcaption>
+              {showcase.caption}{' '}
+              {showcase.caseStudyHref && <Link to={showcase.caseStudyHref}>Read how we built it →</Link>}
+            </figcaption>
+          </figure>
         )}
-        <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(44px,7vw,88px)', fontWeight: 600, letterSpacing: '-0.035em', lineHeight: 1.0, marginBottom: 24, animation: 'fadeUp 0.7s ease 0.05s both' }}>
-          {headlineLead}<br />
-          <Typewriter lines={typewriterLines} />
-        </h1>
-
-        <p className="body-lg" style={{ maxWidth: 520, marginBottom: 40, animation: 'fadeUp 0.7s ease 0.1s both' }}>{body}</p>
-
-        <div className="home-hero__actions" style={{ display: 'flex', gap: 12, flexWrap: 'wrap', animation: 'fadeUp 0.7s ease 0.15s both' }}>
-          <Link to={primaryHref} className="btn-primary">
-            {primaryLabel}<span style={{ marginLeft: 2, opacity: 0.7 }}>→</span>
-          </Link>
-          <Link to={secondaryHref} className="btn-ghost">{secondaryLabel}</Link>
-        </div>
-
-        <div className="home-hero__stats" style={{ display: 'flex', alignItems: 'center', gap: 24, marginTop: 56, flexWrap: 'wrap', animation: 'fadeUp 0.7s ease 0.2s both' }}>
-          {(withBlackFridayStats(stats) || []).map((stat) => (
-            <div key={stat.label}>
-              <div style={{ fontSize: 20, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1 }}>{stat.value}</div>
-              <div style={{ fontSize: 12, color: 'var(--light)', marginTop: 3 }}>{stat.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
-
-      {showScrollHint && (
-        <div className="home-hero__scroll-hint" style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, animation: 'fadeIn 1s ease 1.5s both', opacity: 0, animationFillMode: 'forwards' }}>
-          <div style={{ width: 1, height: 32, background: 'linear-gradient(to bottom, transparent, var(--border))' }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--light)' }}>Scroll</span>
-        </div>
-      )}
     </section>
   )
 }
@@ -130,7 +142,7 @@ export function AwardBannerBlock({ image, imageAlt, eyebrow, heading, body, link
         )}
         <div className="award-banner-text">
           {eyebrow && <p className="eyebrow" style={{ marginBottom: 8 }}>{eyebrow}</p>}
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 8 }}>{heading}</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 8 }}>{heading}</h2>
           {body && <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--mid)', maxWidth: 680, margin: 0 }}>{body}</p>}
           {linkHref && (
             <Link to={linkHref} style={{ display: 'inline-block', marginTop: 12, fontSize: 15, fontWeight: 600, color: 'var(--accent)' }}>
@@ -151,7 +163,7 @@ export function PartnerHighlightBlock({ eyebrow, heading, body, primaryLabel, pr
       <div className="container partner-highlight-grid" style={{ gap: 32, alignItems: 'center' }}>
         <div className="reveal">
           <p className="eyebrow" style={{ marginBottom: 12 }}>{eyebrow}</p>
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(30px,4vw,50px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 14, maxWidth: 680 }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(30px,4vw,50px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 14, maxWidth: 680 }}>
             {heading}
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--mid)', maxWidth: 650, marginBottom: 24 }}>{body}</p>
@@ -224,12 +236,7 @@ export function WhyGridBlock({ eyebrow, heading, items }) {
         <div className="why-grid" style={{ gap: 1, background: 'var(--border-light)', border: '1px solid var(--border-light)', borderRadius: 20, overflow: 'hidden' }}>
           {(items || []).map((item, i) => (
             <div key={item.title} className="reveal" style={{ padding: '32px 28px', background: 'var(--white)', transitionDelay: `${i * 0.05}s` }}>
-              <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 7L5.5 10.5L12 3" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 style={{ fontSize: 15, fontWeight: 600, marginBottom: 6, letterSpacing: '-0.01em' }}>{item.title}</h3>
+              <h3 style={{ fontSize: 17, fontWeight: 600, marginBottom: 8, letterSpacing: '-0.01em' }}>{item.title}</h3>
               <p className="body-sm">{item.desc}</p>
             </div>
           ))}
@@ -275,11 +282,11 @@ export function PricingPreviewBlock({ eyebrow, heading, note, packages, linkLabe
             <h2 className="headline-lg"><Lines text={heading} /></h2>
           </div>
           <div className="reveal">
-            <p className="body-sm" style={{ maxWidth: 280, textAlign: 'right' }}>{note}</p>
+            <p className="body-sm" style={{ maxWidth: 360 }}>{note}</p>
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,250px),1fr))', gap: 16 }}>
           {(withBlackFridayPackages(packages) || []).map((p, i) => (
             <PricingCard key={p.name || i} {...p} delay={i * 0.07} />
           ))}
@@ -350,7 +357,9 @@ export function TestimonialsBlock({ eyebrow, heading, testimonials, stats }) {
 export function FaqBlock({ eyebrow, heading, body, items, footerNote, linkLabel, linkHref }) {
   return (
     <section className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border-light)' }}>
-      <div className="container section-narrow">
+      {/* .container's 1200px used to win over .section-narrow, so answers ran
+          150+ characters a line. */}
+      <div className="container" style={{ maxWidth: 820 }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(40px,5vw,56px)' }}>
           <p className="eyebrow" style={{ marginBottom: 14 }}>{eyebrow}</p>
           <h2 className="headline-lg"><Lines text={heading} /></h2>
@@ -387,7 +396,7 @@ export function ClosingCtaBlock({ eyebrow, heading, body, primaryLabel, primaryH
       <div className="container" style={{ textAlign: 'center', maxWidth: maxWidth || 680 }}>
         <div className="reveal">
           <p className="eyebrow" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 20 }}>{eyebrow}</p>
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: headingSize || 'clamp(36px,5vw,64px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.05, color: 'white', marginBottom: 20 }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: headingSize || 'clamp(36px,5vw,64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.05, color: 'white', marginBottom: 20 }}>
             {heading}
           </h2>
           <p style={{ fontSize: bodySize || 17, color: 'rgba(255,255,255,0.5)', lineHeight: 1.65, marginBottom: bodyGap || 40 }}>{body}</p>

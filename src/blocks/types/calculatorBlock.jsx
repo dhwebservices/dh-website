@@ -165,7 +165,7 @@ export function CalculatorBlock({
           {/* Header */}
           <div className="reveal" style={{ maxWidth:600, marginBottom:56 }}>
             <p className="eyebrow" style={{ marginBottom:16 }}>{eyebrow}</p>
-            <h1 style={{ fontFamily:'var(--font-sans)', fontSize:'clamp(36px,5vw,60px)', fontWeight:600, letterSpacing:'-0.03em', lineHeight:1.0, marginBottom:20 }}>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontSize:'clamp(36px,5vw,60px)', fontWeight: 700, letterSpacing:'-0.03em', lineHeight:1.0, marginBottom:20 }}>
               {String(heading || '').split('\n').map((line, i, all) => (
                 <span key={i}>{line}{i < all.length - 1 ? <br /> : null}</span>
               ))}

@@ -12,7 +12,7 @@ export const SERVICES_DOCUMENT = {
       type: "page-hero",
       props: {
         eyebrow: "Services",
-        heading: "Apps and websites,\nbuilt properly.",
+        heading: "Websites, apps and IT for local businesses",
         body: "We build iPhone and Android apps and design websites for businesses, then host and look after them. Everything else we do supports those two.",
         maxWidth: 720,
         bodyMaxWidth: 520
@@ -103,7 +103,7 @@ export const SERVICES_DOCUMENT = {
       type: "process-steps",
       props: {
         eyebrow: "How it works",
-        heading: "How it goes.",
+        heading: "How it goes",
         steps: [
           {
             n: "01",
@@ -142,7 +142,7 @@ export const SERVICES_DOCUMENT = {
       type: "app.geo-links",
       props: {
         eyebrow: "Areas we cover",
-        heading: "Where we work.",
+        heading: "Where we work",
         body: "We are based in Pontypridd, meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK."
       }
     }

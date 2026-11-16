@@ -101,8 +101,10 @@ function CardVisual({ item }) {
 
 /* ── Work showcase ─────────────────────────────────────────────────────── */
 
-export function WorkShowcaseBlock({ eyebrow, heading, body, items }) {
-  const [feature, ...rest] = items || []
+export function WorkShowcaseBlock({ eyebrow, heading, body, items, compact }) {
+  // compact (homepage): one even row of cards, no big Fish Tank feature. Our
+  // own apps are supporting evidence there, not the headline.
+  const [feature, ...rest] = compact ? [null, ...(items || [])] : (items || [])
 
   return (
     <section className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border-light)' }}>
@@ -152,7 +154,7 @@ export function WorkShowcaseBlock({ eyebrow, heading, body, items }) {
         ) : null}
 
         {rest.length > 0 ? (
-          <div className="pricing-grid-three" style={{ gap: 16 }}>
+          <div className={compact ? undefined : 'pricing-grid-three'} style={compact ? { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 16 } : { gap: 16 }}>
             {rest.map((item, i) => (
               <article key={item.name || i} className="reveal glass-card" style={{ padding: 18, display: 'flex', flexDirection: 'column', transitionDelay: `${i * 0.06}s` }}>
                 {item.linkHref ? (
@@ -256,15 +258,11 @@ export function ClientSitesBlock({ eyebrow, heading, body, items }) {
 
 /* ── Team ──────────────────────────────────────────────────────────────── */
 
+// No photo, no avatar. The black "DH"/"JD" initial circles read as a
+// placeholder nobody filled in, which is worse than no picture at all.
 function Avatar({ person }) {
-  if (person.photo) {
-    return <img src={person.photo} alt={person.name} style={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover' }} />
-  }
-  return (
-    <div aria-hidden style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--dark)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700, letterSpacing: '-0.02em' }}>
-      {person.initials || String(person.name || '').split(' ').map((w) => w[0]).join('')}
-    </div>
-  )
+  if (!person.photo) return null
+  return <img src={person.photo} alt={person.name} style={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover' }} />
 }
 
 /** A certificate or qualification, shown as a small pill under a person's name. */
@@ -297,7 +295,7 @@ export function TeamBlock({ eyebrow, heading, body, people, note, background }) 
           <div className="feature-grid-two" style={{ gap: 16 }}>
             {(people || []).map((person, i) => (
               <article key={person.name || i} className="reveal glass-card" style={{ padding: 'clamp(24px,3vw,32px)', transitionDelay: `${i * 0.06}s` }}>
-                <div style={{ marginBottom: 18 }}><Avatar person={person} /></div>
+                {person.photo ? <div style={{ marginBottom: 18 }}><Avatar person={person} /></div> : null}
                 <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 4 }}>{person.name}</h3>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--light)', marginBottom: 14 }}>{person.role}</p>
                 {Array.isArray(person.badges) && person.badges.length ? (

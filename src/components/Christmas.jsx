@@ -7,7 +7,11 @@
  * click around the whole site in one design. ?xmas=off clears it.
  *
  * XMAS_DEFAULT is what everyone sees with no query string. David picked
- * Midnight on 4 Nov 2026. Set it back to null after Christmas to switch off.
+ * Midnight on 4 Nov 2026, then on 16 Nov 2026 asked for the site to stop
+ * looking like a Christmas card: snow over the prices, lights across every
+ * section and a cartoon village in place of the offer. So nothing is on by
+ * default now; the looks stay previewable with ?xmas=midnight etc., and the
+ * Christmas opening hours still show in the footer (XmasFooterBand).
  *
  * Everything here is decoration: pointer-events are off, nothing moves the
  * layout, and prefers-reduced-motion stops all of the animation.
@@ -20,7 +24,7 @@ export const XMAS_THEMES = [
   { id: 'midnight', name: 'Midnight' },
   { id: 'jumper', name: 'Jumper' },
 ]
-export const XMAS_DEFAULT = 'midnight'
+export const XMAS_DEFAULT = null
 
 const KEY = 'dh-xmas'
 const valid = (id) => XMAS_THEMES.some((t) => t.id === id)
@@ -279,9 +283,22 @@ export function XmasPageHero() {
 
 /* ── Footer band ─────────────────────────────────────────────────────────── */
 
+// The opening hours are information, not decoration, so they show until we
+// are back on 2 Jan 2027 whether or not a look is switched on.
+const CHRISTMAS_HOURS_UNTIL = Date.UTC(2027, 0, 2)
+
 export function XmasFooterBand() {
   const theme = useXmas()
-  if (!theme) return null
+  if (!theme) {
+    if (Date.now() >= CHRISTMAS_HOURS_UNTIL) return null
+    return (
+      <div className="xmas-footband xmas-footband--plain">
+        <p className="xmas-footnote">
+          <strong>Christmas opening:</strong> closed Wednesday 24 December to Thursday 1 January, back on Friday 2 January. Live websites and apps keep running. Nadolig Llawen.
+        </p>
+      </div>
+    )
+  }
   return (
     <div className={`xmas-footband xmas-footband--${theme}`}>
       {theme === 'wrapped' && <><div className="xmas-ribbon xmas-ribbon--foot" aria-hidden="true" /><div className="xmas-footbow" aria-hidden="true"><Bow tag={false} /></div></>}
