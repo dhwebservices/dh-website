@@ -90,7 +90,7 @@ export default function ArticlePage() {
           <p className="eyebrow" style={{ marginBottom: 16 }}>
             {isIndex ? kind : <Link to={parent.to} style={{ color: 'inherit' }}>{parent.label}</Link>}
           </p>
-          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px,5.5vw,64px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 20 }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px,5.5vw,64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 20 }}>
             {page.heading}
           </h1>
           <p className="body-lg" style={{ marginBottom: published ? 12 : 32 }}>{page.intro}</p>

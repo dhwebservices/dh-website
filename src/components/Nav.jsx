@@ -202,7 +202,7 @@ export default function Nav() {
       <div role="dialog" aria-modal="true" aria-labelledby="booking-modal-heading" className="booking-modal-card">
         <div className="booking-modal-head">
           <div>
-            <h2 id="booking-modal-heading" style={{ fontFamily:'var(--font-sans)', fontSize:22, fontWeight:600, letterSpacing:'-0.02em', marginBottom:4 }}>Book a Call</h2>
+            <h2 id="booking-modal-heading" style={{ fontFamily: 'var(--font-display)', fontSize:22, fontWeight: 700, letterSpacing:'-0.02em', marginBottom:4 }}>Book a Call</h2>
             <p style={{ color:'var(--mid)', fontSize:13 }}>Free 15 or 30 minute consultation</p>
           </div>
           <button onClick={() => setBookModal(false)} className="booking-modal-close">×</button>

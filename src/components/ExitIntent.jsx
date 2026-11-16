@@ -58,7 +58,7 @@ export default function ExitIntent() {
           <button onClick={dismiss} style={{ position: 'absolute', top: 16, right: 16, width: 28, height: 28, borderRadius: '50%', background: 'var(--cream)', border: 'none', cursor: 'pointer', fontSize: 16, color: 'var(--mid)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
 
           <p className="eyebrow" style={{ marginBottom: 10, color: 'var(--accent)' }}>Quick question</p>
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 10, color: 'var(--dark)' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 10, color: 'var(--dark)' }}>
             Need an answer before you leave?
           </h2>
           <p style={{ fontSize: 15, color: 'var(--mid)', lineHeight: 1.65, marginBottom: 24 }}>

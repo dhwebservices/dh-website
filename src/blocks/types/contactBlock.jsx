@@ -86,7 +86,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
           {/* Header */}
           <div className="reveal contact-hero" style={{ textAlign:'center', maxWidth:640, margin:'0 auto 64px' }}>
             <p className="eyebrow" style={{ marginBottom:16 }}>{eyebrow}</p>
-            <h1 style={{ fontFamily:'var(--font-sans)', fontSize:'clamp(40px,6vw,72px)', fontWeight:600, letterSpacing:'-0.03em', lineHeight:1.0, marginBottom:20 }}>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontSize:'clamp(40px,6vw,72px)', fontWeight: 700, letterSpacing:'-0.03em', lineHeight:1.0, marginBottom:20 }}>
               {String(heading || '').split('\n').map((line, i, all) => (
                 <span key={i}>{line}{i < all.length - 1 ? <br /> : null}</span>
               ))}

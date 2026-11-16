@@ -52,7 +52,12 @@
   --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Monaco, monospace;
+  /* 16 Nov 2026: Plex Mono is retired. Three faces made the site look
+     assembled from parts, and monospace labels and prices read "developer
+     tool", not "someone who builds the pub's website". The token now points
+     at the body face so the ~90 existing usages fall back to it; numbers keep
+     their alignment through tabular-nums. */
+  --font-mono: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --max-w: 1200px;
   --nav-h: 52px;
@@ -643,11 +648,12 @@ img { max-width: 100%; display: block; }
   color: var(--dark);
 }
 .headline-lg {
-  font-size: clamp(36px, 5vw, 64px);
+  /* Was up to 64px: five-line stacked headlines beside small grids. */
+  font-size: clamp(30px, 3.6vw, 46px);
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   color: var(--dark);
 }
 .headline-md {
@@ -658,20 +664,23 @@ img { max-width: 100%; display: block; }
   line-height: 1.1;
   color: var(--dark);
 }
+/* The red rule + tiny spaced-out mono label over every heading was the
+   single most repeated pattern on the site, and the most template-looking.
+   Now a plain small label in the brand red. */
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--mid);
+  color: var(--accent);
   display: block;
-  padding-top: 14px;
-  border-top: 2px solid var(--accent);
 }
-.body-lg { font-size: 19px; line-height: 1.65; color: var(--mid); font-weight: 400; }
-.body-md { font-size: 17px; line-height: 1.65; color: var(--mid); font-weight: 400; }
-.body-sm { font-size: 14px; line-height: 1.6; color: var(--mid); }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; }
+.body-lg { font-size: 19px; line-height: 1.6; color: var(--dark2); font-weight: 400; }
+.body-md { font-size: 17px; line-height: 1.65; color: var(--dark2); font-weight: 400; }
+.body-sm { font-size: 15px; line-height: 1.6; color: var(--mid); }
+body { font-variant-numeric: tabular-nums; }
 
 /* ── Buttons ── */
 .btn-primary {
@@ -771,7 +780,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── Section ── */
-.section { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); }
+.section { padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 60px); }
 .section-narrow { max-width: 720px; margin: 0 auto; }
 .container { max-width: var(--max-w); margin: 0 auto; }
 .about-hero-grid,
@@ -919,9 +928,10 @@ img { max-width: 100%; display: block; }
     padding: 0 16px;
     gap: 10px;
   }
-  .brand-logo__text {
-    display: none;
-  }
+  /* The name used to be hidden on phones, leaving the bar mark next to the
+     real hamburger: two menu-looking icons and no brand. */
+  .brand-logo.is-compact .brand-logo__text { font-size: 14px; }
+  .brand-logo.is-compact .brand-logo__icon { width: 28px; }
   .site-nav {
     position: static;
   }
@@ -970,32 +980,6 @@ img { max-width: 100%; display: block; }
     background: #ffffff;
     padding-bottom: 16px;
     z-index: 1;
-  }
-  .home-hero {
-    min-height: auto !important;
-    padding: calc(var(--nav-h) + 28px) 20px 48px !important;
-  }
-  .home-hero__badge {
-    margin-bottom: 24px !important;
-    font-size: 12px !important;
-  }
-  .home-hero__actions {
-    display: grid !important;
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-  .home-hero__actions > a {
-    width: 100%;
-    justify-content: center;
-  }
-  .home-hero__stats {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 14px !important;
-    margin-top: 36px !important;
-  }
-  .home-hero__scroll-hint {
-    display: none !important;
   }
   .contact-hero {
     margin-bottom: 28px !important;
@@ -1150,6 +1134,11 @@ h1, h2, .display, .headline {
 }
 h1 { max-width: 16ch; }
 h2 { max-width: 20ch; }
+/* The ch caps above left centred headings sitting left of their own label
+   ("Promises, not statistics", "Before you get in touch"): a capped block
+   inside a text-align:center parent still starts at the left edge. */
+[style*="text-align: center"] > h1,
+[style*="text-align: center"] > h2 { margin-left: auto; margin-right: auto; }
 
 /* Data is set in the mono face and lined up on the decimal, so a column of
    prices can be compared by eye. */
@@ -1209,3 +1198,66 @@ h2 { max-width: 20ch; }
 /* ── Order page: price summary beside the form, stacked on phones ── */
 .order-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 16px; align-items: start; }
 @media (max-width: 760px) { .order-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Homepage hero (16 Nov 2026) ───────────────────────────────────────── */
+.home-hero {
+  position: relative;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border-light);
+  padding: calc(var(--nav-h) + clamp(32px, 5vw, 64px)) clamp(20px, 5vw, 60px) clamp(48px, 6vw, 80px);
+}
+.home-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.home-hero__title {
+  font-size: clamp(38px, 5.2vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+.home-hero__body { max-width: 520px; margin-bottom: 28px; }
+.home-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.home-hero__stats {
+  list-style: none;
+  display: flex; flex-wrap: wrap; gap: 8px 22px;
+  margin-top: 28px; padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+  font-size: 14px; color: var(--mid);
+}
+.home-hero__stats strong { color: var(--dark); font-weight: 600; }
+.home-hero__shot { margin: 0; min-width: 0; }
+.home-hero__frame {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1C1F21;
+  box-shadow: 0 1px 2px rgba(20,24,26,.08), 0 24px 60px -20px rgba(20,24,26,.35);
+  transition: transform .2s ease;
+}
+.home-hero__frame:hover { transform: translateY(-2px); }
+.home-hero__bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 9px 12px;
+  background: #2A2E31;
+}
+.home-hero__bar i { width: 9px; height: 9px; border-radius: 50%; background: #4A5054; }
+.home-hero__bar span {
+  margin-left: 10px; flex: 1;
+  padding: 3px 10px; border-radius: 6px;
+  background: #1C1F21; color: #B9C0C3; font-size: 12px;
+}
+.home-hero__frame img { display: block; width: 100%; height: auto; }
+.home-hero__shot figcaption { margin-top: 14px; font-size: 14px; line-height: 1.5; color: var(--mid); }
+.home-hero__shot figcaption a { color: var(--accent); font-weight: 600; white-space: nowrap; }
+@media (max-width: 900px) {
+  .home-hero__grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .home-hero__actions { display: grid; grid-template-columns: 1fr; }
+  .home-hero__actions > a { justify-content: center; }
+}

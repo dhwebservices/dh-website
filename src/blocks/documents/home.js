@@ -12,6 +12,14 @@
  * what we do and the prices first, then proof, then how we work; our own
  * apps come after as evidence. DH Local is the first price card.
  *
+ * 16 Nov 2026 (David: "slate it, don't hold back"): Maltsters moved into the
+ * hero as the proof (its own section repeated the same screenshot, so it
+ * went; the case study and /portfolio carry the detail), one action (book a call), plain headings instead of
+ * slogans, the Microsoft section and the duplicate stats strip dropped, the
+ * award folded into the trust bar, and our own apps cut down to a short
+ * "we also build apps" section near the end. Maltsters is our only client
+ * site; don't imply more.
+ *
  * Once a published document exists in website_pages for slug "home", that wins
  * and this is only a safety net. As of 6 Oct 2026 there is no such row.
  */
@@ -25,45 +33,40 @@ export const HOME_DOCUMENT = {
       id: 'home-hero',
       type: 'hero',
       props: {
-        headlineLead: 'Websites and apps',
-        typewriterLines: ['for local businesses.'],
-        body: 'A small team in Pontypridd building websites and apps for pubs, cafés, salons, trades and shops across Wales. Fixed prices on the page, and we look after it once it is live.',
-        primaryLabel: 'See prices',
-        primaryHref: '/pricing',
-        secondaryLabel: 'Or book a free call',
-        secondaryHref: '/contact',
-        showScrollHint: true,
+        headlineLead: 'Websites for local businesses',
+        typewriterLines: ['in Wales.'],
+        body: 'We are a two-person team in Pontypridd. We design and build your website, put it live, host it and keep it up to date, for a fixed price you see before you book.',
+        primaryLabel: 'Book a free call',
+        primaryHref: '/contact',
+        secondaryLabel: 'See prices',
+        secondaryHref: '/pricing',
         stats: [
-          { value: '£0 upfront', label: 'DH Local, £79 a month' },
-          { value: 'From £449', label: 'Websites' },
-          { value: '7 days', label: 'Website delivery' },
-          { value: 'Fixed price', label: 'Agreed before we start' },
+          { value: 'From £449', label: '+ VAT' },
+          { value: '7 days', label: 'to build' },
+          { value: '£0 upfront', label: 'with DH Local' },
         ],
+        showcase: {
+          image: CLIENT_SITES[0].image,
+          imageSmall: CLIENT_SITES[0].imageSmall,
+          alt: CLIENT_SITES[0].imageAlt,
+          url: CLIENT_SITES[0].url,
+          href: CLIENT_SITES[0].linkHref,
+          caption: 'Our latest site: The Maltsters Arms on Bridge Street, Pontypridd. The pub updates its own offers and opening hours.',
+          caseStudyHref: CLIENT_SITES[0].caseStudyHref,
+        },
       },
     },
 
     {
-      id: 'home-award',
-      type: 'award-banner',
+      id: 'home-trust',
+      type: 'trust-bar',
       props: {
-        image: '/wales-prestige-awards-2027-28-winner.jpg',
-        imageAlt: 'Wales Prestige Awards 2027/28 winner',
-        eyebrow: 'Wales Prestige Awards 2027/28',
-        heading: 'Web Design Service of the Year – Wales',
-        body: 'Judged on our client feedback, case studies and the work itself. Thank you to every business that has trusted us with their website.',
-        linkLabel: 'Read about the award',
-        linkHref: '/news/web-design-service-of-the-year-wales',
-      },
-    },
-
-    {
-      id: 'home-clients',
-      type: 'client-sites',
-      props: {
-        eyebrow: 'Our latest website',
-        heading: 'Built for a pub\nin Pontypridd.',
-        body: 'The Maltsters Arms on Bridge Street. The pub updates its own offers, drinks and opening hours, and we host it and look after it. Go and have a look.',
-        items: CLIENT_SITES,
+        items: [
+          { icon: 'award', label: 'Web Design Service of the Year', sub: 'Wales Prestige Awards 2027/28', href: '/news/web-design-service-of-the-year-wales' },
+          { icon: 'phone', label: 'Our own apps are live', sub: 'App Store and Google Play' },
+          { icon: 'award', label: 'Microsoft Partner', sub: 'Microsoft 365 and Entra' },
+          { icon: 'lock', label: 'UK company', sub: 'Pontypridd, Wales' },
+        ],
       },
     },
 
@@ -71,10 +74,10 @@ export const HOME_DOCUMENT = {
       id: 'home-pricing',
       type: 'pricing-preview',
       props: {
-        eyebrow: 'Pricing',
-        heading: 'Prices on the page,\nnot on request.',
+        eyebrow: 'Prices',
+        heading: 'What it costs',
         note: 'All prices exclude VAT. One-off builds come with a care plan from £35 a month once live; DH Local includes it.',
-        linkLabel: 'See full pricing, hosting and app care',
+        linkLabel: 'See all prices, hosting and app care',
         linkHref: '/pricing',
         packages: [
           { name: 'DH Local', price: '£79', priceNote: 'a month + VAT · £0 upfront', tagline: 'Your website and Google listing, looked after', who: 'No build fee. A five-page site, updates whenever you need them and your Google listing kept up to date. 12-month minimum.', features: 'Up to 5 pages · Hosting included · Changes on request · Google listing', popular: true, badge: 'No build fee', href: '/local', ctaLabel: 'See DH Local' },
@@ -86,33 +89,19 @@ export const HOME_DOCUMENT = {
     },
 
     {
-      id: 'home-trust',
-      type: 'trust-bar',
-      props: {
-        items: [
-          { icon: 'phone', label: 'On the App Store', sub: 'Fish Tank · Fam & a Half' },
-          { icon: 'game', label: 'On Google Play', sub: 'Fish Tank' },
-          { icon: 'award', label: 'Web Design Service of the Year', sub: 'Wales Prestige Awards 2027/28', href: '/news/web-design-service-of-the-year-wales' },
-          { icon: 'award', label: 'Microsoft Partner', sub: 'Verified' },
-          { icon: 'lock', label: 'GDPR compliant', sub: 'Data protection' },
-        ],
-      },
-    },
-
-    {
       id: 'home-services',
       type: 'services-grid',
       props: {
-        eyebrow: 'What we build',
-        heading: 'Websites first.\nApps when you need one.',
-        body: 'We design it, build it, host it and keep it running. One fixed price, agreed before anything starts.',
+        eyebrow: 'Services',
+        heading: 'What we do',
+        body: 'We design it, build it, host it and keep it running, at a fixed price agreed before anything starts.',
         linkLabel: 'See all services',
         linkHref: '/services',
         services: [
-          { icon: 'design', title: 'Web design', desc: 'Websites designed for your business and written in React, not assembled in a page builder. The domain stays in your name.' },
-          { icon: 'phone', title: 'iPhone and Android apps', desc: 'Native apps for the App Store and Google Play. We handle Apple review and the Play Console, which is where most first apps get stuck.' },
-          { icon: 'people', title: 'Staff portals and business systems', desc: 'Rotas, clock-in, timesheets, leave and payslips, on the web and on the phone. We run our own business on one.' },
-          { icon: 'game', title: 'Games', desc: 'Fish Tank is ours: a multiplayer game on the App Store and Google Play. If you have a game in mind, we have done the hard parts before.' },
+          { icon: 'design', title: 'Websites', desc: 'Designed for your business, not dropped into a template. Your domain stays in your name and you can update the parts that change.' },
+          { icon: 'phone', title: 'iPhone and Android apps', desc: 'Booking, ordering and loyalty apps on the App Store and Google Play. We deal with Apple and Google review for you.' },
+          { icon: 'people', title: 'IT support for offices', desc: 'Microsoft 365, email, laptops and security for small offices, £45 a user a month + VAT.' },
+          { icon: 'people', title: 'Staff systems', desc: 'Rotas, clock-in, timesheets and leave on the web and on the phone. We run our own business on one.' },
         ],
       },
     },
@@ -121,15 +110,15 @@ export const HOME_DOCUMENT = {
       id: 'home-why',
       type: 'why-grid',
       props: {
-        eyebrow: 'How we work',
-        heading: 'What you get.',
+        eyebrow: 'Working with us',
+        heading: 'How it works',
         items: [
-          { title: 'Fixed price', desc: 'We quote before we start and that is the price. If you add something halfway through, we price it separately and tell you first.' },
-          { title: 'Both app stores handled', desc: 'Developer accounts, screenshots, privacy forms, Apple review and Google Play. You do not need to learn any of it.' },
-          { title: 'You try it first', desc: 'Test builds go onto your own phone through Apple TestFlight and Google Play testing. Nothing reaches the public stores until you have signed it off.' },
-          { title: 'You own it', desc: 'Source code, design files, the domain and the store listings are yours. Take them anywhere.' },
+          { title: 'A fixed price', desc: 'We quote before we start and that is the price. If you add something halfway through, we price it separately and tell you first.' },
+          { title: 'You see it before it goes live', desc: 'You get a preview link to check on your own phone and computer. Nothing goes live until you have signed it off.' },
+          { title: 'You own it', desc: 'The domain, the content and the code are yours. If you ever leave, you take it with you.' },
+          { title: 'We look after it', desc: 'Hosting, security, backups and changes are handled by us on the care plan, so the site does not go stale.' },
           { title: 'Quick replies', desc: 'Email or call and we reply the same working day, usually within a few hours.' },
-          { title: 'Based in Pontypridd', desc: 'We meet clients in person across Cardiff and Wales, and work with businesses anywhere in the UK.' },
+          { title: 'Local', desc: 'Based in Pontypridd. We can meet you in person anywhere across RCT, Cardiff and South Wales.' },
         ],
       },
     },
@@ -139,8 +128,8 @@ export const HOME_DOCUMENT = {
       type: 'team',
       props: {
         eyebrow: 'Who you deal with',
-        heading: 'A small team,\nby name.',
-        body: 'There is no account manager between you and the work. You talk to the people building your app or site, and when you ring, you get one of us.',
+        heading: 'David and Jack',
+        body: 'There is no account manager between you and the work. You talk to the people building your site, and when you ring 01443 805303, you get one of us.',
         people: TEAM_PEOPLE,
       },
     },
@@ -149,45 +138,11 @@ export const HOME_DOCUMENT = {
       id: 'home-work',
       type: 'work-showcase',
       props: {
-        eyebrow: 'Apps too',
-        heading: 'We also build apps.\nThese ones are ours.',
-        body: 'Fish Tank is live on the App Store and Google Play, Fam & a Half is on the App Store, and two more run our business every day. If you want an app of your own, these are what we bring to it.',
+        eyebrow: 'Apps',
+        heading: 'We also build apps',
+        body: 'These are our own, built and run by us. Fish Tank is live on the App Store and Google Play, Fam & a Half is on the App Store, and two more run our business every day.',
         items: WORK_ITEMS,
-      },
-    },
-
-    {
-      id: 'home-partner',
-      type: 'partner-highlight',
-      props: {
-        eyebrow: 'Microsoft approved partner',
-        heading: 'Already run on Microsoft? We build with that in mind.',
-        body: 'We hold Microsoft approved partner status. If your business runs on Microsoft 365, Teams and Outlook, we plan apps, websites and staff tools around them from the start. Our own staff portal signs in with Microsoft.',
-        primaryLabel: 'Explore partnerships',
-        primaryHref: '/partners',
-        secondaryLabel: 'Talk to us',
-        secondaryHref: '/contact',
-        points: [
-          'Microsoft sign-in for staff apps and portals',
-          'Rotas and leave synced to Outlook calendars',
-          'Fixed pricing, agreed before we start',
-        ],
-      },
-    },
-
-    {
-      id: 'home-social-proof',
-      type: 'testimonials',
-      props: {
-        eyebrow: 'What you can hold us to',
-        heading: 'Promises, not\nstatistics.',
-        testimonials: [],
-        stats: [
-          { value: '7 days', label: 'Website delivery' },
-          { value: '< 24h', label: 'Reply to enquiries' },
-          { value: '£349', label: 'Apps from' },
-          { value: '£0', label: 'Cost to get a quote' },
-        ],
+        compact: true,
       },
     },
 
@@ -195,17 +150,16 @@ export const HOME_DOCUMENT = {
       id: 'home-faq',
       type: 'faq',
       props: {
-        eyebrow: 'Common questions',
+        eyebrow: 'Questions',
         heading: 'Before you get in touch',
         body: 'The things people usually ask first.',
         items: [
-          { q: 'How much does a website cost?', a: 'Our websites start at £449 + VAT as a one-off, delivered in 7 days, plus a care plan from £35 a month once it is live (hosting, security, backups and updates). If you would rather not pay upfront, DH Local is £79 a month + VAT with no build fee, on a 12-month minimum, and includes the care plan, changes and your Google listing.' },
+          { q: 'How much does a website cost?', a: 'Our websites start at £449 + VAT as a one-off, delivered in 7 days, plus a care plan from £35 a month once it is live (hosting, security, backups and updates). Until 30 November our Black Friday three-page site is £249 + VAT. If you would rather not pay upfront, DH Local is £79 a month + VAT with no build fee, on a 12-month minimum, and includes the care plan, changes and your Google listing.' },
           { q: 'Do I need an app, or just a website?', a: 'Most businesses need a website first, and we will say so rather than sell you an app. An app earns its keep when customers come back again and again: booking, ordering, loyalty, or staff who need something on their phone.' },
-          { q: 'Do you deal with Apple and Google for us?', a: 'Yes. We set up the store listings, write the privacy declarations, submit the builds and answer the reviewers. We have taken our own apps through Apple review and Google Play, so we know where they get held up.' },
-          { q: 'Can we try the app before it goes live?', a: 'Yes. You get test builds on your own phone through Apple TestFlight and Google Play testing, and nothing goes to the public stores until you have signed it off.' },
-          { q: 'How long does a website take?', a: 'Seven days for our website packages. Apps, staff portals and larger integrations vary too much to put a number on here, so we agree a date at scoping and stick to it.' },
-          { q: 'Can you connect it to what we already use?', a: 'Usually, yes. We have built against Microsoft 365, Stripe, Supabase, Twilio, Resend and Apple and Google push notifications. Tell us what you run and we will say plainly whether it is straightforward or will add cost.' },
-          { q: 'Do we own the app or website afterwards?', a: 'Yes. You get the source code and design files, the domain stays in your name, and the apps can sit under your own developer accounts. Nothing is rented to you.' },
+          { q: 'How long does a website take?', a: 'Seven days for our website packages. Apps, staff systems and larger integrations vary too much to put a number on here, so we agree a date at the start and stick to it.' },
+          { q: 'Can I update it myself?', a: 'Yes, if you want to. Like the Maltsters Arms, you can have your own login for the parts that change, such as offers, opening hours and photos. Or tell us and we will do it on the care plan.' },
+          { q: 'Do you deal with Apple and Google for apps?', a: 'Yes. We set up the store listings, write the privacy declarations, submit the builds and answer the reviewers. We have taken our own apps through Apple review and Google Play, so we know where they get held up.' },
+          { q: 'Do we own the website afterwards?', a: 'Yes. The domain stays in your name, and you get the content and the code. Nothing is rented to you.' },
         ],
         footerNote: 'Something else?',
         linkLabel: 'Ask us',
@@ -217,14 +171,14 @@ export const HOME_DOCUMENT = {
       id: 'home-cta',
       type: 'closing-cta',
       props: {
-        eyebrow: 'Got a website or an app in mind?',
+        eyebrow: 'Got a website in mind?',
         heading: 'Tell us what it needs to do.',
-        body: 'We will reply within a working day with questions, a plan and a fixed price.',
-        primaryLabel: 'Book a free call →',
+        body: 'Book a free call, or send us a few lines. We reply within a working day with a plan and a fixed price.',
+        primaryLabel: 'Book a free call',
         primaryHref: '/contact',
-        secondaryLabel: 'View pricing',
+        secondaryLabel: 'See prices',
         secondaryHref: '/pricing',
-        assurances: ['Fixed price', 'No hidden costs', 'Reply within 24 hours'],
+        assurances: ['Fixed price', 'No hidden costs', 'Reply within one working day'],
       },
     },
   ],

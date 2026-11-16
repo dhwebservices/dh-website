@@ -178,7 +178,7 @@ export function CaseStudyHeroBlock({ eyebrow, heading, body, primaryLabel, prima
       <div className="container portfolio-hero-grid" style={{ alignItems: 'center', gap: 'clamp(28px,5vw,64px)' }}>
         <div className="reveal">
           <p className="eyebrow" style={{ marginBottom: 18 }}>{eyebrow}</p>
-          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(40px,6vw,74px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.02, marginBottom: 18 }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(40px,6vw,74px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.02, marginBottom: 18 }}>
             {heading}
           </h1>
           <p className="body-lg" style={{ maxWidth: 560, marginBottom: 28 }}>{body}</p>
@@ -560,7 +560,7 @@ export function AboutHeroBlock({ eyebrow, heading, lead, body, primaryLabel, pri
         <div className="about-hero-grid" style={{ gap: 'clamp(48px,7vw,100px)', alignItems: 'center' }}>
           <div className="reveal">
             <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p>
-            <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
               <Lines text={heading} />
             </h1>
             <p className="body-lg" style={{ marginBottom: 20 }}>{lead}</p>
@@ -632,7 +632,7 @@ export function PartnerHeroBlock({ eyebrow, heading, body, primaryLabel, primary
       <div className="reveal partners-hero-grid" style={{ maxWidth: 'var(--max-w)', margin: '0 auto', gap: 'clamp(28px,4vw,56px)', alignItems: 'center' }}>
         <div>
           <p className="eyebrow" style={{ marginBottom: 18 }}>{eyebrow}</p>
-          <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(38px,6vw,74px)', fontWeight: 600, letterSpacing: '-0.04em', lineHeight: 0.98, marginBottom: 22, maxWidth: 700 }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(38px,6vw,74px)', fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 0.98, marginBottom: 22, maxWidth: 700 }}>
             {heading}
           </h1>
           <p style={{ fontSize: 'clamp(16px,1.5vw,19px)', lineHeight: 1.7, color: 'var(--dark2)', maxWidth: 620, marginBottom: 34 }}>{body}</p>
@@ -664,7 +664,7 @@ export function PartnerBenefitsBlock({ eyebrow, heading, body, cardEyebrow, card
       <div className="container">
         <div className="reveal" style={{ maxWidth: 820, marginBottom: 42 }}>
           <p className="eyebrow" style={{ marginBottom: 12 }}>{eyebrow}</p>
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(30px,4vw,52px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 16 }}>{heading}</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(30px,4vw,52px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 16 }}>{heading}</h2>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--mid)', maxWidth: 720 }}>{body}</p>
         </div>
 
@@ -697,7 +697,7 @@ export function TypicalFitBlock({ eyebrow, heading, body, areas }) {
       <div className="container partners-fit-grid" style={{ gap: 32, alignItems: 'start' }}>
         <div className="reveal">
           <p className="eyebrow" style={{ marginBottom: 12 }}>{eyebrow}</p>
-          <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>{heading}</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>{heading}</h2>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--mid)', maxWidth: 560 }}>{body}</p>
         </div>
         <div className="reveal" style={{ borderRadius: 26, padding: '28px clamp(22px,3vw,30px)', background: 'white', border: '1px solid var(--border-light)' }}>
@@ -755,7 +755,7 @@ export function CareersBlock({ eyebrow, heading, body, infoRows, essentialsLabel
           <div>
             <div className="reveal">
               <p className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</p>
-              <h1 style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px,5vw,60px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
                 <Lines text={heading} />
               </h1>
               <p className="body-lg" style={{ marginBottom: 40 }}>{body}</p>
