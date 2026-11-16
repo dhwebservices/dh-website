@@ -2,14 +2,14 @@
  * Email relay for the client area (app.dhwebsiteservices.co.uk).
  *
  * The client area is its own Pages project with its own private D1 database,
- * and it needs to send three kinds of email. Rather than give it a second
+ * and it needs to send a few fixed kinds of email. Rather than give it a second
  * Resend key, it calls this function, which already has RESEND_API_KEY.
  *
  * No shared secret: the caller only sends a job id. This function then asks
  * the client area itself for that job (GET APP_URL/api/mail-job/<id>), which
  * hands each job out once and only for two minutes after creating it. So the
  * only mail that can ever go out is mail the client area queued, and only
- * three fixed templates exist. Request alerts only ever go to our own inbox.
+ * five fixed templates exist. Request and alert emails only ever go to our own inbox.
  */
 
 const OUR_INBOX = 'clients@dhwebsiteservices.co.uk'
@@ -44,6 +44,34 @@ function build(template, d) {
         <p style="font-size:16px;line-height:1.6">We've set up the client area for ${business || 'your business'}. You can see your website, ask for changes, and find invoices and documents there.</p>
         <p style="margin:24px 0"><a href="${APP_URL}" style="display:inline-block;background:#C8102E;color:#fff;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:600">Open the client area</a></p>
         <p style="color:#555D60;font-size:14px;line-height:1.6">Sign in with this email address. There's no password: we email you a code each time.</p>`),
+    }
+  }
+  // A client is told something new is waiting for them in the client area.
+  if (template === 'notify') {
+    const kinds = { update: 'Project update', reply: 'Change request', invoice: 'Invoice', approval: 'Please take a look', file: 'New file', stage: 'Project' }
+    if (!kinds[d.kind]) return null
+    const title = String(d.title || kinds[d.kind]).slice(0, 140)
+    const text = String(d.text || '').slice(0, 600)
+    return {
+      subject: `${title} · ${String(d.business || 'DH Website Services').slice(0, 60)}`,
+      text: `Hi${d.name ? ' ' + d.name : ''},\n\n${title}.${text ? `\n\n${text}` : ''}\n\nSee it in your client area: ${APP_URL}\n\nDavid and Jack\nDH Website Services, 01443 805303\n\n(You can turn these emails off in the client area under Settings.)`,
+      html: shell(`<p style="font-size:13px;color:#555D60;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px">${esc(kinds[d.kind])}</p>
+        <p style="font-size:18px;font-weight:700;line-height:1.4;margin:0 0 14px">${esc(title)}</p>
+        ${text ? `<p style="white-space:pre-wrap;font-size:15px;line-height:1.6;background:#F4F5F3;padding:14px 16px;border-radius:8px">${esc(text)}</p>` : ''}
+        <p style="margin:24px 0"><a href="${APP_URL}" style="display:inline-block;background:#C8102E;color:#fff;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:600">Open the client area</a></p>
+        <p style="color:#555D60;font-size:13px">You can turn these emails off in the client area under Settings.</p>`),
+    }
+  }
+  // Something a client did that we should look at. Only ever goes to our inbox.
+  if (template === 'alert') {
+    return {
+      to: OUR_INBOX,
+      subject: `${String(d.business || 'Client').slice(0, 60)}: ${String(d.who || '').slice(0, 40)} ${String(d.what || '').slice(0, 100)}`,
+      text: `${d.who} (${d.business}) ${d.what}.${d.text ? `\n\n${d.text}` : ''}\n\nOpen the client area: ${APP_URL}`,
+      html: shell(`<p style="font-size:16px;line-height:1.6"><strong>${esc(d.who)}</strong> (${esc(d.business)}) ${esc(d.what)}.</p>
+        ${d.text ? `<p style="white-space:pre-wrap;font-size:15px;line-height:1.6;background:#F4F5F3;padding:14px 16px;border-radius:8px">${esc(d.text)}</p>` : ''}
+        <p><a href="${APP_URL}" style="color:#C8102E;font-weight:600">Open the client area</a></p>`),
+      replyTo: isEmail(d.email) ? d.email : undefined,
     }
   }
   if (template === 'request') {
