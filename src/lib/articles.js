@@ -344,9 +344,11 @@ A local pub needs a website that shows people what the place is like, tells them
 - **A What's On page the pub updates itself**
 - **Their own login** for opening hours, drinks, photos and notices
 - **A mailing list** so regulars hear about events
+- **Video from their own nights** on the front page, playing the moment it scrolls into view
+- **A "What's Happened" page** where the pub's thank-you posts for bands and events live on its own site, not just on Facebook
 
 ## Looked after by us
-We host the site and keep it running, secure and backed up. The pub changes the day-to-day details itself, and anything bigger comes to us.
+We host the site and keep it running, secure and backed up. The pub changes the day-to-day details itself, and anything bigger comes to us. We also see how many people visit and which pages they read, with no cookies and nothing personal collected, so we can tell the pub what's working.
 
 ## What it shows
 A local business website does not need to be complicated. It needs to look like the real place, show what is on, and be easy to keep up to date. If that is what you need, [DH Local](/local) does it for a monthly price with nothing upfront, or see our [one-off website prices](/pricing).
