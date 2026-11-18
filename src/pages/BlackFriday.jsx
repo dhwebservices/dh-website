@@ -13,7 +13,7 @@
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { XmasPageHero } from '../components/Christmas'
-import { blackFridayOn } from '../lib/offers'
+import { blackFridayOn, bfLeftLabel } from '../lib/offers'
 
 const BOOK_HREF = '/order?plan=bf-website'
 
@@ -79,6 +79,7 @@ export default function BlackFriday() {
                 <p className="body-lg" style={{ maxWidth: 600, marginBottom: 28 }}>
                   Normally from £449 + VAT. Built by our team in Pontypridd as soon as you book, with hosting and updates at £15 a month. Only 10 places.
                 </p>
+                <p style={{ fontWeight: 600, marginBottom: 20 }}>Offer ends Monday 30 November: {bfLeftLabel()}.</p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                   <Link to={BOOK_HREF} className="btn-primary">Book a place</Link>
                   <a href="tel:+441443805303" className="btn-secondary">Call 01443 805303</a>

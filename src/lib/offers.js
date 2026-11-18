@@ -3,6 +3,9 @@
 // Monday 30 November 2026, 23:59:59 UK time (GMT in November).
 export const BLACK_FRIDAY_ENDS = Date.UTC(2026, 10, 30, 23, 59, 59)
 export const blackFridayOn = () => Date.now() <= BLACK_FRIDAY_ENDS
+// Whole days left, counting today, for the "N days left" notice.
+export const bfDaysLeft = () => Math.max(0, Math.ceil((BLACK_FRIDAY_ENDS - Date.now()) / 86400000))
+export const bfLeftLabel = () => { const d = bfDaysLeft(); return d <= 1 ? 'last day' : `${d} days left` }
 
 // Black Friday prices for every plan, about 25% off (David, 5 Nov 2026).
 // The "was" price is each plan's real normal price, as UK pricing rules need.

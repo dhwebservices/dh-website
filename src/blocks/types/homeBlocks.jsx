@@ -9,7 +9,7 @@
  */
 
 import { Link } from 'react-router-dom'
-import { blackFridayOn, withBlackFridayPackages, withBlackFridayStats } from '../../lib/offers'
+import { blackFridayOn, bfLeftLabel, withBlackFridayPackages, withBlackFridayStats } from '../../lib/offers'
 import MicrosoftPartnerBadge from '../../components/MicrosoftPartnerBadge'
 import { Typewriter, PricingCard } from '../shared/HomeParts'
 import { Icon } from '../shared/Icon'
@@ -47,7 +47,7 @@ export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, p
           {blackFridayOn() && (
             <Link to="/black-friday" className="bf-pill">
               <span className="bf-pill__tag">Black Friday</span>
-              <span>3-page websites £249 + VAT until 30 Nov</span>
+              <span>3-page websites £249 + VAT until 30 Nov · <strong>{bfLeftLabel()}</strong></span>
               <span aria-hidden="true">→</span>
             </Link>
           )}
