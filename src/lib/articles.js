@@ -290,6 +290,120 @@ If you are replacing your business phones anyway, this is a good time to move to
 We look after IT for small offices in South Wales, including working out what in the building still depends on an old line. See [IT support](/it-support) or ring **01443 805303**.
 `,
   },
+  {
+    slug: 'website-hosting-south-wales',
+    title: 'Website Hosting in South Wales: What You Should Pay in 2026 | DH Website Services',
+    description: 'What small business website hosting costs in South Wales, what you should get for it, and how to tell cheap hosting from good hosting. Care plans from £35 a month.',
+    heading: 'Website hosting in South Wales: what you should pay',
+    intro: 'Hosting is the monthly cost of keeping your website online, secure and backed up. Prices run from a couple of pounds to well over £100 a month, and the cheapest is rarely the best value. Here is what the money should buy.',
+    published: '2026-11-21',
+    body: `
+## The short answer
+For a small business site, expect to pay:
+- **£3 to £10 a month** for bare shared hosting, where you look after everything yourself
+- **£20 to £60 a month** for managed hosting, where someone else keeps the site updated, backed up and online
+- **£100 a month and up** for busy shops and sites with a lot going on behind the scenes
+
+The bare option is fine if you, or someone you trust, will actually do the updates, backups and fixes. Most business owners will not, and that is how sites end up hacked, broken or offline for days before anyone notices.
+
+## What good hosting includes
+- **Speed.** Pages should load in a second or two on a phone. Slow sites lose visitors and rank lower on Google.
+- **SSL.** The padlock in the address bar. Browsers warn people away from sites without it.
+- **Backups you can actually restore.** Ask how often they run and how long a restore takes.
+- **Updates.** Security fixes for the site's software, applied for you.
+- **Uptime monitoring.** Someone gets alerted when the site goes down, before your customers tell you.
+- **A person to ring.** When something breaks, you want a name and a number, not a ticket queue.
+
+## What we charge
+Every website we build comes with a care plan, which is our hosting. It starts when your site goes live and runs month to month on 30 days' notice. Prices exclude VAT.
+- **Starter, £35 a month:** one content update a month, weekly backups and uptime monitoring
+- **Professional, £65 a month:** three content updates a month, priority support, an SEO health check, weekly backups and uptime monitoring
+- **Business, £109 a month:** unlimited content updates, priority support, weekly backups, weekly performance tuning and a quarterly strategy review
+
+The full list is on the [pricing page](/pricing). On [DH Local](/local), hosting is included in the £79 a month.
+
+## Questions to ask your current host
+1. **Where is my site backed up, and when was the last restore tested?**
+2. **Who applies security updates, and how often?**
+3. **What happens if the site goes down at the weekend?**
+4. **Do I own my domain, and is it registered in my name?**
+5. **If I leave, will you hand over the files and the database?**
+
+If you cannot get straight answers, it is worth moving. We move existing sites across for South Wales businesses and handle the domain and email switch so nothing drops. Ring **01443 805303** or [get in touch](/contact).
+`,
+  },
+  {
+    slug: 'charity-website-wales',
+    title: 'Charity Website Design in Wales: What a Small Charity Needs | DH Website Services',
+    description: 'What a small charity or community group in Wales needs from its website: donations, Gift Aid, the registered charity statement, volunteers and accessibility, with fixed prices.',
+    heading: 'Charity websites in Wales: what a small charity needs',
+    intro: 'A charity website has two jobs: show people what you do, and make it easy to give, volunteer or get help. Here is what to put on it, the rules that apply, and what it costs.',
+    published: '2026-11-21',
+    body: `
+## The pages most charities need
+- **Home:** who you help, where, and the one thing you want visitors to do next
+- **About:** your story, trustees and your registered charity number
+- **What we do:** your services or projects, written for the people who use them
+- **Get help:** how someone in need contacts you, in plain words, with opening times
+- **Donate:** a simple way to give by card, once or monthly
+- **Volunteer:** what you need, the time it takes and a short sign-up form
+- **News or events:** proof the charity is active, which funders and donors look for
+
+## Things the rules expect
+- **Say you are a registered charity.** A charity in England and Wales with a gross income over £10,000 a year must state that it is registered on documents that ask for money, and a donate page counts. Most charities put the charity number in the footer of every page.
+- **Gift Aid.** If you claim Gift Aid on online donations, the form needs a proper Gift Aid declaration, and you need to keep the records. HMRC publishes the wording.
+- **Data protection.** Donor, volunteer and service-user details are personal data under UK GDPR. Collect only what you need, keep it secure and publish a privacy notice.
+- **Accessibility.** Many of the people charities serve use screen readers, larger text or older phones. A site built to WCAG 2.2 AA standards works for them, and funders increasingly ask.
+- **Welsh language.** Nothing requires a small charity to have a bilingual site, but if your users speak Welsh, a Welsh version is a strong signal that you serve them.
+
+## Taking donations
+For most small charities, a card payment form through Stripe is simpler and cheaper than a big fundraising platform, with no monthly fee and the money landing in your account in a few days. If you already use a platform such as JustGiving or CAF, we can link or embed it instead.
+
+## What it costs
+Our charity sites are priced like any other: the [pricing page](/pricing) has the fixed packages, starting at **£449 + VAT** for five pages, with a care plan from **£35 a month + VAT** for hosting, updates and backups. If you need donations, volunteer sign-ups or a members' area, we quote it in full before anything starts.
+
+We are based in Pontypridd and work with charities and community groups across South Wales. Ring **01443 805303** or [get in touch](/contact).
+`,
+  },
+  {
+    slug: 'new-limited-company-website-checklist',
+    title: 'New Limited Company? Your Website Checklist (UK Rules) | DH Website Services',
+    description: 'Just set up a limited company? What your website legally has to show, from your company number to your registered office, plus what actually wins the first customers.',
+    heading: 'New limited company? Your website checklist',
+    intro: 'Once your company is on the Companies House register, your website has to carry certain details by law. Most new companies miss at least one. Here is the list, and what else is worth doing in the first month.',
+    published: '2026-11-21',
+    body: `
+## What the law says your website must show
+Under the Companies (Trading Disclosures) rules, a limited company's website has to show:
+- **Your company's registered name,** exactly as it is on the register, including "Limited" or "Ltd"
+- **Your company number**
+- **Where it is registered,** such as "registered in England and Wales"
+- **Your registered office address**
+
+The usual place is the footer of every page. If you are VAT registered, show your **VAT number** too, and the E-Commerce Regulations expect an **email address** customers can reach you on, not just a contact form.
+
+## If you trade under a different name
+Plenty of companies trade under a brand name that differs from the registered one. That is fine, but the registered name still has to appear on the site, so customers can see who they are dealing with. A line such as "Brand Name is a trading name of Company Name Ltd" covers it.
+
+## Also worth having from day one
+- **A privacy notice** if your site collects names, emails or phone numbers, which any contact form does
+- **A cookie notice** if you use analytics or advertising tracking. Plain functional cookies do not need one
+- **Your own domain** registered in the company's name, not a personal one or a designer's account
+- **Email at your own domain,** such as hello@yourcompany.co.uk. It looks established, and you keep it if you change provider
+
+## What wins the first customers
+The rules above keep you legal. What brings work in is simpler:
+1. **A Google Business Profile.** For local searches, it is often seen before your website.
+2. **A fast site that works on a phone.** Most people will look you up on one.
+3. **Proof.** Photos of real work, early reviews and the areas you cover.
+4. **One clear action.** A phone number to tap, a quote form or a booking button on every page.
+
+## What it costs
+We build sites for new companies at fixed prices, starting at **£449 + VAT** for five pages, with the legal details, privacy notice and Google Business Profile set up as part of the job. See the [pricing page](/pricing), or [DH Local](/local) if you would rather pay monthly with no build fee.
+
+We are in Pontypridd. Ring **01443 805303** or [get in touch](/contact).
+`,
+  },
 ]
 
 export const NEWS = [
