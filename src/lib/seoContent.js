@@ -557,6 +557,95 @@ const GEO_MARKETS = [
     ],
   },
   {
+    city: 'Caerphilly',
+    title: 'Web Design Caerphilly | Websites & Apps, Fixed Price | DH Website Services',
+    description: 'Web design and apps for Caerphilly businesses from a team 20 minutes away in Pontypridd. Fixed-price websites from £449, apps from £349. Ring 01443 805303.',
+    heading: 'Web design for Caerphilly businesses.',
+    intro: 'We are based in Trallwn, Pontypridd, about 20 minutes from Caerphilly over the mountain road or round by Nantgarw. Close enough to sit down with you, and the same fixed prices we charge on our own doorstep.',
+    travel: 'Caerphilly is a short drive for us, so the first meeting can be at your premises, in town or on a video call. It costs nothing and there is no obligation to go ahead.',
+    extra: [
+      {
+        title: 'Across the county borough',
+        body: 'We work with businesses in Caerphilly town, Bedwas, Trethomas, Llanbradach, Ystrad Mynach, Nelson, Bargoed, Blackwood, Risca, Newbridge and Rhymney, and on the business parks around Pontygwindy, Penallta and Bedwas House. The price is the same wherever you are.',
+      },
+      {
+        title: 'Tradespeople and small firms',
+        body: 'Most of the enquiries we get from the Caerphilly side are trades and small service firms who need to be found on Google and look the part when someone checks them out: a fast site with photos of real jobs, reviews, the areas you cover and a number that rings straight through. We set your Google Business Profile up properly alongside it, because for "near me" searches that matters as much as the site.',
+      },
+      {
+        title: 'Visitors to the castle and town',
+        body: 'If you run a café, shop, pub or guest house that gets visitors to Caerphilly Castle and the town centre, your site needs opening times, a menu or price list and directions that work on a phone, because that is where people look you up. We can add online ordering or bookings when you need them.',
+      },
+    ],
+  },
+  {
+    city: 'Merthyr Tydfil',
+    slug: 'merthyr-tydfil',
+    title: 'Web Design Merthyr Tydfil | Websites & Apps, Fixed Price | DH Website Services',
+    description: 'Web design and apps for Merthyr Tydfil businesses from a team 25 minutes down the A470 in Pontypridd. Websites from £449, apps from £349, fixed price.',
+    heading: 'Web design for Merthyr Tydfil businesses.',
+    intro: 'Merthyr is straight up the A470 from us in Pontypridd, about 25 minutes. We build websites and apps for businesses in the town and across the borough, at the same fixed prices we charge locally.',
+    travel: 'We will come up to you for the first chat if you would rather meet in person, or do it over a video call. Either way it is free and there is no obligation.',
+    extra: [
+      {
+        title: 'Where we cover',
+        body: 'Merthyr town centre, Cyfarthfa, Gurnos, Dowlais, Penydarren, Pentrebach, Troedyrhiw, Aberfan, Merthyr Vale, Treharris and Trelewis, plus the retail and industrial estates around Pentrebach and Rhydycar.',
+      },
+      {
+        title: 'Outdoor and visitor businesses',
+        body: 'With the Brecon Beacons on the doorstep and BikePark Wales above the town, a lot of Merthyr businesses sell to visitors: guides, hire shops, accommodation and places to eat. They need a site that shows up when people plan a trip, takes bookings without the back-and-forth of messages, and works on a phone with one bar of signal. That is the kind of site we build.',
+      },
+      {
+        title: 'Local trades and services',
+        body: 'For trades, garages, salons and care businesses, the job is simpler: be easy to find on Google, look trustworthy when someone checks you out, and make it one tap to ring you. A fixed-price five-page site and a properly set up Google Business Profile covers it.',
+      },
+    ],
+  },
+  {
+    city: 'Aberdare',
+    title: 'Web Design Aberdare & the Cynon Valley | DH Website Services',
+    description: 'Web design and apps for Aberdare and Cynon Valley businesses from a team 20 minutes away in Pontypridd. Fixed-price websites from £449. Ring 01443 805303.',
+    heading: 'Web design in Aberdare and the Cynon Valley.',
+    intro: 'We are in Pontypridd, about 20 minutes down the valley from Aberdare on the A4059. Same county, same phone code, and the same fixed prices.',
+    travel: 'We can meet you at your business in Aberdare, Mountain Ash or anywhere in the valley, or talk it through on a video call. The first conversation is free.',
+    extra: [
+      {
+        title: 'The whole Cynon Valley',
+        body: 'Aberdare town centre, Trecynon, Cwmdare, Llwydcoed, Aberaman, Cwmbach, Abercwmboi, Mountain Ash, Penrhiwceiber, Abercynon, Hirwaun and Penderyn, plus the industrial estates at Hirwaun and Robertstown.',
+      },
+      {
+        title: 'Rhondda Cynon Taf, start to finish',
+        body: 'We are an RCT business ourselves, so we know how local people search: by town and by valley, not by county. Your site will name the places you actually serve, link to your Google Business Profile and load fast on a phone, which is how most customers in the valleys find a business now.',
+      },
+      {
+        title: 'Shops, cafés and visitors',
+        body: 'Dare Valley Country Park, the Penderyn distillery and the routes up to the Beacons bring visitors through the valley. If you sell to them, we can add opening times, menus, online orders or bookings, and keep them up to date for you on a care plan.',
+      },
+    ],
+  },
+  {
+    city: 'Bridgend',
+    title: 'Web Design Bridgend | Websites & Apps, Fixed Price | DH Website Services',
+    description: 'Web design and iPhone and Android apps for Bridgend businesses from a team in Pontypridd, about 30 minutes away. Websites from £449, apps from £349, fixed price.',
+    heading: 'Web design for Bridgend businesses.',
+    intro: 'Bridgend is about half an hour from us in Pontypridd, down the A4119 and along the M4. We build websites and apps for businesses across the county borough at the same fixed prices we charge locally.',
+    travel: 'Half an hour each way, so we are happy to come to you for the first meeting and again at handover. Everything in between usually runs on calls and email, which is quicker for both of us.',
+    extra: [
+      {
+        title: 'Across the county borough',
+        body: 'Bridgend town, Brackla, Coity, Pencoed, Maesteg, Tondu, Aberkenfig, Pyle, Kenfig Hill, Porthcawl and the Garw and Ogmore valleys, plus the units on Bridgend Industrial Estate and Waterton.',
+      },
+      {
+        title: 'Industrial estate firms',
+        body: 'Engineering, manufacturing and trade-supply firms on the estates often have a site that was built years ago and never touched. It usually still works, but it is slow, does not show well on a phone and does not say clearly what you make. We rebuild sites like that at a fixed price, and can add things like a quote form or a customer area if they save you time.',
+      },
+      {
+        title: 'Porthcawl and the coast',
+        body: 'Caravan parks, holiday lets, cafés and surf schools along the coast need bookings and availability that are easy to manage. We build direct booking sites with calendar sync to Airbnb and Booking.com, so you take fewer bookings through platforms that charge commission. Our holiday lets page has the details.',
+      },
+    ],
+  },
+  {
     city: 'Cardiff',
     intro: 'Cardiff is a short drive down the A470 from us in Pontypridd, so we can be in your office the same week you call.',
     travel: 'If you want to sit down and go through it in person before you commit to anything, that costs you nothing and we can usually do it within a couple of days.',
@@ -595,7 +684,7 @@ const GEO_MARKETS = [
 
 export const GEO_CITY_LINKS = GEO_MARKETS.map((market) => ({
   city: market.city,
-  to: `/web-design-${market.city.toLowerCase()}`,
+  to: `/web-design-${market.slug || market.city.toLowerCase()}`,
 }))
 
 /**
@@ -614,8 +703,7 @@ export const GEO_CITY_LINKS = GEO_MARKETS.map((market) => ({
  * with tone, targeting, operational understanding".
  */
 function makeGeoPage(market) {
-  const cityLower = market.city.toLowerCase()
-  const path = `/web-design-${cityLower}`
+  const path = `/web-design-${market.slug || market.city.toLowerCase()}`
 
   return {
     path,
