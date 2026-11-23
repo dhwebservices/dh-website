@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/dh-logo-icon.png">
+<title>Charity Setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F4F5F3;--paper:#FFFFFF;--ink:#14181A;--ink2:#3E4548;--muted:#626A6E;--line:#DCDFDB;--red:#C8102E;--soft:rgba(200,16,46,.07);--ok:#1E7B46;
+--display:'Archivo','Helvetica Neue',Arial,sans-serif;--sans:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101315;--paper:#181C1E;--ink:#ECEEEC;--ink2:#C3C8C9;--muted:#959C9F;--line:#2B3134;--red:#F0475F;--soft:rgba(240,71,95,.1);--ok:#5BC98A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101315;--paper:#181C1E;--ink:#ECEEEC;--ink2:#C3C8C9;--muted:#959C9F;--line:#2B3134;--red:#F0475F;--soft:rgba(240,71,95,.1);--ok:#5BC98A;color-scheme:dark}
+*{box-sizing:border-box} html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);padding-inline:16px;padding-block:32px 80px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:18px}
+header{display:grid;gap:8px;padding-bottom:6px}
+.brand{font:600 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+h1{font:800 clamp(34px,7vw,52px)/1.02 var(--display);letter-spacing:-.03em;margin:0;text-wrap:balance}
+.lede{color:var(--ink2);margin:0;max-width:62ch}
+.prog{font:500 14px var(--mono);color:var(--muted)} .prog b{color:var(--ink)}
+.rules{background:var(--soft);border-left:4px solid var(--red);border-radius:0 12px 12px 0;padding:14px 18px}
+.rules h2{font:700 17px var(--display);margin:0 0 6px} .rules ul{margin:0;padding-left:20px} .rules li{margin:3px 0}
+.job{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:10px;min-width:0}
+.job.is-done{border-color:var(--ok)}
+.jh{display:flex;gap:14px;align-items:center}
+.n{flex:none;width:40px;height:40px;border-radius:12px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:800 18px var(--display)}
+.job.is-done .n{background:var(--ok)}
+.job h2{font:700 21px/1.2 var(--display);margin:0;letter-spacing:-.01em}
+.time{margin:0;font:500 13px var(--mono);color:var(--muted)}
+.why{margin:0;color:var(--ink2)}
+.job h3{font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:4px 0 0}
+ol{margin:0;padding-left:22px} li{margin:4px 0}
+details{border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:0}
+summary{cursor:pointer;font-weight:600}
+pre{white-space:pre-wrap;word-break:break-word;font:13.5px/1.55 var(--mono);background:var(--bg);border-radius:8px;padding:12px;margin:10px 0;max-height:340px;overflow:auto}
+.copy{font:600 14px var(--sans);background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:9px 14px;cursor:pointer}
+.done{display:flex;gap:10px;align-items:flex-start;font-weight:600;cursor:pointer;padding-top:6px;border-top:1px dashed var(--line)}
+.done input{width:20px;height:20px;margin-top:2px;accent-color:var(--ok)}
+footer{color:var(--muted);font-size:14px}
+li ul{margin:4px 0;padding-left:20px}
+.docs h2{font:700 24px var(--display);margin:8px 0 0}
+.back{font:500 14px var(--mono);color:var(--muted)} a{color:var(--red)}
+.claude{background:var(--paper);border:1px solid var(--ok);border-radius:16px;padding:16px 20px}
+.claude h2{font:700 19px var(--display);margin:0 0 6px}.claude ul{margin:0;padding-left:20px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header>
+  <a class="back" href="/jack/">← Jack's jobs</a>
+  <span class="brand">Valleys Digital · Charity setup</span>
+  <h1>Setting up the charity</h1>
+  <p class="lede">Valleys Digital is a not-for-profit group that gets free websites and digital help to community groups in RCT, paid for by grants. These are the jobs that need a real person. Claude has already drafted all the paperwork (further down this page). Work through tasks 1–8 roughly in order. 9 and 10 come later.</p>
+  <p class="prog" id="prog"></p>
+</header>
+<aside class="claude"><h2>Already done by Claude</h2><ul>
+<li>Constitution, written so we can register as a charity later without rewriting it</li>
+<li>Conflicts of interest, safeguarding, data protection (with privacy notice) and equality policies</li>
+<li>First-meeting agenda, minutes template and trustee declarations</li>
+<li>The plan, the budget (£7,990 for 10 sites) and the website design. David has these.</li>
+</ul></aside>
+<aside class="rules">
+  <h2>Read this first</h2>
+  <ul>
+    <li>The group needs <b>at least 3 trustees</b>, and <b>most of them must have nothing to do with DH</b>. You and David both count as connected to DH: David owns it and you work with it. So we need <b>at least one more trustee, ideally two</b>, who isn't connected to DH or related to either of you. Funders and the Charity Commission check this, because the group may pay DH to build sites.</li>
+    <li>We start as a <b>constituted community group</b>. It's free, with no registration. Once a grant takes our income over <b>£5,000 a year</b>, we <b>must register with the Charity Commission</b>. That's task 9, and it's free.</li>
+    <li><b>Never</b> give Claude, or anyone else, a bank login, card number, PIN or one-time code. Banks and forms that ask for those are yours or David's to fill in.</li>
+    <li>Don't <b>pay for anything or buy anything</b> (a domain name, insurance, a fee) without David saying yes first.</li>
+    <li>Before you send any email, letter or message for the group, show David the exact words and get his OK.</li>
+  </ul>
+</aside>
+
+<section class="job" id="c1">
+  <div class="jh"><span class="n">1</span><div><h2>Read the setup pack</h2><p class="time">About 1 hour</p></div></div>
+  <p class="why">Claude has drafted everything the group needs to exist: the constitution, four policies and the first-meeting papers. They're further down this page. You'll be signing them, so read them properly.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Read the constitution and the four policies at the bottom of this page.</li>
+    <li>Write down anything you don't understand or don't agree with. Send the list to David, or ask Claude: paste a document in and say "explain this in plain English".</li>
+    <li>Decide which role you'd like at the first meeting: <b>secretary</b> fits best (emails, minutes, keeping records). The treasurer should be someone not connected to DH.</li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c1"> <span>Done when you've read everything and sent David your questions (or "no questions").</span></label>
+</section>
+
+<section class="job" id="c2">
+  <div class="jh"><span class="n">2</span><div><h2>Find the independent trustees</h2><p class="time">1–3 weeks, on and off</p></div></div>
+  <p class="why">This is the one thing that can hold everything up. We need at least one person, ideally two, who has <b>no link to DH</b> and is <b>not related to you or David</b>. Good fits: someone already on a local club or community group committee, a retired teacher, a librarian, a bookkeeper, someone from church or chapel. A bookkeeper or someone careful with money makes a great treasurer.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Make a list of 5–10 people you or David know who might say yes. Ask David to add names too.</li>
+    <li>Ask them in person or by message. Use the short explanation in the box below. Tell them it's about four short meetings a year plus signing off payments.</li>
+    <li>If nobody says yes, ask Interlink RCT (task 3) about finding trustees. Volunteering Wales (volunteering-wales.net) also lists trustee roles for free.</li>
+    <li>When someone says yes, send them this page's documents. Make sure they read the trustee declaration in the first-meeting papers.</li>
+  </ol>
+  <details><summary>What to tell people (copy and edit)</summary>
+    <pre id="t-ask">We're setting up Valleys Digital, a not-for-profit group that gets free websites and digital help to community groups and small charities in RCT (sports clubs, food banks, community centres and the like), paid for by grants. We need one or two trustees who aren't connected to the web company involved, to keep it fair and above board. It's about four short meetings a year (they can be online), and signing off payments. No money needed from you. Would you be up for it, or know someone who might be?</pre>
+    <button type="button" class="copy" data-t="t-ask">Copy</button>
+  </details>
+  <label class="done"><input type="checkbox" data-k="c2"> <span>Done when at least one independent person has said yes.</span></label>
+</section>
+
+<section class="job" id="c3">
+  <div class="jh"><span class="n">3</span><div><h2>Get in touch with Interlink RCT</h2><p class="time">About 30 minutes, then wait for replies</p></div></div>
+  <p class="why">Interlink is the free support body for voluntary groups in Rhondda Cynon Taf. They help with funding advice, finding trustees and free training, and a letter of support from them makes our grant bid stronger. Digital Communities Wales (digitalcommunities.gov.wales) is worth a look too: it's a Welsh Government programme for digital help and does free training.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Go to interlinkrct.org.uk and find their contact email or phone number for new groups and funding advice.</li>
+    <li>Edit the email below, show it to David, then send it from your own email. Or ring them, which is often quicker.</li>
+    <li>Ask about: registering the group with them, funding advice for National Lottery Awards for All Wales, help finding a trustee, free safeguarding training, and whether they'd write a short letter of support.</li>
+  </ol>
+  <details><summary>Email to Interlink (edit, show David, then send)</summary>
+    <pre id="t-interlink">Subject: New community group in RCT: free websites for local groups
+
+Hello,
+
+We're setting up a new community group, Valleys Digital, to build free websites and give digital help to community groups and small charities in Rhondda Cynon Taf, funded by grants. We have a draft constitution and policies ready and plan to hold our first meeting in the next few weeks.
+
+Could you help us with:
+- registering with Interlink as a new group;
+- funding advice, as we're planning a first bid to National Lottery Awards for All Wales;
+- finding one or two independent trustees;
+- free safeguarding training for the people who'll run our digital help drop-ins.
+
+Once we're up and running, would you consider writing a short letter of support for our bid?
+
+Thank you,
+Jack Deane
+Valleys Digital</pre>
+    <button type="button" class="copy" data-t="t-interlink">Copy</button>
+  </details>
+  <label class="done"><input type="checkbox" data-k="c3"> <span>Done when Interlink has replied and you've sent David what they said.</span></label>
+</section>
+
+<section class="job" id="c4">
+  <div class="jh"><span class="n">4</span><div><h2>Hold the first meeting</h2><p class="time">About 1 hour, once task 2 is done</p></div></div>
+  <p class="why">This is the moment the group legally exists: everyone adopts the constitution and the policies and elects the officers. It's free.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Agree a date with David and the independent trustee(s). In person is best, because everyone needs to sign. Online is fine if people sign afterwards.</li>
+    <li>Print two copies of the constitution and one copy each of the four policies and the agenda and minutes template.</li>
+    <li>Run through the agenda in order. As secretary, you fill in the minutes as you go. Don't skip item 2, declarations of interest.</li>
+    <li>Everyone signs the constitution (clause 14) and their own trustee declaration. The chair signs the minutes.</li>
+    <li>Scan or photograph every signed page clearly. Send the scans to David to keep in the group's folder.</li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c4"> <span>Done when the signed constitution, the minutes and the declarations are scanned and sent to David.</span></label>
+</section>
+
+<section class="job" id="c5">
+  <div class="jh"><span class="n">5</span><div><h2>Group email address</h2><p class="time">About 20 minutes</p></div></div>
+  <p class="why">The group needs its own email address, separate from DH. Banks, funders and Interlink will all use it.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Ask David which he wants: a free address for now (e.g. a new Outlook.com or Gmail account for the group), or one on the group's own web address later. A web address costs money, so David decides.</li>
+    <li>Set it up with a strong password and two-step sign-in. Store the password in the group's password manager or give it to David. Never put it in a document or a message.</li>
+    <li>Fill the email into the privacy notice (data protection policy, Part 2).</li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c5"> <span>Done when the group email works and David knows it.</span></label>
+</section>
+
+<section class="job" id="c6">
+  <div class="jh"><span class="n">6</span><div><h2>Open the bank account</h2><p class="time">1–4 weeks (banks are slow)</p></div></div>
+  <p class="why">Grants can only be paid into an account in the group's own name, never DH's or David's. Awards for All needs <b>two unrelated people</b> managing it.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Compare community or club accounts that are free for small groups. Check each bank's <b>current</b> page, because the terms change. Banks that have offered them: Lloyds (Treasurer's Account), NatWest (Community Account), HSBC (Charitable and Community Organisations), Metro Bank (Community Current Account), Barclays, Santander. Check: is it free, how many signatories does it allow, can it be opened online, and does it take unregistered community groups?</li>
+    <li>Send David your top two. He picks one.</li>
+    <li>Get ready: the signed constitution, the signed minutes (item 6) and photo ID plus proof of address for each signatory.</li>
+    <li>Apply. Each signatory completes their own part, and only they type in their own personal details. The treasurer should be one of the signatories, and the account needs at least one signatory who isn't connected to DH.</li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c6"> <span>Done when the account is open in the name "Valleys Digital" and the details are with the treasurer and David.</span></label>
+</section>
+
+<section class="job" id="c7">
+  <div class="jh"><span class="n">7</span><div><h2>ICO check (data protection)</h2><p class="time">About 15 minutes</p></div></div>
+  <p class="why">Groups that hold people's details may have to pay a small yearly fee to the Information Commissioner's Office. Some not-for-profit groups don't have to. The ICO's online tool tells you which applies.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Go to ico.org.uk and search for "data protection fee self-assessment". Answer the questions as Valleys Digital. We'll hold contact details of groups that apply, of volunteers and of donors, and we're not-for-profit.</li>
+    <li>Screenshot the result.</li>
+    <li>If it says we need to pay, tell David the amount. <b>Don't pay it yourself.</b></li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c7"> <span>Done when the result screenshot is with David.</span></label>
+</section>
+
+<section class="job" id="c8">
+  <div class="jh"><span class="n">8</span><div><h2>Sign-ups and letters of support</h2><p class="time">Ongoing, 2–4 weeks</p></div></div>
+  <p class="why">The grant is won by showing real local groups asking for this. The target before we apply: <b>12 or more named groups</b> that want a free website, and <b>2 or more letters of support</b>.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li>Think of groups you know personally: a club you play for, a community centre, a food bank, a chapel, a youth group. Do any have no website, or a broken one?</li>
+    <li>Ask the person who runs each one, by message or in person: would they like a free website from Valleys Digital once the funding comes in? If yes, note the group's name, what they do, who they help and one line on why a site would help them. Also ask whether we can quote that line in our bid.</li>
+    <li>Keep the list in a shared spreadsheet that David can see.</li>
+    <li>Ask two or three of the best-known groups for a short letter of support. Use the template below; they put it on their own letterhead or email.</li>
+  </ol>
+  <details><summary>Letter of support template (for them to edit and sign)</summary>
+    <pre id="t-letter">To whom it may concern,
+
+[Group name] supports Valleys Digital's application for funding to provide free websites and digital help to community groups in Rhondda Cynon Taf.
+
+[One or two sentences about the group: what you do and who you help.]
+
+We don't currently have [a website / a working website], and that makes it harder to [let people know about our sessions / recruit volunteers / reach people who need us]. A free website and help to keep it updated would make a real difference to us and the people we serve.
+
+Yours faithfully,
+[Name], [Role], [Group name]
+[Date]</pre>
+    <button type="button" class="copy" data-t="t-letter">Copy</button>
+  </details>
+  <label class="done"><input type="checkbox" data-k="c8"> <span>Done when there are 12+ groups on the list and 2+ letters.</span></label>
+</section>
+
+<section class="job" id="c9">
+  <div class="jh"><span class="n">9</span><div><h2>Register with the Charity Commission (later)</h2><p class="time">About 2 hours to apply, then 1–3 months to wait</p></div></div>
+  <p class="why"><b>Not yet.</b> We have to register once our income goes over <b>£5,000 in a year</b>, which the first grant (about £8,000) would do. You can't register before that. Registration is free. Once we're registered, we can call ourselves a registered charity and claim Gift Aid.</p>
+  <h3>What to do, once a grant over £5,000 is offered</h3>
+  <ol>
+    <li>Read gov.uk's guide "How to register your charity (CC21b)". It lists what you need.</li>
+    <li>Gather:
+      <ul>
+        <li>the signed constitution;</li>
+        <li>every trustee's full name, date of birth, address and email (each trustee gives their own);</li>
+        <li>the grant offer letter, as proof of income;</li>
+        <li>the bank account details; and</li>
+        <li>a short description of what we do and who benefits.</li>
+      </ul>
+    </li>
+    <li>Ask David to start the online application. Each trustee confirms their own declaration online.</li>
+    <li>The Commission will probably ask about payments to DH. The answer: it's in the constitution (clause 9) and the conflicts policy. Payments are approved only by trustees with no link to DH, at or below DH's public price, and declared to funders.</li>
+    <li>After registration: register with HMRC for Gift Aid (gov.uk "Charities and tax"). Update the website and letterheads with the charity number.</li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c9"> <span>Done when we have a registered charity number.</span></label>
+</section>
+
+<section class="job" id="c10">
+  <div class="jh"><span class="n">10</span><div><h2>Before the first drop-in (later)</h2><p class="time">Once funding lands</p></div></div>
+  <p class="why">Drop-ins can involve older or vulnerable people, so there are a few checks first.</p>
+  <h3>What to do</h3>
+  <ol>
+    <li><b>Basic DBS check</b> for everyone who will run sessions. Apply at gov.uk/request-copy-criminal-record. Each person applies for their own.</li>
+    <li><b>Safeguarding training</b>, free through Interlink RCT or the Wales Safeguarding Procedures e-learning.</li>
+    <li><b>Public liability insurance:</b> get two quotes and send them to David. Don't buy it.</li>
+    <li><b>Book venues:</b> libraries and community centres, step-free if possible.</li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c10"> <span>Done when the checks, training and insurance quotes are sorted.</span></label>
+</section>
+
+<section class="docs" id="docs">
+<h2>The paperwork (drafts)</h2>
+<p class="why">Click a document to read it. Print the constitution twice and everything else once for the first meeting.</p>
+<details><summary>Constitution</summary>
+<pre id="d0"># Constitution of Valleys Digital
+
+DRAFT for the trustees to agree at the first meeting. &quot;Valleys Digital&quot; is a working name; change it everywhere if a different name is chosen.
+
+This is the constitution of a charitable unincorporated association. It follows the structure of the Charity Commission&#x27;s model constitution for an association, so the group can register as a charity once its income goes over £5,000 a year.
+
+## 1. Name
+The group is called **Valleys Digital** (&quot;the charity&quot;).
+
+## 2. Objects (what the charity is for)
+The objects of the charity are, for the public benefit, in Rhondda Cynon Taf and the surrounding area:
+
+1. to promote the efficiency and effectiveness of charities, community groups and other not-for-profit organisations, mainly by providing websites, digital tools, digital support and training free or at low cost; and
+2. to advance the education of the public, especially people who are older, on low incomes or otherwise digitally excluded, in the use of digital technology, online services and staying safe online.
+
+## 3. Powers
+To achieve its objects the charity may:
+
+1. raise funds, but it must not carry out any taxable trading;
+2. apply for grants and accept donations, sponsorship, gifts and legacies;
+3. work with or support other charities and voluntary bodies with similar purposes;
+4. run training sessions, drop-ins and events;
+5. buy or hire goods, services, premises and equipment;
+6. insure the charity, its property, its volunteers and its trustees;
+7. employ staff or contract suppliers, subject to clause 9;
+8. open and run bank accounts in the charity&#x27;s name;
+9. do anything else lawful that helps achieve the objects.
+
+## 4. Application of income and property
+1. The charity&#x27;s income and property must be used only to promote its objects.
+2. No trustee may receive any money or other benefit from the charity, except:
+   - repayment of reasonable out-of-pocket expenses;
+   - insurance cover for trustees&#x27; liability; or
+   - payment for goods or services under clause 9.
+
+## 5. Membership
+1. Membership is open to anyone over 18, and to any not-for-profit organisation, who supports the objects and applies to the trustees.
+2. An organisation that is a member appoints one person to represent it.
+3. The trustees may refuse a membership application only if they think it is in the charity&#x27;s best interests. They must explain why and allow the applicant to reply.
+4. The trustees keep a register of members.
+5. A member may resign by telling the secretary in writing.
+6. The trustees may remove a member for good reason, after giving the member a chance to be heard.
+
+## 6. Trustees (the committee)
+1. The charity is run by a committee of trustees. There must be at least **three** trustees and no more than nine.
+2. **Most of the trustees must have no connection with DH Website Services**, meaning they are not an owner, director, employee or relative of one.
+3. The first trustees are those elected at the first meeting. They serve until the first annual general meeting.
+4. At each annual general meeting, the members elect the trustees for the coming year. Trustees may stand again.
+5. The trustees may appoint extra trustees between general meetings. Anyone appointed this way serves until the next annual general meeting.
+6. Every trustee must sign a declaration that they are willing to act and are not disqualified from being a charity trustee.
+7. A trustee stops being a trustee if they:
+   - resign in writing;
+   - are disqualified by law;
+   - miss three meetings in a row without good reason and the other trustees decide they should go; or
+   - are removed by the members at a general meeting.
+8. If the number of trustees falls below three, the remaining trustees may act only to appoint new trustees or to call a general meeting.
+
+## 7. Officers
+The trustees elect a chair, a treasurer and a secretary from among themselves each year. One person cannot be both chair and treasurer.
+
+## 8. Trustee meetings
+1. The trustees meet at least four times a year, in person or online.
+2. The quorum is three trustees, at least two of whom have no connection with DH Website Services.
+3. Decisions are made by a majority of the trustees present and voting. If the vote is tied, the chair has a second, casting vote.
+4. The secretary keeps minutes of every meeting.
+5. The trustees may decide something by email or in writing instead of at a meeting, but only if all the trustees agree to the decision.
+
+## 9. Conflicts of interest and payments to connected suppliers
+1. A trustee must declare any interest they, or a person connected to them, have in any matter. They must then leave the discussion and must not vote on it.
+2. The charity may pay a trustee, or a business connected to a trustee (for example DH Website Services), for goods or services beyond their role as trustee, but only if all of these apply:
+   - the amount is fixed in a written agreement and is no more than is reasonable;
+   - the other trustees are satisfied it is in the charity&#x27;s best interests, having looked at what other suppliers would charge;
+   - the decision is made by trustees who receive no benefit from it, with the quorum in clause 8.2 met;
+   - fewer than half of the trustees receive, or are connected to someone who receives, any such payment; and
+   - the payment is declared to any funder whose money is used.
+3. All interests are recorded in a register of interests and in the minutes.
+
+## 10. Money and accounts
+1. All money is paid into a bank account in the charity&#x27;s name.
+2. Every payment needs the approval of two trustees who are not related to each other and do not live together. A payment to a connected supplier must be approved by two trustees with no connection to that supplier.
+3. The treasurer keeps proper accounts. Every year the trustees prepare accounts and an annual report and present them at the annual general meeting.
+4. Once the charity is registered, the trustees send the Charity Commission whatever annual return and accounts it requires.
+5. The trustees must have the accounts independently examined when the law or any funder requires it.
+
+## 11. General meetings
+1. The charity holds an annual general meeting (AGM) every year, no more than 15 months after the last one.
+2. At the AGM, the members:
+   - receive the accounts and the annual report;
+   - elect the trustees; and
+   - deal with any other business.
+3. The trustees may call a special general meeting at any time. They must call one within 28 days if at least five members ask in writing.
+4. Members get at least 14 days&#x27; written notice of a general meeting, including by email.
+5. The quorum for a general meeting is five members, or one fifth of the membership if that is fewer. It can never be fewer than three.
+6. Each member has one vote. If the vote is tied, the person chairing the meeting has a casting vote.
+
+## 12. Changing this constitution
+1. This constitution may be changed by a two-thirds majority of the members voting at a general meeting.
+2. No change may:
+   - stop the charity being a charity;
+   - allow any money or property to be used for anything other than the objects; or
+   - weaken clause 4 or clause 9.
+3. Once the charity is registered, any change to the objects, clause 4 or clause 13 needs the Charity Commission&#x27;s consent first.
+
+## 13. Closing the charity
+1. The charity may be dissolved by a two-thirds majority of the members voting at a special general meeting.
+2. Any money or property left after paying its debts must not go to the members or trustees. It must go to one or more charities with similar objects, chosen at that meeting, or to another charitable purpose.
+3. Any money that came from a funder is dealt with under that funder&#x27;s terms.
+
+## 14. Adoption
+This constitution was adopted at the first meeting held on ____________ (date).
+
+| Role | Name | Signature | Date |
+|---|---|---|---|
+| Chair | | | |
+| Treasurer | | | |
+| Secretary | | | |
+| Trustee | | | |
+</pre>
+<button type="button" class="copy" data-t="d0">Copy</button> &nbsp;<a href="docs/01-constitution.md" download>Download</a>
+</details>
+<details><summary>Conflicts of interest policy</summary>
+<pre id="d1"># Conflicts of Interest Policy — Valleys Digital
+
+DRAFT for the trustees to adopt at the first meeting.
+
+## Why this matters for us
+One of our founders owns DH Website Services, the web company in Pontypridd that may be paid to build the websites we fund. That is allowed, but only if the decision is made by trustees with no connection to DH and is open to everyone. This policy is how we make sure of that. Funders and the Charity Commission will look for it.
+
+## What counts as a conflict
+A conflict exists when what&#x27;s best for the charity could clash with what&#x27;s best for:
+- a trustee;
+- a person connected to a trustee (family, people they live with); or
+- a business connected to a trustee (one they own or direct, or work for).
+
+It includes &quot;conflicts of loyalty&quot;, for example a trustee who also sits on the committee of a group applying to us for a free website.
+
+## What we do
+1. **Register of interests.** Every trustee fills in the register when they join, and updates it whenever something changes. The secretary keeps it, and it is reviewed at the AGM.
+2. **Declare at every meeting.** &quot;Declarations of interest&quot; is the second item on every agenda. Any interest is recorded in the minutes.
+3. **Leave the room.** A trustee with a conflict on a matter leaves the discussion (or the online meeting) and does not vote. They may answer factual questions first if the other trustees ask.
+4. **Quorum without them.** A decision on a conflicted matter needs at least two trustees with no connection to it.
+5. **Payments to DH Website Services** (or any other trustee-connected supplier):
+   - The work and its price are set in a written agreement before any work starts.
+   - The price per site is no higher than DH&#x27;s published public price for the same work. The trustees record a comparison with at least one other supplier&#x27;s price.
+   - The agreement is approved by trustees with no connection to DH.
+   - Each invoice is checked against the agreement and approved by two trustees with no connection to DH before it is paid.
+   - The arrangement is declared in every funding bid and every report to a funder.
+   - Fewer than half of the trustees may ever be connected to a paid supplier.
+6. **Groups we help.** If a trustee is involved with a group that applies for a free website, they declare it and take no part in the decision about that application.
+7. **If in doubt, declare.** If anyone, including a trustee, member or volunteer, thinks there may be a conflict, they say so.
+
+## Breaches
+If a conflict was not declared, the trustees look at the decision again without the conflicted trustee. If needed, they put things right, and they record what happened. A serious or repeated breach may lead to removal as a trustee under the constitution.
+
+Adopted on ____________ · Review date: one year after adoption.
+
+---
+
+## Register of interests (one row per trustee)
+
+| Trustee | Interest (business, employment, other roles, family links) | Date declared |
+|---|---|---|
+| | | |
+| | | |
+| | | |
+</pre>
+<button type="button" class="copy" data-t="d1">Copy</button> &nbsp;<a href="docs/02-conflicts-of-interest-policy.md" download>Download</a>
+</details>
+<details><summary>Safeguarding policy</summary>
+<pre id="d2"># Safeguarding Policy — Valleys Digital
+
+DRAFT for the trustees to adopt at the first meeting.
+
+## Scope
+This policy covers:
+- our free digital help drop-ins, which may include older people and adults at risk;
+- training sessions; and
+- any contact with children or young people through the groups we work with.
+
+It applies to:
+- trustees;
+- volunteers; and
+- anyone working for us, including contractors.
+
+## Our commitments
+- Everyone has the right to be safe from abuse, neglect and exploitation, including financial and online abuse and scams.
+- We take every concern seriously and act on it.
+- We follow the **Wales Safeguarding Procedures** (safeguarding.wales) and work with Rhondda Cynon Taf&#x27;s safeguarding services.
+
+## Designated Safeguarding Lead (DSL)
+The trustees appoint a DSL, and a deputy, from among the trustees. The DSL:
+- is the first contact for any concern;
+- decides whether to make a referral;
+- keeps records secure; and
+- makes sure training happens.
+
+- DSL: ____________________
+- Deputy: ____________________
+
+## Safe practice at drop-ins and sessions
+- Sessions take place in public venues (libraries, community centres), never in someone&#x27;s home.
+- At least two people from Valleys Digital are present at every drop-in.
+- **We never ask for, look at, type in or write down anyone&#x27;s passwords, PINs, bank details or one-time codes.** We show people how to enter them themselves.
+- We never take control of a person&#x27;s money or accounts, and we never accept gifts beyond something trivial.
+- No one is left alone with a child, and children attend only with a parent or carer.
+- Anyone running sessions regularly gets a **basic DBS check** before they start. If the work changes so that it counts as regulated activity, they get the right level of check for it.
+- Everyone running sessions does safeguarding awareness training before their first session. Free e-learning is available through the Wales Safeguarding Procedures and Interlink RCT.
+
+## If you are worried about someone
+1. **If someone is in immediate danger, call 999.**
+2. Listen. Don&#x27;t promise to keep it secret. Don&#x27;t investigate or question.
+3. Write down what you saw or were told, in the person&#x27;s words, with the date and time. Do this the same day.
+4. Tell the DSL the same day. If you can&#x27;t reach them, tell the deputy.
+5. The DSL decides whether to refer the concern to the local authority:
+   - Rhondda Cynon Taf adult or children&#x27;s services; or
+   - for a scam or fraud, Action Fraud (0300 123 2040).
+
+   The DSL records the decision either way.
+6. If the concern is about the DSL, tell another trustee.
+
+## Records
+Safeguarding records are kept securely, shared only with people who need to know, and handled under our data protection policy.
+
+## Review
+The trustees review this policy every year, and after any serious incident.
+
+Adopted on ____________ · Review date: ____________
+</pre>
+<button type="button" class="copy" data-t="d2">Copy</button> &nbsp;<a href="docs/03-safeguarding-policy.md" download>Download</a>
+</details>
+<details><summary>Data protection policy and privacy notice</summary>
+<pre id="d3"># Data Protection Policy and Privacy Notice — Valleys Digital
+
+DRAFT for the trustees to adopt at the first meeting.
+
+## Part 1: Policy (for trustees and volunteers)
+
+Valleys Digital is the data controller for the personal information it holds. We follow the UK GDPR and the Data Protection Act 2018.
+
+**What we hold:**
+- names and contact details of people at groups that apply for, or get, a website;
+- members&#x27; and volunteers&#x27; details;
+- drop-in attendance (first name only, unless more is needed);
+- donor and sponsor details; and
+- safeguarding records.
+
+**Rules:**
+1. Collect only what we need, for a clear reason.
+2. Store it only in the charity&#x27;s own accounts, never on personal devices or in personal email. Use two-factor sign-in on every account.
+3. Share it only when needed. Never sell it or use it for anyone else&#x27;s marketing. Details of groups are not passed to DH Website Services for sales: DH gets only what it needs to build a site the charity has approved.
+4. Delete it when it&#x27;s no longer needed. Our retention periods:
+   - applications that don&#x27;t go ahead: 12 months;
+   - grant records: as long as the funder requires (often 7 years);
+   - safeguarding records: as advised by the DSL.
+5. **Breaches.** Tell the secretary at once. The trustees decide within 72 hours whether to report it to the ICO.
+6. **Requests.** Anyone can ask for a copy of their data, or ask for it to be corrected or deleted. We reply within one month.
+7. **ICO fee.** The secretary completes the ICO&#x27;s online self-assessment (&quot;Do I need to pay a fee?&quot;) and records the result. Whatever the result, we still follow these rules.
+
+The secretary is responsible for data protection.
+
+## Part 2: Privacy notice (to publish on our website and on sign-up forms)
+
+**Who we are:** Valleys Digital, a community group in Rhondda Cynon Taf. Contact: ____________ (email).
+
+**What we collect and why:**
+- **Your group&#x27;s name, your name, email, phone and details about your group.** We use these to assess and deliver a free website or digital help. Lawful basis: legitimate interests, or steps before an agreement.
+- **With your permission:** a quote from you in our funding bids and reports, to show funders the need. You can withdraw permission at any time. Lawful basis: consent.
+- **Donor details:** to process donations and, once we are a registered charity, to claim Gift Aid. Lawful basis: legal obligation or legitimate interests.
+
+**Who we share it with:**
+- DH Website Services, which builds and hosts the websites. It receives only the details needed for your site.
+- Funders, in summary form, or with your consent.
+- Our email, form and hosting providers.
+
+We never sell your data.
+
+**How long we keep it:** see the policy above, or ask us.
+
+**Your rights:** you can ask for access to your data, or for it to be corrected or deleted. You can also object to how we use it, or withdraw consent. You can complain to the Information Commissioner&#x27;s Office (ico.org.uk, 0303 123 1113).
+</pre>
+<button type="button" class="copy" data-t="d3">Copy</button> &nbsp;<a href="docs/04-data-protection-policy.md" download>Download</a>
+</details>
+<details><summary>Equality, diversity and inclusion policy</summary>
+<pre id="d4"># Equality, Diversity and Inclusion Policy — Valleys Digital
+
+DRAFT for the trustees to adopt at the first meeting.
+
+Valleys Digital exists to help people and groups who are left behind online, so being open to everyone is central to what we do.
+
+1. We welcome everyone, including as members, volunteers, trustees and the groups we help. We don&#x27;t treat anyone unfairly because of any protected characteristic under the Equality Act 2010:
+   - age
+   - disability
+   - gender reassignment
+   - marriage and civil partnership
+   - pregnancy and maternity
+   - race
+   - religion or belief
+   - sex
+   - sexual orientation
+
+   We also don&#x27;t treat anyone unfairly because of their income, background or how confident they are with technology.
+2. **Welsh language.** We offer our services in Welsh and English wherever we can. Welsh-language groups are welcome, and we can build bilingual websites. We follow the spirit of the Welsh Language (Wales) Measure 2011.
+3. **Accessibility:**
+   - Websites we fund are built to WCAG 2.2 AA, so they work with screen readers and keyboards and on phones.
+   - Drop-ins are held in venues with step-free access where possible.
+   - We provide large-print and plain-English materials.
+4. **Fair selection.** When there are more applications for free websites than we can fund, we choose using published criteria. We give priority to groups that serve people facing disadvantage.
+5. **Monitoring.** With people&#x27;s consent, we collect anonymous information about who we reach. We use it to find gaps and report to funders.
+6. **Complaints.** Anyone who feels they were treated unfairly can contact any trustee. The trustees look into it and reply within 28 days.
+
+The trustees review this policy every year.
+
+Adopted on ____________ · Review date: ____________
+</pre>
+<button type="button" class="copy" data-t="d4">Copy</button> &nbsp;<a href="docs/05-equality-policy.md" download>Download</a>
+</details>
+<details><summary>First meeting: agenda, minutes and trustee declaration</summary>
+<pre id="d5"># First Meeting of Valleys Digital: Agenda and Minutes Template
+
+Fill in the blanks during the meeting. The bank needs a signed copy of these minutes.
+
+- **Date:** ____________
+- **Time:** ____________
+- **Place / online:** ____________
+- **Present (full names):** ____________
+- **In the chair for this meeting:** ____________
+
+## 1. Welcome and purpose
+The meeting was called to set up Valleys Digital: a community group that provides free websites and digital help to not-for-profit groups and people in Rhondda Cynon Taf.
+
+## 2. Declarations of interest
+Each person states any interest. At least, the following must be recorded:
+- **David Hooper:** owner and director of DH Website Services (David Hooper Home Limited), which may be paid by the group to build websites.
+- **Jack Deane:** works with DH Website Services.
+- Others: ____________
+
+Each person fills in the register of interests (in the conflicts of interest policy).
+
+## 3. Adopt the constitution
+- **Resolved:** that the constitution presented to the meeting is adopted as the constitution of Valleys Digital.
+- Proposed by ____________ · Seconded by ____________ · Votes for ___ · against ___ · abstained ___
+
+## 4. Elect the first trustees and officers
+The following were elected as trustees until the first AGM:
+
+| Name | Role | Connected to DH Website Services? |
+|---|---|---|
+| | Chair | |
+| | Treasurer | |
+| | Secretary | |
+| | Trustee | |
+
+Check before moving on:
+- there are at least 3 trustees; and
+- most of them are **not** connected to DH.
+
+Each trustee signs the trustee declaration below.
+
+## 5. Adopt the policies
+**Resolved:** that the following policies are adopted:
+- Conflicts of Interest;
+- Safeguarding (DSL: ____________; deputy: ____________);
+- Data Protection and Privacy Notice; and
+- Equality, Diversity and Inclusion.
+
+## 6. Bank account
+**Resolved:** that the group opens a bank account in the name &quot;Valleys Digital&quot; with ____________ (bank).
+
+- The signatories are ____________ and ____________ (and ____________).
+- Every payment needs the approval of two signatories who are not related to each other and do not live together.
+- Payments to DH Website Services need the approval of two signatories who are not connected to DH.
+- The chair and the secretary are authorised to sign the bank&#x27;s forms.
+
+## 7. Contact details and accounts
+**Resolved:** that the secretary sets up the group&#x27;s email address and the ICO self-assessment, and records the result.
+
+## 8. First funding bid
+- **Resolved:** to prepare a bid to National Lottery Awards for All Wales for about £8,000 to fund 10 community websites over 12 months.
+- The trustees will review the bid before it is submitted.
+- It is noted that receiving the grant would take income above £5,000, so the group will then register with the Charity Commission.
+
+## 9. Any other business
+____________
+
+## 10. Date of next meeting
+____________
+
+Signed as a true record (chair): ____________ · Date: ____________
+
+---
+
+## Trustee declaration (each trustee signs)
+
+I, ____________, declare that:
+- I am willing to act as a trustee of Valleys Digital;
+- I am 18 or over;
+- I am not disqualified from acting as a charity trustee (for example by an unspent conviction for dishonesty, an undischarged bankruptcy, or being disqualified as a company director); and
+- I will declare any conflict of interest.
+
+Signed: ____________ · Date: ____________
+</pre>
+<button type="button" class="copy" data-t="d5">Copy</button> &nbsp;<a href="docs/06-first-meeting-agenda-and-minutes.md" download>Download</a>
+</details>
+</section>
+<footer>Ticks only save on this device. Last updated 23 November 2026.</footer>
+</main>
+<script>
+const boxes=[...document.querySelectorAll('input[data-k]')];
+function upd(){const n=boxes.filter(b=>b.checked).length;document.getElementById('prog').innerHTML='<b>'+n+' of '+boxes.length+'</b> done';boxes.forEach(b=>b.closest('.job').classList.toggle('is-done',b.checked))}
+boxes.forEach(b=>{try{b.checked=localStorage.getItem('jackcharity-'+b.dataset.k)==='1'}catch(e){};b.addEventListener('change',()=>{try{localStorage.setItem('jackcharity-'+b.dataset.k,b.checked?'1':'0')}catch(e){};upd()})});upd();
+document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',()=>{const el=document.getElementById(btn.dataset.t);navigator.clipboard.writeText(el.innerText).then(()=>{btn.textContent='Copied ✓'}).catch(()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected: press Ctrl+C'})}));
+</script>
+</body>
+</html>
