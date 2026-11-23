@@ -37,7 +37,12 @@ Check before moving on:
 - there are at least 3 trustees; and
 - most of them are **not** connected to DH.
 
-Each trustee signs the trustee declaration below.
+Each trustee signs the trustee declaration below. The secretary confirms that each person has been checked against:
+- the removed trustees register;
+- the register of disqualified directors; and
+- the Individual Insolvency Register.
+
+The checked names are recorded here: ____________
 
 ## 5. Adopt the policies
 **Resolved:** that the following policies are adopted:
@@ -77,7 +82,12 @@ Signed as a true record (chair): ____________ · Date: ____________
 I, ____________, declare that:
 - I am willing to act as a trustee of Valleys Digital;
 - I am 18 or over;
-- I am not disqualified from acting as a charity trustee (for example by an unspent conviction for dishonesty, an undischarged bankruptcy, or being disqualified as a company director); and
+- I am not disqualified from acting as a charity trustee, or from holding a senior position in a charity, under section 178 of the Charities Act 2011. Under the automatic disqualification rules, this includes:
+  - an unspent conviction for an offence involving dishonesty or deception, or for certain other specified offences;
+  - being an undischarged bankrupt, or subject to a debt relief order or bankruptcy restrictions;
+  - having been removed as a trustee by the Charity Commission or the High Court; and
+  - being disqualified as a company director;
+- I understand that acting as a trustee while disqualified is a criminal offence; and
 - I will declare any conflict of interest.
 
 Signed: ____________ · Date: ____________
