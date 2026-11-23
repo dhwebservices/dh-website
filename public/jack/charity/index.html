@@ -41,6 +41,7 @@ pre{white-space:pre-wrap;word-break:break-word;font:13.5px/1.55 var(--mono);back
 .done input{width:20px;height:20px;margin-top:2px;accent-color:var(--ok)}
 footer{color:var(--muted);font-size:14px}
 li ul{margin:4px 0;padding-left:20px}
+.job ul{margin:0;padding-left:22px}
 .docs h2{font:700 24px var(--display);margin:8px 0 0}
 .back{font:500 14px var(--mono);color:var(--muted)} a{color:var(--red)}
 .claude{background:var(--paper);border:1px solid var(--ok);border-radius:16px;padding:16px 20px}
@@ -53,13 +54,13 @@ li ul{margin:4px 0;padding-left:20px}
   <a class="back" href="/jack/">← Jack's jobs</a>
   <span class="brand">Valleys Digital · Charity setup</span>
   <h1>Setting up the charity</h1>
-  <p class="lede">Valleys Digital is a not-for-profit group that gets free websites and digital help to community groups in RCT, paid for by grants. These are the jobs that need a real person. Claude has already drafted all the paperwork (further down this page). Work through tasks 1–8 roughly in order. 9 and 10 come later.</p>
+  <p class="lede">Valleys Digital is a not-for-profit group that gets free websites and digital help to community groups in RCT, paid for by grants. These are the jobs that need a real person to set it up legally, register it as a charity and keep it legal. Claude has already drafted all the paperwork (further down this page). Do jobs 1–8 roughly in order. 9 comes when the first grant is offered, 10 before the first drop-in, and 11 every year.</p>
   <p class="prog" id="prog"></p>
 </header>
 <aside class="claude"><h2>Already done by Claude</h2><ul>
-<li>Constitution, written so we can register as a charity later without rewriting it</li>
+<li>Constitution with charitable objects, written on the Charity Commission's model so we can register without rewriting it</li>
 <li>Conflicts of interest, safeguarding, data protection (with privacy notice) and equality policies</li>
-<li>First-meeting agenda, minutes template and trustee declarations</li>
+<li>First-meeting agenda, minutes template and trustee declarations (covering the legal disqualification rules)</li>
 <li>The plan, the budget (£7,990 for 10 sites) and the website design. David has these.</li>
 </ul></aside>
 <aside class="rules">
@@ -94,6 +95,13 @@ li ul{margin:4px 0;padding-left:20px}
     <li>Ask them in person or by message. Use the short explanation in the box below. Tell them it's about four short meetings a year plus signing off payments.</li>
     <li>If nobody says yes, ask Interlink RCT (task 3) about finding trustees. Volunteering Wales (volunteering-wales.net) also lists trustee roles for free.</li>
     <li>When someone says yes, send them this page's documents. Make sure they read the trustee declaration in the first-meeting papers.</li>
+    <li><b>Legal check, required before anyone becomes a trustee</b>, including you and David. Some people are disqualified from being a trustee by law. Before the first meeting, check each person's name on:
+      <ul>
+        <li>the Charity Commission's register of removed trustees (search gov.uk for "removed trustees register");</li>
+        <li>the Companies House register of disqualified directors; and</li>
+        <li>the Individual Insolvency Register (gov.uk).</li>
+      </ul>
+      Screenshot each result. Each trustee also signs the declaration in the first-meeting papers, which covers the automatic disqualification rules (for example unspent convictions for dishonesty, or being bankrupt). Keep the screenshots and signed declarations. Don't send them to the Charity Commission.</li>
   </ol>
   <details><summary>What to tell people (copy and edit)</summary>
     <pre id="t-ask">We're setting up Valleys Digital, a not-for-profit group that gets free websites and digital help to community groups and small charities in RCT (sports clubs, food banks, community centres and the like), paid for by grants. We need one or two trustees who aren't connected to the web company involved, to keep it fair and above board. It's about four short meetings a year (they can be online), and signing off payments. No money needed from you. Would you be up for it, or know someone who might be?</pre>
@@ -213,25 +221,43 @@ Yours faithfully,
 </section>
 
 <section class="job" id="c9">
-  <div class="jh"><span class="n">9</span><div><h2>Register with the Charity Commission (later)</h2><p class="time">About 2 hours to apply, then 1–3 months to wait</p></div></div>
-  <p class="why"><b>Not yet.</b> We have to register once our income goes over <b>£5,000 in a year</b>, which the first grant (about £8,000) would do. You can't register before that. Registration is free. Once we're registered, we can call ourselves a registered charity and claim Gift Aid.</p>
-  <h3>What to do, once a grant over £5,000 is offered</h3>
+  <div class="jh"><span class="n">9</span><div><h2>Register as a charity with the Charity Commission</h2><p class="time">About 2 hours to apply, then usually 1–3 months to wait</p></div></div>
+  <p class="why"><b>The law:</b> a charity in England or Wales <b>must</b> register once its income goes over <b>£5,000 a year</b>. Our first grant (about £8,000) will do that. You <b>can't</b> register while our income is still below £5,000 (only CIOs can, and we're not one). Registering is <b>free</b>. Don't pay any website that offers to do it for a fee.</p>
+  <h3>Until we're registered</h3>
+  <ul>
+    <li>Never say "registered charity" or give a charity number. We can say "a not-for-profit community group".</li>
+    <li>We can't claim Gift Aid yet.</li>
+  </ul>
+  <h3>Before applying (check each one)</h3>
   <ol>
-    <li>Read gov.uk's guide "How to register your charity (CC21b)". It lists what you need.</li>
-    <li>Gather:
+    <li><b>At least 3 trustees</b>, all over 18, with the disqualification checks from job 2 done and their declarations signed. <b>Most of them must have no connection to DH.</b></li>
+    <li>The constitution, signed and dated at the first meeting. Our objects (clause 2) are written to count as charitable purposes in law. Don't change the wording without asking Claude first.</li>
+    <li>Income over £5,000: the grant offer letter, or bank statements, as proof.</li>
+    <li>The bank account open in the group's name (job 6).</li>
+    <li>A short, plain description of what we do, who benefits and how the public benefits. Ask Claude to write it from the plan.</li>
+    <li>The written agreement with DH for building sites, with the minutes showing it was approved only by the trustees with no DH connection.</li>
+  </ol>
+  <h3>Applying</h3>
+  <ol>
+    <li>Read gov.uk's guide "How to register your charity (CC21b)" first. It's short.</li>
+    <li>David (or the chair) starts the online application at gov.uk ("Register your charity"). Every trustee gets an email and confirms their own details and declaration. Nobody fills one in for someone else.</li>
+    <li>Answer every question truthfully. <b>We must declare the link with DH.</b> Expect the Commission to ask about it. The answer is:
       <ul>
-        <li>the signed constitution;</li>
-        <li>every trustee's full name, date of birth, address and email (each trustee gives their own);</li>
-        <li>the grant offer letter, as proof of income;</li>
-        <li>the bank account details; and</li>
-        <li>a short description of what we do and who benefits.</li>
+        <li>clause 9 of the constitution and the conflicts policy;</li>
+        <li>payments to DH are approved only by trustees with no DH connection, at or below DH's public prices, and declared to funders; and</li>
+        <li>fewer than half of the trustees are connected to DH.</li>
       </ul>
     </li>
-    <li>Ask David to start the online application. Each trustee confirms their own declaration online.</li>
-    <li>The Commission will probably ask about payments to DH. The answer: it's in the constitution (clause 9) and the conflicts policy. Payments are approved only by trustees with no link to DH, at or below DH's public price, and declared to funders.</li>
-    <li>After registration: register with HMRC for Gift Aid (gov.uk "Charities and tax"). Update the website and letterheads with the charity number.</li>
+    <li>Reply to any questions from the Commission quickly, within the deadline they give. Send their questions to David and Claude first.</li>
   </ol>
-  <label class="done"><input type="checkbox" data-k="c9"> <span>Done when we have a registered charity number.</span></label>
+  <h3>The day we're registered</h3>
+  <ol>
+    <li>Save the charity number and the registration letter in the group's folder.</li>
+    <li>Register with <b>HMRC for charity tax and Gift Aid</b> (gov.uk, "Charities and tax: register"). It's free and needs the charity number.</li>
+    <li>Add "Registered charity number ______" to the website, emails, letters, donation pages and receipts. It's a legal requirement once yearly income is over £10,000, and good practice before that.</li>
+    <li>Agree a financial year end (for example 31 March) at the next trustees' meeting, and note the dates in job 11.</li>
+  </ol>
+  <label class="done"><input type="checkbox" data-k="c9"> <span>Done when we have a charity number and the HMRC Gift Aid registration has been sent.</span></label>
 </section>
 
 <section class="job" id="c10">
@@ -245,6 +271,29 @@ Yours faithfully,
     <li><b>Book venues:</b> libraries and community centres, step-free if possible.</li>
   </ol>
   <label class="done"><input type="checkbox" data-k="c10"> <span>Done when the checks, training and insurance quotes are sorted.</span></label>
+</section>
+
+<section class="job" id="c11">
+  <div class="jh"><span class="n">11</span><div><h2>Staying legal every year</h2><p class="time">A few hours a year: put the dates in the calendar</p></div></div>
+  <p class="why">Being set up properly isn't the end. These are the things the law (and our constitution) expects every year. Missing them can get the charity flagged on the public register.</p>
+  <h3>Every year</h3>
+  <ol>
+    <li><b>Accounts and trustees' annual report</b> at the end of each financial year. Simple "receipts and payments" accounts are fine while income is small. Ask Claude to draft them from the bank statements.</li>
+    <li><b>Annual return to the Charity Commission</b> within <b>10 months</b> of the year end. If income was over £10,000 that year, the full annual return is compulsory. Below that, the Commission still asks for basic details.</li>
+    <li><b>Independent examination</b> of the accounts, by someone independent of the trustees, once income goes over the legal threshold (£25,000, rising to £40,000 for years ending on or after 30 September 2026; check gov.uk), or whenever a funder asks for one.</li>
+    <li><b>The AGM</b>, within 15 months of the last one (constitution clause 11): accounts, report, elect trustees.</li>
+    <li><b>Keep the register up to date:</b> tell the Commission within 28 days if trustees, contact details or the bank change. Re-do the disqualification checks for every new trustee.</li>
+    <li><b>Review the policies</b> (conflicts, safeguarding, data protection, equality), and update the register of interests.</li>
+    <li><b>Report to funders</b> on time, and spend grants only on what the bid said.</li>
+  </ol>
+  <h3>Rules to keep</h3>
+  <ul>
+    <li>Fundraising: follow the Fundraising Regulator's Code of Fundraising Practice. Collecting money in the street or door to door needs a licence from RCT Council first.</li>
+    <li>Gift Aid: only claim it with a proper signed declaration from the donor. Keep the records for 6 years.</li>
+    <li>Report serious incidents (fraud, theft, a safeguarding incident, a data breach) to the Charity Commission promptly. Search gov.uk for "Reporting a serious incident".</li>
+    <li>Never mix charity money with DH's or anyone's personal money.</li>
+  </ul>
+  <label class="done"><input type="checkbox" data-k="c11"> <span>Done when the yearly dates (year end, annual return deadline, AGM) are in David's and your calendars.</span></label>
 </section>
 
 <section class="docs" id="docs">
@@ -607,7 +656,12 @@ Check before moving on:
 - there are at least 3 trustees; and
 - most of them are **not** connected to DH.
 
-Each trustee signs the trustee declaration below.
+Each trustee signs the trustee declaration below. The secretary confirms that each person has been checked against:
+- the removed trustees register;
+- the register of disqualified directors; and
+- the Individual Insolvency Register.
+
+The checked names are recorded here: ____________
 
 ## 5. Adopt the policies
 **Resolved:** that the following policies are adopted:
@@ -647,7 +701,12 @@ Signed as a true record (chair): ____________ · Date: ____________
 I, ____________, declare that:
 - I am willing to act as a trustee of Valleys Digital;
 - I am 18 or over;
-- I am not disqualified from acting as a charity trustee (for example by an unspent conviction for dishonesty, an undischarged bankruptcy, or being disqualified as a company director); and
+- I am not disqualified from acting as a charity trustee, or from holding a senior position in a charity, under section 178 of the Charities Act 2011. Under the automatic disqualification rules, this includes:
+  - an unspent conviction for an offence involving dishonesty or deception, or for certain other specified offences;
+  - being an undischarged bankrupt, or subject to a debt relief order or bankruptcy restrictions;
+  - having been removed as a trustee by the Charity Commission or the High Court; and
+  - being disqualified as a company director;
+- I understand that acting as a trustee while disqualified is a criminal offence; and
 - I will declare any conflict of interest.
 
 Signed: ____________ · Date: ____________
@@ -655,7 +714,7 @@ Signed: ____________ · Date: ____________
 <button type="button" class="copy" data-t="d5">Copy</button> &nbsp;<a href="docs/06-first-meeting-agenda-and-minutes.md" download>Download</a>
 </details>
 </section>
-<footer>Ticks only save on this device. Last updated 23 November 2026.</footer>
+<footer>Ticks only save on this device. This is a practical checklist, not legal advice: if anything is unclear, check gov.uk or ask Interlink RCT. Last updated 23 November 2026.</footer>
 </main>
 <script>
 const boxes=[...document.querySelectorAll('input[data-k]')];
