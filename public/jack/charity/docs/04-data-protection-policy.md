@@ -29,12 +29,12 @@ The secretary is responsible for data protection.
 
 ## Part 2: Privacy notice (to publish on our website and on sign-up forms)
 
-**Who we are:** Valleys Digital, a community group in Rhondda Cynon Taf. Contact: ____________ (email).
+**Who we are:** Valleys Digital, a charitable incorporated organisation (CIO) in Rhondda Cynon Taf, registered charity number ______. Contact: ____________ (email).
 
 **What we collect and why:**
 - **Your group's name, your name, email, phone and details about your group.** We use these to assess and deliver a free website or digital help. Lawful basis: legitimate interests, or steps before an agreement.
 - **With your permission:** a quote from you in our funding bids and reports, to show funders the need. You can withdraw permission at any time. Lawful basis: consent.
-- **Donor details:** to process donations and, once we are a registered charity, to claim Gift Aid. Lawful basis: legal obligation or legitimate interests.
+- **Donor details:** to process donations and to claim Gift Aid. Lawful basis: legal obligation or legitimate interests.
 
 **Who we share it with:**
 - DH Website Services, which builds and hosts the websites. It receives only the details needed for your site.
