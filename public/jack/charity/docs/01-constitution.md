@@ -10,11 +10,7 @@
 >
 > **No wording of our own has been added.** That keeps it eligible for the Commission's faster route: a decision in about 40 working days when model wording is used. The Charity Commission model text is Crown copyright, reused under the Open Government Licence v3.0.
 >
-> **Still to fill in before applying:**
-> - the names of the first trustees (clause 9(4)); and
-> - the final name, if it changes.
-
-Date of constitution (last amended): ____________ *(leave blank until registered)*
+> **Completed 23 Nov 2026:** first trustees David Hooper and Jack Deane (4 years each); minimum number of trustees set at two (clause 9(3)(a)).
 
 ## 1. Name
 The name of the Charitable Incorporated Organisation ("the CIO") is **Valleys Digital**.
@@ -90,13 +86,11 @@ If the CIO is wound up, the members of the CIO have no liability to contribute t
    3. No one is entitled to act as a charity trustee whether on appointment or on any re-appointment until he or she has expressly acknowledged, in whatever way the charity trustees decide, his or her acceptance of the office of charity trustee.
    4. At least one of the trustees of the CIO must be 18 years of age or over. If there is no trustee aged at least 18 years, the remaining trustees may only act to call a meeting of the charity trustees, or appoint a new charity trustee.
 3. **Number of charity trustees**
-   1. There must be at least three charity trustees. If the number falls below this minimum, the remaining trustee or trustees may act only to call a meeting of the charity trustees, or appoint a new charity trustee.
+   1. There must be at least two charity trustees. If the number falls below this minimum, the remaining trustee or trustees may act only to call a meeting of the charity trustees, or appoint a new charity trustee.
    2. The maximum number of charity trustees is 12. The charity trustees may not appoint any charity trustee if as a result the number of charity trustees would exceed the maximum.
 4. **First charity trustees.** The first charity trustees are as follows, and are appointed for the following terms:
-   - ______________________________ for 4 years
-   - ______________________________ for 3 years
-   - ______________________________ for 2 years
-   - ______________________________ for 2 years *(optional fourth)*
+   - David Hooper for 4 years
+   - Jack Deane for 4 years
 
 ## 10. Appointment of charity trustees
 1. Apart from the first charity trustees, every trustee must be appointed for a term of three years by a resolution passed at a properly convened meeting of the charity trustees.
