@@ -21,7 +21,7 @@ const FAQ = [
   ['Will testing break my website?', 'No. We don\'t do anything that could take your site down, slow it or change your data. If a test would need to change something, we ask you first.'],
   ['Do you need my passwords?', 'No. The quick test and the full test are done from the outside, the same as anyone on the internet would see it. If you want us to fix something, we\'ll ask you to give us access properly, never to send a password.'],
   ['What does "verified" mean?', 'The tools we use for this kind of testing aren\'t something you can just sign up for. A company has to apply, prove who they are and what they do, and be checked and approved first. We have been.'],
-  ['Can I test a website that isn\'t mine?', 'No. We only test websites and systems you own or are authorised to manage, and only with your permission in writing. That\'s what the tick box below is for.'],
+  ['Can I test a website that isn\'t mine?', 'No. We only test websites and systems you own or are authorised to manage, and only with your permission in writing. That\'s what the tick box on the form is for.'],
   ['Is VAT included?', 'Prices are plus VAT.'],
 ]
 
