@@ -61,6 +61,7 @@ export async function onRequestPost({ request, env }) {
     country: request.cf?.country || '',
   }
   if (r.name.length < 2 || r.business.length < 2 || !EMAIL.test(r.email)) return json({ error: 'Please fill in your name, business and email.' }, 400)
+  if (!/^(?:\+44|0044|0)7\d{9}$/.test(r.phone.replace(/[\s()-]/g, ''))) return json({ error: 'Please enter a UK mobile number, for example 07700 900123.' }, 400)
   if (!r.site) return json({ error: 'Please enter your website address, for example yourbusiness.co.uk.' }, 400)
   if (!r.consent) return json({ error: 'Please tick the box to confirm the website is yours and we have your permission.' }, 400)
 
