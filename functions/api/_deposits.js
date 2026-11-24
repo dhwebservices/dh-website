@@ -21,10 +21,16 @@ export async function stripeGet(context, path) {
  * Pages variable, so the "only 10" on the page stays true.
  */
 export async function bfPlacesLeft(context) {
-  const query = encodeURIComponent("metadata['plan']:'bf-website' AND status:'succeeded'")
-  const found = await stripeGet(context, `/payment_intents/search?query=${query}&limit=100`)
+  // Earlier bookings were 50% deposits (payment intents); from 24 Nov they're
+  // paid in full with the care plan (subscriptions). Count both.
+  const deposits = encodeURIComponent("metadata['plan']:'bf-website' AND status:'succeeded'")
+  const subs = encodeURIComponent("metadata['plan']:'bf-website' AND status:'active'")
+  const [a, b] = await Promise.all([
+    stripeGet(context, `/payment_intents/search?query=${deposits}&limit=100`),
+    stripeGet(context, `/subscriptions/search?query=${subs}&limit=100`).catch(() => ({ data: [] })),
+  ])
   const offline = Number(context.env.BF_BOOKED_OFFLINE || 0) || 0
-  return BF_PLACES - offline - (found.data || []).length
+  return BF_PLACES - offline - (a.data || []).length - (b.data || []).length
 }
 
 export async function sendEmail(context, to, subject, html) {

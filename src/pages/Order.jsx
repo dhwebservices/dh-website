@@ -40,14 +40,14 @@ function Paid({ sessionId }) {
   }
   return (
     <>
-      <p className="eyebrow" style={{ marginBottom: 16 }}>Deposit paid</p>
+      <p className="eyebrow" style={{ marginBottom: 16 }}>{state.full ? 'Paid' : 'Deposit paid'}</p>
       <h1 style={h1}>Thank you. You're booked in.</h1>
       <p className="body-lg" style={{ marginBottom: 24 }}>We've received {state.total} for the {state.plan}. A confirmation is on its way to {state.email}.</p>
       <div style={{ ...card, color: 'var(--dark)' }}>
         <p className="eyebrow" style={{ marginBottom: 12 }}>What happens next</p>
         <ol className="body-md" style={{ paddingLeft: 20, margin: 0, display: 'grid', gap: 8 }}>
           <li>We'll be in touch within one working day to plan your build.</li>
-          <li>{state.monthly ? `Stripe takes £${state.monthly} + VAT each month. The plan has a 12-month minimum term.` : 'The other 50% of the build price is due before it goes live.'}</li>
+          <li>{state.monthly ? `Stripe takes £${state.monthly} + VAT each month. The plan has a 12-month minimum term.` : state.full ? `The website is paid in full. Your care plan is £${state.careMonthly} + VAT a month by card, 12-month minimum.` : 'The other 50% of the build price is due before it goes live.'}</li>
           <li>{state.care}</li>
         </ol>
       </div>
@@ -92,7 +92,7 @@ export default function Order() {
             <>
               <p className="eyebrow" style={{ marginBottom: 16 }}>Book online</p>
               <h1 style={h1}>{plan.name}</h1>
-              <p className="body-lg" style={{ marginBottom: 0 }}>{plan.summary} {plan.monthly ? `Nothing to pay upfront: £${plan.monthly} a month + VAT, and we start planning your site within one working day.` : 'Pay the 50% deposit now and we\'ll start planning your build within one working day.'}</p>
+              <p className="body-lg" style={{ marginBottom: 0 }}>{plan.summary} {plan.monthly ? `Nothing to pay upfront: £${plan.monthly} a month + VAT, and we start planning your site within one working day.` : plan.payInFull ? 'Pay for the website and your first month of care in one go, and we\'ll start planning your site within one working day.' : 'Pay the 50% deposit now and we\'ll start planning your build within one working day.'}</p>
             </>
           )}
         </div>
@@ -110,6 +110,11 @@ export default function Order() {
                         ['Upfront', '£0', 'No build fee'],
                         ['Every month', `£${plan.monthly} + VAT`, `${pounds(plan.totalPence)} including VAT, by card`],
                         ['Minimum term', `${plan.minMonths} months`, 'Then month to month, 30 days\' notice'],
+                      ] : plan.payInFull ? [
+                        ['Website, paid in full', `£${plan.price.toLocaleString('en-GB')} + VAT`, plan.was ? `Normally £${plan.was.toLocaleString('en-GB')} · ends 30 Nov` : null],
+                        ['Care plan, first month', `£${plan.careMonthly} + VAT`, 'Hosting, security, updates and small changes'],
+                        ['Today, including VAT', pounds(plan.totalPence), null],
+                        ['Then every month', `£${plan.careMonthly} + VAT`, `${pounds(plan.monthlyAfterPence)} including VAT · ${plan.minMonths}-month minimum`],
                       ] : [
                         ['Build price', `£${plan.price.toLocaleString('en-GB')} + VAT`, plan.was ? `Normally £${plan.was.toLocaleString('en-GB')} · ends 30 Nov` : null],
                         ['Deposit today (50%)', `${pounds(plan.depositPence)} + VAT`, `${pounds(plan.totalPence)} including VAT`],
@@ -159,7 +164,7 @@ export default function Order() {
                     </Link>
                   )}
                   <button type="submit" className="btn-primary" disabled={sending} style={{ justifyContent: 'center', width: '100%' }}>
-                    {sending ? 'Opening secure payment…' : plan.monthly ? `Start for ${pounds(plan.totalPence)} a month` : `Pay ${pounds(plan.totalPence)} deposit`}
+                    {sending ? 'Opening secure payment…' : plan.monthly ? `Start for ${pounds(plan.totalPence)} a month` : plan.payInFull ? `Pay ${pounds(plan.totalPence)}` : `Pay ${pounds(plan.totalPence)} deposit`}
                   </button>
                   <p className="body-sm" style={{ margin: 0, textAlign: 'center' }}>Secure card payment by Stripe. Questions first? Call <a href="tel:+441443805303" style={{ color: 'var(--accent)' }}>01443 805303</a>.</p>
                 </form>

@@ -17,9 +17,12 @@ const WEBSITE_CARE = 'Care plan from £35 a month + VAT, starting when your site
 const APP_CARE = 'App care £29 a month + VAT, starting when your app goes live. Month to month, 30 days\' notice.'
 
 const PLANS = [
+  // Paid in full upfront, with the care plan starting in the same checkout
+  // (like the Maltsters: build price and first month together, then monthly).
   { id: 'bf-website', name: 'Early Black Friday website', kind: 'website', price: 249, was: 449, blackFridayOnly: true,
+    payInFull: true, careMonthly: 15, minMonths: 12,
     summary: 'A five-page website, built as soon as you book.',
-    care: 'Care plan £15 a month + VAT for a minimum of 12 months, starting when your site goes live.' },
+    care: 'Care plan £15 a month + VAT for a minimum of 12 months (hosting, security, updates and small changes), taken monthly from the day you book.' },
   { id: 'starter', name: 'Starter website', kind: 'website', price: 449, notDuringBlackFriday: true,
     summary: 'A five-page website.', care: WEBSITE_CARE },
   { id: 'growth', name: 'Growth website', kind: 'website', price: 999,
@@ -51,6 +54,15 @@ export function depositPlan(id) {
   const offer = !plan.blackFridayOnly && bf ? PLAN_PRICES.find(([re]) => re.test(plan.name.replace(/ website$/i, ''))) : null
   const price = offer ? offer[1] : plan.price
   const was = plan.blackFridayOnly ? plan.was : offer ? offer[2] : null
+  if (plan.payInFull) {
+    // Whole build price today, plus the first month of the care plan.
+    const depositPence = price * 100
+    const vatPence = Math.round(depositPence * VAT_RATE)
+    const carePence = plan.careMonthly * 100
+    const careVatPence = Math.round(carePence * VAT_RATE)
+    return { ...plan, price, was, depositPence, vatPence, carePence, careVatPence,
+      totalPence: depositPence + vatPence + carePence + careVatPence, monthlyAfterPence: carePence + careVatPence }
+  }
   const depositPence = Math.round(price * 100 * DEPOSIT_SHARE)
   const vatPence = Math.round(depositPence * VAT_RATE)
   return { ...plan, price, was, depositPence, vatPence, totalPence: depositPence + vatPence }
