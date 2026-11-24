@@ -170,7 +170,7 @@ function pageContent(page) {
  * app replaces #root on load, so visitors see the normal footer.
  */
 const LINK_GROUPS = [
-  ['Services', (p) => ['/services', '/pricing', '/local', '/agencies', '/it-support', '/holiday-lets', '/takeaways', '/calculator'].includes(p.path)],
+  ['Services', (p) => ['/services', '/pricing', '/local', '/agencies', '/it-support', '/security-check', '/holiday-lets', '/takeaways', '/calculator'].includes(p.path)],
   ['Areas', (p) => p.path.startsWith('/web-design-')],
   ['Guides', (p) => p.path.startsWith('/guides') || p.path === '/visitor-levy-calculator'],
   ['Case studies', (p) => p.path.startsWith('/case-studies') || p.path.startsWith('/news')],
@@ -179,7 +179,7 @@ const LINK_GROUPS = [
 function siteLinksHtml() {
   const SHORT = {
     '/services': 'Services', '/pricing': 'Pricing', '/local': 'DH Local, £79 a month', '/agencies': 'For agencies',
-    '/it-support': 'IT support for offices', '/holiday-lets': 'Holiday let booking sites', '/takeaways': 'Takeaway ordering',
+    '/it-support': 'IT support for offices', '/security-check': 'Website security check', '/holiday-lets': 'Holiday let booking sites', '/takeaways': 'Takeaway ordering',
     '/calculator': 'Project calculator', '/about': 'About us', '/portfolio': 'Our work', '/partners': 'Partners',
     '/careers': 'Careers', '/contact': 'Contact', '/guides': 'All guides', '/case-studies': 'All case studies', '/news': 'News', '/visitor-levy-calculator': 'Visitor levy calculator',
   }

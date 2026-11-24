@@ -318,6 +318,19 @@ const BASE_INDEXABLE_PAGES = [
     ctaHref: '/order?plan=booking-app',
   },
   {
+    path: '/security-check',
+    title: 'Website Security Check in Pontypridd | Free Quick Test | DH Website Services',
+    description: 'Free quick security test for your business website. If we find a problem, a full test is £30 + VAT and most fixes are £90 + VAT. Verified cyber security testing from a local team in Pontypridd.',
+    heading: 'How safe is your website, really?',
+    intro: 'We have been verified to carry out cyber security testing. We test business websites for weak spots the way a hacker would, and show you exactly what we find.',
+    sections: [
+      { title: 'How it works', body: 'A free quick test from the outside. If it finds something, a full test for £30 + VAT with a plain-English write-up. Most fixes are £90 + VAT, priced before we start.' },
+      { title: 'Your permission', body: 'We only test websites you own or are authorised to manage, and only with your permission in writing.' },
+    ],
+    ctaLabel: 'Book a free quick test',
+    ctaHref: '/security-check#book',
+  },
+  {
     path: '/it-support',
     title: 'IT Support for Small Offices in Pontypridd and Cardiff | DH Website Services',
     description: 'Managed IT for offices of 5 to 25 staff: Microsoft 365, laptops, iPhones and a helpdesk, for £45 a person a month + VAT. Local team in Pontypridd covering the valleys and Cardiff.',
