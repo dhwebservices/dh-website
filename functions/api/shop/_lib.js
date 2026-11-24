@@ -68,7 +68,7 @@ export async function postWorker(context, type, data) {
   const { workerUrl } = getEnv(context)
   const response = await fetch(workerUrl, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'x-dh-email-key': context.env?.EMAIL_WORKER_KEY || '' },
     body: JSON.stringify({ type, data }),
   })
   const text = await response.text()

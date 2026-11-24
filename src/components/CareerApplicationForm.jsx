@@ -6,8 +6,6 @@ import {
   uploadCandidateDocument,
   validateCandidateDocument,
 } from '../lib/careers'
-import { buildApplicationConfirmationEmail, buildInternalApplicationEmail } from '../lib/recruitingEmail'
-import { sendCustomEmail } from '../lib/booking'
 
 const EMPTY_FORM = {
   first_name: '',
@@ -81,20 +79,13 @@ export default function CareerApplicationForm({ job, onSuccess }) {
         coverLetterUpload,
       })
 
-      await Promise.allSettled([
-        sendCustomEmail({
-          to: form.email,
-          subject: `Application received — ${job.title}`,
-          html: buildApplicationConfirmationEmail(application, job),
-          from: 'DH Website Services HR <HR@dhwebsiteservices.co.uk>',
-        }),
-        sendCustomEmail({
-          to: 'HR@dhwebsiteservices.co.uk',
-          subject: `New application — ${job.title} — ${application.full_name}`,
-          html: buildInternalApplicationEmail(application, job),
-          from: 'DH Website Services HR <HR@dhwebsiteservices.co.uk>',
-        }),
-      ])
+      // The confirmation and HR emails are built server-side from the saved
+      // application, so the browser can't choose who gets what.
+      await fetch('/api/form-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'career_application', application_ref }),
+      }).catch(() => null)
 
       onSuccess(application)
     } catch (submitError) {
