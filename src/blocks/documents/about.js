@@ -18,7 +18,7 @@ export const ABOUT_DOCUMENT = {
         eyebrow: "About",
         heading: "Two people in Pontypridd",
         lead: "DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project.",
-        body: "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Fixed prices, straight answers, and we are still here after launch.",
+        body: "We build iPhone and Android apps and design websites for businesses across Wales and the UK, and we run our own apps too. Named Web Design Service of the Year – Wales (Cardiff) at the Wales Prestige Awards 2027/28. Fixed prices, straight answers, and we are still here after launch.",
         primaryLabel: "Start a project →",
         primaryHref: "/contact",
         secondaryLabel: "See the work",
