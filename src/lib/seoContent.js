@@ -4,6 +4,9 @@ export const SEO_SITE_URL = 'https://www.dhwebsiteservices.co.uk'
 export { ARTICLE_PAGES }
 
 const ORG_ID = `${SEO_SITE_URL}/#organization`
+const PERSON_ID = `${SEO_SITE_URL}/about/#david-hooper`
+const AWARD = 'Web Design Service of the Year – Wales (Cardiff), Wales Prestige Awards 2027/28'
+const AWARD_URL = `${SEO_SITE_URL}/news/web-design-service-of-the-year-wales/`
 const SAME_AS = [
   'https://www.linkedin.com/company/dh-website-services/',
   'https://www.facebook.com/dhwebservices',
@@ -23,7 +26,8 @@ export const ORGANIZATION_SCHEMA = {
   logo: `${SEO_SITE_URL}/dh-logo.png`,
   image: `${SEO_SITE_URL}/og-image.png`,
   foundingDate: '2026-02-07',
-  founder: { '@type': 'Person', name: 'David Hooper' },
+  founder: { '@type': 'Person', '@id': PERSON_ID, name: 'David Hooper', jobTitle: 'Founder', url: `${SEO_SITE_URL}/about/` },
+  award: AWARD,
   vatID: 'GB517076395',
   identifier: { '@type': 'PropertyValue', propertyID: 'Companies House', value: '17018784' },
   telephone: '+44 1443 805303',
@@ -34,6 +38,22 @@ export const ORGANIZATION_SCHEMA = {
     { '@type': 'MobileApplication', name: 'Fish Tank', operatingSystem: 'iOS, Android', applicationCategory: 'GameApplication', url: 'https://apps.apple.com/gb/app/the-fish-tank/id6801622379' },
     { '@type': 'MobileApplication', name: 'Fam & a Half', operatingSystem: 'iOS', applicationCategory: 'LifestyleApplication', url: `${SEO_SITE_URL}/famandahalf/` },
   ],
+}
+
+// The founder as a person in his own right, so search engines can connect
+// "David Hooper" to the company, the award and the same profiles.
+export const PERSON_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': PERSON_ID,
+  name: 'David Hooper',
+  jobTitle: 'Founder',
+  description: 'Founder of DH Website Services, a web and app development company in Pontypridd, Wales.',
+  url: `${SEO_SITE_URL}/about/`,
+  worksFor: { '@type': 'Organization', '@id': ORG_ID, name: 'DH Website Services' },
+  workLocation: { '@type': 'Place', name: 'Pontypridd, Wales' },
+  knowsAbout: ['Web design', 'Web development', 'iPhone app development', 'Android app development', 'Website security'],
+  award: AWARD,
 }
 
 export const WEBSITE_SCHEMA = {
@@ -79,7 +99,8 @@ const makeServiceSchema = (path, title, description) => ({
   geo: { '@type': 'GeoCoordinates', latitude: 51.609215, longitude: -3.330585 },
   hasMap: 'https://www.google.com/maps/search/?api=1&query=DH+Website+Services+Pontypridd',
   openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '09:00', closes: '17:00' }],
-  knowsAbout: ['Web design', 'Web development', 'iPhone app development', 'Android app development', 'Website hosting', 'SEO', 'Microsoft 365', 'IT support'],
+  knowsAbout: ['Web design', 'Web development', 'iPhone app development', 'Android app development', 'Website hosting', 'SEO', 'Website security', 'Microsoft 365', 'IT support'],
+  award: AWARD,
   telephone: '+44 1443 805303',
   email: 'clients@dhwebsiteservices.co.uk',
   serviceType: title,
@@ -96,18 +117,22 @@ const makeServiceSchema = (path, title, description) => ({
 const BASE_INDEXABLE_PAGES = [
   {
     path: '/',
-    title: 'Web Design & App Development in Pontypridd, Wales | DH Website Services',
-    description: 'Web designer and app developer in Pontypridd. Websites from £449, or £0 upfront with DH Local at £79 a month, and iPhone and Android apps from £349 for businesses in Rhondda Cynon Taf, Cardiff and Wales.',
+    title: 'Web Design Pontypridd & Cardiff | Award-Winning Websites & Apps | DH Website Services',
+    description: 'Award-winning web design in Pontypridd: Web Design Service of the Year – Wales 2027/28. Websites from £449, apps from £349, fixed price, for businesses in Rhondda Cynon Taf, Cardiff and Wales.',
     heading: 'Websites and apps for local businesses.',
     intro: 'A small team in Pontypridd building websites and apps for pubs, cafés, salons, trades and shops across Wales. Fixed prices on the page, and we look after it once it is live.',
     sections: [
       {
-        title: 'Our products',
-        body: 'Fam & a Half is a free family and friends location app for iPhone: live map, arrival alerts, SOS and crash detection, pick-up requests and Walk Me Home. It is free on the App Store (dhwebsiteservices.co.uk/famandahalf). Fish Tank is a real-time multiplayer game, live on the App Store and Google Play. We also run our own staff portal and phone system.',
+        title: 'What we build',
+        body: 'Websites from £449, or £0 upfront with DH Local at £79 a month. Apps for the App Store and Google Play from £349. Staff portals with rotas, timesheets, leave and payslips. Free website security checks for local businesses.',
       },
       {
-        title: 'What we build',
-        body: 'Websites from £449, or £0 upfront with DH Local at £79 a month. Apps for the App Store and Google Play from £349. Staff portals with rotas, timesheets, leave and payslips. Our own game, Fish Tank, is live on both stores.',
+        title: 'Web Design Service of the Year – Wales',
+        body: 'We were named Web Design Service of the Year – Wales (Cardiff) at the Wales Prestige Awards 2027/28. The judges looked at our projects and at what our clients said about working with us.',
+      },
+      {
+        title: 'Our own apps',
+        body: 'We build and run our own products too: Fish Tank, a real-time multiplayer game on the App Store and Google Play, Fam & a Half, a family location app, and our own staff portal and phone system.',
       },
       {
         title: 'How we work',
@@ -179,8 +204,8 @@ const BASE_INDEXABLE_PAGES = [
   },
   {
     path: '/about',
-    title: 'About Us | DH Website Services',
-    description: 'A small app and web design team based in Pontypridd, serving Cardiff and Wales: David Hooper, founder and developer, and Jack Deane, assistant manager.',
+    title: 'About Us | Award-Winning Web Developers, Pontypridd & Cardiff | DH Website Services',
+    description: 'DH Website Services is an award-winning web and app development team in Pontypridd, serving Cardiff and Wales. Founded by David Hooper; Web Design Service of the Year – Wales 2027/28.',
     heading: 'A small team. Apps and websites.',
     intro: 'DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project, with no account manager in between.',
     sections: [
@@ -192,9 +217,18 @@ const BASE_INDEXABLE_PAGES = [
         title: 'What clients get',
         body: 'Direct phone numbers and quick replies. The code is yours at the end and the domain stays in your name, so you can take the whole thing elsewhere whenever you want.',
       },
+      {
+        title: 'Award winners',
+        body: 'Web Design Service of the Year – Wales (Cardiff), Wales Prestige Awards 2027/28. The judges reviewed our projects and feedback from our clients.',
+      },
+      {
+        title: 'Website security checks',
+        body: 'We have been approved to use AI for cyber security testing, which you can only do after applying and being checked. We tested our own systems first, and now offer free quick security checks to local businesses.',
+      },
     ],
     ctaLabel: 'Contact us',
     ctaHref: '/contact',
+    schema: PERSON_SCHEMA,
   },
   {
     path: '/partners',
@@ -537,12 +571,20 @@ const BASE_INDEXABLE_PAGES = [
 const GEO_MARKETS = [
   {
     city: 'Pontypridd',
-    title: 'Web Design Pontypridd & Rhondda Cynon Taf | DH Website Services',
-    description: 'Pontypridd web design and app development, based in Trallwn. Websites for Ponty and Rhondda Cynon Taf businesses from £449, fixed price. Ring 01443 805303.',
+    title: 'Web Design Pontypridd | Award-Winning Local Web Designers | DH Website Services',
+    description: 'Award-winning web design in Pontypridd, based in Trallwn. Web Design Service of the Year – Wales 2027/28. Websites for Ponty and RCT businesses from £449, fixed price. Ring 01443 805303.',
     heading: 'Web design in Pontypridd and the Rhondda.',
     intro: 'We are web developers and app builders based in Trallwn, Pontypridd. If your business is in Ponty, Treforest, Porth, the Rhondda or anywhere else in Rhondda Cynon Taf, we are minutes away.',
     travel: 'We are local, so we can meet you at your business, in town or on a video call, whichever suits. The first conversation is free and there is no obligation to go ahead.',
     extra: [
+      {
+        title: 'Award-winning, and local',
+        body: 'We were named Web Design Service of the Year – Wales (Cardiff) at the Wales Prestige Awards 2027/28, from a small office in Trallwn. Same team, same Pontypridd number, same fixed prices.',
+      },
+      {
+        title: 'Free website security check',
+        body: 'We are approved to carry out AI-assisted cyber security testing, and we offer Pontypridd businesses a free quick check of their website. If we find something, a full test is £30 and most fixes are £90.',
+      },
       {
         title: 'Areas we cover nearby',
         body: 'Pontypridd town centre, Treforest, Trallwn, Graig, Cilfynydd, Hopkinstown, Porth, Tonypandy, Treorchy and the rest of the Rhondda, Abercynon, Mountain Ash, Aberdare, Church Village, Llantwit Fardre, Beddau, Tonyrefail, Llantrisant, Talbot Green, Caerphilly and Merthyr Tydfil.',
@@ -660,6 +702,19 @@ const GEO_MARKETS = [
   },
   {
     city: 'Cardiff',
+    title: 'Web Design Cardiff | Award-Winning Web Developers | DH Website Services',
+    description: 'Web Design Service of the Year – Wales (Cardiff) 2027/28. Websites from £449 and apps from £349 for Cardiff businesses, fixed price, from a team 20 minutes up the A470. Ring 01443 805303.',
+    heading: 'Award-winning web design for Cardiff businesses.',
+    extra: [
+      {
+        title: 'Web Design Service of the Year – Wales (Cardiff)',
+        body: 'We won Web Design Service of the Year – Wales (Cardiff) at the Wales Prestige Awards 2027/28. The judges looked at our client projects and at what the people we have worked with said about us.',
+      },
+      {
+        title: 'Cardiff prices, without the Cardiff overheads',
+        body: 'We work from Pontypridd, so you are not paying for a city-centre office. A website is from £449 and an app from £349, quoted in full before we start.',
+      },
+    ],
     intro: 'Cardiff is a short drive down the A470 from us in Pontypridd, so we can be in your office the same week you call.',
     travel: 'If you want to sit down and go through it in person before you commit to anything, that costs you nothing and we can usually do it within a couple of days.',
   },
