@@ -196,7 +196,7 @@ const BASE_INDEXABLE_PAGES = [
       },
       {
         title: 'Web design',
-        body: 'The Maltsters Arms on Bridge Street, Pontypridd: a pub website with a What\'s On page and an admin the pub uses to update its own hours, drinks, photos and events, live at maltstersponty.com. Glow With Lucy, a website for a candle business, built in seven days.',
+        body: 'The Maltsters Arms on Bridge Street, Pontypridd: a pub website with a What\'s On page and an admin area, and same-day updates: the pub messages us its events and we put them live, live at maltstersponty.com. Glow With Lucy, a website for a candle business, built in seven days.',
       },
     ],
     ctaLabel: 'Talk to us',
@@ -595,7 +595,7 @@ const GEO_MARKETS = [
       },
       {
         title: 'A Pontypridd pub, online',
-        body: 'The Maltsters Arms in Pontypridd came to us for a straightforward site. They got a website, an admin area where the team updates events, opening hours and the menu themselves, and a mailing list to tell regulars what is on. It is the kind of job we like most: a local business, a fixed price and something staff actually use every week. The full story is in our case studies.',
+        body: 'The Maltsters Arms in Pontypridd came to us for a straightforward site. They got a website, an admin area ready for them to use, and same-day updates: they message us their events and we put them live that day, and a mailing list to tell regulars what is on. It is the kind of job we like most: a local business, a fixed price and something staff actually use every week. The full story is in our case studies.',
       },
       {
         title: 'Web designer or web developer?',
