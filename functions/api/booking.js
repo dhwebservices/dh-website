@@ -575,8 +575,32 @@ async function handleAvailability(context, request) {
   const to = url.searchParams.get('to')
   if (!from || !to) return json({ error: 'Missing from/to range' }, 400)
 
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(from) || !/^\d{4}-\d{2}-\d{2}$/.test(to)) return json({ error: 'Bad date' }, 400)
+  const span = (Date.parse(`${to}T12:00:00Z`) - Date.parse(`${from}T12:00:00Z`)) / 86400000
+  if (!(span >= 0 && span <= 62)) return json({ error: 'Range too long' }, 400)
+
   const availability = await getAvailability(context, from, to)
-  return json(availability)
+  // Public endpoint: return only what the booking page needs to show free slots.
+  // Never client names, contact details, notes or cancel tokens.
+  return json({
+    staff: availability.staff.map(({ user_email, full_name, role, bookable }) => ({ user_email, full_name, role, bookable })),
+    availability: availability.availability.map((item) => ({
+      staff_email: item.staff_email || null,
+      staff_name: item.staff_name || null,
+      date: item.date,
+      is_available: item.is_available,
+      start_time: item.start_time || null,
+      end_time: item.end_time || null,
+      slots: Array.isArray(item.slots) ? item.slots : [],
+    })),
+    appointments: availability.appointments.map((item) => ({
+      staff_email: item.staff_email,
+      date: item.date,
+      start_time: item.start_time,
+      end_time: item.end_time,
+      status: item.status,
+    })),
+  })
 }
 
 async function handleAppointment(context, request) {
