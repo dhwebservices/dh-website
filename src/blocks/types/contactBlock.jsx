@@ -61,7 +61,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
         body: JSON.stringify({
           ...form,
           estimate,
-          offer: blackFriday ? 'Early Black Friday: 3-page website £249 + VAT, care plan £15/mo + VAT for 12 months' : '',
+          offer: blackFriday ? 'Early Black Friday: 5-page website £249 + VAT, care plan £15/mo + VAT for 12 months' : '',
           page: window.location.pathname + window.location.search,
         }),
       })
@@ -105,7 +105,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
             <div className="reveal section-narrow" style={{ marginBottom:48 }}>
               <div style={{ padding:'18px 20px', border:'1px solid var(--border-light)', borderRadius:16, background:'var(--cream)' }}>
                 <div style={{ fontSize:12, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--accent)', marginBottom:8 }}>Early Black Friday booking</div>
-                <div style={{ fontSize:18, fontWeight:600, color:'var(--dark)', marginBottom:6 }}>3-page website · £249 + VAT</div>
+                <div style={{ fontSize:18, fontWeight:600, color:'var(--dark)', marginBottom:6 }}>5-page website · £249 + VAT</div>
                 <p className="body-sm">Plus our care plan at £15 a month + VAT for 12 months. Send the form below and we'll reply within a day with the deposit link.</p>
               </div>
             </div>

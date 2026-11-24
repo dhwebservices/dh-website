@@ -18,7 +18,7 @@ import { blackFridayOn, bfLeftLabel } from '../lib/offers'
 const BOOK_HREF = '/order?plan=bf-website'
 
 const INCLUDED = [
-  'Up to 3 pages, for example Home, Services and Contact',
+  'Up to 5 pages, for example Home, About, Services, Gallery and Contact',
   'Designed in your colours and logo, built to work on phones first',
   'Contact form, Google Maps and a link to your Google reviews',
   'Set up on your own domain, with basic SEO so Google can find you',
@@ -34,7 +34,7 @@ const STEPS = [
 
 const TERMS = [
   'Offer open from 5 November until 23:59 on Monday 30 November 2026, or until the 10 places are booked.',
-  'Covers up to 3 pages from our own design system. Online shops, bookings, logins and extra pages are quoted at our normal rates.',
+  'Covers up to 5 pages from our own design system. Online shops, bookings, logins and extra pages are quoted at our normal rates.',
   'Comes with our care plan at £15 a month + VAT for a minimum of 12 months: hosting, security updates and small text and photo changes.',
   'A 50% deposit books a place. It is refunded in full if you cancel before we start your build.',
   'Your content is due within 14 days of booking. Places without content move to the back of the queue.',
@@ -67,7 +67,7 @@ export default function BlackFriday() {
           <div className="reveal">
             <p className="eyebrow" style={{ marginBottom: 16 }}>{ended ? 'Black Friday 2026' : 'Early Black Friday · until Monday 30 November'}</p>
             <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(40px,6vw,80px)', fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.0, marginBottom: 20 }}>
-              A 3-page website<br />for £249 + VAT.
+              A 5-page website<br />for £249 + VAT.
             </h1>
             {ended ? (
               <>

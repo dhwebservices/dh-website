@@ -18,7 +18,7 @@ const APP_CARE = 'App care £29 a month + VAT, starting when your app goes live.
 
 const PLANS = [
   { id: 'bf-website', name: 'Early Black Friday website', kind: 'website', price: 249, was: 449, blackFridayOnly: true,
-    summary: 'A three-page website, built as soon as you book.',
+    summary: 'A five-page website, built as soon as you book.',
     care: 'Care plan £15 a month + VAT for a minimum of 12 months, starting when your site goes live.' },
   { id: 'starter', name: 'Starter website', kind: 'website', price: 449, notDuringBlackFriday: true,
     summary: 'A five-page website.', care: WEBSITE_CARE },

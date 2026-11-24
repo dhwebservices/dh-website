@@ -47,7 +47,7 @@ export function HeroBlock({ headlineLead, typewriterLines, body, primaryLabel, p
           {blackFridayOn() && (
             <Link to="/black-friday" className="bf-pill">
               <span className="bf-pill__tag">Black Friday</span>
-              <span>3-page websites £249 + VAT until 30 Nov · <strong>{bfLeftLabel()}</strong></span>
+              <span>5-page websites £249 + VAT until 30 Nov · <strong>{bfLeftLabel()}</strong></span>
               <span aria-hidden="true">→</span>
             </Link>
           )}

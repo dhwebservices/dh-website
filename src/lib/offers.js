@@ -24,15 +24,15 @@ const planPrice = (name) => PLAN_PRICES.find(([re]) => re.test(String(name || ''
 const gbp = (n) => `£${n.toLocaleString('en-GB')}`
 const wasNote = (was) => `Was ${gbp(was)} · ends 30 Nov`
 
-// The Starter website becomes the £249 three-page offer; every other plan
+// The Starter website becomes the £249 five-page offer; every other plan
 // shows its Black Friday price with the normal price beside it.
 const STARTER_CARD = {
   name: 'Early Black Friday website',
   price: '£249',
   priceNote: 'Normally from £449 · ends 30 Nov',
-  tagline: 'A three-page website',
+  tagline: 'A five-page website',
   who: 'Only 10 places, built as soon as you book',
-  features: '3 pages · Mobile layout · Contact form · Care plan £15/mo for 12 months',
+  features: '5 pages · Mobile layout · Contact form · Care plan £15/mo for 12 months',
   badge: 'Black Friday',
   href: '/black-friday',
   ctaLabel: 'Book a place',
@@ -50,7 +50,7 @@ export const withBlackFridayBuilds = (builds) =>
     if (isStarter(b.name)) return {
       ...b, name: 'Early Black Friday', price: 249, priceNote: 'Normally from £449 · ends 30 Nov',
       delivery: 'starts when you book', badge: 'Black Friday', href: '/black-friday', ctaLabel: 'Book a place',
-      features: ['3-page website', 'Mobile responsive design', 'Basic SEO setup', 'Contact form', 'Google Maps embed', 'Care plan £15/mo + VAT for 12 months'],
+      features: ['5-page website', 'Mobile responsive design', 'Basic SEO setup', 'Contact form', 'Google Maps embed', 'Care plan £15/mo + VAT for 12 months'],
     }
     const m = planPrice(b.name)
     return m ? { ...b, price: m[1], priceNote: wasNote(m[2]) } : b

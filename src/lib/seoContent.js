@@ -248,14 +248,14 @@ const BASE_INDEXABLE_PAGES = [
   {
     // Temporary offer page (5 to 30 Nov 2026); take it out of here when the page goes.
     path: '/black-friday',
-    title: 'Early Black Friday: 3-Page Website £249 + VAT | DH Website Services',
-    description: 'Early Black Friday at DH Website Services: a 3-page website for £249 + VAT, normally from £449. 10 places, built in Pontypridd as soon as you book. About 25% off every other website and app too. Ends 30 November.',
-    heading: 'A 3-page website for £249 + VAT.',
+    title: 'Early Black Friday: 5-Page Website £249 + VAT | DH Website Services',
+    description: 'Early Black Friday at DH Website Services: a 5-page website for £249 + VAT, normally from £449. 10 places, built in Pontypridd as soon as you book. About 25% off every other website and app too. Ends 30 November.',
+    heading: 'A 5-page website for £249 + VAT.',
     intro: 'Normally from £449 + VAT. Built by our team in Pontypridd as soon as you book, with hosting and updates at £15 a month + VAT. Only 10 places, until Monday 30 November 2026.',
     sections: [
       {
         title: 'What you get',
-        body: 'Up to 3 pages in your colours and logo, built for phones first, with a contact form, Google Maps, a link to your Google reviews, your own domain and basic SEO. One round of changes before launch.',
+        body: 'Up to 5 pages in your colours and logo, built for phones first, with a contact form, Google Maps, a link to your Google reviews, your own domain and basic SEO. One round of changes before launch.',
       },
       {
         title: 'What it costs',
