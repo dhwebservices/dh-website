@@ -440,32 +440,32 @@ export const CASE_STUDIES = [
     // prices, contract terms or anything from the pub's admin. No quote from
     // the client until they give us one.
     slug: 'maltsters-arms',
-    title: 'The Maltsters Arms, Pontypridd: A Website a Pub Runs Itself | DH Website Services',
-    description: 'How we built maltstersponty.com for the Maltsters Arms on Bridge Street, Pontypridd: their own photos, a What\'s On page they update themselves and a mailing list for events.',
-    heading: 'The Maltsters Arms: a website the pub runs itself',
-    intro: 'The Maltsters Arms is a pub on Bridge Street, Pontypridd. We built their website, maltstersponty.com, host it and look after it, and the pub keeps it up to date itself.',
+    title: 'The Maltsters Arms, Pontypridd: A Pub Website Kept Current the Same Day | DH Website Services',
+    description: 'How we built maltstersponty.com for the Maltsters Arms on Bridge Street, Pontypridd: their own photos, a What\'s On page we keep current the same day and a mailing list for events.',
+    heading: 'The Maltsters Arms: a pub website that never goes stale',
+    intro: 'The Maltsters Arms is a pub on Bridge Street, Pontypridd. We built their website, maltstersponty.com, host it and look after it. The pub never has to log in: they message us what is on and it is live the same day.',
     published: '2026-11-08',
     image: '/work/maltsters-arms-site-960.jpg',
     imageWide: true,
     imageAlt: 'The Maltsters Arms website: the pub at night with a red neon Maltsters Arms sign over it',
     body: `
 ## The brief
-A local pub needs a website that shows people what the place is like, tells them what is on this week, and is easy for the staff to keep current without ringing a web designer every time the offers change.
+A local pub needs a website that shows people what the place is like, tells them what is on this week, and stays current without the staff having to learn a website or find time to update it.
 
 ## What we built
 - **A site built around the pub's own photos** of the building at night, with its neon sign, rather than stock pictures
 - **The week's offers and what is on,** on the front page where people look first
-- **A What's On page the pub updates itself**
-- **Their own login** for opening hours, drinks, photos and notices
+- **A What's On page we keep current:** the pub sends us the next event and it is up that day
+- **An admin area** for opening hours, drinks, photos and notices, there if they ever want to do it themselves
 - **A mailing list** so regulars hear about events
 - **Video from their own nights** on the front page, playing the moment it scrolls into view
 - **A "What's Happened" page** where the pub's thank-you posts for bands and events live on its own site, not just on Facebook
 
 ## Looked after by us
-We host the site and keep it running, secure and backed up. The pub changes the day-to-day details itself, and anything bigger comes to us. We also see how many people visit and which pages they read, with no cookies and nothing personal collected, so we can tell the pub what's working.
+We host the site and keep it running, secure and backed up. When the pub has a band, a rugby match or a party coming up, they send it to us and we put it live the same day, so the site always matches what is happening. We also see how many people visit and which pages they read, with no cookies and nothing personal collected, so we can tell the pub what's working.
 
 ## What it shows
-A local business website does not need to be complicated. It needs to look like the real place, show what is on, and be easy to keep up to date. If that is what you need, [DH Local](/local) does it for a monthly price with nothing upfront, or see our [one-off website prices](/pricing).
+A local business website does not need to be complicated. It needs to look like the real place, show what is on, and stay up to date without the owner having to touch it. If that is what you need, [DH Local](/local) does it for a monthly price with nothing upfront, or see our [one-off website prices](/pricing).
 
 [Visit maltstersponty.com](https://maltstersponty.com/) · [Book a free call](/contact)
 `,

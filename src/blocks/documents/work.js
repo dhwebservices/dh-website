@@ -72,7 +72,7 @@ export const WORK_ITEMS = [
  * only what is true and public. Never prices, contract terms or anything from
  * the client's admin. Checked 6 Nov 2026:
  *   - The Maltsters Arms, Pontypridd: live at maltstersponty.com since
- *     28 Oct 2026, built and hosted by us, with an admin the pub uses itself.
+ *     28 Oct 2026, built and hosted by us, kept current by us the same day.
  */
 export const CLIENT_SITES = [
   {

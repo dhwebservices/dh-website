@@ -20,6 +20,10 @@
  * "we also build apps" section near the end. Maltsters is our only client
  * site; don't imply more.
  *
+ * 24 Nov 2026 (David): the big idea is same-day updates -- the owner never
+ * logs in, they message us and it is live that day. Maltsters is the proof:
+ * every event on its site was posted by us. Don't claim the pub edits it.
+ *
  * Once a published document exists in website_pages for slug "home", that wins
  * and this is only a safety net. As of 6 Oct 2026 there is no such row.
  */
@@ -33,9 +37,9 @@ export const HOME_DOCUMENT = {
       id: 'home-hero',
       type: 'hero',
       props: {
-        headlineLead: 'Websites for local businesses',
-        typewriterLines: ['in Wales.'],
-        body: 'We are a two-person team in Pontypridd. We design and build your website, put it live, host it and keep it up to date, for a fixed price you see before you book.',
+        headlineLead: 'Never touch your website again.',
+        typewriterLines: ['We update it the same day.'],
+        body: 'Message us your new menu, opening hours, offer or event, and it is live on your site the same day. We are a two-person team in Pontypridd: we design and build your website, host it and keep it current, for a fixed price you see before you book.',
         primaryLabel: 'Book a free call',
         primaryHref: '/contact',
         secondaryLabel: 'See prices',
@@ -51,7 +55,7 @@ export const HOME_DOCUMENT = {
           alt: CLIENT_SITES[0].imageAlt,
           url: CLIENT_SITES[0].url,
           href: CLIENT_SITES[0].linkHref,
-          caption: 'Our latest site: The Maltsters Arms on Bridge Street, Pontypridd. The pub updates its own offers and opening hours.',
+          caption: 'Our latest site: The Maltsters Arms on Bridge Street, Pontypridd. The pub messages us its events and we put them live the same day.',
           caseStudyHref: CLIENT_SITES[0].caseStudyHref,
         },
       },
@@ -116,7 +120,7 @@ export const HOME_DOCUMENT = {
           { title: 'A fixed price', desc: 'We quote before we start and that is the price. If you add something halfway through, we price it separately and tell you first.' },
           { title: 'You see it before it goes live', desc: 'You get a preview link to check on your own phone and computer. Nothing goes live until you have signed it off.' },
           { title: 'You own it', desc: 'The domain, the content and the code are yours. If you ever leave, you take it with you.' },
-          { title: 'We look after it', desc: 'Hosting, security, backups and changes are handled by us on the care plan, so the site does not go stale.' },
+          { title: 'Same-day updates', desc: 'Message us a change and it is live the same day. Hosting, security and backups are handled too, so the site never goes stale.' },
           { title: 'Quick replies', desc: 'Email or call and we reply the same working day, usually within a few hours.' },
           { title: 'Local', desc: 'Based in Pontypridd. We can meet you in person anywhere across RCT, Cardiff and South Wales.' },
         ],
