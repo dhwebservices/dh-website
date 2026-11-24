@@ -61,13 +61,37 @@ export async function onRequestPost(context) {
     }
 
     const params = new URLSearchParams()
-    params.set('mode', plan.monthly ? 'subscription' : 'payment')
+    params.set('mode', plan.monthly || plan.payInFull ? 'subscription' : 'payment')
     params.set('success_url', `${siteUrl}/order?session_id={CHECKOUT_SESSION_ID}`)
     params.set('cancel_url', `${siteUrl}/order?plan=${encodeURIComponent(plan.id)}&cancelled=1`)
     params.set('customer_email', buyer.email)
     params.set('payment_method_types[0]', 'card')
     params.set('billing_address_collection', 'required')
-    if (plan.monthly) {
+    if (plan.payInFull) {
+      // Build price paid in full plus the care plan, in one checkout. The
+      // one-off lines go on the first invoice only; the care plan repeats.
+      const lines = [
+        [`${plan.name} (paid in full)`, plan.depositPence, `Build price £${plan.price} + VAT, paid today.`, false],
+        ['VAT on the website at 20% (GB 517 076 395)', plan.vatPence, null, false],
+        ['Care plan', plan.carePence, `Hosting, security, updates and small changes. ${plan.minMonths}-month minimum term, then month to month on 30 days' notice.`, true],
+        ['VAT on the care plan at 20%', plan.careVatPence, null, true],
+      ]
+      lines.forEach(([name, amount, description, monthly], i) => {
+        params.set(`line_items[${i}][quantity]`, '1')
+        params.set(`line_items[${i}][price_data][currency]`, 'gbp')
+        params.set(`line_items[${i}][price_data][unit_amount]`, String(amount))
+        if (monthly) params.set(`line_items[${i}][price_data][recurring][interval]`, 'month')
+        params.set(`line_items[${i}][price_data][product_data][name]`, name)
+        if (description) params.set(`line_items[${i}][price_data][product_data][description]`, description)
+      })
+      meta.pay_in_full = 'yes'
+      meta.care_monthly = String(plan.careMonthly)
+      for (const [k, v] of Object.entries(meta)) {
+        params.set(`metadata[${k}]`, v)
+        params.set(`subscription_data[metadata][${k}]`, v)
+      }
+      params.set('subscription_data[description]', `${plan.name} + care plan (${buyer.business || buyer.name})`)
+    } else if (plan.monthly) {
       // DH Local: the monthly fee and its VAT, billed every month by Stripe.
       // The 12-month minimum is a contract term (services terms), not a
       // Stripe setting, so cancelling in Stripe early still owes the rest.
