@@ -64,6 +64,7 @@ const Order = lazyPage(() => import('./pages/Order'))
 const Local = lazyPage(() => import('./pages/Local'))
 const Agencies = lazyPage(() => import('./pages/Agencies'))
 const ItSupport = lazyPage(() => import('./pages/ItSupport'))
+const SecurityCheck = lazyPage(() => import('./pages/SecurityCheck'))
 const HolidayLets = lazyPage(() => import('./pages/HolidayLets'))
 const Takeaways = lazyPage(() => import('./pages/Takeaways'))
 const LevyCalculator = lazyPage(() => import('./pages/LevyCalculator'))
@@ -73,7 +74,7 @@ const ArticlePage = lazyPage(() => import('./pages/ArticlePage'))
 const LEGAL_PATHS = new Set(['privacy', 'terms', 'services-terms', 'refunds', 'cookies', 'acceptable-use', 'accessibility', 'security', 'complaints'])
 const PAGES_BY_SEGMENT = {
   services: Services, pricing: Pricing, portfolio: Portfolio, contact: Contact,
-  calculator: Calculator, about: About, partners: Partners, 'black-friday': BlackFriday, order: Order, local: Local, agencies: Agencies, 'it-support': ItSupport, 'holiday-lets': HolidayLets, takeaways: Takeaways, 'visitor-levy-calculator': LevyCalculator,
+  calculator: Calculator, about: About, partners: Partners, 'black-friday': BlackFriday, order: Order, local: Local, agencies: Agencies, 'it-support': ItSupport, 'security-check': SecurityCheck, 'holiday-lets': HolidayLets, takeaways: Takeaways, 'visitor-levy-calculator': LevyCalculator,
   appointment: Appointment, proposal: Proposal,
 }
 
@@ -401,6 +402,7 @@ function Layout() {
           <Route path="/local" element={<Local />} />
           <Route path="/agencies" element={<Agencies />} />
           <Route path="/it-support" element={<ItSupport />} />
+          <Route path="/security-check" element={<SecurityCheck />} />
           <Route path="/holiday-lets" element={<HolidayLets />} />
           <Route path="/visitor-levy-calculator" element={<LevyCalculator />} />
           <Route path="/takeaways" element={<Takeaways />} />
