@@ -100,7 +100,7 @@ export default function SecurityCheck() {
               <div><label style={label} htmlFor="sc-name">Your name</label><input id="sc-name" style={input} value={form.name} onChange={set('name')} autoComplete="name" required /></div>
               <div><label style={label} htmlFor="sc-business">Business name</label><input id="sc-business" style={input} value={form.business} onChange={set('business')} autoComplete="organization" required /></div>
               <div><label style={label} htmlFor="sc-email">Email</label><input id="sc-email" type="email" style={input} value={form.email} onChange={set('email')} autoComplete="email" required /></div>
-              <div><label style={label} htmlFor="sc-phone">Phone (optional)</label><input id="sc-phone" type="tel" style={input} value={form.phone} onChange={set('phone')} autoComplete="tel" /></div>
+              <div><label style={label} htmlFor="sc-phone">Mobile (optional, we’ll text you to confirm)</label><input id="sc-phone" type="tel" style={input} value={form.phone} onChange={set('phone')} autoComplete="tel" /></div>
               <div><label style={label} htmlFor="sc-site">Website address</label><input id="sc-site" style={input} value={form.site} onChange={set('site')} placeholder="yourbusiness.co.uk" inputMode="url" required /></div>
               {/* Honeypot: hidden from people, filled in by bots. */}
               <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}><input tabIndex={-1} autoComplete="off" value={form.website} onChange={set('website')} /></div>

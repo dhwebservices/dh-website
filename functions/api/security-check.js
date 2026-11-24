@@ -85,5 +85,16 @@ export async function onRequestPost({ request, env }) {
   ])
 
   if (!saved && !notified) return json({ error: 'We could not send that just now. Please call 01443 805303.' }, 502)
+
+  // Confirmation text to their mobile, if they gave one. DH Phone decides
+  // whether it's a UK mobile and limits it to one a day per number; a failed
+  // text never fails the booking.
+  if (r.phone && env.DH_PHONE_TEXT_KEY) {
+    await fetch('https://dh-phone.aged-silence-66a7.workers.dev/hook/website-text', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-website-text-key': env.DH_PHONE_TEXT_KEY },
+      body: JSON.stringify({ to: r.phone, business: r.business }),
+    }).catch(() => null)
+  }
   return json({ ok: true })
 }
