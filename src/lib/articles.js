@@ -456,7 +456,7 @@ A local pub needs a website that shows people what the place is like, tells them
 - **A site built around the pub's own photos** of the building at night, with its neon sign, rather than stock pictures
 - **The week's offers and what is on,** on the front page where people look first
 - **A What's On page we keep current:** the pub sends us the next event and it is up that day
-- **An admin area** for opening hours, drinks, photos and notices, there if they ever want to do it themselves
+- **Their own admin** for opening hours, drinks, photos and notices, so they can change things themselves whenever they want
 - **A mailing list** so regulars hear about events
 - **Video from their own nights** on the front page, playing the moment it scrolls into view
 - **A "What's Happened" page** where the pub's thank-you posts for bands and events live on its own site, not just on Facebook

@@ -57,14 +57,14 @@ export function PricingCard({ name, price, priceNote, tagline, who, features, po
         </div>
       )}
 
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: popular ? 'rgba(255,255,255,0.45)' : 'var(--light)', marginBottom: 8, paddingRight: (popular || badge) ? 96 : 0 }}>
+      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: popular ? 'rgba(255,255,255,0.7)' : 'var(--light)', marginBottom: 8, paddingRight: (popular || badge) ? 96 : 0 }}>
         {name}
       </p>
 
       <div style={{ fontSize: 44, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1, color: popular ? 'white' : 'var(--dark)', marginBottom: 6 }}>
         {price}
       </div>
-      <p style={{ fontSize: 12, color: popular ? 'rgba(255,255,255,0.4)' : 'var(--light)', marginBottom: 16, fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+      <p style={{ fontSize: 12, color: popular ? 'rgba(255,255,255,0.7)' : 'var(--light)', marginBottom: 16, fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
         {priceNote || 'One-off · Fixed price'}
       </p>
 
@@ -72,14 +72,14 @@ export function PricingCard({ name, price, priceNote, tagline, who, features, po
         {tagline}
       </div>
 
-      <p style={{ fontSize: 13, color: popular ? 'rgba(255,255,255,0.5)' : 'var(--mid)', lineHeight: 1.6, marginBottom: 16, flex: 1 }}>
+      <p style={{ fontSize: 13, color: popular ? 'rgba(255,255,255,0.78)' : 'var(--mid)', lineHeight: 1.6, marginBottom: 16, flex: 1 }}>
         {who}
       </p>
 
-      <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: popular ? 'rgba(255,255,255,0.3)' : 'var(--light)', lineHeight: 1.8, marginBottom: 20 }}>
+      <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: popular ? 'rgba(255,255,255,0.85)' : 'var(--light)', lineHeight: 1.8, marginBottom: 20 }}>
         {String(features || '').split(' · ').filter(Boolean).map((f) => (
           <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-            <span style={{ width: 4, height: 4, borderRadius: '50%', background: popular ? 'rgba(255,255,255,0.3)' : 'var(--accent)', flexShrink: 0, display: 'inline-block' }} />
+            <span style={{ width: 4, height: 4, borderRadius: '50%', background: popular ? 'var(--accent)' : 'var(--accent)', flexShrink: 0, display: 'inline-block' }} />
             {f}
           </div>
         ))}

@@ -26,7 +26,6 @@ export const CAREERS_DOCUMENT = {
           'Upload your CV',
           'Add an optional cover letter or cover note',
           'Complete role-specific questions',
-          'Confirm commission-only terms where required',
           'Receive a confirmation email after applying',
         ],
         listingHeading: 'Open positions',

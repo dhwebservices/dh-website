@@ -61,7 +61,7 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              Websites and apps for local businesses, from a two-person team in Pontypridd, serving Cardiff and South Wales.
+              Websites for local businesses, built and kept up to date by a small team in Pontypridd, serving RCT, Cardiff and South Wales.
             </p>
             <div style={{ marginBottom: 20, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12 }}>
               <MicrosoftPartnerBadge width={120} framed />
@@ -360,7 +360,7 @@ export default function Footer() {
             </div>
             <div>
               <div style={{ fontSize: 13, color: 'var(--mid)', marginBottom: 2 }}>Weekends</div>
-              <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--dark)' }}>Closed, we reply on Monday</div>
+              <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--dark)' }}>Client updates still go live the same day</div>
             </div>
           </div>
         </div>

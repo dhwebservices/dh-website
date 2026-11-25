@@ -47,13 +47,13 @@ const DEFAULTS = {
   pricing: {
     builds: [
       { name: 'Starter', price: 449, delivery: '2–3 weeks', revisions: '1 round', badge: '', features: ['5-page professional website', 'Mobile responsive design', 'Basic SEO setup', 'Contact form', 'Google Maps embed', 'SSL certificate'] },
-      { name: 'Growth', price: 999, delivery: '3–4 weeks', revisions: '2 rounds', badge: 'Most Popular', features: ['10-page website', 'Blog section', 'Full SEO setup', 'Branding integration', 'Google Analytics', 'Social media links', 'SSL certificate'] },
+      { name: 'Growth', price: 999, delivery: '3–4 weeks', revisions: '2 rounds', badge: '', features: ['10-page website', 'Blog section', 'Full SEO setup', 'Branding integration', 'Google Analytics', 'Social media links', 'SSL certificate'] },
       { name: 'Pro', price: 1499, delivery: '4–6 weeks', revisions: '3 rounds', badge: '', features: ['15 pages', 'E-commerce ready', 'Custom integrations', 'Advanced SEO', 'Blog/News section', 'Priority support', 'SSL certificate'] },
       { name: 'Enterprise + HR', price: 2499, delivery: '6–8 weeks', revisions: '3 rounds', badge: 'Most Complete', features: ['Full enterprise website', 'Integrated HR system', 'Staff onboarding portal', 'Leave & timesheet management', 'SEO & branding', 'Content creation'] },
     ],
     hosting: [
       { name: 'Starter', price: 35, badge: '', features: ['1 content update/month', '48–72hr support response', 'Weekly backups', 'Uptime monitoring'] },
-      { name: 'Professional', price: 65, badge: 'Most Popular', features: ['3 content updates/month', 'Priority support', 'Weekly backups', 'SEO health check', 'Uptime monitoring'] },
+      { name: 'Professional', price: 65, badge: '', features: ['3 content updates/month', 'Priority support', 'Weekly backups', 'SEO health check', 'Uptime monitoring'] },
       { name: 'Business', price: 109, badge: '', features: ['Unlimited content updates', 'Priority support', 'Weekly backups', 'Weekly performance tuning', 'Quarterly strategy review'] },
     ],
   },

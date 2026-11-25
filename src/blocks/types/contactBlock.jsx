@@ -97,7 +97,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
           </div>
 
           <div className="contact-mobile-actions reveal">
-            <a href="#brief" className="btn-primary" style={{ justifyContent:'center' }}>Send a brief</a>
+            <a href="#brief" className="btn-primary" style={{ justifyContent:'center' }}>Message us</a>
             <a href="#booking" className="btn-secondary" style={{ justifyContent:'center' }}>Book a call</a>
           </div>
 
@@ -124,75 +124,12 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
             </div>
           )}
 
-          {/* Two column — contact info + booking widget */}
-          <div className="contact-layout" style={{ gap:'clamp(40px,6vw,96px)', alignItems:'start', maxWidth:960, margin:'0 auto' }}>
-
-            {/* Left — contact details */}
-            <div className="reveal contact-details-panel">
-              {/* Contact info card */}
-              <div className="glass-card" style={{ borderRadius:16, overflow:'hidden', marginBottom:24 }}>
-                {[
-                  { label:'Email',    val: cms?.email    || 'clients@dhwebsiteservices.co.uk', href:'mailto:clients@dhwebsiteservices.co.uk' },
-                  { label:'Main line',    val: cms?.phone    || '01443 805303', href:'tel:+441443805303' },
-                  { label:'Location', val: cms?.location || 'Pontypridd, United Kingdom' },
-                  { label:'Response', val: cms?.response_time || 'Within 24 hours' },
-                ].map((c,i,arr) => (
-                  <div key={c.label} style={{ padding:'16px 20px', borderBottom:i<arr.length-1?'1px solid var(--border-light)':'none', display:'flex', justifyContent:'space-between', alignItems:'center', gap:16 }}>
-                    <span style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)' }}>{c.label}</span>
-                    {c.href
-                      ? <a href={c.href} style={{ fontSize:14, color:'var(--dark)', transition:'color 0.15s' }} onMouseOver={e=>e.currentTarget.style.color='var(--accent)'} onMouseOut={e=>e.currentTarget.style.color='var(--dark)'}>{c.val}</a>
-                      : <span style={{ fontSize:14, color:'var(--dark2)' }}>{c.val}</span>
-                    }
-                  </div>
-                ))}
-              </div>
-
-              {/* Business hours */}
-              <div style={{ padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--border-light)' }}>
-                <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:10 }}>Business hours</p>
-                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:6, fontSize:14 }}>
-                  <span style={{ color:'var(--mid)' }}>Monday – Friday</span>
-                  <span style={{ fontWeight:500, color:'var(--dark)' }}>{cms?.hours_weekday || '9am – 5pm GMT'}</span>
-                </div>
-                <div style={{ display:'flex', justifyContent:'space-between', fontSize:14 }}>
-                  <span style={{ color:'var(--mid)' }}>Weekends</span>
-                  <span style={{ fontWeight:500, color:'var(--dark)' }}>{cms?.hours_weekend || 'Next business day'}</span>
-                </div>
-              </div>
-
-              {/* What to expect */}
-              <div style={{ marginTop:24 }}>
-                <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:14 }}>What to expect</p>
-                {[
-                  ['1', 'We call you', 'From 01443 805303, at the time you pick'],
-                  ['2', 'Talk it through', 'You tell us what you need and we ask the awkward questions'],
-                  ['3', 'Clear plan & price', 'Fixed quote, no surprises'],
-                ].map(([icon, title, desc]) => (
-                  <div key={title} style={{ display:'flex', gap:12, marginBottom:14, alignItems:'flex-start' }}>
-                    <div style={{ width:32, height:32, borderRadius:8, background:'var(--cream)', border:'1px solid var(--border-light)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:12, fontFamily:'var(--font-mono)', color:'var(--dark2)', flexShrink:0 }}>{icon}</div>
-                    <div>
-                      <div style={{ fontSize:13, fontWeight:600, color:'var(--dark)', marginBottom:2 }}>{title}</div>
-                      <div style={{ fontSize:12, color:'var(--mid)' }}>{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — booking widget */}
-            <div className="reveal contact-booking-panel" id="booking">
-              <div className="glass-card contact-booking-card" style={{ borderRadius:20, padding:'32px' }}>
-                <BookingWidget />
-              </div>
-            </div>
-          </div>
-
-          <div id="brief" className="reveal section-narrow contact-brief-panel" style={{ marginTop:72 }}>
+          <div id="brief" className="reveal section-narrow contact-brief-panel" style={{ marginBottom:72 }}>
             <div className="glass-card" style={{ borderRadius:20, padding:'clamp(28px,4vw,40px)' }}>
               <div style={{ marginBottom:24 }}>
                 <p className="eyebrow" style={{ marginBottom:12 }}>{emailEyebrow}</p>
                 <h2 className="headline-md" style={{ marginBottom:12 }}>{emailHeading}</h2>
-                <p className="body-sm">Useful if you already know what you need and want a written reply first.</p>
+                <p className="body-sm">Three fields, no call needed. We reply the same working day.</p>
               </div>
 
               {sent ? (
@@ -206,7 +143,7 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                   <div style={{ background:'var(--cream)', borderRadius:12, padding:'20px 24px', marginBottom:24 }}>
                     <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:12 }}>What happens next</p>
                     <ol style={{ paddingLeft:20, display:'grid', gap:8 }}>
-                      <li style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>We'll review your project brief and requirements</li>
+                      <li style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>We read your message the same working day</li>
                       <li style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>Reply with a detailed plan and fixed price quote</li>
                       <li style={{ fontSize:14, lineHeight:1.6, color:'var(--dark2)' }}>Schedule a call if needed to clarify any details</li>
                     </ol>
@@ -235,52 +172,95 @@ export function ContactBlock({ eyebrow, heading, intro, emailEyebrow, emailHeadi
                       <input id="enq-email" name="email" autoComplete="email" className="field-inp" type="email" value={form.email} onChange={(e) => update('email', e.target.value)} />
                     </div>
                   </div>
-                  <div className="pricing-grid-two" style={{ gap:12 }}>
-                    <div>
-                      <label className="field-label" htmlFor="enq-business">Business</label>
-                      <input id="enq-business" name="organization" autoComplete="organization" className="field-inp" value={form.business} onChange={(e) => update('business', e.target.value)} placeholder="Your company name" />
-                    </div>
-                    <div>
-                      <label className="field-label" htmlFor="enq-budget">Budget range</label>
-                      <select id="enq-budget" name="budget" className="field-inp" value={form.budget} onChange={(e) => update('budget', e.target.value)} style={{ cursor:'pointer' }}>
-                        <option value="">Select your budget</option>
-                        <option value="Monthly (DH Local)">£79 a month, nothing upfront — DH Local</option>
-                        <option value="Under £449">Under £449 — Black Friday or a small site</option>
-                        <option value="£449-£999">£449-£999 — Starter websites</option>
-                        <option value="£1,000-£2,500">£1,000-£2,500 — Growing businesses</option>
-                        <option value="£2,500-£5,000">£2,500-£5,000 — Pro solutions</option>
-                        <option value="£5,000+">£5,000+ — Enterprise builds</option>
-                        <option value="Not sure yet">Not sure yet — Help me estimate</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label className="field-label" htmlFor="enq-business">Business <span style={{ color:'var(--light)', fontWeight:400 }}>(optional)</span></label>
+                    <input id="enq-business" name="organization" autoComplete="organization" className="field-inp" value={form.business} onChange={(e) => update('business', e.target.value)} placeholder="e.g. The Maltsters Arms, Pontypridd" />
                   </div>
                   <div>
-                    <label className="field-label" htmlFor="enq-timeline">Timeline</label>
-                    <input id="enq-timeline" name="timeline" className="field-inp" value={form.timeline} onChange={(e) => update('timeline', e.target.value)} placeholder="e.g. Within 4 weeks, ASAP, Flexible" />
-                  </div>
-                  <div>
-                    <label className="field-label" htmlFor="enq-message">Project brief <span style={{ color:'var(--accent)' }}>*</span></label>
+                    <label className="field-label" htmlFor="enq-message">What do you need? <span style={{ color:'var(--accent)' }}>*</span></label>
                     <textarea
                       id="enq-message"
                       name="message"
                       className="field-inp"
-                      rows={6}
+                      rows={4}
                       value={form.message}
                       onChange={(e) => update('message', e.target.value)}
-                      placeholder="Tell us about your project: What do you need built? What matters most? What should this website help your business achieve?"
+                      placeholder="A few lines is plenty, e.g. a new website for my café with our menu and opening hours, or my current site is out of date."
                       style={{ resize:'vertical', lineHeight:1.7 }}
                       required
                     />
-                    <p style={{ fontSize:12, color:'var(--mid)', marginTop:6, fontStyle:'italic' }}>Tip: Include what you like/dislike about your current site, target audience, and key features needed.</p>
                   </div>
                   {error && <p style={{ fontSize:13, color:'#FF3B30' }}>{error}</p>}
                   {/* Hidden from people; bots fill it and the server drops them. */}
                   <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={form.website} onChange={(e) => update('website', e.target.value)} style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} />
                   <button className="btn-primary" type="submit" disabled={sending} style={{ justifyContent:'center' }}>
-                    {sending ? 'Sending...' : 'Send project brief'}
+                    {sending ? 'Sending...' : 'Send message'}
                   </button>
                 </form>
               )}
+            </div>
+          </div>
+
+          {/* Two column — contact info + booking widget */}
+          <div className="contact-layout" style={{ gap:'clamp(40px,6vw,96px)', alignItems:'start', maxWidth:960, margin:'0 auto' }}>
+
+            {/* Left — contact details */}
+            <div className="reveal contact-details-panel">
+              {/* Contact info card */}
+              <div className="glass-card" style={{ borderRadius:16, overflow:'hidden', marginBottom:24 }}>
+                {[
+                  { label:'Email',    val: cms?.email    || 'clients@dhwebsiteservices.co.uk', href:'mailto:clients@dhwebsiteservices.co.uk' },
+                  { label:'Main line',    val: cms?.phone    || '01443 805303', href:'tel:+441443805303' },
+                  { label:'Location', val: cms?.location || 'Pontypridd, United Kingdom' },
+                  { label:'Response', val: 'Same working day' },
+                ].map((c,i,arr) => (
+                  <div key={c.label} style={{ padding:'16px 20px', borderBottom:i<arr.length-1?'1px solid var(--border-light)':'none', display:'flex', justifyContent:'space-between', alignItems:'center', gap:16 }}>
+                    <span style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)' }}>{c.label}</span>
+                    {c.href
+                      ? <a href={c.href} style={{ fontSize:14, color:'var(--dark)', transition:'color 0.15s' }} onMouseOver={e=>e.currentTarget.style.color='var(--accent)'} onMouseOut={e=>e.currentTarget.style.color='var(--dark)'}>{c.val}</a>
+                      : <span style={{ fontSize:14, color:'var(--dark2)' }}>{c.val}</span>
+                    }
+                  </div>
+                ))}
+              </div>
+
+              {/* Business hours */}
+              <div style={{ padding:'16px 20px', background:'var(--cream)', borderRadius:12, border:'1px solid var(--border-light)' }}>
+                <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:10 }}>Business hours</p>
+                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:6, fontSize:14 }}>
+                  <span style={{ color:'var(--mid)' }}>Monday – Friday</span>
+                  <span style={{ fontWeight:500, color:'var(--dark)' }}>{cms?.hours_weekday || '9am – 5pm GMT'}</span>
+                </div>
+                <div style={{ display:'flex', justifyContent:'space-between', fontSize:14 }}>
+                  <span style={{ color:'var(--mid)' }}>Weekends</span>
+                  <span style={{ fontWeight:500, color:'var(--dark)' }}>{'Updates still go live'}</span>
+                </div>
+              </div>
+
+              {/* What to expect */}
+              <div style={{ marginTop:24 }}>
+                <p style={{ fontFamily:'var(--font-mono)', fontSize:11, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--light)', marginBottom:14 }}>What to expect</p>
+                {[
+                  ['1', 'We call you', 'From 01443 805303, at the time you pick'],
+                  ['2', 'Talk it through', 'You tell us what you need and we ask the awkward questions'],
+                  ['3', 'Clear plan & price', 'Fixed quote, no surprises'],
+                ].map(([icon, title, desc]) => (
+                  <div key={title} style={{ display:'flex', gap:12, marginBottom:14, alignItems:'flex-start' }}>
+                    <div style={{ width:32, height:32, borderRadius:8, background:'var(--cream)', border:'1px solid var(--border-light)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:12, fontFamily:'var(--font-mono)', color:'var(--dark2)', flexShrink:0 }}>{icon}</div>
+                    <div>
+                      <div style={{ fontSize:13, fontWeight:600, color:'var(--dark)', marginBottom:2 }}>{title}</div>
+                      <div style={{ fontSize:12, color:'var(--mid)' }}>{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — booking widget */}
+            <div className="reveal contact-booking-panel" id="booking">
+              <div className="glass-card contact-booking-card" style={{ borderRadius:20, padding:'32px' }}>
+                <BookingWidget />
+              </div>
             </div>
           </div>
 

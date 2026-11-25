@@ -142,10 +142,7 @@ export default function Nav() {
             in the footer and the phone menu, since buyers never need it. */}
         <div className="site-header__actions">
           <a href="tel:+441443805303" className="site-header__phone hide-mob">01443 805303</a>
-          <button onClick={() => setBookModal(true)} className="btn-primary site-header__cta">
-            <span className="hide-mob">Book a free call</span>
-            <span className="show-mob">Book a call</span>
-          </button>
+          <Link to="/contact#brief" className="btn-primary site-header__cta">Message us</Link>
 
           <button
             onClick={() => setOpen(o => !o)}
@@ -185,7 +182,10 @@ export default function Nav() {
               ))}
             </nav>
             <div className="mob-menu__actions">
-              <button onClick={() => { setOpen(false); setBookModal(true) }} className="btn-primary" style={{ justifyContent: 'center' }}>
+              <Link to="/contact#brief" onClick={() => setOpen(false)} className="btn-primary" style={{ justifyContent: 'center' }}>
+                Message us
+              </Link>
+              <button onClick={() => { setOpen(false); setBookModal(true) }} className="site-header__ghost" style={{ textAlign: 'center' }}>
                 Book a free call
               </button>
               <a href="tel:+441443805303" className="site-header__ghost" style={{ textAlign: 'center' }}>Call 01443 805303</a>

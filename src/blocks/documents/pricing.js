@@ -60,7 +60,7 @@ export const PRICING_DOCUMENT = {
             price: 999,
             delivery: "7 days",
             revisions: "2 rounds",
-            badge: "Most Popular",
+            badge: "",
             features: [
               "10-page website",
               "Blog section",
@@ -88,22 +88,6 @@ export const PRICING_DOCUMENT = {
               "SSL certificate",
               "Care plan from £35/mo + VAT from launch"
             ]
-          },
-          {
-            name: "Enterprise + HR",
-            price: 2499,
-            delivery: "Agreed at scoping",
-            revisions: "3 rounds",
-            badge: "Everything",
-            features: [
-              "Full enterprise website",
-              "Integrated HR system",
-              "Staff onboarding portal",
-              "Leave & timesheet management",
-              "SEO & branding",
-              "Content creation",
-              "Care plan from £35/mo + VAT from launch"
-            ]
           }
         ],
         hostingIntro: "Every website we build comes with a care plan: hosting, security, backups and updates, so it keeps working after launch. It starts when your site goes live and runs month to month on 30 days' notice. Prices exclude VAT.",
@@ -114,7 +98,7 @@ export const PRICING_DOCUMENT = {
             badge: "",
             features: [
               "1 content update/month",
-              "48–72hr support response",
+              "Changes live the same day",
               "Weekly backups",
               "Uptime monitoring"
             ]
@@ -122,7 +106,7 @@ export const PRICING_DOCUMENT = {
           {
             name: "Professional",
             price: 65,
-            badge: "Most Popular",
+            badge: "",
             features: [
               "3 content updates/month",
               "Priority support",
@@ -190,7 +174,7 @@ export const PRICING_DOCUMENT = {
             price: "£699",
             type: "one-off",
             desc: "Customers book a slot or place an order from their phone, pay by card, and get a reminder. You run the lot from one screen. App care £29/mo + VAT from launch.",
-            badge: "Most Popular"
+            badge: ""
           },
           {
             name: "Business app or game",
