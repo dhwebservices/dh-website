@@ -39,11 +39,11 @@ export const HOME_DOCUMENT = {
       props: {
         headlineLead: 'Never touch your website again.',
         typewriterLines: ['We update it the same day.'],
-        body: 'Message us your new menu, opening hours, offer or event, and it is live on your site the same day. We are a two-person team in Pontypridd: we design and build your website, host it and keep it current, for a fixed price you see before you book.',
-        primaryLabel: 'Book a free call',
-        primaryHref: '/contact',
-        secondaryLabel: 'See prices',
-        secondaryHref: '/pricing',
+        body: 'Message us your new menu, opening hours, offer or event, and it is live on your site the same day. We are a small team in Pontypridd: we build your website, host it and keep it current for one monthly price, with nothing to pay upfront.',
+        primaryLabel: 'Start for £0 upfront',
+        primaryHref: '/local',
+        secondaryLabel: 'Message us',
+        secondaryHref: '/contact#brief',
         stats: [
           { value: 'From £449', label: '+ VAT' },
           { value: '7 days', label: 'to build' },
@@ -68,7 +68,6 @@ export const HOME_DOCUMENT = {
         items: [
           { icon: 'award', label: 'Web Design Service of the Year', sub: 'Wales Prestige Awards 2027/28', href: '/news/web-design-service-of-the-year-wales' },
           { icon: 'phone', label: 'Our own apps are live', sub: 'App Store and Google Play' },
-          { icon: 'award', label: 'Microsoft Partner', sub: 'Microsoft 365 and Entra' },
           { icon: 'lock', label: 'UK company', sub: 'Pontypridd, Wales' },
         ],
       },
@@ -92,23 +91,6 @@ export const HOME_DOCUMENT = {
       },
     },
 
-    {
-      id: 'home-services',
-      type: 'services-grid',
-      props: {
-        eyebrow: 'Services',
-        heading: 'What we do',
-        body: 'We design it, build it, host it and keep it running, at a fixed price agreed before anything starts.',
-        linkLabel: 'See all services',
-        linkHref: '/services',
-        services: [
-          { icon: 'design', title: 'Websites', desc: 'Designed for your business, not dropped into a template. Your domain stays in your name and you can update the parts that change.' },
-          { icon: 'phone', title: 'iPhone and Android apps', desc: 'Booking, ordering and loyalty apps on the App Store and Google Play. We deal with Apple and Google review for you.' },
-          { icon: 'people', title: 'IT support for offices', desc: 'Microsoft 365, email, laptops and security for small offices, £45 a user a month + VAT.' },
-          { icon: 'people', title: 'Staff systems', desc: 'Rotas, clock-in, timesheets and leave on the web and on the phone. We run our own business on one.' },
-        ],
-      },
-    },
 
     {
       id: 'home-why',
@@ -121,7 +103,7 @@ export const HOME_DOCUMENT = {
           { title: 'You see it before it goes live', desc: 'You get a preview link to check on your own phone and computer. Nothing goes live until you have signed it off.' },
           { title: 'You own it', desc: 'The domain, the content and the code are yours. If you ever leave, you take it with you.' },
           { title: 'Same-day updates', desc: 'Message us a change and it is live the same day. Hosting, security and backups are handled too, so the site never goes stale.' },
-          { title: 'Quick replies', desc: 'Email or call and we reply the same working day, usually within a few hours.' },
+          { title: 'Quick replies', desc: 'Message or call and we reply the same working day, usually within a few hours.' },
           { title: 'Local', desc: 'Based in Pontypridd. We can meet you in person anywhere across RCT, Cardiff and South Wales.' },
         ],
       },
@@ -138,17 +120,6 @@ export const HOME_DOCUMENT = {
       },
     },
 
-    {
-      id: 'home-work',
-      type: 'work-showcase',
-      props: {
-        eyebrow: 'Apps',
-        heading: 'We also build apps',
-        body: 'These are our own, built and run by us. Fish Tank is live on the App Store and Google Play, Fam & a Half is on the App Store, and two more run our business every day.',
-        items: WORK_ITEMS,
-        compact: true,
-      },
-    },
 
     {
       id: 'home-faq',
@@ -161,7 +132,7 @@ export const HOME_DOCUMENT = {
           { q: 'How much does a website cost?', a: 'Our websites start at £449 + VAT as a one-off, delivered in 7 days, plus a care plan from £35 a month once it is live (hosting, security, backups and updates). Until 30 November our Black Friday five-page site is £249 + VAT. If you would rather not pay upfront, DH Local is £79 a month + VAT with no build fee, on a 12-month minimum, and includes the care plan, changes and your Google listing.' },
           { q: 'Do I need an app, or just a website?', a: 'Most businesses need a website first, and we will say so rather than sell you an app. An app earns its keep when customers come back again and again: booking, ordering, loyalty, or staff who need something on their phone.' },
           { q: 'How long does a website take?', a: 'Seven days for our website packages. Apps, staff systems and larger integrations vary too much to put a number on here, so we agree a date at the start and stick to it.' },
-          { q: 'Can I update it myself?', a: 'Yes, if you want to. Like the Maltsters Arms, you can have your own login for the parts that change, such as offers, opening hours and photos. Or tell us and we will do it on the care plan.' },
+          { q: 'Can I update it myself?', a: 'Yes. Like the Maltsters Arms, you get your own admin for the parts that change, such as offers, opening hours, photos and events. Most owners are busy, so they just message us and we put it live the same day.' },
           { q: 'Do you deal with Apple and Google for apps?', a: 'Yes. We set up the store listings, write the privacy declarations, submit the builds and answer the reviewers. We have taken our own apps through Apple review and Google Play, so we know where they get held up.' },
           { q: 'Do we own the website afterwards?', a: 'Yes. The domain stays in your name, and you get the content and the code. Nothing is rented to you.' },
         ],
@@ -175,14 +146,14 @@ export const HOME_DOCUMENT = {
       id: 'home-cta',
       type: 'closing-cta',
       props: {
-        eyebrow: 'Got a website in mind?',
-        heading: 'Tell us what it needs to do.',
-        body: 'Book a free call, or send us a few lines. We reply within a working day with a plan and a fixed price.',
-        primaryLabel: 'Book a free call',
-        primaryHref: '/contact',
-        secondaryLabel: 'See prices',
-        secondaryHref: '/pricing',
-        assurances: ['Fixed price', 'No hidden costs', 'Reply within one working day'],
+        eyebrow: 'Need a website that stays up to date?',
+        heading: 'Send us a few lines.',
+        body: 'Tell us your business and what you need. We reply the same working day with a plan and a price. Prefer to talk? Ring 01443 805303.',
+        primaryLabel: 'Message us',
+        primaryHref: '/contact#brief',
+        secondaryLabel: 'See DH Local',
+        secondaryHref: '/local',
+        assurances: ['£0 upfront', 'Same-day updates', 'Reply the same working day'],
       },
     },
   ],

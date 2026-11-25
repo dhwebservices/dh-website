@@ -84,9 +84,14 @@ export default function Order() {
         <div className="container" style={{ maxWidth: 860 }}>
           {sessionId ? <Paid sessionId={sessionId} /> : !plan ? (
             <>
-              <h1 style={h1}>That package can't be booked online.</h1>
-              <p className="body-lg" style={{ marginBottom: 24 }}>Pick a package on our prices page, or call 01443 805303 for a quote.</p>
-              <Link to="/pricing" className="btn-primary">See our prices</Link>
+              <p className="eyebrow" style={{ marginBottom: 16 }}>Book online</p>
+              <h1 style={h1}>Start your website.</h1>
+              <p className="body-lg" style={{ marginBottom: 24 }}>Most local businesses start with DH Local: no build fee, £79 a month + VAT, and we keep the site up to date the same day you message us.</p>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <Link to="/order?plan=dh-local" className="btn-primary">Start DH Local, £0 upfront</Link>
+                <Link to="/pricing" className="btn-secondary">See one-off prices</Link>
+                <Link to="/contact#brief" className="btn-ghost">Message us first</Link>
+              </div>
             </>
           ) : (
             <>

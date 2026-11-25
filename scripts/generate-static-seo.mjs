@@ -9,14 +9,9 @@ const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
 const distDir = path.join(rootDir, 'dist')
 const ogImageUrl = `${SEO_SITE_URL}/og-image.png`
-const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap'
 // Fonts load without blocking the first paint; the system font shows for a
 // moment instead of a blank page.
-const HEAD_LINKS = `<link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://xtunnfdwltfesscmpove.supabase.co" crossorigin />
-    <link rel="preload" as="style" href="${FONTS_URL}" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="${FONTS_URL}" /></noscript>
+const HEAD_LINKS = `<link rel="preconnect" href="https://xtunnfdwltfesscmpove.supabase.co" crossorigin />
     <link rel="icon" href="/dh-logo-icon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />`
 
