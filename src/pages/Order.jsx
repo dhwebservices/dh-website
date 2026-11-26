@@ -97,7 +97,7 @@ export default function Order() {
             <>
               <p className="eyebrow" style={{ marginBottom: 16 }}>Book online</p>
               <h1 style={h1}>{plan.name}</h1>
-              <p className="body-lg" style={{ marginBottom: 0 }}>{plan.summary} {plan.monthly ? `Nothing to pay upfront: £${plan.monthly} a month + VAT, and we start planning your site within one working day.` : plan.payInFull ? 'Pay for the website and your first month of care in one go, and we\'ll start planning your site within one working day.' : 'Pay the 50% deposit now and we\'ll start planning your build within one working day.'}</p>
+              <p className="body-lg" style={{ marginBottom: 0 }}>{plan.summary} {plan.monthly ? (plan.intro ? `£${plan.monthly} a month + VAT. ${plan.intro}` : `Nothing to pay upfront: £${plan.monthly} a month + VAT, and we start planning your site within one working day.`) : plan.payInFull ? 'Pay for the website and your first month of care in one go, and we\'ll start planning your site within one working day.' : 'Pay the 50% deposit now and we\'ll start planning your build within one working day.'}</p>
             </>
           )}
         </div>
@@ -112,7 +112,7 @@ export default function Order() {
                   <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 15 }}>
                     <tbody>
                       {(plan.monthly ? [
-                        ['Upfront', '£0', 'No build fee'],
+                        plan.upfrontLabel ? [plan.upfrontLabel[0], `£${plan.monthly} + VAT`, plan.upfrontLabel[2]] : ['Upfront', '£0', 'No build fee'],
                         ['Every month', `£${plan.monthly} + VAT`, `${pounds(plan.totalPence)} including VAT, by card`],
                         ['Minimum term', `${plan.minMonths} months`, 'Then month to month, 30 days\' notice'],
                       ] : plan.payInFull ? [

@@ -37,6 +37,14 @@ const PLANS = [
   { id: 'dh-local', name: 'DH Local', kind: 'website', monthly: 79, minMonths: 12,
     summary: 'A five-page website, kept up to date for you, with your Google listing and reviews looked after.',
     care: 'Hosting, security, backups and updates are included in the monthly fee.' },
+  // Private link for community groups and charities whose website we built free
+  // (RCT Pride, 26 Nov 2026). Not shown on the pricing page.
+  { id: 'community-hosting', name: 'Community hosting and care', kind: 'website', monthly: 20, minMonths: 12,
+    summary: 'Hosting, security, backups and same-day updates for your website.',
+    intro: 'Your first month is taken today, then on the same date each month.',
+    upfrontLabel: ['Today', 'First month', 'Taken when you sign up'],
+    lineDescription: '12-month minimum term, then month to month on 30 days\' notice. First month taken today, then monthly.',
+    care: 'Hosting, security, backups and updates are included in the monthly fee.' },
 ]
 
 /** The plan as it can be bought right now, with today's price, or null. */
