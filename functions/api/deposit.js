@@ -96,7 +96,7 @@ export async function onRequestPost(context) {
       // The 12-month minimum is a contract term (services terms), not a
       // Stripe setting, so cancelling in Stripe early still owes the rest.
       const monthly = [
-        [`${plan.name} monthly plan`, plan.monthlyPence, `${plan.minMonths}-month minimum term, then month to month on 30 days' notice. Nothing to pay upfront.`],
+        [`${plan.name} monthly plan`, plan.monthlyPence, plan.lineDescription || `${plan.minMonths}-month minimum term, then month to month on 30 days' notice. Nothing to pay upfront.`],
         ['VAT at 20% (GB 517 076 395)', plan.vatPence, null],
       ]
       monthly.forEach(([name, amount, description], i) => {
