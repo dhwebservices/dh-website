@@ -204,7 +204,7 @@ const BASE_INDEXABLE_PAGES = [
   },
   {
     path: '/about',
-    title: 'About Us | Award-Winning Web Developers, Pontypridd & Cardiff | DH Website Services',
+    title: 'About Us | Award-Winning Web & App Developers in Wales | DH Website Services',
     description: 'DH Website Services is an award-winning web and app development team in Pontypridd, serving Cardiff and Wales. Founded by David Hooper; Web Design Service of the Year – Wales 2027/28.',
     heading: 'A small team. Apps and websites.',
     intro: 'DH Website Services is a small app and web studio based in Pontypridd, serving Cardiff and Wales. You deal directly with the people who build your project, with no account manager in between.',
@@ -598,6 +598,10 @@ const GEO_MARKETS = [
       {
         title: 'A Pontypridd pub, online',
         body: 'The Maltsters Arms in Pontypridd came to us for a straightforward site. They got a website, an admin area ready for them to use, and same-day updates: they message us their events and we put them live that day, and a mailing list to tell regulars what is on. It is the kind of job we like most: a local business, a fixed price and something staff actually use every week. The full story is in our case studies.',
+      },
+      {
+        title: 'Never touch your website again',
+        body: 'Most Pontypridd businesses we talk to do not want to learn a website builder. With DH Local you message us what has changed, a new menu, opening hours, this week\'s events, and it is live on your site the same day. There is no build fee: £79 a month + VAT covers the website, hosting, those updates and your Google Business Profile.',
       },
       {
         title: 'Web designer or web developer?',
