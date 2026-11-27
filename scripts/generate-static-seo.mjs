@@ -405,6 +405,9 @@ async function writeRedirects() {
     ...GEO_REDIRECTS.flatMap(([from, to]) => [`${from} ${to}/ 301`, `${from}/ ${to}/ 301`]),
     '',
     '# Old addresses Google still had on file.',
+    // Short link for asking clients for a Google review (place ID from our Business Profile).
+    '/review https://search.google.com/local/writereview?placeid=ChIJUfzVuBgXbkgR73LcozleCCY 302',
+    '/review/ https://search.google.com/local/writereview?placeid=ChIJUfzVuBgXbkgR73LcozleCCY 302',
     '/privacy-policy /privacy/ 301',
     '/security-disclosure /security/ 301',
     '',
