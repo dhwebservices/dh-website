@@ -1,13 +1,5 @@
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from './siteConfig'
 
-const HIRING_PERMISSION_KEYS = [
-  'recruiting_dashboard',
-  'recruiting_jobs',
-  'recruiting_applications',
-  'recruiting_board',
-  'recruiting_settings',
-]
-
 export const CANDIDATE_DOCUMENT_MAX_BYTES = 5 * 1024 * 1024
 export const CANDIDATE_DOCUMENT_ACCEPTED_TYPES = [
   'application/pdf',
@@ -22,18 +14,6 @@ function restHeaders(extra = {}) {
     Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
     ...extra,
   }
-}
-
-function encodePath(path = '') {
-  return String(path || '').split('/').map((part) => encodeURIComponent(part)).join('/')
-}
-
-function sanitizeFilename(name = 'document') {
-  return String(name || 'document')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-zA-Z0-9._-]/g, '')
-    .replace(/-+/g, '-')
 }
 
 function getFileExtension(name = '') {
@@ -151,27 +131,10 @@ export async function getJobBySlug(slug) {
   return { ...job, ...(metaMap[job.id] || {}) }
 }
 
+// Files are sent with the application itself (see submitApplication); the
+// server uploads them, so the storage bucket stays closed to the public key.
 export async function uploadCandidateDocument(file, applicationRef, type = 'cv') {
-  const filePath = `applications/${applicationRef}/${type}-${Date.now()}-${sanitizeFilename(file.name)}`
-  const uploadResponse = await fetch(`${SUPABASE_URL}/storage/v1/object/recruiting-documents/${encodePath(filePath)}`, {
-    method: 'POST',
-    headers: restHeaders({
-      'Content-Type': file.type || 'application/octet-stream',
-      'x-upsert': 'false',
-    }),
-    body: file,
-  })
-  if (!uploadResponse.ok) {
-    const payload = await uploadResponse.text()
-    throw new Error(payload || 'Could not upload CV')
-  }
-
-  return {
-    path: filePath,
-    url: `${SUPABASE_URL}/storage/v1/object/public/recruiting-documents/${encodePath(filePath)}`,
-    name: file.name,
-    contentType: file.type || 'application/octet-stream',
-  }
+  return { file, type, name: file?.name || '', contentType: file?.type || 'application/octet-stream' }
 }
 
 export function buildApplicationRef() {
@@ -180,107 +143,21 @@ export function buildApplicationRef() {
   return `DH-${stamp}-${random}`
 }
 
-function hasHiringAccess(permissions = {}) {
-  if (!permissions || typeof permissions !== 'object' || Array.isArray(permissions)) return false
-  return HIRING_PERMISSION_KEYS.some((key) => permissions[key] === true)
-}
-
-async function createHiringNotifications(application, job) {
-  const recipientsResponse = await fetch(`${SUPABASE_URL}/rest/v1/user_permissions?select=user_email,permissions`, {
-    headers: restHeaders(),
-  })
-  const recipients = await recipientsResponse.json().catch(() => [])
-  if (!recipientsResponse.ok) {
-    throw new Error(recipients?.message || 'Could not load hiring recipients')
-  }
-
-  const targetEmails = [...new Set(
-    (recipients || [])
-      .filter((row) => hasHiringAccess(row.permissions))
-      .map((row) => String(row.user_email || '').toLowerCase().trim())
-      .filter(Boolean)
-  )]
-
-  if (!targetEmails.length) return
-
-  const createdAt = new Date().toISOString()
-  const title = `New application for ${job.title || 'open role'}`
-  const applicantLabel = application.full_name || application.email || 'A new applicant'
-  const message = `${applicantLabel} applied for ${job.title || 'this role'}.`
-  const link = `/recruiting/applications/${application.id}`
-
-  const insertResponse = await fetch(`${SUPABASE_URL}/rest/v1/notifications`, {
-    method: 'POST',
-    headers: restHeaders({
-      'Content-Type': 'application/json',
-      Prefer: 'return=minimal',
-    }),
-    body: JSON.stringify(
-      targetEmails.map((user_email) => ({
-        user_email,
-        title,
-        message,
-        type: 'info',
-        link,
-        read: false,
-        created_at: createdAt,
-      }))
-    ),
-  })
-
-  if (!insertResponse.ok) {
-    const payload = await insertResponse.text()
-    throw new Error(payload || 'Could not create hiring notifications')
-  }
-}
-
 export async function submitApplication({ job, form, cvUpload, coverLetterUpload = null }) {
-  const payload = {
-    job_post_id: job.id,
-    application_ref: form.application_ref,
-    status: 'new',
-    first_name: form.first_name.trim(),
-    last_name: form.last_name.trim(),
-    full_name: `${form.first_name} ${form.last_name}`.trim(),
-    email: form.email.trim(),
-    phone: form.phone.trim(),
-    location: form.location.trim(),
-    linkedin_url: form.linkedin_url.trim(),
-    portfolio_url: form.portfolio_url.trim(),
-    cv_file_url: cvUpload.url,
-    cv_file_path: cvUpload.path,
-    cv_file_name: cvUpload.name,
-    cv_file_content_type: cvUpload.contentType,
-    cover_letter_file_url: coverLetterUpload?.url || null,
-    cover_letter_file_path: coverLetterUpload?.path || null,
-    cover_letter_file_name: coverLetterUpload?.name || null,
-    cover_letter_file_content_type: coverLetterUpload?.contentType || null,
-    cover_note: form.cover_note.trim(),
-    experience_summary: form.experience_summary.trim(),
-    current_job_title: form.current_job_title.trim(),
-    years_experience: form.years_experience.trim(),
-    screening_answers: form.screening_answers,
-    commission_acknowledged: form.commission_acknowledged === true,
-    privacy_acknowledged: form.privacy_acknowledged === true,
-    source: 'website',
-    submitted_at: new Date().toISOString(),
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  }
+  const body = new FormData()
+  body.append('job_id', job.id)
+  for (const name of [
+    'application_ref', 'first_name', 'last_name', 'email', 'phone', 'location', 'linkedin_url', 'portfolio_url',
+    'cover_note', 'experience_summary', 'current_job_title', 'years_experience',
+  ]) body.append(name, String(form[name] ?? '').trim())
+  body.append('screening_answers', JSON.stringify(form.screening_answers || {}))
+  body.append('commission_acknowledged', String(form.commission_acknowledged === true))
+  body.append('privacy_acknowledged', String(form.privacy_acknowledged === true))
+  if (cvUpload?.file) body.append('cv', cvUpload.file)
+  if (coverLetterUpload?.file) body.append('cover_letter', coverLetterUpload.file)
 
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/job_applications`, {
-    method: 'POST',
-    headers: restHeaders({
-      'Content-Type': 'application/json',
-      Prefer: 'return=representation',
-    }),
-    body: JSON.stringify(payload),
-  })
-  const result = await response.json().catch(() => [])
-  if (!response.ok) throw new Error(result?.message || 'Could not submit application')
-  const saved = result?.[0] || payload
-  await createHiringNotifications(saved, job).catch((error) => {
-    console.warn('Could not create hiring notifications', error)
-  })
-  return saved
+  const response = await fetch('/api/careers-apply', { method: 'POST', body })
+  const result = await response.json().catch(() => null)
+  if (!response.ok || !result?.ok) throw new Error(result?.error || 'Could not submit application')
+  return result.application
 }
