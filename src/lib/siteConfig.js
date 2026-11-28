@@ -5,9 +5,10 @@ export const WORKER_URL =
   env.VITE_WORKER_URL || 'https://dh-email-worker.aged-silence-66a7.workers.dev'
 export const SUPABASE_URL =
   env.VITE_SUPABASE_URL || 'https://xtunnfdwltfesscmpove.supabase.co'
+// Public (publishable) key: safe in the browser, can only reach what RLS allows.
 export const SUPABASE_ANON_KEY =
-  env.VITE_SUPABASE_ANON_KEY ||
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0dW5uZmR3bHRmZXNzY21wb3ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1MDkyNzAsImV4cCI6MjA4OTA4NTI3MH0.MaNZGpdSrn5kSTmf3kR87WCK_ga5Meze0ZvlZDkIjfM'
+  env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+  'sb_publishable_EGqHepeD-Opey2OLrg-dmg_dCIjYmrt'
 
 export const PLAUSIBLE_DOMAIN = env.VITE_PLAUSIBLE_DOMAIN || ''
 export const GA_MEASUREMENT_ID = env.VITE_GA_MEASUREMENT_ID || ''
