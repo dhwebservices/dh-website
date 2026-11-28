@@ -6,6 +6,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: frame-ancestors 'self' https://staff.dhwebsiteservices.co.uk https://dh-portal-v2.pages.dev https://*.dh-portal-v2.pages.dev capacitor://localhost
 
 # Vite fingerprints everything in /assets, so it can be cached forever.
 /assets/*
